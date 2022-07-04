@@ -37,13 +37,13 @@
                 <v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129">
                     <v-spacer></v-spacer>
                     <v-tabs-slider color=""></v-tabs-slider>
-                    <v-tab class="black--text" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
-                    <v-tab class="black--text" to="/poliresin">{{ $t('appbar.innovation') }}</v-tab>
-                    <v-tab class="black--text" to="/transpolimer">{{ $t('appbar.products') }}</v-tab>
-                    <v-tab class="black--text">{{ $t('appbar.services') }}</v-tab>
-                    <v-tab class="black--text">{{ $t('appbar.market') }}</v-tab>
-                    <v-tab class="black--text">Blog</v-tab>
-                    <v-tab class="black--text">{{ $t('appbar.contact') }}</v-tab>
+                    <v-tab class="black--text text-none" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
+                    <v-tab class="black--text text-none" to="/poliresin">{{ $t('appbar.innovation') }}</v-tab>
+                    <v-tab class="black--text text-none" to="/transpolimer">{{ $t('appbar.products') }}</v-tab>
+                    <v-tab class="black--text text-none">{{ $t('appbar.services') }}</v-tab>
+                    <v-tab class="black--text text-none">{{ $t('appbar.market') }}</v-tab>
+                    <v-tab class="black--text text-none">Blog</v-tab>
+                    <v-tab class="black--text text-none">{{ $t('appbar.contact') }}</v-tab>
                     
                     <v-tab>
                     <v-icon>mdi-magnify</v-icon>
@@ -69,7 +69,7 @@
                     </v-menu>
                     </v-tab>-->
                     <!--<v-select :items="items" solo label="ESP" chips class="p-0 m-0"></v-select>-->
-                    <v-btn color="#773DBD" rounded class="mt-1 white--text">{{ $t('appbar.login') }}</v-btn>
+                    <v-btn color="#773DBD" rounded class="mt-1 white--text text-none">{{ $t('appbar.login') }}</v-btn>
                 </v-tabs>
                 </v-col>
             </v-row>
@@ -112,37 +112,37 @@
             <v-list dense nav  >
                 <v-list-item link to="/aboutus">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-capitalize">{{ $t('appbar.aboutus') }}</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.aboutus') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link to="/poliresin">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-capitalize">{{ $t('appbar.innovation') }}</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.innovation') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link to="transpolimer">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-cepitalize">{{ $t('appbar.products') }}</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.products') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link>
                     <v-list-item-content> 
-                        <v-list-item-title class="text-capitalize">{{ $t('appbar.services') }}</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.services') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link>
                     <v-list-item-content> 
-                        <v-list-item-title class="text-capitalize">{{ $t('appbar.market') }}</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.market') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link>
                     <v-list-item-content> 
-                        <v-list-item-title class="text-capitalize">Blog</v-list-item-title>  
+                        <v-list-item-title class="text-none">Blog</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link>
                     <v-list-item-content> 
-                        <v-list-item-title class="text-capitalize">{{ $t('appbar.contact') }}</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.contact') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
             </v-list>

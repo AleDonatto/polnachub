@@ -241,11 +241,11 @@
                 <v-row justify="center">
                     <v-col cols="12" align="center" v-if="windowSize > 1129">
                         <v-img src="/aboutus/linea-tiempo.png" contain max-height="1400" max-width="550" ></v-img>
-                        <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5" outlined rounded>Cargar más línea de tiempo</v-btn>
+                        <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5 text-none" outlined rounded>Cargar más línea de tiempo</v-btn>
                     </v-col>
                     <v-col cols="12" align="center" v-if="windowSize < 1129">
                         <v-img src="/aboutus/time-line-mb.png" contain max-height="3000" ></v-img>
-                        <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5" outlined rounded>Cargar más línea de tiempo</v-btn>
+                        <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5 text-none" outlined rounded>Cargar más línea de tiempo</v-btn>
                     </v-col>
                 </v-row>
             </v-container>

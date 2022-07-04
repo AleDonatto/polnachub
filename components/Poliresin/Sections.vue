@@ -21,7 +21,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" align="center">
-                        <h1 class="text-center my-10">{{ $t('poliresin.sec-infrastructure') }}</h1>
+                        <h1 class="display-1 font-weight-bold text-center my-10">{{ $t('poliresin.sec-infrastructure') }}</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -95,7 +95,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="text-center my-10">{{ $t('poliresin.sec-process')}}</h1>
+                        <h1 class="display-1 font-weight-bold text-center my-10">{{ $t('poliresin.sec-process')}}</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -121,7 +121,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="text-center my-10">Compra</h1>
+                        <h1 class="display-1 font-weight-bold text-center my-10">Compra</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -194,7 +194,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="text-center my-10">Venta</h1>
+                        <h1 class="display-1 font-weight-bold text-center my-10">Venta</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -233,7 +233,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="text-center my-10">Servicios</h1>
+                        <h1 class="display-1 font-weight-bold text-center my-10">Servicios</h1>
                     </v-col>
                 </v-row>
                 <v-row class="mb-10" justify="center">

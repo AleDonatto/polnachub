@@ -17,7 +17,7 @@
                                 Desde 1984 <span class="font-weight-bold">POLNAC</span> ha construido una historia basada en innovación, compromiso y mejora continua. <span class="font-weight-bold">POLNAC</span> siempre a la vanguardia. 
                             </p>
 
-                            <v-btn rounded color="#773DBD" class="px-10 py-5 white--text">{{ $t('home.btnabout') }}</v-btn>
+                            <v-btn rounded color="#773DBD" class="px-10 py-5 white--text text-none">{{ $t('home.btnabout') }}</v-btn>
                         </v-col>
                         <v-col md="6" sm="12" xs="5" align="center" v-if="windowSize > 1129">
                             <v-img src="./video.png" contain max-height="350" max-width="350"></v-img>
@@ -29,7 +29,7 @@
 
         <section>
             <div class="my-10 mx-10">
-                <h1 class="text-center font-weight-black my-10">{{ $t('home.titledestacados') }}</h1>
+                <h1 class="display-1 text-center font-weight-black my-10">{{ $t('home.titledestacados') }}</h1>
                 <v-row>
                     <v-col xl="3" md="3" sm="12" xs="12" class="des-1" v-if="windowSize > 1129">
                     </v-col>
@@ -44,14 +44,14 @@
                     </v-col>
                 </v-row>
                 <div class="d-flex justify-center my-10">
-                    <v-btn class="white--text px-10 py-4" color="black" rounded>{{ $t('home.btnproducts') }}</v-btn>
+                    <v-btn class="white--text px-10 py-4 text-none" color="black" rounded>{{ $t('home.btnproducts') }}</v-btn>
                 </div>
             </div>
         </section>
 
         <section>
             <v-container>
-                <h1 class="black--text text-center my-10">{{ $t('home.catproducts') }}</h1>
+                <h1 class="display-1 black--text text-center font-weight-bold my-10">{{ $t('home.catproducts') }}</h1>
                 <v-row justify="center">
                     <v-col xl="3" md="3" sm="6" xs="6" align="center">
                         <img src="../../static/plasticos.png" alt="plasticos de ingenieria">
@@ -67,7 +67,7 @@
                     </v-col>
                 </v-row>
                 <div class="d-flex justify-center my-10">
-                    <v-btn class="white--text px-10 py-4" color="#773DBD" rounded>{{ $t('home.btncategories') }}</v-btn>
+                    <v-btn class="white--text px-10 py-4 text-none" color="#773DBD" rounded>{{ $t('home.btncategories') }}</v-btn>
                 </div>
             </v-container>
         </section>
@@ -75,7 +75,7 @@
         <section>
             <div class="bg-testimonios my-10">
                 <v-container>
-                    <h1 class="white--text text-center my-10">{{ $t('home.titletestimonials') }}</h1>
+                    <h1 class="display-1 font-weight-bold white--text text-center my-10">{{ $t('home.titletestimonials') }}</h1>
 
                     <v-sheet class="mx-auto my-10 bg-color">
                         <v-slide-group multiple show-arrows>
@@ -190,14 +190,14 @@
         <section>
             <div class="bg-alianzas">
                 <v-container>
-                    <h1 class="text-center white--text font-weight-bold my-10">{{ $t('home.titlealliances') }}</h1>
+                    <h1 class="display-1 text-center white--text font-weight-bold my-10">{{ $t('home.titlealliances') }}</h1>
                     <p class="white--text text-center px-15">
                         <span class="text-uppercase font-weight-bold">POLNAC</span>  ha forjado <span class="font-weight-bold">alianzas estratégicas</span> con los principales productores de
                         materia prima a <span class="font-weight-bold">nivel mundial</span>, siempre buscando poner a disposición de sus clientes
                         los mejores materiales a precios competitivos. 
                     </p>
                     <div class="d-flex justify-center">
-                        <v-btn class="my-10 px-10 py-5 white--text" color="#19D3C5" rounded>{{$t('home.btnalliances') }}</v-btn>
+                        <v-btn class="my-10 px-10 py-5 white--text text-none" color="#19D3C5" rounded>{{$t('home.btnalliances') }}</v-btn>
                     </div>
                 </v-container>
             </div>
@@ -205,7 +205,7 @@
 
         <section>
             <v-container>
-                <h1 class="text-center black--text font-weight-bold my-10">Blog</h1>
+                <h1 class="display-1 text-center black--text font-weight-bold my-10">Blog</h1>
                 <v-row class="my-10" justify="center">
                     <v-col lg="3" md="3" sm="12" xs="12">
                         <v-card class="mx-auto" max-width="344">
@@ -250,7 +250,7 @@
                 </v-row>
 
                 <div class="d-flex justify-center mb-10">
-                    <v-btn rounded class="white--text" color="black">{{$t('home.btnblog')}}</v-btn>
+                    <v-btn rounded class="white--text text-none" color="black">{{$t('home.btnblog')}}</v-btn>
                 </div>
 
                 <!--<v-sheet class="mx-auto my-10">

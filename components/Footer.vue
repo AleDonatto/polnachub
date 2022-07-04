@@ -18,7 +18,7 @@
               ¡Únete a una de las industrias más <span class="yellow--text">sólidas y robustas</span> de la actualidad! 
               Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
             </p>
-            <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="px-10 py-5 black--text">Ver vacantes</v-btn>
+            <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="px-10 py-5 black--text text-none">Ver vacantes</v-btn>
           </div>
         </v-col>
       </v-row>
@@ -30,7 +30,7 @@
             <p class="white--text">
               {{ $t('home.subappointment') }}
             </p>
-            <v-btn dark rounded color="rgba(25, 211, 197, 1)">
+            <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="text-none">
               {{ $t('home.btnappointment') }}
             </v-btn>
           </div>
@@ -89,7 +89,7 @@
                 </v-col>
               </v-row>
               <div class="mt-2">
-                <v-btn rounded class="white--text" :class="{'purple': this.$route.path === '/', 'teal': this.$route.path.includes('transpolimer') || this.$route.path.includes('poliresin') || this.$route.path.includes('aboutus')}">¿Eres colaborador?</v-btn>
+                <v-btn rounded class="white--text text-none" :class="{'purple': this.$route.path === '/', 'teal': this.$route.path.includes('transpolimer') || this.$route.path.includes('poliresin') || this.$route.path.includes('aboutus')}">¿Eres colaborador?</v-btn>
               </div>
             </v-col>
           </v-row>
@@ -122,7 +122,6 @@
 
           </v-row>
 
-
           <v-row v-if="windowSize < 1129">
             <v-col cols="12" class="">
               <v-divider dark></v-divider>
@@ -134,7 +133,14 @@
               <p :class="{'purple--text': this.$route.path === '/', 'teal--text accent-3--text': this.$route.path.includes('transpolimer') || this.$route.path.includes('poliresin') || this.$route.path.includes('aboutus')}">Polímeros Nacionales S.A. de C.V. 2022 - Todos los derechos reservados</p>
             </v-col>
             <v-col cols="12" lg="6" md="6" class="">
-              <p class="" :class="{'purple--text': this.$route.path === '/', 'teal--text accent-3--text': this.$route.path.includes('transpolimer') || this.$route.path.includes('poliresin') || this.$route.path.includes('aboutus')}">Consulta nuestros Términos y Condiciones y Aviso de Privacidad</p>
+              <p class="" :class="{
+                'purple--text': this.$route.path === '/', 
+                'teal--text accent-3--text': this.$route.path.includes('transpolimer') || this.$route.path.includes('poliresin') || this.$route.path.includes('aboutus'),
+                'text-right': windowSize > 1129,
+                'text-center': windowSize < 1129
+                }">
+                Consulta nuestros Términos y Condiciones y Aviso de Privacidad
+              </p>
             </v-col>
           </v-row>
         </v-container>

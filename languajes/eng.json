@@ -2,15 +2,15 @@
     "appbar": {
         "login": "Loggin",
         "contact": "contact",
-        "aboutus": "about us",
-        "innovation": "innovation",
+        "aboutus": "About Us",
+        "innovation": "Innovation",
         "products": "Products",
         "services": "Services",
         "market": "Market"
     },
     "home": {
         "portafolio": "Discover the ultimate portfolio of products.",
-        "subportafolio": "Polnac se especializa en la fabircacion de compuestos, concentrados de color, y la comercializacion de resinas plasticas, logrando ser el lider en el escenario mundial de la insdustria.",
+        "subportafolio": "POLNAC specializes not only in the manufacture of compounds and masterbatch concentrates but also in the commercialization and distribution of plastic resins, emerging as a global leader within the industry.",
         "btnhead": "Go to Products",
         "btnabout": "Learn more",
         "titledestacados": "Featured Products",

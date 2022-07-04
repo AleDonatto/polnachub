@@ -92,7 +92,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="text-center my-10">Proceso general</h1>
+                        <h1 class="display-1 font-weight-bold text-center my-10">Proceso general</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
