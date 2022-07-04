@@ -1,0 +1,41 @@
+{
+    "appbar": {
+        "login": "Loggin",
+        "contact": "contact",
+        "aboutus": "about us",
+        "innovation": "innovation",
+        "products": "Products",
+        "services": "Services",
+        "market": "Market"
+    },
+    "home": {
+        "portafolio": "Discover the ultimate portfolio of products.",
+        "subportafolio": "Polnac se especializa en la fabircacion de compuestos, concentrados de color, y la comercializacion de resinas plasticas, logrando ser el lider en el escenario mundial de la insdustria.",
+        "btnhead": "Go to Products",
+        "btnabout": "Learn more",
+        "titledestacados": "Featured Products",
+        "btnproducts": "Discover more",
+        "catproducts":"Family of Products",
+        "btncategories": "See all categories",
+        "titletestimonials":"Testimonials",
+        "titlealliances": "Strategic Alliances",
+        "btnalliances": "Learn more about our Partners",
+        "btnblog": "Read all articles",
+        "titleappointment": "Schedule an appointment",
+        "subappointment": "First-rate experts ready to advise you, regardless of whether you’re looking for technical or commercial guidance. Schedule an appointment now and discover a world of solutions.",
+        "btnappointment": "Make an appointment now"
+    },
+    "poliresin": {
+        "head": "Over 20 years advancing the goal of a Circular Economy. Specialists in the commercialization of post-industrial, off-grade and near prime plastic materials.",
+        "modern-process":"Through a modern recycling process, POLIRESIN manages to transform discarded waste into compounds and concentrates of outstanding quality at very competitive costs.",
+        "company": "POLIRESIN, a company dedicated to the protection and conservation of the environment through a restorative and regenerative economic approach: we add life and value to all types of plastic materials.",
+        "sec-infrastructure":"Infrastructure",
+        "sec-process": "General Process"
+    },
+    "transpolimer": {
+        "head":" Since 1995 the leading company in Logistic Services for the plastic industry. Specialist in bagging, transfer, storage and transportation services.",
+        "services":"Flexible services adapted to your needs at competitive prices. World-class facilities strategically located in San Luis Potosi. Over 16 hectares completely fenced and overseen by a modern monitoring system.",
+        "tecnology": "At Transpolimer you will find: infrastructure, technology, and personnel of the highest order.",
+        "qualities": "Transpolimer: Security, Trust, and Punctuality."
+    }
+}

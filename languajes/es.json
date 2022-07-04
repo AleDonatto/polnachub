@@ -1,0 +1,41 @@
+{
+    "appbar": {
+        "login": "Iniciar sesion",
+        "contact": "contacto",
+        "aboutus": "nosotros",
+        "innovation": "innovacion",
+        "products": "Productos",
+        "services": "Servicios",
+        "market": "Mercado"
+    },
+    "home": {
+        "portafolio": "Descubre el portafolio más completo de la industria plástica.",
+        "subportafolio": "<span class='subtitle-1 yellow--text'>Polnac</span>  se especializa en la fabircacion de compuestos, concentrados de color, y la comercializacion de resinas plasticas, logrando ser el <span class='subtitle-1 yellow--text'>lider</span> en el <span class='subtitle-1 yellow--text'>escenario mundial de la insdustria</span>.",
+        "btnhead": "ver productos",
+        "btnabout": "Conoce más sobre POLNAC",
+        "titledestacados":"Destacados",
+        "btnproducts": "ver todos los productos",
+        "catproducts":"Categorías de productos",
+        "btncategories": "Ver todas las categorías",
+        "titletestimonials":"Testimonios",
+        "titlealliances": "Alianzas estratégicas",
+        "btnalliances": "Ver alianzas",
+        "btnblog": "Ver todos los artículos",
+        "titleappointment": "Agenda una cita!",
+        "subappointment": "Los mejores expertos estan para asesorarte sin importar que buscas alguna asesoría técnica o comercial. Agenda una sita ahora y descubre un mundo de soluciones.",
+        "btnappointment": "Agendar con POLNAC"
+    },
+    "poliresin": {
+        "head": "Más de 20 años impulsando la Economía Circular. Especialista en la comercialización de materiales plásticos “Post-Industriales”, “Off-Grade”, y “Near Prime”",
+        "modern-process":"Por medio de un proceso vanguardista de reciclado POLIRESIN logra transformar residuos recuperados en Compuestos y Concentrados de la más alta calidad y a costos muy competitivos.",
+        "company": "POLIRESIN, una empresa dedicada a la protección y conservación del medio ambiente, a través de un enfoque económico restaurativo y regenerativo: agregamos vida y valor a todo tipo de resinas plásticas.", 
+        "sec-infrastructure":"Infraestructura",
+        "sec-process":"Proceso General"
+    },
+    "transpolimer": {
+        "head":"Desde 1995 la empresa líder en Servicios de Logística de la industria plástica. Especialista en servicios de ensacado, trasvase, almacenamiento y transporte.",
+        "services":"Servicios flexibles que se adaptan a tus necesidades y al mejor costo. Instalaciones de clase mundial ubicadas estratégicamente en San Luis Potosí. Más de 16 hectáreas totalmente cercadas, y supervisadas con un avanzado sistema de monitoreo.",
+        "tecnology": "En Transpolimer encontrarás: la infraestructura, la tecnología, el personal, y los equipos ferroviarios y terrestres del más alto grado de seguridad.",
+        "qualities": "Transpolimer: Seguridad, Confianza y Puntualidad."
+    }
+}

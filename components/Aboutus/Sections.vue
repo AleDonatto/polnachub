@@ -1,0 +1,297 @@
+<template>
+    <div>
+        <section>
+            <v-container>
+                <v-row justify="center" class="my-10">
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="end">
+                        <h1 class="">
+                            Misión
+                        </h1>
+
+                        <p class="mt-5">
+                            Proporcionar a nuestros clientes soluciones que cumplan sus requisitos de calidad, 
+                            precio y servicio necesarios para la fabricación de sus productos, logrando a través 
+                            de esta actividad satisfacer las expectativas profesionales, económicas y de 
+                            desarrollo que demanda la sociedad, accionistas, personal y proveedores.
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/img-mision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="450"></v-img>
+                    </v-col>
+                </v-row>
+                <v-row justify="center">
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center" v-if="windowSize > 1129">
+                        <v-img src="/aboutus/img-vision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="450"></v-img>
+                    </v-col>
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="end">
+                        <h1 class="">
+                            Visión
+                        </h1>
+
+                        <p class="mt-5">
+                            Ser la empresa mexicana global más importante en el suministro de materiales para la 
+                            industria del plástico. La que honra lo que promete y es reconocida por ofrecer el 
+                            portafolio más amplio de materiales para la fabricación de productos de plástico 
+                            con la mejor relación costo-beneficio. Aplicando la logística más rápida y económica 
+                            para la entrega de sus pedidos. 
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center" v-if="windowSize < 1129">
+                        <v-img src="/aboutus/img-vision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="450"></v-img>
+                    </v-col>
+                </v-row>
+                <v-row justify="center">
+                    <v-col cols="12" class="my-15">
+                        <v-img src="/aboutus/video.png" contain max-height="550"></v-img>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+        <section class="bg-valores">
+            <v-container>
+                <v-row justify="center">
+                    <v-col cols="12" class="my-10">
+                        <h1 class="display-1 text-center font-weight-bold">Valores de la empresa</h1>
+                    </v-col>
+                </v-row>
+                <v-row justify="center">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/honestly.png" contain max-width="90"></v-img>
+                        <p class="mt-2 font-weight-medium">Honestidad</p>
+                        <p class="">
+                            Respetar los recursos de la empresa, los bienes ajenos, el medio ambiente, 
+                            la legislación, la normatividad, la dignidad propia y de los demás.
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/lealtad.png" contain max-width="90"></v-img>
+                        <p class="mt-2 font-weight-medium">Lealtad</p>
+                        <p class="">
+                            Defender los intereses, los valores, los principios y políticas de la empresa,
+                            con amor a la camiseta.
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/commitment.png" contain max-width="90"></v-img>
+                        <p class="mt-2 font-weight-medium">Compromiso</p>
+                        <p class="">
+                            Dar lo máximo de nuestra capacidad intelectual, técnica y experiencia a la empresa 
+                            y a nuestros colaboradores, con obligación y disciplina en el cumplimiento de los 
+                            objetivos establecidos.
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/productivity.png" contain max-width="90"></v-img>
+                        <p class="mt-2 font-weight-medium">Proactividad</p>
+                        <p class="">
+                            Anticiparse con todos los medios posibles: experiencia, actitud y creatividad para superar 
+                            los problemas y dificultades para alcanzar y superar los objetivos de corto y mediano plazo.
+                        </p>
+                    </v-col>
+                </v-row>
+                <v-row justify="center">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/discipline.png" contain max-width="90"></v-img>
+                        <p class="mt-2 font-weight-medium">Disciplina</p>
+                        <p class="">
+                            Respetar y cumplir las decisiones, planes, normas y proyectos con propósitos progresistas de equipo.
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/attitude.png" contain max-width="90"></v-img>
+                        <p class="mt-2 font-weight-medium">Actitud</p>
+                        <p class="">
+                            Mostrar y tener siempre una conducta orientada a resolver problemas, teniendo en mente los intereses 
+                            de los clientes, empresa, proveedores y empleados.
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/teamwork.png" contain max-width="90"></v-img>
+                        <p class="mt-2 font-weight-medium">Trabajo en equipo</p>
+                        <p class="">
+                            Participar sinérgicamente con el grupo de trabajo, con integración, conocimiento, entusiasmo, 
+                            confianza y experiencia para el logro de los objetivos de la empresa.
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/overcoming.png" contain max-width="90"></v-img>
+                        <p class="mt-2 font-weight-medium">Superación</p>
+                        <p class="">
+                            Trabajar y pensar constantemente en mejorar mi aptitud, mi educación y mi actitud, a través del compromiso.
+                        </p>
+                    </v-col>
+                </v-row>
+                <v-row justify="center">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/motivation.png" contain max-width="80"></v-img>
+                        <p class="mt-2 font-weight-medium">Motivación</p>
+                        <p class="">
+                            Dar y reconocer los satisfactores que estimulen el bienestar de los colaboradores de Polímeros Nacionales 
+                            para su desarrollo personal y de la organización.
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-img src="/aboutus/confidence.png" contain max-width="80"></v-img>
+                        <p class="mt-2 font-weight-medium">Confianza</p>
+                        <p class="">
+                            Capacidad para crear vínculos duraderos con nuestros clientes internos y externos a través de cumplir 
+                            la promesa que asumimos al tomar un pedido o asumir un compromiso.
+                        </p>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+        <section>
+            <v-container>
+                <v-row justify="center">
+                    <v-col cols="12" class="my-10">
+                        <h1 class="display-1 font-weight-bold text-center">Infraestructura</h1>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                        <v-row>
+                            <v-col cols="12">
+                                <p class="">
+                                    <span class="font-weight-bold">POLNAC</span>, siempre cerca de sus clientes para brindarles 
+                                    el mejor servicio. Ubicados estratégicamente en las ciudades de:
+                                </p>
+                            </v-col>
+                            <v-col cols="12" align="center">
+                                <v-img src="/aboutus/mexico-map.png" contain max-width="400"></v-img>
+                            </v-col>
+                            <v-col cols="12" align="center" v-if="windowSize < 1129">
+                                <v-img src="/aboutus/inventario.png" contain max-width="200"></v-img>
+                            </v-col>
+                            <v-col cols="12" v-if="windowSize > 1129">
+                                <p class="">
+                                    Asimismo, contamos con tres avanzadas plantas para la fabricación de compuestos, aditivos y masterbach. 
+                                    Ubicadas en México y en los Estados Unidos de América. 
+                                </p>
+                                <p class="">La superación y el éxito están en nuestro ADN.</p>
+                            </v-col>
+                        </v-row>
+                    </v-col>
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" v-if="windowSize > 1129">
+                        <v-row>
+                            <v-col cols="6" align="center" class="pt-10">
+                                <v-img src="/aboutus/inventario.png" contain max-width="200"></v-img>
+                                <p class="text-left">
+                                    Sucursales donde mantenemos un amplio inventario de materiales y personal altamente calificado.
+                                </p>
+                                <p class="text-left">
+                                    A partir de Ámsterdam cubrimos toda la demanda europea.
+                                </p>
+                                <v-img src="/aboutus/amsterdam.png" contain max-width="250"></v-img>
+                                <v-img src="/aboutus/adn.png" contain max-width="200" class="mt-10"></v-img>
+                            </v-col>
+                            <v-col cols="6" class="">
+                                <v-img src="/aboutus/texas.png" contain></v-img>
+                                <p class="">
+                                    POLNAC, una empresa de talla mundial. Con nuestra sucursal en Houston, Texas 
+                                    cubrimos el mercado de los Estados Unidos de América.
+                                </p>
+                                <p class="">
+                                    Desde Guatemala abastecemos Centro América. Desde Ecuador y Colombia atendemos el mercado 
+                                    de Sur América, contamos con stocks de mercancías locales. 
+                                </p>
+                                <v-img src="/aboutus/latam.png" contain></v-img>
+                            </v-col>
+                        </v-row>
+                    </v-col>
+                </v-row>
+                <v-row v-if="windowSize < 1129">
+                    <v-col cols="12">
+                        <p class="">Sucursales donde mantenemos un amplio inventario de materiales y personal altamente calificado.</p>
+                    </v-col>
+                    <v-col cols="12" align="center">
+                        <v-img src="/aboutus/texas.png" contain max-width="250"></v-img>
+                        <p class="mt-4 text-left"><span class="font-weight-bold">POLNAC</span>, una empresa de talla mundial. Con nuestra sucursal en Houston, Texas cubrimos el mercado de los Estados Unidos de América.</p>
+                    </v-col>
+                    <v-col cols="12" align="center">
+                        <v-img src="/aboutus/amsterdam.png" contain max-width="250"></v-img>
+                        <p class="mt-4 text-left">A partir de Ámsterdam cubrimos toda la demanda europea.</p>
+                    </v-col>
+                    <v-col cols="12" align="center">
+                        <v-img src="/aboutus/latam.png" contain max-width="250"></v-img>
+                        <p class="mt-4 text-left">
+                            Desde Guatemala abastecemos Centro América. Desde Ecuador y Colombia atendemos el mercado de Sur América, 
+                            contamos con stocks de mercancías locales. <br><br>
+                            Asimismo, contamos con tres avanzadas plantas para la fabricación de compuestos, aditivos y masterbach. 
+                            Ubicadas en México y en los Estados Unidos de América. 
+                        </p>
+                    </v-col>
+                    <v-col cols="12" align="center">
+                        <p class="my-2">La superación y el éxito están en nuestro ADN.</p>
+                        <v-img src="/aboutus/adn.png" contain max-width="200"></v-img>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+        <section>
+            <v-container>
+                <v-row justify="center">
+                    <v-col cols="12" align="center" class="my-10">
+                        <h1 class="display-1 font-weight-bold text-center">POLNAC en el tiempo</h1>
+                    </v-col>
+                </v-row>
+                <v-row justify="center">
+                    <v-col cols="12" align="center" v-if="windowSize > 1129">
+                        <v-img src="/aboutus/linea-tiempo.png" contain max-height="1400" max-width="550" ></v-img>
+                        <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5" outlined rounded>Cargar más línea de tiempo</v-btn>
+                    </v-col>
+                    <v-col cols="12" align="center" v-if="windowSize < 1129">
+                        <v-img src="/aboutus/time-line-mb.png" contain max-height="3000" ></v-img>
+                        <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5" outlined rounded>Cargar más línea de tiempo</v-btn>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+        <section>
+            <v-container>
+                <v-row justify="center">
+                    <v-col cols="12" align="center" class="my-10">
+                        <h1 class="display-1 font-weight-bold text-center">Política de calidad</h1>
+                    </v-col>
+                </v-row>
+                <v-row justify="center" class="mb-15">
+                    <v-col cols="12" lg="6" md="6" align-self="end">
+                        <p class="">
+                            Diseñar, fabricar, comercializar y distribuir resinas plásticas y concentrados de color, con el compromiso 
+                            de satisfacer los requerimientos de los clientes, a través de un Sistema de Calidad basado en la norma 
+                            ISO 9001 y un proceso de mejora continua, en absoluto respeto al medio ambiente.
+                        </p>
+                    </v-col>
+                    <v-col cols="12" lg="6" md="6" align="center">
+                        <v-img src="/aboutus/politica-calidad.png" contain max-width="450"></v-img>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+    </div>
+</template>
+
+<script>
+import { mapState } from 'vuex'
+
+export default {
+    data() {
+        return {}
+    },
+    computed: {
+        ...mapState(['windowSize', 'windowHeight'])
+    }
+}
+</script>
+
+<style scoped>
+.bg-valores{
+    background: #F1F3F6;
+}
+
+</style>
