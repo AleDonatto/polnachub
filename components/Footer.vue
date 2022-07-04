@@ -15,10 +15,10 @@
           <div class="py-10 my-10" :class="{'px-16': windowSize > 1129, 'px-2': windowSize < 1129}">
             <h1 class="display-2 font-weight-bold my-10 white--text">¿Te interesa trabajar con nosotros?</h1>
             <p class="white--text body-1">
-              ¡Únete a una de las industrias más <span class="yellow--text">sólidas y robustas</span> de la actualidad! 
+              ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
               Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
             </p>
-            <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="px-10 py-5 black--text text-none">Ver vacantes</v-btn>
+            <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="body-1 px-10 py-5 black--text text-none">Ver vacantes</v-btn>
           </div>
         </v-col>
       </v-row>
@@ -227,5 +227,7 @@ export default {
   margin-top: -100px;
   height: 680px;
 }
-
+.letters{
+  color: #E0E621
+}
 </style>

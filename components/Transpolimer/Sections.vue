@@ -92,20 +92,25 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="display-1 font-weight-bold text-center my-10">Proceso general</h1>
+                        <h1 class="font-title-section display-1 font-weight-bold text-center my-10">Proceso general</h1>
                     </v-col>
                 </v-row>
-                <v-row justify="center">
+                <v-row justify="center" v-if="windowSize > 1129">
                     <v-col>
                         <div class="d-flex justify-center">
                             <v-img src="/transpolimer/proceso-general.png" contain></v-img>
                         </div>
                     </v-col>
                 </v-row>
+                <v-row v-else class="overflow-x-auto">
+                    <div class="mx-5">
+                        <v-img src="/transpolimer/proceso-general.png" max-height="250" max-width="1200"></v-img>
+                    </div>
+                </v-row>
             </v-container>
         </section>
 
-        <section class="mb-5">
+        <section class="my-16">
             <v-container>
                 <v-divider></v-divider>
             </v-container>
@@ -130,10 +135,18 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
 
 .theme--light.v-divider{
     color: brown !important;
     border-color: brown !important;
     height: 10pt !important;
+}
+
+.font-title-section{
+    font-family: 'Archivo' !important;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 26px;
 }
 </style>

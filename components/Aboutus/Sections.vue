@@ -52,7 +52,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" class="my-10">
-                        <h1 class="display-1 text-center font-weight-bold">Valores de la empresa</h1>
+                        <h1 class="font-title-section display-1 text-center font-weight-bold">Valores de la empresa</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -147,7 +147,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" class="my-10">
-                        <h1 class="display-1 font-weight-bold text-center">Infraestructura</h1>
+                        <h1 class="font-title-section display-1 font-weight-bold text-center">Infraestructura</h1>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -235,16 +235,16 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="my-10">
-                        <h1 class="display-1 font-weight-bold text-center">POLNAC en el tiempo</h1>
+                        <h1 class="font-title-section display-1 font-weight-bold text-center">POLNAC en el tiempo</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" align="center" v-if="windowSize > 1129">
-                        <v-img src="/aboutus/linea-tiempo.png" contain max-height="1400" max-width="550" ></v-img>
+                        <v-img src="/aboutus/time-line.png" contain max-height="1400"></v-img>
                         <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5 text-none" outlined rounded>Cargar más línea de tiempo</v-btn>
                     </v-col>
                     <v-col cols="12" align="center" v-if="windowSize < 1129">
-                        <v-img src="/aboutus/time-line-mb.png" contain max-height="3000" ></v-img>
+                        <v-img src="/aboutus/time-line-mb.png" contain></v-img>
                         <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5 text-none" outlined rounded>Cargar más línea de tiempo</v-btn>
                     </v-col>
                 </v-row>
@@ -253,20 +253,24 @@
 
         <section>
             <v-container>
-                <v-row justify="center">
-                    <v-col cols="12" align="center" class="my-10">
-                        <h1 class="display-1 font-weight-bold text-center">Política de calidad</h1>
+                <v-row justify="center" v-if="windowSize < 1129">
+                    <v-col cols="12" align="center" class="mt-10 mb-5">
+                        <h1 class="font-title-section font-weight-bold text-center">Política de calidad</h1>
+                    </v-col>
+                    <v-col cols="12" lg="6" md="6" align="center">
+                        <v-img src="/aboutus/politica-calidad.png" contain max-width="450"></v-img>
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="mb-15">
                     <v-col cols="12" lg="6" md="6" align-self="end">
+                        <h1 class="font-title-section font-weight-bold text-left my-5" v-if="windowSize > 1129">Política de calidad</h1>
                         <p class="">
                             Diseñar, fabricar, comercializar y distribuir resinas plásticas y concentrados de color, con el compromiso 
                             de satisfacer los requerimientos de los clientes, a través de un Sistema de Calidad basado en la norma 
                             ISO 9001 y un proceso de mejora continua, en absoluto respeto al medio ambiente.
                         </p>
                     </v-col>
-                    <v-col cols="12" lg="6" md="6" align="center">
+                    <v-col cols="12" lg="6" md="6" align="center" v-if="windowSize > 1129">
                         <v-img src="/aboutus/politica-calidad.png" contain max-width="450"></v-img>
                     </v-col>
                 </v-row>
@@ -290,8 +294,19 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
+
 .bg-valores{
     background: #F1F3F6;
 }
-
+.font-title-section{
+    font-family: 'Archivo' !important;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 0px;
+}
+.letters{
+    color: #E0E621
+}
 </style>

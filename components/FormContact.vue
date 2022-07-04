@@ -39,7 +39,7 @@
                     </v-col>
                     <v-col cols="12" lg="5" md="5" sm="12" xs="12">
                         <v-checkbox v-model="terminos" label="Aceptar Aviso de Privacidad" dark rows="4"></v-checkbox>
-                        <v-btn color="#19D3C5" rounded block>Enviar</v-btn>
+                        <v-btn color="#19D3C5" rounded block class="text-none">Enviar</v-btn>
                     </v-col>
                 </v-row>
             </v-form>

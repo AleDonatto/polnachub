@@ -21,7 +21,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" align="center">
-                        <h1 class="display-1 font-weight-bold text-center my-10">{{ $t('poliresin.sec-infrastructure') }}</h1>
+                        <h1 class="font-title-section font-weight-bold text-center my-10">{{ $t('poliresin.sec-infrastructure') }}</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -95,14 +95,18 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="display-1 font-weight-bold text-center my-10">{{ $t('poliresin.sec-process')}}</h1>
+                        <h1 class="font-title-section font-weight-bold text-center my-10 text-none">{{ $t('poliresin.sec-process')}}</h1>
                     </v-col>
                 </v-row>
-                <v-row justify="center">
+                <v-row justify="center" v-if="windowSize > 1129">
                     <v-col cols="12">
                         <v-img src="/poliresin/proceso-general.png" contain></v-img>
-                        <!--<img class="mb-10" src="../../static/poliresin/proceso-general.png" alt="proceso general">-->
                     </v-col>
+                </v-row>
+                <v-row v-else class="overflow-x-auto">
+                    <div class="mx-5">
+                        <v-img src="/poliresin/proceso-general.png" max-height="250" max-width="1200"></v-img>
+                    </div>
                 </v-row>
             </v-container>
         </section>
@@ -121,7 +125,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="display-1 font-weight-bold text-center my-10">Compra</h1>
+                        <h1 class="font-title-section font-weight-bold text-center my-10">Compra</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -194,7 +198,8 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="display-1 font-weight-bold text-center my-10">Venta</h1>
+                        <h1 class="font-title-section font-weight-bold text-center my-10">Venta</h1>
+                        <!--<h1 class="display-1 font-weight-bold text-center my-10">Venta</h1>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -213,7 +218,7 @@
                 </v-row>
                 <v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="12" align="center">
-                        <v-btn rounded color="#304591" block class="px-16 py-5 white--text">Ver todos</v-btn>
+                        <v-btn rounded color="#304591" block class="body-1 px-16 py-5 white--text text-none">Ver todos</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -233,18 +238,18 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="display-1 font-weight-bold text-center my-10">Servicios</h1>
+                        <h1 class="font-title-section font-weight-bold text-center my-10">Servicios</h1>
                     </v-col>
                 </v-row>
                 <v-row class="mb-10" justify="center">
-                    <v-col cols="12" lg="4" md="4" sm="12" xs="12">
-                        <p class="text-center">Maquila de lavado</p>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12">
+                        <p class="text-center text-lg-h6 text-sm-subtitle-1">Maquila de lavado</p>
                     </v-col>
-                    <v-col cols="12" lg="4" md="4" sm="12" xs="12">
-                        <p class="text-center">Maquila de triturado</p>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12">
+                        <p class="text-center text-lg-h6 text-sm-subtitle-1">Maquila de triturado</p>
                     </v-col>
-                    <v-col cols="12" lg="4" md="4" sm="12" xs="12">
-                        <p class="text-center">Maquila de peletizado</p>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12">
+                        <p class="text-center text-lg-h6 text-sm-subtitle-1">Maquila de peletizado</p>
                     </v-col>
                 </v-row>
             </v-container>
@@ -252,7 +257,7 @@
 
         <section>
             <v-container>
-                <v-row justify="center">
+                <v-row justify="center " class="mb-16">
                     <v-col cols="12">
                         <v-img src="/poliresin/separator-left.png" contain></v-img>
                     </v-col>
@@ -278,7 +283,16 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
+
 .lists{
     list-style-type: none;
+}
+
+.font-title-section{
+    font-family: 'Archivo' !important;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 26px;
 }
 </style>
