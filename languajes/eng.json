@@ -1,7 +1,7 @@
 {
     "appbar": {
         "login": "Loggin",
-        "contact": "contact",
+        "contact": "Contact",
         "aboutus": "About Us",
         "innovation": "Innovation",
         "products": "Products",
@@ -12,6 +12,10 @@
         "portafolio": "Discover the ultimate portfolio of products.",
         "subportafolio": "POLNAC specializes not only in the manufacture of compounds and masterbatch concentrates but also in the commercialization and distribution of plastic resins, emerging as a global leader within the industry.",
         "btnhead": "Go to Products",
+        "secabout": {
+            "polnac": "POLNAC, over",
+            "year": "35 years of innovation"
+        },
         "btnabout": "Learn more",
         "titledestacados": "Featured Products",
         "btnproducts": "Discover more",

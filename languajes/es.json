@@ -3,15 +3,19 @@
         "login": "Inicia sesión",
         "contact": "Contacto",
         "aboutus": "Nosotros",
-        "innovation": "Innovacion",
+        "innovation": "Innovación",
         "products": "Productos",
         "services": "Servicios",
         "market": "Mercado"
     },
     "home": {
         "portafolio": "Descubre el portafolio más completo de la industria plástica.",
-        "subportafolio": "POLNAC se especializa en la fabircacion de compuestos, concentrados de color, y la comercializacion de resinas plasticas, logrando ser el lider en el escenario mundial de la insdustria.",
+        "subportafolio": "<span>{{polnac}}<span> se especializa en la fabircacion de compuestos, concentrados de color, y la comercializacion de resinas plasticas, logrando ser el lider en el escenario mundial de la insdustria.",
         "btnhead": "Ver productos",
+        "secabout": {
+            "polnac": "POLNAC, más de",
+            "year": "35 años de innovación"
+        },
         "btnabout": "Conoce más sobre POLNAC",
         "titledestacados":"Destacados",
         "btnproducts": "Ver todos los productos",

@@ -7,8 +7,8 @@
                     <v-row justify="center">
                         <v-col md="6" sm="12" xs="12" align-self="center" align="center">
                             <h1 class="font-title text-none text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}">
-                                POLNAC, más de <br>
-                                <span class="cyan--text accent-3--text">35 años de inovación</span> 
+                                {{ $t('home.secabout.polnac') }} <br>
+                                <span class="cyan--text accent-3--text">{{ $t('home.secabout.year') }}</span> 
                             </h1>
 
                             <v-img src="./video.png" contain max-height="350" max-width="350" v-if="windowSize < 1129"></v-img>

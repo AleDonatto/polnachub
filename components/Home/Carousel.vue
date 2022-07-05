@@ -28,7 +28,7 @@
                                     {{ $t('home.portafolio') }}
                                 </h1>
                                 <p class="subtitle-1 white--text mt-3 pa-5" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
-                                    <!--{{ $t('home.subportafolio') }}
+                                    <!--{{ $t('home.subportafolio', {polnac: 'POLNAC'}) }}
                                     <br>-->
                                     <span class="subtitle-1 letters text-uppercase">POLNAC</span> se especializa en la fabricación de compuestos, concentrados de color, 
                                     y a la comercialización de resinas plásticas, logrando ser <span class="letters subtitle-1">líder</span> en el <span class="letters subtitle-1">escenario mundial de la industria</span>.
