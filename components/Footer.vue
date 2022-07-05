@@ -45,10 +45,8 @@
             <v-col cols="4" class="mt-10">
               <img src="../static/Logo-polnac-footer.png" alt="logo polnac">
               <p v-if="windowSize > 1129" class="text-left mt-1" :class="{'purple--text': this.$route.path === '/', 'teal--text accent-3--text': this.$route.path.includes('transpolimer') || this.$route.path.includes('poliresin') || this.$route.path.includes('aboutus')}">
-                Polimeros Nacionales S.A. de C.V. <br>
-                Lazaro Cardenaz No. 49 Col. San Jerónimo <br>
-                Tepetlacalco, Tlalnepantla, Estado de Mexico <br>
-                C.P. 54090 
+                Polímeros Nacionales S.A. de C.V. <br>
+                Lázaro Cárdenas No. 49, Col. San Jerónimo Tepetlacalco, Tlalnepantla, Estado de México. C.P. 54090.
               </p>
             </v-col>
             <v-col cols="2" class="mt-10" v-if="windowSize > 1129">
@@ -59,7 +57,7 @@
             </v-col>
             <v-col cols="2" class="mt-10" v-if="windowSize > 1129">
               <p class="white--text">Productos</p>
-              <p class="white--text">Innovacion</p>
+              <p class="white--text">Innovación</p>
               <p class="white--text">Servicios</p>
               <p class="white--text">Mercados</p>
             </v-col>
@@ -130,15 +128,19 @@
 
           <v-row class="mb-10" justify="center">
             <v-col cols="12" lg="6" md="6" class="">
-              <p :class="{'purple--text': this.$route.path === '/', 'teal--text accent-3--text': this.$route.path.includes('transpolimer') || this.$route.path.includes('poliresin') || this.$route.path.includes('aboutus')}">Polímeros Nacionales S.A. de C.V. 2022 - Todos los derechos reservados</p>
+              <p :class="{
+                'purple--text': this.$route.path === '/', 
+                'teal--text accent-3--text': this.$route.path.includes('transpolimer') || this.$route.path.includes('poliresin') || this.$route.path.includes('aboutus')
+              }">
+                Polímeros Nacionales S.A. de C.V. 2022 - Todos los derechos reservados
+              </p>
             </v-col>
             <v-col cols="12" lg="6" md="6" class="">
               <p class="" :class="{
                 'purple--text': this.$route.path === '/', 
                 'teal--text accent-3--text': this.$route.path.includes('transpolimer') || this.$route.path.includes('poliresin') || this.$route.path.includes('aboutus'),
                 'text-right': windowSize > 1129,
-                'text-center': windowSize < 1129
-                }">
+              }">
                 Consulta nuestros Términos y Condiciones y Aviso de Privacidad
               </p>
             </v-col>

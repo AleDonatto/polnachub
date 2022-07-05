@@ -36,7 +36,7 @@
                         <img src="../../static/transpolimer/almacenamiento.png" alt="almacenamiento">
                         <p class="text-center mt-2"><span class="font-weight-bold headline">18 silos</span> <br> de almacenamiento con capacidad de 7,700 toneladas</p>
                     </v-col>
-                    <v-col cols="12" lg="3" md="13" sm="12" xs="12" align="center">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <img src="../../static/transpolimer/almacenaje.png" alt="almacenaje">
                         <p class="text-center mt-2"><span class="font-weight-bold headline">23,000 m<sup>2</sup></span> <br> de almacenaje techado</p>
                     </v-col>

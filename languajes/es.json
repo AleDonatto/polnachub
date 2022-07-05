@@ -1,6 +1,6 @@
 {
     "appbar": {
-        "login": "Iniciar sesion",
+        "login": "Inicia sesión",
         "contact": "Contacto",
         "aboutus": "Nosotros",
         "innovation": "Innovacion",
@@ -21,8 +21,8 @@
         "titlealliances": "Alianzas estratégicas",
         "btnalliances": "Ver alianzas",
         "btnblog": "Ver todos los artículos",
-        "titleappointment": "Agenda una cita!",
-        "subappointment": "Los mejores expertos estan para asesorarte sin importar que buscas alguna asesoría técnica o comercial. Agenda una sita ahora y descubre un mundo de soluciones.",
+        "titleappointment": "¡Agenda una cita!",
+        "subappointment": "Los mejores expertos están listos para asesorarte, sin importar si buscas una asesoría técnica o comercial. Agenda una cita ahora y descubre un mundo de soluciones.",
         "btnappointment": "Agendar con POLNAC"
     },
     "poliresin": {
