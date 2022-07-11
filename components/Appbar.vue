@@ -5,7 +5,7 @@
             fixed
             color="white"
             app
-            >
+        >
             <!--<v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
             <!--<v-btn
                 icon
@@ -38,9 +38,9 @@
                     <v-spacer></v-spacer>
                     <v-tabs-slider color=""></v-tabs-slider>
                     <v-tab class="black--text text-none" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
-                    <v-tab class="black--text text-none" to="/poliresin">{{ $t('appbar.innovation') }}</v-tab>
-                    <v-tab class="black--text text-none" to="/transpolimer">{{ $t('appbar.products') }}</v-tab>
-                    <v-tab class="black--text text-none">{{ $t('appbar.services') }}</v-tab>
+                    <v-tab class="black--text text-none" to="/polnac">{{ $t('appbar.innovation') }}</v-tab>
+                    <v-tab class="black--text text-none" to="/alliances">{{ $t('appbar.products') }}</v-tab>
+                    <v-tab class="black--text text-none" to="/alliances">{{ $t('appbar.services') }}</v-tab>
                     <v-tab class="black--text text-none">{{ $t('appbar.market') }}</v-tab>
                     <v-tab class="black--text text-none">Blog</v-tab>
                     <v-tab class="black--text text-none">{{ $t('appbar.contact') }}</v-tab>
@@ -115,12 +115,12 @@
                         <v-list-item-title class="text-none">{{ $t('appbar.aboutus') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/poliresin">
+                <v-list-item link to="/polnac">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">{{ $t('appbar.innovation') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="transpolimer">
+                <v-list-item link to="/alliances">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">{{ $t('appbar.products') }}</v-list-item-title>  
                     </v-list-item-content>

@@ -60,12 +60,24 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/markdownit',
+    //'nuxt-i18n',
+    //'@nuxtjs/strapi'
   ],
+  /*i18n:{
+    locales: ['es', 'en'],
+    defaultLocale: 'es'
+  },
+  strapi: {
+    entities: [
+      { name: 'Pagetranspolimer', type: 'single'}
+    ]
+  },*/
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: 'http://localhost:1337',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -85,6 +97,10 @@ export default {
         }
       }
     }
+  },
+
+  markdownit: {
+    rutime: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

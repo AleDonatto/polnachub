@@ -11,6 +11,9 @@ export default () => new Vuex.Store({
         windowSize:null,
         windowHeight:null,
         lang: null,
+        pagetranspolimer: null,
+        pagepoliresin: null,
+        basePathApiUrl: 'http://localhost:1337'
     }),
     actions,
     getters,

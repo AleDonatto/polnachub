@@ -1,4 +1,9 @@
 <template>
+    <!--<div v-if="pagepoliresin === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>-->
     <div>
         <section>
             <v-container>
@@ -9,9 +14,15 @@
                             <br><br>
                             {{ $t('poliresin.company') }}
                         </p>
+                        <!--<div v-html="$md.render( pagepoliresin.subhead.description)"></div>-->
                     </v-col>
                     <v-col class="my-10" cols="5" align="center" v-if="windowSize > 1120">
                         <v-img src="/poliresin/vector-poliresin.png" alt="vector poliresin"></v-img>
+                        <!--<div>
+                            <div v-for="(item, index) in pagepoliresin.subhead.images.data" :key="index">
+                                <v-img :src="basePathApiUrl + item.attributes.url" alt="vector poliresin" contain></v-img>
+                            </div>
+                        </div>-->
                     </v-col>
                 </v-row>
             </v-container>
@@ -78,6 +89,13 @@
                         <p class="text-center mt-2">Laboratorio de Calidad certificado bajo la ISO/IEC17025:2015</p>
                     </v-col>
                 </v-row>
+
+                <!--<v-row justify="center">
+                    <v-col align-self="center" cols="12" lg="3" md="3" sm="12" xs="12" align="center" v-for="(item, index) in pagepoliresin.infraestructura" :key="index">
+                        <img :src="basePathApiUrl + item.image.data.attributes.url" alt="">
+                        <div v-html="$md.render(item.description)"></div>
+                    </v-col>
+                </v-row>-->
             </v-container>
         </section>
 
@@ -96,16 +114,19 @@
                 <v-row justify="center">
                     <v-col cols="12">
                         <h1 class="font-title-section font-weight-bold text-center my-10 text-none">{{ $t('poliresin.sec-process')}}</h1>
+                        <!--<h1 class="font-title-section font-weight-bold text-center my-10 text-none">{{pagepoliresin.process.title}}</h1>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center" v-if="windowSize > 1129">
                     <v-col cols="12">
                         <v-img src="/poliresin/proceso-general.png" contain></v-img>
+                        <!--<v-img :src="basePathApiUrl + pagepoliresin.process.image.data.attributes.url" contain ></v-img>-->
                     </v-col>
                 </v-row>
                 <v-row v-else class="overflow-x-auto">
                     <div class="mx-5">
                         <v-img src="/poliresin/proceso-general.png" max-height="250" max-width="1200"></v-img>
+                        <!--<v-img :src="basePathApiUrl + pagepoliresin.process.image.data.attributes.url" max-height="250" max-width="1200"></v-img>-->
                     </div>
                 </v-row>
             </v-container>
@@ -125,6 +146,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
+                        <!--<h1 class="font-title-section font-weight-bold text-center my-10">Compra{{ pagepoliresin.Titlebuy }}</h1>-->
                         <h1 class="font-title-section font-weight-bold text-center my-10">Compra</h1>
                     </v-col>
                 </v-row>
@@ -181,6 +203,19 @@
                         </v-row>
                     </v-col>
                 </v-row>
+
+                <!--<v-row>
+                    <v-col lg="4" md="4" sm="12" xs="12" align="center" v-for="(item, index) in pagepoliresin.buy" :key="index">
+                        <v-row justify="center">
+                            <v-col cols="12">
+                                <v-img :src="basePathApiUrl+item.image.data.attributes.url" contain :alt="item.image.data.attributes.name"></v-img>
+                            </v-col>
+                            <v-col lg="12" md="12" sm="6" xs="6">
+                                <div class="text-left" v-html="$md.render(item.description)"></div>
+                            </v-col>
+                        </v-row>
+                    </v-col>
+                </v-row>-->
             </v-container>
         </section>
 
@@ -198,8 +233,8 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="font-title-section font-weight-bold text-center my-10">Venta</h1>
-                        <!--<h1 class="display-1 font-weight-bold text-center my-10">Venta</h1>-->
+                        <!--<h1 class="font-title-section font-weight-bold text-center my-10">{{pagepoliresin.Titlesale}}</h1>-->
+                        <h1 class="display-1 font-weight-bold text-center my-10">Venta</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -216,6 +251,11 @@
                         <img src="../../static/poliresin/polipropilenos.png" alt="polipropilenos">
                     </v-col>
                 </v-row>
+                <!--<v-row justify="center">
+                    <v-col lg="3" md="3" sm="6" xs="6" v-for="(item, index) in pagepoliresin.sales" :key="index">
+                        <v-img :src="basePathApiUrl + item.image.data.attributes.url" contain></v-img>
+                    </v-col>
+                </v-row>-->
                 <v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="12" align="center">
                         <v-btn rounded color="#304591" block class="body-1 px-16 py-5 white--text text-none">Ver todos</v-btn>
@@ -238,7 +278,8 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12">
-                        <h1 class="font-title-section font-weight-bold text-center my-10">Servicios</h1>
+                        <!--<h1 class="font-title-section font-weight-bold text-center my-10">{{pagepoliresin.Titleservices}}</h1>-->
+                        <h1 class="font-title-section font-weight-bold text-center my-10">Services</h1>
                     </v-col>
                 </v-row>
                 <v-row class="mb-10" justify="center">
@@ -252,6 +293,11 @@
                         <p class="text-center text-lg-h6 text-sm-subtitle-1">Maquila de peletizado</p>
                     </v-col>
                 </v-row>
+                <!--<v-row justify="center" class="mb-10">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" v-for="(item, index) in pagepoliresin.services" :key="index">
+                        <div class="text-center text-lg-h6 text-sm-subtitle-1" v-html="$md.render(item.description)"></div>
+                    </v-col>
+                </v-row>-->
             </v-container>
         </section>
 
@@ -264,6 +310,8 @@
                 </v-row>
             </v-container>
         </section>
+
+        <FormContact />
     </div>
 </template>
 
@@ -276,7 +324,7 @@ export default {
         }
     },
     computed:{
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','pagepoliresin','basePathApiUrl'])
 
     }
 }
@@ -288,7 +336,6 @@ export default {
 .lists{
     list-style-type: none;
 }
-
 .font-title-section{
     font-family: 'Archivo' !important;
     font-size: 30px;

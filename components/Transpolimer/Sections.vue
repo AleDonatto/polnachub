@@ -1,4 +1,9 @@
 <template>
+    <!--<div v-if="pagetranspolimer === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>-->
     <div>
         <section>
             <v-container>
@@ -11,6 +16,7 @@
                             <br><br>
                             {{ $t('transpolimer.qualities') }}
                         </p>
+                        <!--<div v-html="$md.render(pagetranspolimer.section.description)"></div>-->
                     </v-col>
                     <v-col lg="5" md="5" sm="12" xs="12" align-self="center" class="my-10" :class="{'my-4': windowSize < 1129}">
                         <v-carousel cycle height="300" hide-delimiter-background show-arrows-on-hover class="mt-5" :class="{'mt-1': windowSize < 1129}">
@@ -79,6 +85,13 @@
                         <p class="text-center mt-2"><span class="font-weight-bold">Básculas certificadas</span> ferroviaria y camionera</p>
                     </v-col>
                 </v-row>
+
+                <!--<v-row justify="center">
+                    <v-col align-self="center" cols="12" lg="3" md="3" sm="12" xs="12" align="center" v-for="(item , index) in pagetranspolimer.technologies" :key="index">
+                        <img :src="basePathApiUrl + item.image.data.attributes.url" alt="">
+                        <div v-html="$md.render(item.description)"></div>
+                    </v-col>
+                </v-row>-->
             </v-container>
         </section>
 
@@ -93,18 +106,21 @@
                 <v-row justify="center">
                     <v-col cols="12">
                         <h1 class="font-title-section display-1 font-weight-bold text-center my-10">Proceso general</h1>
+                        <!--<h1 class="font-title-section display-1 font-weight-bold text-center my-10">{{ pagetranspolimer.process.title}}</h1>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center" v-if="windowSize > 1129">
                     <v-col>
-                        <div class="d-flex justify-center">
+                        <div class="justify-center">
                             <v-img src="/transpolimer/proceso-general.png" contain></v-img>
+                            <!--<v-img :src="basePathApiUrl + pagetranspolimer.process.image.data.attributes.url" contain></v-img>-->
                         </div>
                     </v-col>
                 </v-row>
                 <v-row v-else class="overflow-x-auto">
                     <div class="mx-5">
                         <v-img src="/transpolimer/proceso-general.png" max-height="250" max-width="1200"></v-img>
+                        <!--<v-img :src="basePathApiUrl + pagetranspolimer.process.image.data.attributes.url" contain max-height="250" max-width="1200"></v-img>-->
                     </div>
                 </v-row>
             </v-container>
@@ -115,6 +131,8 @@
                 <v-divider></v-divider>
             </v-container>
         </section>
+
+        <FormContact />
     </div>
 </template>
 
@@ -129,7 +147,7 @@ export default {
     methods: {
     },
     computed:{
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','pagetranspolimer','basePathApiUrl'])
     }
 }
 </script>

@@ -277,6 +277,22 @@
             </v-container>
         </section>
 
+        <section>
+            <v-row>
+                <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="img-about-l" :class="{'height-mb': windowSize < 1129}"></v-col>
+                <v-col cols="12" lg="6" md="6" sm="12" xs="12" :class="{'img-about-r': windowSize > 1129 , 'img-about-r-mb': windowSize < 1129 }">
+                <div class="py-10 my-10" :class="{'px-16': windowSize > 1129, 'px-2': windowSize < 1129}">
+                    <h1 class="display-2 font-weight-bold my-10 white--text">¿Te interesa trabajar con nosotros?</h1>
+                    <p class="white--text body-1">
+                    ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
+                    Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
+                    </p>
+                    <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="body-1 px-10 py-5 black--text text-none">Ver vacantes</v-btn>
+                </div>
+                </v-col>
+            </v-row>
+        </section>
+
     </div>
 </template>
 
@@ -308,5 +324,29 @@ export default {
 }
 .letters{
     color: #E0E621
+}
+.img-about-l{
+  background-image: url('../../static/aboutus/img-footer-l.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.img-about-r{
+  background-image: url('../../static/aboutus/img-footer-r.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.img-about-r-mb{
+  background-image: url('../../static/aboutus/bg-aboutus-agenda.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 600px;
+}
+.height-mb {
+  height: 450px;
+  width: 100%;
 }
 </style>

@@ -288,6 +288,29 @@
                 </v-sheet>-->
             </v-container>
         </section>
+
+        <section>
+            <v-row v-if="windowSize < 1129">
+                <v-col class="img-footer-mobile">
+                </v-col>
+            </v-row>
+
+            <v-row justify="center">
+                <v-col class="img-footer-cita">
+                    <div class="py-10 px-10 my-10">
+                        <h1 class="my-10 white--text">{{ $t('home.titleappointment') }}</h1>
+                        <p class="white--text">
+                        {{ $t('home.subappointment') }}
+                        </p>
+                        <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="text-none">
+                        {{ $t('home.btnappointment') }}
+                        </v-btn>
+                    </div>
+                </v-col>
+    
+                <v-col class="img-footer" v-if="windowSize > 1129"></v-col>
+            </v-row>
+        </section>
     </div>
 </template>
 
@@ -375,5 +398,29 @@ export default {
 }
 .letters{
     color: #E0E621
+}
+
+.img-footer-cita{
+  background-image: url('../../static/footer-cita.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+}
+
+.img-footer {
+  background-image: url('../../static/footer.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.img-footer-mobile {
+  background-image: url('../../static/footer.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 350px;
 }
 </style>
