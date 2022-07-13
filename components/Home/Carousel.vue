@@ -21,7 +21,7 @@
         <v-carousel v-model="model" height="560" hide-delimiter-background show-arrows-on-hover cycle >
             <v-carousel-item v-for="(color, index ) in colors" :key="color">
                 <v-sheet tile :class="{'bg-img' : index !== 2, 'sect-video' : index === 2}">
-                    <video src="../../static/video/home.mp4" autoplay="true" muted="muted" loop="true" v-if="index === 2"></video>
+                    <video src="../../static/video/home.mp4" autoplay controls muted="muted" loop="true" v-if="index === 2" :class="{'size-video' : windowSize > 1129, 'size-video-mb': windowSize < 1129}"></video>
                     <v-row justify="center">
                         <v-container>
                             <v-col xl="6" md="6" sm="12" xs="12" class="py-10 my-10" align="center">
@@ -92,8 +92,15 @@ video{
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
 } 
+
+.size-video{
+    width: 100%;
+}
+
+.size-video-mb{
+    height: 100%;
+}
 
 .text-video{
     position: relative;
