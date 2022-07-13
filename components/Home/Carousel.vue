@@ -18,16 +18,17 @@
                 </v-col>
             </v-container>
         </v-row>-->
-        <v-carousel v-model="model" height="560" hide-delimiter-background show-arrows-on-hover cycle>
-            <v-carousel-item v-for="color in colors" :key="color">
-                <v-sheet tile class="bg-img">
+        <v-carousel v-model="model" height="560" hide-delimiter-background show-arrows-on-hover cycle >
+            <v-carousel-item v-for="(color, index ) in colors" :key="color">
+                <v-sheet tile :class="{'bg-img' : index !== 2, 'sect-video' : index === 2}">
+                    <video src="../../static/video/home.mp4" autoplay="true" muted="muted" loop="true" v-if="index === 2"></video>
                     <v-row justify="center">
                         <v-container>
                             <v-col xl="6" md="6" sm="12" xs="12" class="py-10 my-10" align="center">
-                                <h1 class="font-title white--text pa-5" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
+                                <h1 class="font-title white--text pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
                                     {{ $t('home.portafolio') }}
                                 </h1>
-                                <p class="subtitle-1 white--text mt-3 pa-5" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
+                                <p class="subtitle-1 white--text mt-3 pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
                                     <!--{{ $t('home.subportafolio', {polnac: 'POLNAC'}) }}
                                     <br>-->
                                     <span class="subtitle-1 letters text-uppercase">POLNAC</span> se especializa en la fabricación de compuestos, concentrados de color, 
@@ -50,7 +51,7 @@ import { mapState } from 'vuex'
 export default {
     data() {
         return {
-            model: 0,
+            model: 2,
             colors: [
                 'primary',
                 'secondary',
@@ -86,4 +87,17 @@ export default {
 .letters{
     color: #E0E621;
 }
+
+video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+} 
+
+.text-video{
+    position: relative;
+    overflow: hidden;
+}
+
 </style>
