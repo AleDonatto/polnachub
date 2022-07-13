@@ -4,8 +4,8 @@
             <v-container>
                 <v-row justify="center" class="my-16">
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="center">
-                        <p class="body-1">Sin importar cuales sean tus necesidades <span class="font-weight-bold">Grupo POLNAC</span> tiene soluciones para ti: </p>
-                        <ul class="body-1">
+                        <p class="text-body-all">Sin importar cuales sean tus necesidades <span class="font-weight-bold">Grupo POLNAC</span> tiene soluciones para ti: </p>
+                        <ul class="text-body-all">
                             <li>Resinas</li>
                             <li>Compuestos</li>
                             <li>Concentrados de Color</li>
@@ -13,7 +13,7 @@
                             <li>Reciclados y resinas Post-Industriales</li>
                             <li>Servicios de logística y mucho más</li>
                         </ul>
-                        <p class="body-1 mt-5">
+                        <p class="text-body-all mt-5">
                             La filosofía POLNAC respalda a todo el grupo: proporcionar soluciones innovadoras con el mejor servicio, la más alta calidad y a precios altamente competitivos.
                         </p>
                     </v-col>
@@ -28,7 +28,7 @@
             <v-container>
                 <v-row class="" justify="center">
                     <v-col align="center">
-                        <h1 class="display-1 font-weight-bold my-10">Empresas filiales</h1>
+                        <h1 class="font-title text-h3 font-weight-bold my-10">Empresas filiales</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="my-16">
@@ -52,7 +52,7 @@
             <v-container>
                 <v-row>
                     <v-col align="center" class="my-10">
-                        <h1 class="display-1 font-weight-bold">Nuestras marcas</h1>
+                        <h1 class="font-title text-h3 font-weight-bold">Nuestras marcas</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="my-16"> 
@@ -114,5 +114,9 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
 
+.font-title{
+    font-family: 'Archivo' !important;
+}
 </style>
