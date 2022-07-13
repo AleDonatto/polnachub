@@ -2,7 +2,7 @@
     <div class="bg-about">
         <v-row justify="center" class="py-10">
             <v-col cols="12" class="mt-12" align="center">
-                <h1 class="white--text">¿Quiénes somos?</h1>
+                <h1 class="text-h3 white--text font-archivo">¿Quiénes somos?</h1>
             </v-col>
             <v-col cols="9" class="mt-5 mb-10" align="center">
                 <p class="title white--text">
@@ -22,9 +22,8 @@ export default {
 
 <style scoped>
 .bg-about{
-    background-image: linear-gradient(rgba(46, 46, 101, 0.9),rgba(119, 61, 189, 0.9)),url('../../static/aboutus/bg-about.png');
-    mix-blend-mode: normal;
-    opacity: 0.9;
+    /**url('../../static/aboutus/bg-about.png') */
+    background-image: linear-gradient(to right, rgba(58, 136, 231, 0.9),rgba(119, 61, 189, 0.8)), url('../../static/aboutus/bg-about.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
