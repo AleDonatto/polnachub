@@ -21,7 +21,7 @@
         <v-carousel v-model="model" :height="windowSize > 1129 ? '560' : '610' " hide-delimiter-background show-arrows-on-hover cycle >
             <v-carousel-item v-for="(color, index ) in colors" :key="index">
                 <!--:class="{'bg-img' : index !== 2}"-->
-                <v-sheet tile class="{'bg-img' : index !== 2}">
+                <v-sheet tile :class="{'bg-img' : index !== 2}">
                     <video src="../../static/video/home.mp4" autoplay="true" controls muted="muted" loop="true" v-if="index === 2" :class="{'size-video' : windowSize > 1129, 'size-video-mb': windowSize < 1129}"></video>
                     <v-row justify="center">
                         <v-container>
