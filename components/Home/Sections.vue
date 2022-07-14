@@ -17,7 +17,10 @@
                                 Desde 1984 <span class="font-weight-bold">POLNAC</span> ha construido una historia basada en innovación, compromiso y mejora continua. <span class="font-weight-bold">POLNAC</span> siempre a la vanguardia. 
                             </p>
 
-                            <v-btn rounded color="#773DBD" class="px-10 text-body-all py-5 white--text text-none">{{ $t('home.btnabout') }}</v-btn>
+                            <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start': windowSize > 1129}">
+                                <v-btn rounded color="#773DBD" class="px-10 text-body-all py-5 white--text text-none">{{ $t('home.btnabout') }}</v-btn>
+                            </div>
+
                         </v-col>
                         <v-col md="6" sm="12" xs="5" align="center" v-if="windowSize > 1129">
                             <v-img src="./video.png" contain max-height="350" max-width="350"></v-img>
