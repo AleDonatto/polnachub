@@ -1,7 +1,7 @@
 <template>
   <v-footer padless>
     <div :class="{'img-footer-d':windowSize > 1129 , 'img-footer-mobile-button': windowSize < 1129}">
-      <v-row justify="center">
+      <v-row justify="center" >
         <v-container fluid :class="{'mx-16': windowSize > 1129, 'mx-5': windowSize < 1129}">
           <v-row class="mt-16">
             <v-col cols="12" lg="4" m="4" class="mt-10">
@@ -131,7 +131,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   width: 100%;
-  height: 520px;
+  height: 480px;
   margin-top: -40px;
 }
 .img-footer-mobile-button{

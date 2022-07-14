@@ -27,7 +27,7 @@
             </v-btn>-->
             
             <v-toolbar-title />
-            <v-row align="center" justify="center" style="justify-content: space-between">
+            <v-row align="center" justify="center">
                 <v-col cols="3" xl="3" md="2" sm="3">
                     <nuxt-link to="/">
                         <img src="../static/Logo-polnac.png" alt="logo polnac"/>

@@ -281,26 +281,28 @@
         </section>
 
         <section>
-            <v-row v-if="windowSize < 1129">
-                <v-col class="img-footer-mobile">
-                </v-col>
-            </v-row>
+            <v-container fluid>
+                <v-row justify="center" v-if="windowSize < 1129">
+                    <v-col class="img-footer-mobile">
+                    </v-col>
+                </v-row>
 
-            <v-row justify="center">
-                <v-col class="img-footer-cita">
-                    <div class="py-10 px-10 my-10">
-                        <h1 class="text-h4 font-weight-bold my-10 white--text">{{ $t('home.titleappointment') }}</h1>
-                        <p class="white--text text-body-all">
-                        {{ $t('home.subappointment') }}
-                        </p>
-                        <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="subtitle-1 black--text text-none">
-                        {{ $t('home.btnappointment') }}
-                        </v-btn>
-                    </div>
-                </v-col>
-    
-                <v-col class="img-footer" v-if="windowSize > 1129"></v-col>
-            </v-row>
+                <v-row justify="center">
+                    <v-col cols="12" lg="6" md="6" class="img-footer-cita" >
+                        <div class="py-10 px-10 my-10 mb-16">
+                            <h1 class="text-h4 font-weight-bold my-10 white--text">{{ $t('home.titleappointment') }}</h1>
+                            <p class="white--text text-body-all">
+                            {{ $t('home.subappointment') }}
+                            </p>
+                            <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="subtitle-1 black--text text-none">
+                            {{ $t('home.btnappointment') }}
+                            </v-btn>
+                        </div>
+                    </v-col>
+        
+                    <v-col cols="6" class="img-footer" v-if="windowSize > 1129"></v-col>
+                </v-row>
+            </v-container>
         </section>
     </div>
 </template>
@@ -422,7 +424,6 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 100%;
   height: 350px;
 }
 </style>
