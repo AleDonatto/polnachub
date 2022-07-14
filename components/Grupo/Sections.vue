@@ -34,14 +34,16 @@
                 <v-row justify="center" class="my-16">
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
                         <v-img src="/group/logo-poliresin.png" contain max-height="150"></v-img>
-                        <v-btn rounded outlined color="teal" class="mt-4 px-10 py-6">
-                            <nuxt-link to="/poliresin">Saber más</nuxt-link>
+                        <v-btn rounded outlined color="teal" class="mt-4 px-10 py-6 text-none">
+                            <nuxt-link to="/poliresin" class="text-decoration-none black--text">
+                                Saber más
+                            </nuxt-link>
                         </v-btn>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
                         <v-img src="/group/logo-transpolimer.png" contain max-height="150"></v-img>
-                        <v-btn rounded outlined color="teal" class="mt-4 px-10 py-6">
-                            <nuxt-link to="/transpolimer">Saber más</nuxt-link>
+                        <v-btn rounded outlined color="teal" class="mt-4 px-10 py-6 text-none">
+                            <nuxt-link to="/transpolimer" class="text-decoration-none black--text">Saber más</nuxt-link>
                         </v-btn>
                     </v-col>
                 </v-row>

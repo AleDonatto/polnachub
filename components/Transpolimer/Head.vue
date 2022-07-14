@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 .bg-transpolimer{
-    background-image: linear-gradient(rgba(253, 79, 23, 0.8),rgba(32, 26, 26, 0.8)), url('../../static/transpolimer/bg-transpolimer.png');
+    background-image: linear-gradient(to right,rgba(253, 79, 23, 0.8),rgba(32, 26, 26, 0.8)), url('../../static/transpolimer/bg-transpolimer.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

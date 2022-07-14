@@ -24,7 +24,7 @@
                                 <v-sheet color="red" height="100%">
                                     <v-row class="fill-height" align="center" justify="center">
                                         <div class="text-h2">
-                                            <img src="../../static/transpolimer/slider-transpolimer.png" alt="">
+                                            <img src="../../static/transpolimer/carousel-trasnpolimer.png" alt="">
                                         </div>
                                     </v-row>
                                 </v-sheet>
@@ -38,50 +38,60 @@
         <section>
             <v-container>
                 <v-row>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/transpolimer/almacenamiento.png" alt="almacenamiento">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
+                        <!--<img src="../../static" alt="almacenamiento">-->
+                        <v-img src="/transpolimer/almacenamiento.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2"><span class="font-weight-bold headline">18 silos</span> <br> de almacenamiento con capacidad de 7,700 toneladas</p>
                     </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/transpolimer/almacenaje.png" alt="almacenaje">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
+                        <!--<img src="../../static/transpolimer/almacenaje.png" alt="almacenaje">-->
+                        <v-img src="/transpolimer/almacenaje.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2"><span class="font-weight-bold headline">23,000 m<sup>2</sup></span> <br> de almacenaje techado</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
-                        <img src="../../static/transpolimer/hopper.png" alt="hopper">
+                        <!--<img src="../../static/transpolimer/hopper.png" alt="hopper">-->
+                        <v-img src="/transpolimer/hopper.png" contain max-height="90" max-width="110"></v-img>
                         <p class="text-center mt-2"> <span class="font-weight-bold">200 hopper</span> cars de almacenaje en <span class="font-weight-bold">vías férreas</span></p>
                     </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/transpolimer/andenes.png" alt="andenes">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
+                        <!--<img src="../../static/transpolimer/andenes.png" alt="andenes">-->
+                        <v-img src="/transpolimer/andenes.png" contain max-height="90" max-width="110"></v-img>
                         <p class="text-center mt-2">6 andenes de carga</p>
                     </v-col>
                 </v-row>
                 <v-row>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/transpolimer/ensacado.png" alt="lineas de ensacado">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
+                        <!--<img src="../../static/transpolimer/ensacado.png" alt="lineas de ensacado">-->
+                        <v-img src="/transpolimer/ensacado.png" contain max-height="90" max-width="110"></v-img>
                         <p class="text-center mt-2"><span class="font-weight-bold">5 líneas de ensacado</span> con tecnología FFS</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
-                        <img src="../../static/transpolimer/transporte.png" alt="equipo de transporte">
+                        <!--<img src="../../static/transpolimer/transporte.png" alt="equipo de transporte">-->
+                        <v-img src="/transpolimer/transporte.png" contain max-height="90" max-width="110"></v-img>
                         <p class="text-center mt-2">
                             <span class="font-weight-bold">43 equipos de transporte terrestre</span> especializados para traslado de materiales
                         </p>
                     </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/transpolimer/grua.png" alt="grua para translado">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
+                        <!--<img src="../../static/transpolimer/grua.png" alt="grua para translado">-->
+                        <v-img src="/transpolimer/grua.png" contain max-height="90" max-width="110"></v-img>
                         <p class="text-center mt-2"><span class="font-weight-bold">Grúa para traslado y anclaje de contenedores</span> desde 20 hasta 53 pies</p>
                     </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/transpolimer/robot-paletizador.png" alt="robot paletizado">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
+                        <!--<img src="../../static/transpolimer/robot-paletizador.png" alt="robot paletizado">-->
+                        <v-img src="/transpolimer/robot-paletizador.png" contain max-height="90" max-width="110" ></v-img>
                         <p class="text-center mt-2"><span class="font-weight-bold">2 robot paletizador</span> con tecnología de punta</p>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
-                        <img src="../../static/transpolimer/bulk.png" alt="seabulk">
+                        <!--<img src="../../static/transpolimer/bulk.png" alt="seabulk">-->
+                        <v-img src="/transpolimer/bulk.png" contain max-height="90" max-width="110"></v-img>
                         <p class="text-center mt-2 font-weight-bold">Revestimiento SeaBulk</p>
                     </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/transpolimer/basculas.png" alt="basculas certificadas">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
+                        <!--<img src="../../static/transpolimer/basculas.png" alt="basculas certificadas">-->
+                        <v-img src="/transpolimer/basculas.png" contain max-height="90" max-width="110"></v-img>
                         <p class="text-center mt-2"><span class="font-weight-bold">Básculas certificadas</span> ferroviaria y camionera</p>
                     </v-col>
                 </v-row>

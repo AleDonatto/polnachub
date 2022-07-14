@@ -142,41 +142,47 @@
 
                 <v-row justify="center">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <div class="d-flex justify-center">
+                        <v-img src="/plantas.png" contain max-height="70"></v-img>
+                        <!--<div class="d-flex justify-center">
                             <img src="../../static/plantas.png" alt="plantas de fabricacion" />
-                        </div>
+                        </div>-->
                         <p class="text-body-all text-center mt-2">Tres avanzadas <span class="font-weight-bold">plantas de fabricación</span> en México y Estados Unidos</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <div class="d-flex justify-center">
+                        <!--<div class="d-flex justify-center">
                             <img src="../../static/sucursales.png" alt="sucursales" />
-                        </div>
+                        </div>-->
+                        <v-img src="/sucursales.png" contain max-height="70"></v-img>
                         <p class="text-body-all text-center mt-2">Cinco <span class="font-weight-bold">sucursales internacionales</span>: USA, Europa, Colombia, Ecuador y Guatemala</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <div class="d-flex justify-center">
+                        <!--<div class="d-flex justify-center">
                             <img src="../../static/almacen.png" alt="almacen" />
-                        </div>
+                        </div>-->
+                        <v-img src="/almacen.png" contain max-height="70"></v-img>
                         <p class="text-body-all text-center mt-2">Equipos de <span class="font-weight-bold">almacenamiento</span> y <span class="font-weight-bold">transporte</span> de vanguardia</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <div class="d-flex justify-center">
+                        <!--<div class="d-flex justify-center">
                             <img src="../../static/ferrocarril.png" alt="ferrocarril" />
-                        </div>
+                        </div>-->
+                        <v-img src="/ferrocarril.png" contain max-height="70"></v-img>
                         <p class=" text-body-all text-center mt-2"><span class="font-weight-bold">Terminal ferroviaria</span> con más de 5 km de vías</p>
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="mb-10">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <div class="d-flex justify-center">
+                        <!--<div class="d-flex justify-center">
                             <img src="../../static/laboratorio.png" alt="laboratorios" />
-                        </div>
+                        </div>-->
+                        <v-img src="/laboratorio.png" contain max-height="70"></v-img>
                         <p class="text-body-all text-center mt-2"><span class="font-weight-bold">Moderno laboratorio</span> de Innovación & Desarrollo</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <div class="d-flex justify-center">
+                        <!--<div class="d-flex justify-center">
                             <img src="../../static/estandares.png" alt="estandares" />
-                        </div>
+                        </div>-->
+                        <v-img src="/estandares.png" contain max-height="70"></v-img>
                         <p class="text-body-all text-center mt-2">Procesos alineados y certificados bajo <span class="font-weight-bold">estándares internacionales</span>.</p>
                     </v-col>
                 </v-row>

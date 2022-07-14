@@ -37,55 +37,67 @@
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/contenedor-solido.png" alt="contenedor solido">
+                        <!--<img src="../../static/poliresin/contenedor-solido.png" alt="contenedor solido">-->
+                        <v-img src="/poliresin/contenedor-solido.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Contenedores sólidos</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/contenedor-cera.png" alt="contenedores de sera">
+                        <!--<img src="../../static/poliresin/contenedor-cera.png" alt="contenedores de sera">-->
+                        <v-img src="/poliresin/contenedor-cera.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Contenedores de ceras calientes</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/flota-transporte.png" alt="flota de transporte">
+                        <!--<img src="../../static/poliresin/flota-transporte.png" alt="flota de transporte">-->
+                        <v-img src="/poliresin/flota-transporte.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Flota de transporte</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/lavadora.png" alt="lavadora">
+                        <!--<img src="../../static/poliresin/lavadora.png" alt="lavadora">-->
+                        <v-img src="/poliresin/lavadora.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Lavadora</p>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/secadora.png" alt="secadora">
+                        <!--<img src="../../static/poliresin/secadora.png" alt="secadora">-->
+                        <v-img src="/poliresin/secadora.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Secadora</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/computadora.png" alt="computadora">
+                        <!--<img src="../../static/poliresin/computadora.png" alt="computadora">-->
+                        <v-img src="/poliresin/computadora.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Compactadora</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/clasificadora.png" alt="clasificadora">
+                        <!--<img src="../../static/poliresin/clasificadora.png" alt="clasificadora">-->
+                        <v-img src="/poliresin/clasificadora.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Clasificadora</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/seleccionadora.png" alt="seleccionadora por color">
+                        <!--<img src="../../static/poliresin/seleccionadora.png" alt="seleccionadora por color">-->
+                        <v-img src="/poliresin/seleccionadora.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Seleccionadora por color</p>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/extrusora.png" alt="extrusora">
+                        <!--<img src="../../static/poliresin/extrusora.png" alt="extrusora">-->
+                        <v-img src="/poliresin/extrusora.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Extrusora</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/trituradora.png" alt="Trituradora">
+                        <!--<img src="../../static/poliresin/trituradora.png" alt="Trituradora">-->
+                        <v-img src="/poliresin/trituradora.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Trituradora</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/pulverizadora.png" alt="Pulverizadora">
+                        <!--<img src="../../static/poliresin/pulverizadora.png" alt="Pulverizadora">-->
+                        <v-img src="/poliresin/pulverizadora.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Pulverizadora</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <img src="../../static/poliresin/laboratoriocalidad.png" alt="laboratorio de calidad">
+                        <!--<img src="../../static/poliresin/laboratoriocalidad.png" alt="laboratorio de calidad">-->
+                        <v-img src="/poliresin/laboratoriocalidad.png" contain max-height="90"></v-img>
                         <p class="text-center mt-2">Laboratorio de Calidad certificado bajo la ISO/IEC17025:2015</p>
                     </v-col>
                 </v-row>

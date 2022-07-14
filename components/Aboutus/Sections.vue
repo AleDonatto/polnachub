@@ -16,12 +16,12 @@
                         </p>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/img-mision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="450"></v-img>
+                        <v-img src="/aboutus/img-mision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="650"></v-img>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center" v-if="windowSize > 1129">
-                        <v-img src="/aboutus/img-vision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="450"></v-img>
+                        <v-img src="/aboutus/img-vision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="650"></v-img>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="end">
                         <h1 class="text-h3 font-title-section font-weight-bold">
