@@ -1,10 +1,13 @@
 <template>
-    <v-footer color="black">
-      <v-row :class="{'img-footer-d':windowSize > 1129 , 'img-footer-mobile-button': windowSize < 1129}" justify="center">
+  <v-footer padless>
+    <div :class="{'img-footer-d':windowSize > 1129 , 'img-footer-mobile-button': windowSize < 1129}">
+      <v-row justify="center">
         <v-container fluid :class="{'mx-16': windowSize > 1129, 'mx-5': windowSize < 1129}">
-          <v-row class="mt-16" justify-sm="center">
-            <v-col cols="4" class="mt-10">
-              <img src="../static/Logo-polnac-footer.png" alt="logo polnac">
+          <v-row class="mt-16">
+            <v-col cols="12" lg="4" m="4" class="mt-10">
+              <div class="d-flex" :class="{'justify-left': windowSize > 1129, 'justify-center': windowSize < 1129}">
+                <img src="../static/Logo-polnac-footer.png" alt="logo polnac">
+              </div>
               <p v-if="windowSize > 1129" class="body-1 pr-4 text-left mt-1 teal--text accent-3--text" >
                 Polímeros Nacionales S.A. de C.V. <br>
                 Lázaro Cárdenas No. 49, Col. San Jerónimo Tepetlacalco, Tlalnepantla, Estado de México. C.P. 54090.
@@ -103,7 +106,8 @@
           </v-row>
         </v-container>
       </v-row>
-    </v-footer>
+    </div>
+  </v-footer>
 </template>
 
 <script>
@@ -127,7 +131,8 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   width: 100%;
-  margin-top: -5px;
+  height: 520px;
+  margin-top: -40px;
 }
 .img-footer-mobile-button{
   /*background-color: #655DC6;*/
@@ -135,8 +140,9 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  margin-top: -120px;
-  height: 680px;
+  margin-top: -100px;
+  height: 610px;
+  width: 100%;
 }
 .letters{
   color: #E0E621
