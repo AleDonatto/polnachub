@@ -9,7 +9,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="11" lg="5" md="5" sm="12" xs="12" class="my-10" align-self="center">
-                        <p class="">
+                        <p class="text-body-all">
                             {{ $t('poliresin.modern-process') }}
                             <br><br>
                             {{ $t('poliresin.company') }}
@@ -246,7 +246,7 @@
                 <v-row justify="center">
                     <v-col cols="12">
                         <!--<h1 class="font-title-section font-weight-bold text-center my-10">{{pagepoliresin.Titlesale}}</h1>-->
-                        <h1 class="display-1 font-weight-bold text-center my-10">Venta</h1>
+                        <h1 class="font-title-section font-weight-bold text-center my-10">Venta</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -291,18 +291,18 @@
                 <v-row justify="center">
                     <v-col cols="12">
                         <!--<h1 class="font-title-section font-weight-bold text-center my-10">{{pagepoliresin.Titleservices}}</h1>-->
-                        <h1 class="font-title-section font-weight-bold text-center my-10">Services</h1>
+                        <h1 class="font-title-section font-weight-bold text-center my-10">Servicios</h1>
                     </v-col>
                 </v-row>
                 <v-row class="mb-10" justify="center">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12">
-                        <p class="text-center text-lg-h6 text-sm-subtitle-1">Maquila de lavado</p>
+                        <p class="text-center text-lg-h5 text-sm-subtitle-1">Maquila de lavado</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12">
-                        <p class="text-center text-lg-h6 text-sm-subtitle-1">Maquila de triturado</p>
+                        <p class="text-center text-lg-h5 text-sm-subtitle-1">Maquila de triturado</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12">
-                        <p class="text-center text-lg-h6 text-sm-subtitle-1">Maquila de peletizado</p>
+                        <p class="text-center text-lg-h5 text-sm-subtitle-1">Maquila de peletizado</p>
                     </v-col>
                 </v-row>
                 <!--<v-row justify="center" class="mb-10">
