@@ -57,7 +57,7 @@
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/honestly.png" contain max-width="90" max-height="90"></v-img>
+                        <v-img src="/aboutus/honestly.png" contain max-height="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Honestidad</p>
                         <p class="text-body-all">
                             Respetar los recursos de la empresa, los bienes ajenos, el medio ambiente, 
@@ -65,7 +65,7 @@
                         </p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/lealtad.png" contain max-width="90" max-height="90"></v-img>
+                        <v-img src="/aboutus/lealtad.png" contain max-height="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Lealtad</p>
                         <p class="text-body-all">
                             Defender los intereses, los valores, los principios y políticas de la empresa,
@@ -73,7 +73,7 @@
                         </p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/commitment.png" contain max-width="90" max-height="90"></v-img>
+                        <v-img src="/aboutus/commitment.png" contain max-height="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Compromiso</p>
                         <p class="text-body-all">
                             Dar lo máximo de nuestra capacidad intelectual, técnica y experiencia a la empresa 
@@ -82,7 +82,7 @@
                         </p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/productivity.png" contain max-width="90" max-height="90"></v-img>
+                        <v-img src="/aboutus/productivity.png" contain max-height="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Proactividad</p>
                         <p class="text-body-all">
                             Anticiparse con todos los medios posibles: experiencia, actitud y creatividad para superar 
@@ -92,14 +92,14 @@
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/discipline.png" contain max-width="90" max-height="90"></v-img>
+                        <v-img src="/aboutus/discipline.png" contain max-height="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Disciplina</p>
                         <p class="text-body-all">
                             Respetar y cumplir las decisiones, planes, normas y proyectos con propósitos progresistas de equipo.
                         </p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/attitude.png" contain max-width="90" max-height="90"></v-img>
+                        <v-img src="/aboutus/attitude.png" contain max-height="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Actitud</p>
                         <p class="text-body-all">
                             Mostrar y tener siempre una conducta orientada a resolver problemas, teniendo en mente los intereses 
@@ -107,7 +107,7 @@
                         </p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/teamwork.png" contain max-width="90" max-height="90"></v-img>
+                        <v-img src="/aboutus/teamwork.png" contain max-height="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Trabajo en equipo</p>
                         <p class="text-body-all">
                             Participar sinérgicamente con el grupo de trabajo, con integración, conocimiento, entusiasmo, 
@@ -115,7 +115,7 @@
                         </p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/overcoming.png" contain max-width="90" max-height="90"></v-img>
+                        <v-img src="/aboutus/overcoming.png" contain max-height="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Superación</p>
                         <p class="text-body-all">
                             Trabajar y pensar constantemente en mejorar mi aptitud, mi educación y mi actitud, a través del compromiso.
@@ -241,7 +241,7 @@
                 <v-row justify="center">
                     <v-col cols="12" align="center" v-if="windowSize > 1129">
                         <v-img src="/aboutus/time-line.png" contain max-height="1400"></v-img>
-                        <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5 text-none" outlined rounded>Cargar más línea de tiempo</v-btn>
+                        <!--<v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5 text-none" outlined rounded>Cargar más línea de tiempo</v-btn>-->
                     </v-col>
                     <v-col cols="12" align="center" v-if="windowSize < 1129">
                         <v-img src="/aboutus/time-line-mb.png" contain></v-img>

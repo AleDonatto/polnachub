@@ -20,8 +20,11 @@
         </v-row>-->
         <v-carousel v-model="model" height="560" hide-delimiter-background show-arrows-on-hover cycle >
             <v-carousel-item v-for="(color, index ) in colors" :key="color">
-                <v-sheet tile :class="{'bg-img' : index !== 2, 'sect-video' : index === 2}">
-                    <video src="../../static/video/home.mp4" autoplay controls muted="muted" loop="true" v-if="index === 2" :class="{'size-video' : windowSize > 1129, 'size-video-mb': windowSize < 1129}"></video>
+                <v-sheet tile :class="{'bg-img' : index !== 2}">
+                    <video src="../../static/video/home.mp4" autoplay="true" controls muted="muted" loop="true" v-if="index === 2" :class="{'size-video' : windowSize > 1129, 'size-video-mb': windowSize < 1129}">
+                        <!--<source src="https://drive.google.com/file/d/1i6KeAljTdus2v0p8bkI72FK66C9ELQZl/view">-->
+                        <!--<iframe src="https://drive.google.com/file/d/1i6KeAljTdus2v0p8bkI72FK66C9ELQZl/preview" allow="autoplay"></iframe>-->
+                    </video>
                     <v-row justify="center">
                         <v-container>
                             <v-col xl="6" md="6" sm="12" xs="12" class="py-10 my-10" align="center">
@@ -35,7 +38,7 @@
                                     y a la comercialización de resinas plásticas, logrando ser <span class="letters subtitle-1">líder</span> en el <span class="letters subtitle-1">escenario mundial de la industria</span>.
                                 </p>
 
-                                <v-btn rounded class="px-10 py-5 white--text body-1 text-none" color="rgba(25, 211, 197, 1)">{{ $t('home.btnhead') }}</v-btn>
+                                <v-btn rounded class="px-10 py-5 black--text body-1 text-none" color="rgba(25, 211, 197, 1)">{{ $t('home.btnhead') }}</v-btn>
                             </v-col>
                         </v-container>
                     </v-row>

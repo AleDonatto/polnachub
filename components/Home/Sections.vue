@@ -284,7 +284,7 @@
                         <p class="white--text text-body-all">
                         {{ $t('home.subappointment') }}
                         </p>
-                        <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="subtitle-1 text-none">
+                        <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="subtitle-1 black--text text-none">
                         {{ $t('home.btnappointment') }}
                         </v-btn>
                     </div>

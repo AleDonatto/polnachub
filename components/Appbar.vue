@@ -40,13 +40,118 @@
                     <v-tab class="black--text text-none" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
                     <v-tab class="black--text text-none" to="/polnac">{{ $t('appbar.innovation') }}</v-tab>
                     <v-tab class="black--text text-none" to="/alliances">{{ $t('appbar.products') }}</v-tab>
-                    <v-tab class="black--text text-none" to="/alliances">{{ $t('appbar.services') }}</v-tab>
+                    <v-tab class="black--text text-none" to="/search-products">{{ $t('appbar.services') }}</v-tab>
                     <v-tab class="black--text text-none">{{ $t('appbar.market') }}</v-tab>
                     <v-tab class="black--text text-none">Blog</v-tab>
                     <v-tab class="black--text text-none">{{ $t('appbar.contact') }}</v-tab>
                     
                     <v-tab>
-                    <v-icon>mdi-magnify</v-icon>
+                        <v-menu
+                            bottom
+                            origin="center center"
+                            transition="scale-transition"
+                            :close-on-content-click="false"
+                            :nudge-width="1200"
+                            offset-y
+                        >
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-btn icon v-bind="attrs" v-on="on">
+                                    <v-icon>mdi-magnify</v-icon>
+                                </v-btn>
+                            </template>
+
+                            <v-card class="mx-4 mt-4">
+                                <v-list>
+                                    <v-list-item>
+                                        <v-text-field solo rounded class="mt-4" placeholder="Buscar por producto" prepend-inner-icon="mdi-magnify" clearable></v-text-field>
+                                    </v-list-item>
+                                </v-list>
+
+                                <v-divider></v-divider>
+
+                                <v-list>
+                                    <v-row justify="center" class="mt-4">
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/plasticos.png" contain max-height="65"></v-img>
+                                            <p class="">Plásticos de ingeniería</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/compuesto.png" contain max-height="65"></v-img>
+                                            <p class="">Compuestos</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/masterbach.png" contain max-height="65"></v-img>
+                                            <p class="">Masterbach</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/aditivos.png" contain max-height="65"></v-img>
+                                            <p class="">Concentrados de Aditivos</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/carbonato.png" contain max-height="65"></v-img>
+                                            <p class="">Carbonato de calcio</p>
+                                        </v-col>
+                                    </v-row>
+
+                                    <v-row justify="center" class="mt-4">
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/rotomoldeo.png" contain max-height="65"></v-img>
+                                            <p class="">Rotomoldeo</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/pvc.png" contain max-height="65"></v-img>
+                                            <p class="">PVC</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/aditivos.png" contain max-height="65"></v-img>
+                                            <p class="">Elastómeros Termoplásticos</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/biodegradables.png" contain max-height="65"></v-img>
+                                            <p class="">Biodegradables</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/hules.png" contain max-height="65"></v-img>
+                                            <p class="">Hules</p>
+                                        </v-col>
+                                    </v-row>
+
+                                    <v-row justify="center" class="mt-4">
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/polietileno.png" contain max-height="65"></v-img>
+                                            <p class="">Polietileno</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/polipropileno.png" contain max-height="65"></v-img>
+                                            <p class="">Polipropileno</p>
+                                        </v-col>
+                                        <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                            <v-img src="/menu-search/estirenicos.png" contain max-height="65"></v-img>
+                                            <p class="">Estirénicos</p>
+                                        </v-col>
+                                    </v-row>
+                                    <!--<v-list-item>
+                                        <v-list-item-action>
+                                            <v-switch v-model="message" color="purple"></v-switch>
+                                        </v-list-item-action>
+                                        <v-list-item-title>Enable messages</v-list-item-title>
+                                    </v-list-item>
+
+                                    <v-list-item>
+                                        <v-list-item-action>
+                                            <v-switch v-model="hints" color="purple"></v-switch>
+                                        </v-list-item-action>
+                                        <v-list-item-title>Enable hints</v-list-item-title>
+                                    </v-list-item>-->
+                                </v-list>
+                                <v-card-actions>
+                                    <v-spacer></v-spacer>
+
+                                    <!--<v-btn text @click="menu = false">Cancel</v-btn>
+                                    <v-btn color="primary" text @click="menu = false">Save</v-btn>-->
+                                </v-card-actions>
+                            </v-card>
+                        </v-menu>
                     </v-tab>
                     <v-tab>
                         <select v-model="$i18n.locale" class="pa-3 mx-2" @change="() => {setLanguaje($i18n.locale)}">
@@ -164,7 +269,8 @@ export default {
             right: true,
             rightDrawer: false,
             title: 'Vuetify.js',
-            lang: ['ESP', 'ENG']
+            lang: ['ESP', 'ENG'],
+            menu: false
         }
     },
     computed: {

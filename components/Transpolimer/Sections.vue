@@ -4,7 +4,7 @@
             <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
         </v-sheet>
     </div>-->
-    <div>
+    <div >
         <section>
             <v-container>
                 <v-row justify="center">
