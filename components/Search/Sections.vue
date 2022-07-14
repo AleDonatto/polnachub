@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section>
+        <section v-if="windowSize > 1129">
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="mt-16">
@@ -68,15 +68,21 @@
                 </v-row>
             </v-container>
         </section>
+
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     data() {
         return {
 
         }
+    },
+    computed: {
+        ...mapState(['windowHeight','windowSize'])
     }
 }
 </script>
