@@ -289,18 +289,21 @@
                     <v-col class="img-footer-mobile">
                     </v-col>
                 </v-row>
-
                 <v-row justify="center">
                     <v-col cols="12" lg="6" md="6" class="img-footer-cita" >
-                        <div class="py-10 px-10 my-10 mb-16">
-                            <h1 class="text-h4 font-weight-bold my-10 white--text">{{ $t('home.titleappointment') }}</h1>
-                            <p class="white--text text-body-all">
-                            {{ $t('home.subappointment') }}
-                            </p>
-                            <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg px-10 py-5 subtitle-1 black--text text-none">
-                            {{ $t('home.btnappointment') }}
-                            </v-btn>
-                        </div>
+                        <v-row justify="center">
+                            <v-col cols="9">
+                                <div class="py-10 my-10 mb-16">
+                                    <h1 class="text-h4 font-weight-bold my-10 white--text">{{ $t('home.titleappointment') }}</h1>
+                                    <p class="white--text text-body-all">
+                                        {{ $t('home.subappointment') }}
+                                    </p>
+                                    <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg px-10 py-5 subtitle-1 black--text text-none">
+                                        {{ $t('home.btnappointment') }}
+                                    </v-btn>
+                                </div>
+                            </v-col>
+                        </v-row>
                     </v-col>
         
                     <v-col cols="6" class="img-footer" v-if="windowSize > 1129"></v-col>
