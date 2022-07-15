@@ -299,7 +299,7 @@
                         <p class="text-center text-lg-h5 text-sm-subtitle-1">Maquila de lavado</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12">
-                        <p class="text-center text-lg-h5 text-sm-subtitle-1">Maquila de triturado</p>
+                        <p class="text-center text-body-all">Maquila de triturado</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12">
                         <p class="text-center text-lg-h5 text-sm-subtitle-1">Maquila de peletizado</p>

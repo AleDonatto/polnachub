@@ -124,7 +124,7 @@
                 </v-row>
                 <v-row justify="center" class="mb-16">
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/motivation.png" contain max-width="80"></v-img>
+                        <v-img src="/aboutus/motivation.png" contain max-width="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Motivación</p>
                         <p class="text-body-all">   
                             Dar y reconocer los satisfactores que estimulen el bienestar de los colaboradores de Polímeros Nacionales 
@@ -132,7 +132,7 @@
                         </p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/aboutus/confidence.png" contain max-width="80"></v-img>
+                        <v-img src="/aboutus/confidence.png" contain max-width="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">Confianza</p>
                         <p class="text-body-all">
                             Capacidad para crear vínculos duraderos con nuestros clientes internos y externos a través de cumplir 
