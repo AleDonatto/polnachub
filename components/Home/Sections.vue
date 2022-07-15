@@ -265,7 +265,7 @@
                 <v-sheet class="mx-auto my-10" max-width="1600">
                     <v-slide-group v-model="model" class="pa-4" center-active show-arrows>
                         <v-slide-item v-for="(item, index) in blogs" :key="index" >
-                            <v-card class="ma-5 card-blog" max-width="325" max-height="390">
+                            <v-card class="ma-5 card-blog shadow-out" max-width="325" max-height="390">
                                 <img :src="item.img" style="width: 100%" alt="pruebas"/>
                                 <v-card-title>{{item.title}}</v-card-title>
                                 <v-card-subtitle>{{item.description}}</v-card-subtitle>
@@ -439,7 +439,7 @@ export default {
 .text-teal{
     color: #19D3C5
 }
-.card-blog{
-    
+.shadow-out{
+    box-shadow: none !important;
 }
 </style>
