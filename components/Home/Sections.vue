@@ -55,21 +55,45 @@
         <section>
             <v-container>
                 <h1 class="font-title-section text-h3 font-weight-bold black--text text-center my-10">{{ $t('home.catproducts') }}</h1>
-                <v-row justify="center">
-                    <v-col xl="3" md="3" sm="6" xs="6" align="center">
-                        <img src="../../static/plasticos.png" alt="plasticos de ingenieria">
+
+                <v-row justify="center" v-if="windowSize < 1129">
+                    <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
+                        <v-img src="/plasticos.png" contain max-width="250"></v-img>
                     </v-col>
-                    <v-col xl="3" md="3" sm="6" xs="6" align="center">
-                        <img src="../../static/compuestos.png" alt="compuestos">
+                    <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
+                        <v-img src="/compuestos.png" contain max-width="250"></v-img>
                     </v-col>
-                    <v-col xl="3" md="3" sm="6" xs="6" align="center">
-                        <img src="../../static/masrterbach.png" alt="masterbach">
+                    <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
+                        <v-img src="/masrterbach.png" contain max-width="250"></v-img>
                     </v-col>
-                    <v-col xl="3" md="3" sm="6" xs="6" align="center">
-                        <img src="../../static/aditivos.png" alt="compuestos aditivos">
+                    <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
+                        <v-img src="/aditivos.png" contain max-width="250"></v-img>
+                    </v-col>
+                    <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center" v-if="windowSize < 1129">
+                        <v-img src="/carbonato.png" contain max-width="250"></v-img>
+                    </v-col>
+                    <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center" v-if="windowSize < 1129">
+                        <v-img src="/rotomoldeo.png" contain max-width="250"></v-img>
                     </v-col>
                 </v-row>
-                <div class="d-flex justify-center my-10">
+            </v-container>
+            <v-container fluid v-if="windowSize > 1129">
+                <v-sheet class="mx-auto my-10" max-width="1190">
+                    <v-slide-group v-model="model" class="pa-4" center-active show-arrows>
+                        <v-slide-item v-for="(item, index) in catPoducts" :key="index" >
+                            <v-card class="ma-5 card-blog shadow-out" max-width="325" max-height="390">
+                                <img :src="item.img" style="width: 100%" alt="pruebas"/>
+                                <v-card-title></v-card-title>
+                                <v-card-subtitle></v-card-subtitle>
+                                <v-card-actions>
+                                </v-card-actions>
+                            </v-card>
+                        </v-slide-item>
+                    </v-slide-group>
+                </v-sheet>
+            </v-container>
+            <v-container>
+                <div class="d-flex justify-center mb-10">
                     <v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none" color="#773DBD" rounded>{{ $t('home.btncategories') }}</v-btn>
                 </div>
             </v-container>
@@ -83,20 +107,20 @@
                     <v-sheet class="mx-auto my-10 bg-color" max-width="1420">
                         <v-slide-group show-arrows center-active>
                             <v-slide-item v-for="n in 10" :key="n" v-slot="{ active, toggle }">
-                                <v-card class="mx-5 px-5 my-2" width="400" :color="active ? 'rgba(9, 187, 174, 1)' : 'white'">
+                                <v-card class="mx-5 px-5 my-2" width="400" :color="n%2===0 ? 'rgba(9, 187, 174, 1)' : 'white'">
                                     <v-card-text @click="toggle">
-                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-5" :class="{'black--text': active===true , 'text-color-testimonios': active === false }">
+                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-5" :class="{'black--text': n%2===0 , 'text-color-testimonios': active === false }">
                                             Criser
                                         </p>
-                                        <p class="ma-0 text-h6 text-center" :class="{'black--text': active===true , 'text-color-testimonios': active === false }">
+                                        <p class="ma-0 text-h6 text-center" :class="{'black--text': n%2===0 , 'text-color-testimonios': n%2!==0 }">
                                             Juan Carlos Aguirre Palomo
                                         </p>
-                                        <p class="ma-0 text-center" :class="{'black--text': active===true , 'text-color-testimonios': active === false }">Jefe de Planeación y Compras</p>
+                                        <p class="ma-0 text-center" :class="{'black--text': n%2===0 , 'text-color-testimonios': n%2!==0 }">Jefe de Planeación y Compras</p>
                                         <div class="text--primary text-center">
-                                            <v-icon :color="active ? 'white' : '#19D3C5'" >mdi-star</v-icon>
-                                            <v-icon :color="active ? 'white' : '#19D3C5'">mdi-star</v-icon>
-                                            <v-icon :color="active ? 'white' : '#19D3C5'">mdi-star</v-icon>
-                                            <v-icon :color="active ? 'white' : '#19D3C5'">mdi-star</v-icon>
+                                            <v-icon :color=" n%2===0 ? 'white' : '#19D3C5'" >mdi-star</v-icon>
+                                            <v-icon :color=" n%2===0 ? 'white' : '#19D3C5'">mdi-star</v-icon>
+                                            <v-icon :color=" n%2===0 ? 'white' : '#19D3C5'">mdi-star</v-icon>
+                                            <v-icon :color=" n%2===0 ? 'white' : '#19D3C5'">mdi-star</v-icon>
                                         </div>
                                         <p class="mt-2 text-center">
                                             “Agradecemos mucho su apertura para negociar cualquier tema comercial y de logística, 
@@ -330,6 +354,15 @@ export default {
                 {img: require('../../static/blog-mercados.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-tendencias.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-polnac.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
+            ],
+            catPoducts: [
+                { img: require('../../static/plasticos.png')},
+                { img: require('../../static/compuestos.png')},
+                { img: require('../../static/masrterbach.png')},
+                { img: require('../../static/aditivos.png')},
+                { img: require('../../static/carbonato.png')},
+                { img: require('../../static/rotomoldeo.png')},
+                
             ]
         }
     },
