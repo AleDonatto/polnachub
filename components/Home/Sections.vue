@@ -78,8 +78,8 @@
                 </v-row>
             </v-container>
             <v-container fluid v-if="windowSize > 1129">
-                <v-sheet class="mx-auto" max-width="1190">
-                    <v-slide-group v-model="model" class="pa-4" center-active show-arrows>
+                <v-sheet class="mx-auto" max-width="1150">
+                    <v-slide-group v-model="model" class="pa-5" center-active show-arrows>
                         <v-slide-item v-for="(item, index) in catPoducts" :key="index" >
                             <v-card class="ma-5 card-blog shadow-out" max-width="325" max-height="390">
                                 <img :src="item.img" style="width: 100%" alt="pruebas"/>
