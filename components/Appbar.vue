@@ -401,7 +401,7 @@ export default {
     text-decoration: dotted;
 }
 .select{
-    max-width: 100px !important;   
+    max-width: 120px !important;   
     max-height: 2px !important;
     padding-top: 0px !important;
 }
