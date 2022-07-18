@@ -151,30 +151,8 @@
                                 </div>
                             </v-menu>
                         </v-tab>
-                        <v-tab class="mx-0 px-0">
-                            <!--<select v-model="$i18n.locale" @change="() => {setLanguaje($i18n.locale)}"  class="pa-5 py-2 outline">
-                                <option class="ma-5" v-for="lang in $i18n.locales" :key="lang.code" :value="lang.code">{{ lang.name }}</option>
-                            </select>-->
-                            <select title="lang-desk" name="lang-desk" v-model="$i18n.locale" @change="() => {setLanguaje($i18n.locale)}"  class="lang-border px-5 py-2" >
-                                <option class="ma-5 pa-5" v-for="lang in $i18n.locales" :key="lang.code" :value="lang.code">{{ lang.name }}</option>
-                            </select>
-                        </v-tab>
-                        <!--<v-tab>
-                        <v-menu bottom>
-                            <template v-slot:activator="{ on, attrs }">
-                            <v-btn icon v-bind="attrs" v-on="on">
-                                <v-icon>mdi-translate</v-icon>
-                            </v-btn>
-                            </template>
-
-                            <v-list>
-                            <v-list-item v-for="n in lang in $i18n.locales" :key="n.code" @click="() => {}">
-                                <v-list-item-title>{{ n.name }}</v-list-item-title>
-                            </v-list-item>
-                            </v-list>
-                        </v-menu>
-                        </v-tab>-->
-                        <!--<v-select :items="items" solo label="ESP" chips class="p-0 m-0"></v-select>-->
+                        <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
+                        @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>
                         <v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none">{{ $t('appbar.login') }}</v-btn>
                     </v-tabs>
                     </v-col>
@@ -349,13 +327,15 @@
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">
                             <v-row>
-                                <v-col cols="6" align-self="center">
-                                    <p class="my-auto">Cambiar Idioma</p>
-                                </v-col>
                                 <v-col cols="6" align-self="center" align="center">
-                                    <select title="lang" name="lang-mb" v-model="$i18n.locale" @change="() => {setLanguaje($i18n.locale)}"  class="lang-border px-5 py-2">
+                                    <p class="">Cambiar Idioma</p>
+                                </v-col>
+                                <v-col cols="6" align-self="center" align="end">
+                                    <!--<select title="lang" name="lang-mb" v-model="$i18n.locale" @change="() => {setLanguaje($i18n.locale)}"  class="lang-border px-5 py-2">
                                         <option class="ma-5 pa-5" v-for="lang in $i18n.locales" :key="lang.code" :value="lang.code">{{ lang.name }}</option>
-                                    </select>
+                                    </select>-->
+                                    <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
+                                    @change="() => {setLanguaje($i18n.locale)}" dense class="text-none my-auto"></v-select>
                                 </v-col>
                             </v-row>
                         </v-list-item-title>  
@@ -419,5 +399,14 @@ export default {
     border-color: black !important;
     border-width: 2px !important;
     text-decoration: dotted;
+}
+.select{
+    max-width: 100px !important;   
+    max-height: 2px !important;
+    padding-top: 0px !important;
+}
+
+.v-input__control{
+    padding-top: -5px;
 }
 </style>

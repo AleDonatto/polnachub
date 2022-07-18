@@ -18,7 +18,7 @@
                 </v-col>
             </v-container>
         </v-row>-->
-        <v-carousel v-model="model" :height="windowSize > 1129 ? '560' : '610' " hide-delimiter-background show-arrows-on-hover cycle >
+        <v-carousel v-model="model" :height="windowSize > 1129 ? '560' : '640' " hide-delimiter-background show-arrows-on-hover cycle >
             <v-carousel-item v-for="(color, index ) in colors" :key="index">
                 <!--:class="{'bg-img' : index !== 2}"-->
                 <v-sheet tile class="bg-img">
@@ -72,7 +72,7 @@ export default {
 
 <style scoped>
 .bg-img{
-    background-image: linear-gradient(rgba(119, 61, 189, 0.7), rgba(119, 61, 189, 0.7)),url('../../static/bg-carousel-1.png');
+    background-image: linear-gradient(to right, rgba(46, 46, 101, 0.7), rgba(119, 61, 189, 0.7)),url('../../static/bg-carousel-1.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -108,7 +108,7 @@ video{
     overflow: hidden;
 }
 .text-mark{
-    background-color: rgba(119, 61, 189, 0.9);
+    background-color: rgba(46, 46, 101, 0.99);
     line-height: -2px;
 }
 </style>

@@ -6,7 +6,7 @@
                 <div class="my-10 mx-10">
                     <v-row justify="center">
                         <v-col md="6" sm="12" xs="12" align-self="center" align="center">
-                            <h1 class="font-title text-none text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}">
+                            <h1 class="font-archivo font-title text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}">
                                 <span class="font-weigth-bold">{{ $t('home.secabout.polnac') }}</span> <br>
                                 <span class="text-teal">{{ $t('home.secabout.year') }}</span> 
                             </h1>
@@ -32,7 +32,7 @@
 
         <section>
             <div class="my-10 mx-10">
-                <h1 class="font-title-section text-h3 font-weight-bold text-center my-10">{{ $t('home.titledestacados') }}</h1>
+                <h1 class="font-archivo text-h3 font-weight-bold text-center my-10">{{ $t('home.titledestacados') }}</h1>
                 <v-row>
                     <v-col xl="3" md="3" sm="12" xs="12" class="des-1" v-if="windowSize > 1129">
                     </v-col>
@@ -54,7 +54,7 @@
 
         <section>
             <v-container>
-                <h1 class="font-title-section text-h3 font-weight-bold black--text text-center my-10">{{ $t('home.catproducts') }}</h1>
+                <h1 class="font-archivo text-h3 font-weight-bold black--text text-center my-10">{{ $t('home.catproducts') }}</h1>
 
                 <v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
@@ -102,7 +102,7 @@
         <section>
             <div class="bg-testimonios my-10">
                 <v-container fluid>
-                    <h1 class="font-title-section text-h3 font-weight-bold white--text text-center my-10">{{ $t('home.titletestimonials') }}</h1>
+                    <h1 class="font-archivo text-h3 font-weight-bold white--text text-center my-10">{{ $t('home.titletestimonials') }}</h1>
 
                     <v-sheet class="mx-auto my-10 bg-color" max-width="1420">
                         <v-slide-group show-arrows center-active>
@@ -222,7 +222,7 @@
         <section>
             <div class="bg-alianzas">
                 <v-container>
-                    <h1 class="font-title-section text-h3 text-center white--text font-weight-bold my-10">{{ $t('home.titlealliances') }}</h1>
+                    <h1 class="font-archivo text-h3 text-center white--text font-weight-bold my-10">{{ $t('home.titlealliances') }}</h1>
                     <p class="text-body-all white--text text-center px-15">
                         <span class="text-uppercase font-weight-bold letters">POLNAC</span>  ha forjado <span class="font-weight-bold letters">alianzas estratégicas</span> con los principales productores de
                         materia prima a <span class="font-weight-bold letters">nivel mundial</span>, siempre buscando poner a disposición de sus clientes
@@ -237,7 +237,7 @@
 
         <section>
             <v-container fluid>
-                <h1 class="font-title-section text-h3 text-center black--text font-weight-bold my-10">Blog</h1>
+                <h1 class="font-archivo text-h3 text-center black--text font-weight-bold my-10">Blog</h1>
                 <!--<v-row class="my-10" justify="center">
                     <v-col lg="3" md="3" sm="12" xs="12">
                         <v-card class="mx-auto" max-width="344">
@@ -433,16 +433,13 @@ export default {
     height: 100%;
 }
 .font-title{
-    font-family: 'Archivo' !important;
+    /*font-family: 'Archivo' !important;*/
     font-size: 40px;
     font-weight: 700;
     line-height: 52px;
     letter-spacing: 0px;
 }
 
-.font-title-section{
-    font-family: 'Archivo' !important;
-}
 .letters{
     color: #E0E621
 }
