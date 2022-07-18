@@ -18,7 +18,7 @@
                 </v-col>
             </v-container>
         </v-row>-->
-        <v-carousel v-model="model" :height="windowSize > 1129 ? '560' : '640' " hide-delimiter-background show-arrows-on-hover cycle >
+        <v-carousel v-model="model" :min-height="windowSize > 1129 ? '580' : '640' " hide-delimiter-background show-arrows-on-hover cycle >
             <v-carousel-item v-for="(color, index ) in colors" :key="index">
                 <!--:class="{'bg-img' : index !== 2}"-->
                 <v-sheet tile class="bg-img">
