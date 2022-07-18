@@ -21,19 +21,19 @@
         <v-carousel v-model="model" :height="windowSize > 1129 ? '560' : '610' " hide-delimiter-background show-arrows-on-hover cycle >
             <v-carousel-item v-for="(color, index ) in colors" :key="index">
                 <!--:class="{'bg-img' : index !== 2}"-->
-                <v-sheet tile :class="{'bg-img' : index !== 2}">
-                    <video src="../../static/video/home.mp4" autoplay="true" controls muted="muted" loop="true" v-if="index === 2" :class="{'size-video' : windowSize > 1129, 'size-video-mb': windowSize < 1129}"></video>
+                <v-sheet tile class="bg-img">
+                    <!--<video src="../../static/video/home.mp4" autoplay="true" controls muted="muted" loop="true" v-if="index === 2" :class="{'size-video' : windowSize > 1129, 'size-video-mb': windowSize < 1129}"></video>-->
                     <v-row justify="center">
                         <v-container>
                             <v-col xl="6" md="6" sm="12" xs="12" class="py-10 my-10">
-                                <h1 class="font-title white--text pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
-                                    {{ $t('home.portafolio') }}
+                                <h1 class="font-archivo font-title pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
+                                   <mark class="text-mark white--text">{{ $t('home.portafolio') }}</mark> 
                                 </h1>
                                 <p class="subtitle-1 white--text mt-3 pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
                                     <!--{{ $t('home.subportafolio', {polnac: 'POLNAC'}) }}
                                     <br>-->
-                                    <span class="subtitle-1 letters text-uppercase">POLNAC</span> se especializa en la fabricación de compuestos, concentrados de color, 
-                                    y a la comercialización de resinas plásticas, logrando ser <span class="letters subtitle-1">líder</span> en el <span class="letters subtitle-1">escenario mundial de la industria</span>.
+                                    <span class="subtitle-1 letters text-uppercase font-weight-bold">POLNAC</span> se especializa en la fabricación de compuestos, concentrados de color, 
+                                    y a la comercialización de resinas plásticas, logrando ser <span class="letters subtitle-1 font-weight-bold">líder</span> en el <span class="letters subtitle-1 font-weight-bold">escenario mundial de la industria</span>.
                                 </p>
 
                                 <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start ml-5': windowSize > 1129}">
@@ -71,8 +71,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
-
 .bg-img{
     background-image: linear-gradient(rgba(119, 61, 189, 0.7), rgba(119, 61, 189, 0.7)),url('../../static/bg-carousel-1.png');
     background-size: cover;
@@ -81,7 +79,7 @@ export default {
     width: 100%;
 }
 .font-title{
-    font-family: 'Archivo' !important;
+    /*font-family: 'Archivo' !important;*/
     font-size: 40px;
     font-weight: 700;
     line-height: 52px;
@@ -109,5 +107,8 @@ video{
     position: relative;
     overflow: hidden;
 }
-
+.text-mark{
+    background-color: purple;
+    line-height: normal;
+}
 </style>

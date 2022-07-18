@@ -7,7 +7,7 @@
                     <v-row justify="center">
                         <v-col md="6" sm="12" xs="12" align-self="center" align="center">
                             <h1 class="font-title text-none text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}">
-                                {{ $t('home.secabout.polnac') }} <br>
+                                <span class="font-weigth-bold">{{ $t('home.secabout.polnac') }}</span> <br>
                                 <span class="text-teal">{{ $t('home.secabout.year') }}</span> 
                             </h1>
 
@@ -358,6 +358,11 @@ export default {
             catPoducts: [
                 { img: require('../../static/plasticos.png')},
                 { img: require('../../static/compuestos.png')},
+                { img: require('../../static/masrterbach.png')},
+                { img: require('../../static/aditivos.png')},
+                { img: require('../../static/carbonato.png')},
+                { img: require('../../static/rotomoldeo.png')},
+
                 { img: require('../../static/masrterbach.png')},
                 { img: require('../../static/aditivos.png')},
                 { img: require('../../static/carbonato.png')},
