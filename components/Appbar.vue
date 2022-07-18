@@ -32,9 +32,9 @@
                     <v-col cols="9" xl="9" md="10">
                     <v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129">
                         <v-tabs-slider color></v-tabs-slider>
-                        <v-tab class="black--text text-none mr-1 ml-0 px-0" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
-                        <v-tab class="black--text text-none mr-1 ml-0 px-0" to="/polnac">{{ $t('appbar.innovation') }}</v-tab>
-                        <v-tab class="black--text text-none mr-1 ml-0 px-0" to="/alliances">{{ $t('appbar.products') }}</v-tab>
+                        <v-tab class="black--text text-none mx-0 px-0" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
+                        <v-tab class="black--text text-none mx-0 px-0" to="/polnac">{{ $t('appbar.innovation') }}</v-tab>
+                        <v-tab class="black--text text-none mx-0 px-0" to="/alliances">{{ $t('appbar.products') }}</v-tab>
                         <v-tab class="black--text text-none mx-0 px-0" to="/search-products">{{ $t('appbar.services') }}</v-tab>
                         <v-tab class="black--text text-none mx-0 px-0">{{ $t('appbar.market') }}</v-tab>
                         <v-tab class="black--text text-none mx-0 px-0">Blog</v-tab>

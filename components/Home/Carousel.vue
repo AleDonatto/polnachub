@@ -108,7 +108,7 @@ video{
     overflow: hidden;
 }
 .text-mark{
-    background-color: purple;
-    line-height: normal;
+    background-color: rgba(119, 61, 189, 0.9);
+    line-height: -2px;
 }
 </style>
