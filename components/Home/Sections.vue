@@ -58,22 +58,64 @@
 
                 <v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
-                        <v-img class="plasticos" src="/plasticos.png" contain max-width="250"></v-img>
+                        <v-hover v-slot="{ hover }">
+                            <v-img class="plasticos" src="/plasticos-mb.png" contain max-width="250">
+                                <v-expand-transition>
+                                    <v-img src="/h-plasticos.png" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                </v-expand-transition>
+                            </v-img>
+                        </v-hover>
+                        <p class="text-left mt-2">Plástico de Ingeniería</p>
                     </v-col>
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
-                        <v-img src="/compuestos.png" contain max-width="250"></v-img>
+                        <v-hover v-slot="{ hover }">
+                            <v-img class="plasticos" src="/compuestos-mb.png" contain max-width="250">
+                                <v-expand-transition>
+                                    <v-img src="/h-compuestos.png" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                </v-expand-transition>
+                            </v-img>
+                        </v-hover>
+                        <p class="text-left mt-2">Compuestos</p>
                     </v-col>
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
-                        <v-img src="/masrterbach.png" contain max-width="250"></v-img>
+                        <v-hover v-slot="{ hover }">
+                            <v-img class="plasticos" src="/masterbach-mb.png" contain max-width="250">
+                                <v-expand-transition>
+                                    <v-img src="/h-masterbach.png" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                </v-expand-transition>
+                            </v-img>
+                        </v-hover>
+                        <p class="text-left mt-2">Masterbach</p>
                     </v-col>
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
-                        <v-img src="/aditivos.png" contain max-width="250"></v-img>
+                        <v-hover v-slot="{ hover }">
+                            <v-img class="plasticos" src="/aditivos-mb.png" contain max-width="250">
+                                <v-expand-transition>
+                                    <v-img src="/h-aditivos.png" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                </v-expand-transition>
+                            </v-img>
+                        </v-hover>
+                        <p class="text-left mt-2">Concentrados de Aditivos</p>
                     </v-col>
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center" v-if="windowSize < 1129">
-                        <v-img src="/carbonato.png" contain max-width="250"></v-img>
+                        <v-hover v-slot="{ hover }">
+                            <v-img class="plasticos" src="/calcio-mb.png" contain max-width="250">
+                                <v-expand-transition>
+                                    <v-img src="/h-carbonato.png" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                </v-expand-transition>
+                            </v-img>
+                        </v-hover>
+                        <p class="text-left mt-2">Concentrado de Calcio</p>
                     </v-col>
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center" v-if="windowSize < 1129">
-                        <v-img src="/rotomoldeo.png" contain max-width="250"></v-img>
+                        <v-hover v-slot="{ hover }">
+                            <v-img class="plasticos" src="/rotomoldeo-mb.png" contain max-width="250">
+                                <v-expand-transition>
+                                    <v-img src="/h-rotomoldeo.png" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                </v-expand-transition>
+                            </v-img>
+                        </v-hover>
+                        <p class="text-left mt-2">Rotomoldeo</p>
                     </v-col>
                 </v-row>
             </v-container>
