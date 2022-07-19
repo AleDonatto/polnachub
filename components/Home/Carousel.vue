@@ -18,10 +18,10 @@
                 </v-col>
             </v-container>
         </v-row>-->
-        <v-carousel v-model="model" :height="windowSize > 1129 ? '510' : '620' " hide-delimiter-background show-arrows-on-hover cycle >
+        <v-carousel v-model="model" :height="windowSize > 1129 ? '510' : '650' " hide-delimiter-background show-arrows-on-hover cycle >
             <v-carousel-item v-for="(color, index ) in colors" :key="index">
                 <!--:class="{'bg-img' : index !== 2}"-->
-                <v-sheet tile class="bg-img">
+                <v-sheet tile class="bg-img" :class="windowSize > 1129? 'size-bg' : ''">
                     <!--<video src="../../static/video/home.mp4" autoplay="true" controls muted="muted" loop="true" v-if="index === 2" :class="{'size-video' : windowSize > 1129, 'size-video-mb': windowSize < 1129}"></video>-->
                     <v-row justify="center">
                         <v-container>
@@ -77,6 +77,13 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+}
+
+.size-bg{
+    height: 520px;
+}
+.size-bg-mb{
+    height: 520px;
 }
 .font-title{
     /*font-family: 'Archivo' !important;*/

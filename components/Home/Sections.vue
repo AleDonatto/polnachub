@@ -138,93 +138,124 @@
 
                 </v-container>
             </div>-->
-            <v-carousel :show-arrows="false"  class="bg-testimonios my-10" height="600">
-                <h1 class="font-archivo text-h3 font-weight-bold white--text text-center my-10">{{ $t('home.titletestimonials') }}</h1>
-                <v-carousel-item v-for="(item,i) in items" :key="i" >
-                    
-                    <v-row justify="center" class="mx-5">
-                        <v-col align="center" align-self="center">
-                            <v-card class="mx-5 px-5 my-2" width="520" color="white">
-                                <v-card-text>
-                                    <p class="text-h5 text-uppercase text-center font-weight-bold mt-5 text-color-testimonios">
-                                        CHIAPLAST
-                                    </p>
-                                    <p class="ma-0 text-h6 text-center text-color-testimonios">
-                                        María Luisa Hernández Vásquez
-                                    </p>
-                                    <p class="ma-0 text-center text-color-testimonios">Gerente de Compras</p>
-                                    <div class="text--primary text-center">
-                                        <v-icon color="#19D3C5" >mdi-star</v-icon>
-                                        <v-icon color="#19D3C5">mdi-star</v-icon>
-                                        <v-icon color="#19D3C5">mdi-star</v-icon>
-                                        <v-icon color="#19D3C5">mdi-star</v-icon>
-                                    </div>
-                                    <p class="mt-2 text-center">
-                                        “Se ha consolidado una estrecha relación comercial con POLNAC, ya que nos han ofrecido precios atractivos, 
-                                        calidad en materiales y puntualidad en las entregas, y esto, a su vez, nos ha permitido optimizar nuestros 
-                                        procesos y ser más competitivos en el mercado”.
-                                    </p>
-                                </v-card-text>
-                                <v-card-actions>
-                                </v-card-actions>
-                            </v-card>
-                        </v-col>
-                        <v-col align="center" align-self="center">
-                            <v-card class="mx-5 px-5 my-2" width="520" height="330" color="rgba(9, 187, 174, 1)">
-                                <v-card-text>
-                                    <p class="text-h5 text-uppercase text-center font-weight-bold mt-5 black--text" >
-                                        Criser
-                                    </p>
-                                    <p class="ma-0 text-h6 text-center black--text">
-                                        Juan Carlos Aguirre Palomo
-                                    </p>
-                                    <p class="ma-0 text-center black--text">Jefe de Planeación y Compras</p>
-                                    <div class="text--primary text-center">
-                                        <v-icon color="white" >mdi-star</v-icon>
-                                        <v-icon color="white">mdi-star</v-icon>
-                                        <v-icon color="white">mdi-star</v-icon>
-                                        <v-icon color="white">mdi-star</v-icon>
-                                    </div>
-                                    <p class="mt-2 text-center">
-                                        “Agradecemos mucho su apertura para negociar cualquier tema comercial y de logística, 
-                                        así como su apoyo en urgencias y búsqueda de nuevos materiales. Siempre buscando aportar 
-                                        soluciones y atentos a las recomendaciones para mejorar su servicio”.
-                                    </p>
-                                </v-card-text>
-                                <v-card-actions>
-                                </v-card-actions>
-                            </v-card>
-                        </v-col>
-                        <v-col align="center" align-self="center">
-                            <v-card class="mx-5 px-5 my-2" width="520" color="white">
-                                <v-card-text>
-                                    <p class="text-h5 text-uppercase text-center font-weight-bold mt-5 text-color-testimonios">
-                                        Plásticos Técnicos Mexicanos
-                                    </p>
-                                    <p class="ma-0 text-h6 text-center text-color-testimonios">
-                                        José Juan Reyes Chávez
-                                    </p>
-                                    <p class="ma-0 text-center text-color-testimonios">Comprador</p>
-                                    <div class="text--primary text-center">
-                                        <v-icon color="#19D3C5">mdi-star</v-icon>
-                                        <v-icon color="#19D3C5">mdi-star</v-icon>
-                                        <v-icon color="#19D3C5">mdi-star</v-icon>
-                                        <v-icon color="#19D3C5">mdi-star</v-icon>
-                                    </div>
-                                    <p class="mt-2 text-center">
-                                        “En POLNAC hemos encontrado soluciones prácticas para las necesidades de nuestra compañía, 
-                                        inmediata respuesta y variedad en productos, así como un amplio conocimiento técnico que nos 
-                                        ha permitido ser más eficientes en nuestros procesos y costos”.
-                                    </p>
-                                </v-card-text>
-                                <v-card-actions>
-                                </v-card-actions>
-                            </v-card>
-                        </v-col>
-                    </v-row>
+            <div class="bg-testimonios">
+                <v-carousel :show-arrows="false" hide-delimiter-background class="my-10" height="600">
+                    <h1 class="font-archivo text-h3 font-weight-bold white--text text-center my-10">{{ $t('home.titletestimonials') }}</h1>
+                    <v-carousel-item v-for="(item,i) in items" :key="i" >
+                        
+                        <v-row justify="center" class="mx-5" v-if="windowSize > 1129">
+                            <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
+                                <v-card class="px-5 my-2" height="300" color="white">
+                                    <v-card-text>
+                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-5 text-color-testimonios">
+                                            CHIAPLAST
+                                        </p>
+                                        <p class="ma-0 text-h6 text-center text-color-testimonios">
+                                            María Luisa Hernández Vásquez
+                                        </p>
+                                        <p class="ma-0 text-center text-color-testimonios">Gerente de Compras</p>
+                                        <div class="text--primary text-center">
+                                            <v-icon color="#19D3C5" >mdi-star</v-icon>
+                                            <v-icon color="#19D3C5">mdi-star</v-icon>
+                                            <v-icon color="#19D3C5">mdi-star</v-icon>
+                                            <v-icon color="#19D3C5">mdi-star</v-icon>
+                                        </div>
+                                        <p class="mt-2 text-center">
+                                            “Se ha consolidado una estrecha relación comercial con POLNAC, ya que nos han ofrecido precios atractivos, 
+                                            calidad en materiales y puntualidad en las entregas, y esto, a su vez, nos ha permitido optimizar nuestros 
+                                            procesos y ser más competitivos en el mercado”.
+                                        </p>
+                                    </v-card-text>
+                                    <v-card-actions>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
+                                <v-card class="mx-5 px-5 my-2" height="330" color="rgba(9, 187, 174, 1)">
+                                    <v-card-text>
+                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-5 black--text" >
+                                            Criser
+                                        </p>
+                                        <p class="ma-0 text-h6 text-center black--text">
+                                            Juan Carlos Aguirre Palomo
+                                        </p>
+                                        <p class="ma-0 text-center black--text">Jefe de Planeación y Compras</p>
+                                        <div class="text--primary text-center">
+                                            <v-icon color="white" >mdi-star</v-icon>
+                                            <v-icon color="white">mdi-star</v-icon>
+                                            <v-icon color="white">mdi-star</v-icon>
+                                            <v-icon color="white">mdi-star</v-icon>
+                                        </div>
+                                        <p class="mt-2 text-center">
+                                            “Agradecemos mucho su apertura para negociar cualquier tema comercial y de logística, 
+                                            así como su apoyo en urgencias y búsqueda de nuevos materiales. Siempre buscando aportar 
+                                            soluciones y atentos a las recomendaciones para mejorar su servicio”.
+                                        </p>
+                                    </v-card-text>
+                                    <v-card-actions>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-col>
+                            <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
+                                <v-card class="mx-5 px-5 my-2" height="300" color="white">
+                                    <v-card-text>
+                                        <p class="text-h5 text-md-subtitle1 text-uppercase text-center font-weight-bold mt-5 text-color-testimonios">
+                                            Plásticos Técnicos Mexicanos
+                                        </p>
+                                        <p class="ma-0 text-h6 text-center text-color-testimonios">
+                                            José Juan Reyes Chávez
+                                        </p>
+                                        <p class="ma-0 text-center text-color-testimonios">Comprador</p>
+                                        <div class="text--primary text-center">
+                                            <v-icon color="#19D3C5">mdi-star</v-icon>
+                                            <v-icon color="#19D3C5">mdi-star</v-icon>
+                                            <v-icon color="#19D3C5">mdi-star</v-icon>
+                                            <v-icon color="#19D3C5">mdi-star</v-icon>
+                                        </div>
+                                        <p class="mt-2 text-center">
+                                            “En POLNAC hemos encontrado soluciones prácticas para las necesidades de nuestra compañía, 
+                                            inmediata respuesta y variedad en productos, así como un amplio conocimiento técnico que nos 
+                                            ha permitido ser más eficientes en nuestros procesos y costos”.
+                                        </p>
+                                    </v-card-text>
+                                    <v-card-actions>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-col>
+                        </v-row>
 
-                </v-carousel-item>
-            </v-carousel>
+                        <v-row v-if="windowSize < 1129 ">
+                            <v-col cols="12" align="center" align-self="center">
+                                <v-card class="mx-5 px-5 my-2" height="330" color="rgba(9, 187, 174, 1)">
+                                    <v-card-text>
+                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-5 black--text" >
+                                            Criser
+                                        </p>
+                                        <p class="ma-0 text-h6 text-center black--text">
+                                            Juan Carlos Aguirre Palomo
+                                        </p>
+                                        <p class="ma-0 text-center black--text">Jefe de Planeación y Compras</p>
+                                        <div class="text--primary text-center">
+                                            <v-icon color="white" >mdi-star</v-icon>
+                                            <v-icon color="white">mdi-star</v-icon>
+                                            <v-icon color="white">mdi-star</v-icon>
+                                            <v-icon color="white">mdi-star</v-icon>
+                                        </div>
+                                        <p class="mt-2 text-center">
+                                            “Agradecemos mucho su apertura para negociar cualquier tema comercial y de logística, 
+                                            así como su apoyo en urgencias y búsqueda de nuevos materiales. Siempre buscando aportar 
+                                            soluciones y atentos a las recomendaciones para mejorar su servicio”.
+                                        </p>
+                                    </v-card-text>
+                                    <v-card-actions>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-col>
+                        </v-row>
+
+                    </v-carousel-item>
+                </v-carousel>
+            </div>
         </section>
 
         <section>
