@@ -2,12 +2,12 @@
     <div class="bg-about">
         <v-row justify="center" class="py-10">
             <v-col cols="12" class="mt-12" align="center">
-                <h1 class="font-title text-h3 white--text">¿Quiénes somos?</h1>
+                <h1 class="font-archivo text-h3 white--text font-weight-bold">¿Quiénes somos?</h1>
             </v-col>
             <v-col cols="9" class="mt-5 mb-10" align="center">
                 <p class="title white--text">
-                    Desde 1984, <span class="letters">POLNAC</span> ha construido unas historia basada en la innovación, <br>
-                    el compromiso, y la excelencia. <span class="letters">POLNAC</span>: siempre comprometido, siempre a la vanguardia.
+                    Desde 1984, <span class="letters font-weight-bold">POLNAC</span> ha construido unas historia basada en la innovación, <br>
+                    el compromiso, y la excelencia. <span class="letters font-weight-bold">POLNAC</span>: siempre comprometido, siempre a la vanguardia.
                 </p>
             </v-col>
         </v-row>
@@ -34,7 +34,4 @@ export default {
     color: #E0E621
 }
 
-.font-title{
-    font-family: 'Archivo' !important;
-}
 </style>

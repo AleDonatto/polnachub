@@ -43,6 +43,11 @@
                 <v-row justify="center">
                     <v-col cols="12" class="my-15">
                         <v-img src="/aboutus/video.png" contain max-height="550"></v-img>
+                        <!--<video height="450" autoplay="true" muted="muted" loop="true">
+                            <source src="https://www.youtube.com/watch?v=CJ9LyIMleDA" type="video/mp4">
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CJ9LyIMleDA" title="YouTube video player" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </video>-->
                     </v-col>
                 </v-row>
             </v-container>
@@ -190,7 +195,7 @@
                             <v-col cols="6" class="">
                                 <v-img src="/aboutus/texas.png" contain></v-img>
                                 <p class="text-body-all">
-                                    POLNAC, una empresa de talla mundial. Con nuestra sucursal en Houston, Texas 
+                                    <span class="font-weight-bold">POLNAC</span>, una empresa de talla mundial. Con nuestra sucursal en Houston, Texas 
                                     cubrimos el mercado de los Estados Unidos de América.
                                 </p>
                                 <p class="text-body-all">
@@ -243,9 +248,9 @@
                         <v-img src="/aboutus/time-line.png" contain max-height="1400"></v-img>
                         <!--<v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5 text-none" outlined rounded>Cargar más línea de tiempo</v-btn>-->
                     </v-col>
-                    <v-col cols="12" align="center" v-if="windowSize < 1129">
+                    <v-col cols="12" align="center" class="mb-16" v-if="windowSize < 1129">
                         <v-img src="/aboutus/time-line-mb.png" contain></v-img>
-                        <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5 text-none" outlined rounded>Cargar más línea de tiempo</v-btn>
+                        <v-btn color="rgba(25, 211, 197, 1)" class="px-10 py-5 text-none" outlined rounded><span class="black--text ">Cargar más línea de tiempo</span></v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -288,7 +293,7 @@
                             ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
                             Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
                         </p>
-                        <v-btn dark rounded color="rgba(25, 211, 197, 1)" class="body-1 px-10 py-5 black--text text-none">Ver vacantes</v-btn>
+                        <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">Ver vacantes</v-btn>
                     </div>
                     </v-col>
                 </v-row>
