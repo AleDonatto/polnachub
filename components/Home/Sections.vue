@@ -58,7 +58,7 @@
 
                 <v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
-                        <v-img src="/plasticos.png" contain max-width="250"></v-img>
+                        <v-img class="plasticos" src="/plasticos.png" contain max-width="250"></v-img>
                     </v-col>
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
                         <v-img src="/compuestos.png" contain max-width="250"></v-img>
@@ -81,16 +81,39 @@
                 <v-sheet class="mx-auto" max-width="1150">
                     <v-slide-group v-model="model" class="pa-5" center-active show-arrows>
                         <v-slide-item v-for="(item, index) in catPoducts" :key="index" >
-                            <v-card class="ma-5 card-blog shadow-out" max-width="325" max-height="390">
+                            <!--<v-card class="ma-5 card-blog shadow-out" max-width="325" max-height="390">
                                 <img :src="item.img" style="width: 100%" alt="pruebas"/>
                                 <v-card-title></v-card-title>
                                 <v-card-subtitle></v-card-subtitle>
                                 <v-card-actions>
                                 </v-card-actions>
-                            </v-card>
+                            </v-card>-->
+
+                            <v-hover v-slot="{ hover }">
+                                <v-card class="ma-5 card-blog shadow-out" max-width="325" max-height="390">
+                                    <v-img :src="item.img" style="width: 100%">
+                                        <v-expand-transition>
+                                            
+                                        <!--<div v-if="hover" class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal text-h2 white--text" style="height: 100%;"></div>-->
+                                        <v-img :src="item.imgH" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                        </v-expand-transition>
+                                    </v-img>
+                                </v-card>
+                            </v-hover>
+
                         </v-slide-item>
                     </v-slide-group>
                 </v-sheet>
+                <!--<v-hover v-slot="{ hover }">
+                    <v-card class="mx-auto" color="grey lighten-4" max-width="600">
+                        <v-img :aspect-ratio="16/9" src="https://cdn.vuetifyjs.com/images/cards/kitchen.png">
+                            <v-expand-transition>
+
+                            <div v-if="hover" class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal text-h2 white--text" style="height: 100%;"></div>
+                            </v-expand-transition>
+                        </v-img>
+                    </v-card>
+                </v-hover>-->
             </v-container>
             <v-container>
                 <div class="d-flex justify-center mb-10">
@@ -474,17 +497,17 @@ export default {
                 {img: require('../../static/blog-polnac.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
             ],
             catPoducts: [
-                { img: require('../../static/plasticos.png')},
-                { img: require('../../static/compuestos.png')},
-                { img: require('../../static/masrterbach.png')},
-                { img: require('../../static/aditivos.png')},
-                { img: require('../../static/carbonato.png')},
-                { img: require('../../static/rotomoldeo.png')},
+                { img: require('../../static/plasticos.png'), imgH: require('../../static/h-plasticos.png')},
+                { img: require('../../static/compuestos.png'), imgH: require('../../static/h-compuestos.png')},
+                { img: require('../../static/masrterbach.png'), imgH: require('../../static/h-masterbach.png')},
+                { img: require('../../static/aditivos.png'), imgH: require('../../static/h-aditivos.png')},
+                { img: require('../../static/carbonato.png'), imgH: require('../../static/h-carbonato.png')},
+                { img: require('../../static/rotomoldeo.png'), imgH: require('../../static/h-rotomoldeo.png')},
 
-                { img: require('../../static/masrterbach.png')},
-                { img: require('../../static/aditivos.png')},
-                { img: require('../../static/carbonato.png')},
-                { img: require('../../static/rotomoldeo.png')},
+                { img: require('../../static/masrterbach.png'), imgH: require('../../static/h-masterbach.png')},
+                { img: require('../../static/aditivos.png'), imgH: require('../../static/h-aditivos.png')},
+                { img: require('../../static/carbonato.png'), imgH: require('../../static/h-carbonato.png')},
+                { img: require('../../static/rotomoldeo.png'), imgH: require('../../static/h-rotomoldeo.png')},
             ],
             items: [
                 {
