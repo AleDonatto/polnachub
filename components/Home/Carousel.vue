@@ -18,7 +18,7 @@
                 </v-col>
             </v-container>
         </v-row>-->
-        <v-carousel v-model="model" :height="windowSize > 1129 ? '510' : '650' " hide-delimiter-background show-arrows-on-hover cycle >
+        <v-carousel v-model="model" :height="windowSize > 1129 ? '510' : '670' " hide-delimiter-background show-arrows-on-hover cycle >
             <v-carousel-item v-for="(color, index ) in colors" :key="index">
                 <!--:class="{'bg-img' : index !== 2}"-->
                 <v-sheet tile class="bg-img" :class="windowSize > 1129 ? 'size-bg' : 'size-bg-mb'">
@@ -83,7 +83,7 @@ export default {
     height: 520px;
 }
 .size-bg-mb{
-    height: 660px;
+    height: 680px;
 }
 .font-title{
     /*font-family: 'Archivo' !important;*/
