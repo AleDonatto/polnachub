@@ -21,7 +21,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
 
 .bg-about{
     /**url('../../static/aboutus/bg-about.png') */
