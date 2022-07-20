@@ -35,7 +35,7 @@
                     <v-tab class="black--text text-none mx-1 px-0" to="/polnac">{{ $t('appbar.innovation') }}</v-tab>
                     <v-tab class="black--text text-none mx-1 px-0" to="/alliances">{{ $t('appbar.products') }}</v-tab>
                     <v-tab class="black--text text-none mx-0 px-0" to="/search-products">{{ $t('appbar.services') }}</v-tab>
-                    <v-tab class="black--text text-none mx-0 px-0">{{ $t('appbar.market') }}</v-tab>
+                    <v-tab class="black--text text-none mx-0 px-0" to="/laboratory">{{ $t('appbar.market') }}</v-tab>
                     <v-tab class="black--text text-none mx-0 px-0">Blog</v-tab>
                     <v-tab class="black--text text-none mx-0 px-0">{{ $t('appbar.contact') }}</v-tab>
                     
