@@ -333,7 +333,7 @@
                         </p>
                     </v-col>
                     <v-col lg="6" md="6" sm="12" xs="12" align="center">
-                        <v-img :src="windowSize > 1129 ? './map.png' : './map-mobile.png'" contain max-height="450" max-width="450" alt="sucursales"></v-img >
+                        <v-img src="/map.png" contain max-height="450" max-width="450" alt="sucursales"></v-img >
                     </v-col>
                     <v-col v-if="windowSize < 1129">
                         <p class="text-body-all text-justify">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro y Tijuana.</p>
@@ -472,7 +472,8 @@
                 <v-sheet class="mx-auto my-10" max-width="1600">
                     <v-slide-group v-model="model" class="pa-4" center-active show-arrows>
                         <v-slide-item v-for="(item, index) in blogs" :key="index" >
-                            <v-card class="ma-5 card-blog shadow-out" max-width="325" max-height="390">
+                            <!--max-width="325" max-height="390"-->
+                            <v-card class="card-blog shadow-out" :class="{'ma-5': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
                                 <img :src="item.img" style="width: 100%" alt="pruebas"/>
                                 <v-card-title>{{item.title}}</v-card-title>
                                 <v-card-subtitle>{{item.description}}</v-card-subtitle>

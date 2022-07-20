@@ -170,10 +170,10 @@
                             </v-col>
                             <v-col lg="12" md="12" sm="6" xs="6">
                                 <ul class="lists text-left">
-                                    <li class="my-1">Polietileno Lineal de Baja Densidad (LLDPE)</li>
-                                    <li class="my-1">Polietileno de Baja Densidad (PEBD)</li>
-                                    <li class="my-1">Polietileno de Alta Densidad (PEAD)</li>
-                                    <li class="my-1">Polietileno de Alto Peso Molecular (HMWPE)</li>
+                                    <li class="my-3">Polietileno Lineal de Baja Densidad (LLDPE)</li>
+                                    <li class="my-3">Polietileno de Baja Densidad (PEBD)</li>
+                                    <li class="my-3">Polietileno de Alta Densidad (PEAD)</li>
+                                    <li class="my-3">Polietileno de Alto Peso Molecular (HMWPE)</li>
                                 </ul>
                             </v-col>
                         </v-row>
@@ -185,12 +185,12 @@
                             </v-col>
                             <v-col lg="12" md="12" sm="6" xs="6">
                                 <ul class="lists text-left">
-                                    <li class="my-1">Acetato de Vinilo (EVA)</li>
-                                    <li class="my-1">Acetal (POM)</li>
-                                    <li class="my-1">Policarbonato (PC)</li>
-                                    <li class="my-1">Acrílico (PMMA)</li>
-                                    <li class="my-1">Nylon 6 (PA 6)</li>
-                                    <li class="my-1">Nylon 6.6 (PA 6.6)</li>
+                                    <li class="my-3">Acetato de Vinilo (EVA)</li>
+                                    <li class="my-3">Acetal (POM)</li>
+                                    <li class="my-3">Policarbonato (PC)</li>
+                                    <li class="my-3">Acrílico (PMMA)</li>
+                                    <li class="my-3">Nylon 6 (PA 6)</li>
+                                    <li class="my-3">Nylon 6.6 (PA 6.6)</li>
                                 </ul>
                             </v-col>
                         </v-row>
@@ -202,14 +202,14 @@
                             </v-col>
                             <v-col lg="12" md="12" sm="6" xs="6">
                                 <ul class="lists text-left">
-                                    <li class="my-1">Poliestireno Cristal (6 PPS)</li>
-                                    <li class="my-1">Poliestireno Medio Impacto (MIPS)</li>
-                                    <li class="my-1">Poliestireno Alto Impacto (HIPS)</li>
-                                    <li class="my-1">Acrilonitrilo Butadieno Estireno (ABS)</li>
-                                    <li class="my-1">Acrilato de Acrilonitrilo Estireno (ASA)</li>
-                                    <li class="my-1">Estireno Acrilonitrilo (SAN)</li>
-                                    <li class="my-1">Copolímero Estireno Butadieno (SBC)</li>
-                                    <li class="my-1">Poliestireno Expansible (EPS)</li>
+                                    <li class="my-3">Poliestireno Cristal (6 PPS)</li>
+                                    <li class="my-3">Poliestireno Medio Impacto (MIPS)</li>
+                                    <li class="my-3">Poliestireno Alto Impacto (HIPS)</li>
+                                    <li class="my-3">Acrilonitrilo Butadieno Estireno (ABS)</li>
+                                    <li class="my-3">Acrilato de Acrilonitrilo Estireno (ASA)</li>
+                                    <li class="my-3">Estireno Acrilonitrilo (SAN)</li>
+                                    <li class="my-3">Copolímero Estireno Butadieno (SBC)</li>
+                                    <li class="my-3">Poliestireno Expansible (EPS)</li>
                                 </ul>
                             </v-col>
                         </v-row>
@@ -250,17 +250,25 @@
                     </v-col>
                 </v-row>
                 <v-row justify="center">
-                    <v-col lg="3" md="3" sm="6" xs="6" align="center">
-                        <img src="../../static/poliresin/estirenicos.png" alt="estirenicos">
+                    <v-col cols="6" lg="3" md="3" sm="6" xs="6" align="center">
+                        <img src="../../static/poliresin/estirenicos.png" alt="estirenicos" v-if="windowSize > 1129">
+                        <v-img src="/poliresin/estirenicos-mb.png" contain max-width="250" v-if="windowSize < 1129"></v-img>
+                        <p class="mt-2 text-left font-weight-bold" v-if="windowSize < 1129">Estirénicos</p>
                     </v-col>
-                    <v-col lg="3" md="3" sm="6" xs="6" align="center">
-                        <img src="../../static/poliresin/compuestos.png" alt="compuestos">
+                    <v-col cols="6" lg="3" md="3" sm="6" xs="6" align="center">
+                        <img src="../../static/poliresin/compuestos.png" alt="compuestos" v-if="windowSize > 1129">
+                        <v-img src="/poliresin/compuestos-mb.png" contain max-width="250" v-if="windowSize < 1129"></v-img>
+                        <p class="mt-2 text-left font-weight-bold" v-if="windowSize < 1129">Compuestos</p>
                     </v-col>
-                    <v-col lg="3" md="3" sm="6" xs="6" align="center">
-                        <img src="../../static/poliresin/elastomeros.png" alt="elastomeros termoplasticos">
+                    <v-col cols="6" lg="3" md="3" sm="6" xs="6" align="center">
+                        <img src="../../static/poliresin/elastomeros.png" alt="elastomeros termoplasticos" v-if="windowSize > 1129">
+                        <v-img src="/poliresin/termoplasticos-mb.png" contain max-width="250" v-if="windowSize < 1129"></v-img>
+                        <p class="mt-2 text-left font-weight-bold" v-if="windowSize < 1129">Elastómeros Termoplásticos</p>
                     </v-col>
-                    <v-col lg="3" md="3" sm="6" xs="6" align="center">
-                        <img src="../../static/poliresin/polipropilenos.png" alt="polipropilenos">
+                    <v-col cols="6" lg="3" md="3" sm="6" xs="6" align="center">
+                        <img src="../../static/poliresin/polipropilenos.png" alt="polipropilenos" v-if="windowSize > 1129">
+                        <v-img src="/poliresin/polipropilenos-mb.png" contain max-width="250" v-if="windowSize < 1129"></v-img>
+                        <p class="mt-2 text-left font-weight-bold" v-if="windowSize < 1129">Polipropilenos</p>
                     </v-col>
                 </v-row>
                 <!--<v-row justify="center">
@@ -299,7 +307,7 @@
                         <p class="text-center text-lg-h5 text-sm-subtitle-1">Maquila de lavado</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12">
-                        <p class="text-center text-body-all">Maquila de triturado</p>
+                        <p class="text-center text-lg-h5 text-sm-subtitle-1">Maquila de triturado</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12">
                         <p class="text-center text-lg-h5 text-sm-subtitle-1">Maquila de peletizado</p>

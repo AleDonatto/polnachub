@@ -8,7 +8,7 @@
         <section>
             <v-container>
                 <v-row justify="center">
-                    <v-col lg="5" md="5" sm="12" xs="12" class="my-10" align-self="center">
+                    <v-col lg="5" md="5" sm="12" xs="12" class="mt-10 mb-5" align-self="center">
                         <p>
                             {{ $t('transpolimer.services') }}
                             <br><br> 
@@ -18,13 +18,14 @@
                         </p>
                         <!--<div v-html="$md.render(pagetranspolimer.section.description)"></div>-->
                     </v-col>
-                    <v-col lg="5" md="5" sm="12" xs="12" align-self="center" class="my-10" :class="{'my-4': windowSize < 1129}">
-                        <v-carousel cycle height="300" hide-delimiter-background show-arrows-on-hover class="mt-5" :class="{'mt-1': windowSize < 1129}">
+                    <v-col lg="5" md="5" sm="12" xs="12" align-self="center" :class="{'my-2': windowSize < 1129, 'my-10': windowSize > 1129}">
+                        <v-carousel dark cycle :height="windowSize > 1129 ? '300' : '210'" hide-delimiter-background show-arrows-on-hover :class="{'mt-1': windowSize < 1129, 'mt-5': windowSize > 1129}">
                             <v-carousel-item v-for="(slide, i) in 3" :key="i">
-                                <v-sheet color="red" height="100%">
+                                <v-sheet height="100%">
                                     <v-row class="fill-height" align="center" justify="center">
-                                        <div class="text-h2">
-                                            <img src="../../static/transpolimer/carousel-trasnpolimer.png" alt="">
+                                        <div>
+                                            <v-img src="/transpolimer/carousel-trasnpolimer.png" contain width="450" v-if="windowSize>1129"></v-img>
+                                            <v-img src="/transpolimer/carousel-mb.png" contain width="320" v-else></v-img>
                                         </div>
                                     </v-row>
                                 </v-sheet>
@@ -46,7 +47,7 @@
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
                         <!--<img src="../../static/transpolimer/almacenaje.png" alt="almacenaje">-->
                         <v-img src="/transpolimer/almacenaje.png" contain max-height="90"></v-img>
-                        <p class="text-center mt-2"><span class="font-weight-bold headline">23,000 m<sup>2</sup></span> <br> de almacenaje techado</p>
+                        <p class="text-center mt-2"><span class="font-weight-bold headline">23,000 m<sup>2</sup></span> <br> de <span class="font-weight-bold">almacenaje</span> techado</p>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" align-self="center">
                         <!--<img src="../../static/transpolimer/hopper.png" alt="hopper">-->

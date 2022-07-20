@@ -100,7 +100,9 @@
               <p class="teal--text accent-3--text body-1" :class="{
                 'text-right': windowSize > 1129,
               }">
-                Consulta nuestros Términos y Condiciones y Aviso de Privacidad
+                Consulta nuestros 
+                <a href="/" target="_blank" rel="noopener noreferrer" class="teal--text accent-3--text">Términos y Condiciones</a> y 
+                <a href="/" target="_blank" rel="noopener noreferrer" class="teal--text accent-3--text">Aviso de Privacidad</a>
               </p>
             </v-col>
           </v-row>
