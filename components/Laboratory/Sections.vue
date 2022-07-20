@@ -514,9 +514,9 @@
         <section>
             <v-container>
                 <v-row justify="center" class="my-10">
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="center">
-                        <p class="font-size-20">Adicionalmente se realizan otras pruebas como:</p>
-                        <ul class="font-size-20">
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center" align-self="center">
+                        <p class="font-size-20 text-left">Adicionalmente se realizan otras pruebas como:</p>
+                        <ul class="font-size-20 text-left">
                             <li>Determeinación de humedad</li>
                             <li>Determeinación de color con espectrofotómetro</li>
                             <li>Preparacion de probetas de inyección</li>
@@ -542,7 +542,7 @@ import { mapState } from 'vuex'
 export default {
     data() {
         return {
-            panel: [0, 1],
+            panel: [0],
             readonly: false,
         }
     },
