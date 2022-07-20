@@ -2,7 +2,7 @@
     <div class="bg-laboratory">
         <v-row justify="center">
             <v-col cols="12" align="center">
-                <h1 class="mt-16 font-archivo text-h3 white--text font-weight-bold">Laboratorio</h1>
+                <h1 class="mt-16 font-archivo font-size-40 white--text font-weight-bold">Laboratorio</h1>
             </v-col>
             <v-col cols="10" align="center">
                 <p class="title white--text mt-10 mb-16">

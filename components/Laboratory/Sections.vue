@@ -29,7 +29,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="my-10">
-                        <h1 class="font-archivo text-h3 font-weight-bold">Pruebas de Laboratorio</h1>
+                        <h1 class="font-archivo font-size-30 font-weight-bold">Pruebas de Laboratorio</h1>
                     </v-col>
                 </v-row>
 
@@ -64,7 +64,9 @@
                                             <p class="body-2 font-weight-bold">Conoce más sobre el proceso</p>
                                         </v-col>
                                         <v-col cols="4" class="mt-2">
-                                            <p class="body-2 more font-weight-bold">Leer más</p>
+                                            <nuxt-link to="/polnac-wiki">
+                                                <p class="body-2 more font-weight-bold">Leer más</p>
+                                            </nuxt-link>
                                         </v-col>
                                     </v-row>
                                 </div>
@@ -82,16 +84,7 @@
                                             <p>ASTM</p>
                                         </v-col>
                                         <v-col align-self="center" class="mt-2">
-                                            <p>ASTM D 1238</p>
-                                        </v-col>
-                                    </v-row>
-                                    <v-divider></v-divider>
-                                    <v-row>
-                                        <v-col align-self="center" class="mt-2">
-                                            <p>ISO</p>
-                                        </v-col>
-                                        <v-col align-self="center" class="mt-2">
-                                            <p>ISO 1133</p>
+                                            <p>ASTM D 792 A</p>
                                         </v-col>
                                     </v-row>
                                     <v-divider></v-divider>
@@ -100,7 +93,9 @@
                                             <p class="body-2 font-weight-bold">Conoce más sobre el proceso</p>
                                         </v-col>
                                         <v-col cols="4" class="mt-2">
-                                            <p class="body-2 more font-weight-bold">Leer más</p>
+                                            <nuxt-link to="/polnac-wiki">
+                                                <p class="body-2 more font-weight-bold">Leer más</p>
+                                            </nuxt-link>
                                         </v-col>
                                     </v-row>
                                 </div>
@@ -118,7 +113,7 @@
                                             <p>ASTM</p>
                                         </v-col>
                                         <v-col align-self="center" class="mt-2">
-                                            <p>ASTM D 1238</p>
+                                            <p>ASTM D 256 A</p>
                                         </v-col>
                                     </v-row>
                                     <v-divider></v-divider>
@@ -127,7 +122,7 @@
                                             <p>ISO</p>
                                         </v-col>
                                         <v-col align-self="center" class="mt-2">
-                                            <p>ISO 1133</p>
+                                            <p>ISO 180</p>
                                         </v-col>
                                     </v-row>
                                     <v-divider></v-divider>
@@ -136,7 +131,9 @@
                                             <p class="body-2 font-weight-bold">Conoce más sobre el proceso</p>
                                         </v-col>
                                         <v-col cols="4" class="mt-2">
-                                            <p class="body-2 more font-weight-bold">Leer más</p>
+                                            <nuxt-link to="/polnac-wiki">
+                                                <p class="body-2 more font-weight-bold">Leer más</p>
+                                            </nuxt-link>
                                         </v-col>
                                     </v-row>
                                 </div>
@@ -154,16 +151,7 @@
                                             <p>ASTM</p>
                                         </v-col>
                                         <v-col align-self="center" class="mt-2">
-                                            <p>ASTM D 1238</p>
-                                        </v-col>
-                                    </v-row>
-                                    <v-divider></v-divider>
-                                    <v-row>
-                                        <v-col align-self="center" class="mt-2">
-                                            <p>ISO</p>
-                                        </v-col>
-                                        <v-col align-self="center" class="mt-2">
-                                            <p>ISO 1133</p>
+                                            <p>ASTM D 1709</p>
                                         </v-col>
                                     </v-row>
                                     <v-divider></v-divider>
@@ -172,7 +160,9 @@
                                             <p class="body-2 font-weight-bold">Conoce más sobre el proceso</p>
                                         </v-col>
                                         <v-col cols="4" class="mt-2">
-                                            <p class="body-2 more font-weight-bold">Leer más</p>
+                                            <nuxt-link to="/polnac-wiki">
+                                                <p class="body-2 more font-weight-bold">Leer más</p>
+                                            </nuxt-link>
                                         </v-col>
                                     </v-row>
                                 </div>
@@ -190,7 +180,7 @@
                                             <p>ASTM</p>
                                         </v-col>
                                         <v-col align-self="center" class="mt-2">
-                                            <p>ASTM D 1238</p>
+                                            <p>ASTM D 638</p>
                                         </v-col>
                                     </v-row>
                                     <v-divider></v-divider>
@@ -199,7 +189,7 @@
                                             <p>ISO</p>
                                         </v-col>
                                         <v-col align-self="center" class="mt-2">
-                                            <p>ISO 1133</p>
+                                            <p>ISO 527-2</p>
                                         </v-col>
                                     </v-row>
                                     <v-divider></v-divider>
@@ -208,7 +198,9 @@
                                             <p class="body-2 font-weight-bold">Conoce más sobre el proceso</p>
                                         </v-col>
                                         <v-col cols="4" class="mt-2">
-                                            <p class="body-2 more font-weight-bold">Leer más</p>
+                                            <nuxt-link to="/polnac-wiki">
+                                                <p class="body-2 more font-weight-bold">Leer más</p>
+                                            </nuxt-link>
                                         </v-col>
                                     </v-row>
                                 </div>
@@ -231,20 +223,13 @@
                                     </v-row>
                                     <v-divider></v-divider>
                                     <v-row>
-                                        <v-col align-self="center" class="mt-2">
-                                            <p>ISO</p>
-                                        </v-col>
-                                        <v-col align-self="center" class="mt-2">
-                                            <p>ISO 1133</p>
-                                        </v-col>
-                                    </v-row>
-                                    <v-divider></v-divider>
-                                    <v-row>
                                         <v-col cols="8" class="mt-2">
                                             <p class="body-2 font-weight-bold">Conoce más sobre el proceso</p>
                                         </v-col>
                                         <v-col cols="4" class="mt-2">
-                                            <p class="body-2 more font-weight-bold">Leer más</p>
+                                            <nuxt-link to="/polnac-wiki">
+                                                <p class="body-2 more font-weight-bold">Leer más</p>
+                                            </nuxt-link>
                                         </v-col>
                                     </v-row>
                                 </div>
@@ -280,7 +265,9 @@
                                             <p class="body-2 font-weight-bold">Conoce más sobre el proceso</p>
                                         </v-col>
                                         <v-col cols="4" class="mt-2">
-                                            <p class="body-2 more font-weight-bold">Leer más</p>
+                                            <nuxt-link to="/polnac-wiki">
+                                                <p class="body-2 more font-weight-bold">Leer más</p>
+                                            </nuxt-link>
                                         </v-col>
                                     </v-row>
                                 </div>
@@ -316,7 +303,9 @@
                                             <p class="body-2 font-weight-bold">Conoce más sobre el proceso</p>
                                         </v-col>
                                         <v-col cols="4" class="mt-2">
-                                            <p class="body-2 more font-weight-bold">Leer más</p>
+                                            <nuxt-link to="/polnac-wiki">
+                                                <p class="body-2 more font-weight-bold">Leer más</p>
+                                            </nuxt-link>
                                         </v-col>
                                     </v-row>
                                 </div>
@@ -355,7 +344,9 @@
                                     <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
                                 </v-col>
                                 <v-col cols="3" class="mt-2">
-                                    <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
                                 </v-col>
                             </v-row>
                         </div>
@@ -379,7 +370,9 @@
                                     <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
                                 </v-col>
                                 <v-col cols="3" class="mt-2">
-                                    <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
                                 </v-col>
                             </v-row>
                         </div>
@@ -412,7 +405,9 @@
                                     <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
                                 </v-col>
                                 <v-col cols="3" class="mt-2">
-                                    <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
                                 </v-col>
                             </v-row>
                         </div>
@@ -437,7 +432,9 @@
                                     <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
                                 </v-col>
                                 <v-col cols="3" class="mt-2">
-                                    <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
                                 </v-col>
                             </v-row>
                         </div>
@@ -470,7 +467,9 @@
                                     <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
                                 </v-col>
                                 <v-col cols="3" class="mt-2">
-                                    <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
                                 </v-col>
                             </v-row>
                         </div>
@@ -494,7 +493,9 @@
                                     <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
                                 </v-col>
                                 <v-col cols="3" class="mt-2">
-                                    <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
                                 </v-col>
                             </v-row>
                         </div>

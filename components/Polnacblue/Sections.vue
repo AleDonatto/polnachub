@@ -21,7 +21,7 @@
             <v-container>
                 <v-row class="mt-2 mb-16" justify="center">
                     <v-col cols="12" align="center">
-                        <h1 class="font-archivo text-h3 font-weight-bold">Sobre la Economía Circular</h1>
+                        <h1 class="font-archivo font-size-30 font-weight-bold">Sobre la Economía Circular</h1>
                     </v-col>
                     <v-col class="mt-5" :class="{'mb-10': windowSize < 1129}" cols="12">
                         <p class="font-size-20">
