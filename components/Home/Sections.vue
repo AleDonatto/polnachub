@@ -23,7 +23,11 @@
 
                         </v-col>
                         <v-col md="6" sm="12" xs="5" align="center" v-if="windowSize > 1129">
-                            <v-img src="./video.png" contain max-height="350" max-width="350"></v-img>
+                            <!--<v-img src="./video.png" contain max-height="350" max-width="350"></v-img>-->
+                            <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="400" height="250" type="text/html" 
+                                src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                            </iframe>
+
                         </v-col>
                     </v-row>
                 </div>

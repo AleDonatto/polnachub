@@ -41,13 +41,11 @@
                     </v-col>
                 </v-row>
                 <v-row justify="center">
-                    <v-col cols="12" class="my-15">
-                        <v-img src="/aboutus/video.png" contain max-height="550"></v-img>
-                        <!--<video height="450" autoplay="true" muted="muted" loop="true">
-                            <source src="https://www.youtube.com/watch?v=CJ9LyIMleDA" type="video/mp4">
-                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CJ9LyIMleDA" title="YouTube video player" 
-                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </video>-->
+                    <v-col cols="12" class="my-15" align="center">
+                        <!--<v-img src="/aboutus/video.png" contain max-height="550"></v-img>-->
+                        <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="880" height="480" type="text/html" 
+                        src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                        </iframe>
                     </v-col>
                 </v-row>
             </v-container>
