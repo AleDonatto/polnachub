@@ -32,11 +32,11 @@
                 <v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129">
                     <v-tabs-slider color></v-tabs-slider>
                     <v-tab class="black--text text-none mx-1 px-0" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
-                    <v-tab class="black--text text-none mx-1 px-0" to="/innovation">{{ $t('appbar.innovation') }}</v-tab>
-                    <v-tab class="black--text text-none mx-1 px-0" to="/alliances">{{ $t('appbar.products') }}</v-tab>
-                    <v-tab class="black--text text-none mx-0 px-0" to="/search-products">{{ $t('appbar.services') }}</v-tab>
-                    <v-tab class="black--text text-none mx-0 px-0" to="/polnac-blue">{{ $t('appbar.market') }}</v-tab>
-                    <v-tab class="black--text text-none mx-0 px-0" to="/laboratory">Blog</v-tab>
+                    <v-tab class="black--text text-none mx-1 px-0" to="/polnac-group">{{ $t('appbar.innovation') }}</v-tab>
+                    <v-tab class="black--text text-none mx-1 px-0" to="">{{ $t('appbar.products') }}</v-tab>
+                    <v-tab class="black--text text-none mx-0 px-0" to="">{{ $t('appbar.services') }}</v-tab>
+                    <v-tab class="black--text text-none mx-0 px-0" to="">{{ $t('appbar.market') }}</v-tab>
+                    <v-tab class="black--text text-none mx-0 px-0" to="">Blog</v-tab>
                     <v-tab class="black--text text-none mx-0 px-0">{{ $t('appbar.contact') }}</v-tab>
                     
                     <v-tab class="mx-0 px-0">
