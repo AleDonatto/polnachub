@@ -216,7 +216,7 @@
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
                                 <v-card class="px-5 my-2" height="300" color="white">
                                     <v-card-text>
-                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-5 text-color-testimonios">
+                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-2 text-color-testimonios">
                                             CHIAPLAST
                                         </p>
                                         <p class="ma-0 text-h6 text-center text-color-testimonios">
@@ -242,7 +242,7 @@
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
                                 <v-card class="mx-5 px-5 my-2" height="330" color="rgba(9, 187, 174, 1)">
                                     <v-card-text>
-                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-5 black--text" >
+                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-2 black--text" >
                                             Criser
                                         </p>
                                         <p class="ma-0 text-h6 text-center black--text">
@@ -268,8 +268,8 @@
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
                                 <v-card class="mx-5 px-5 my-2" height="300" color="white">
                                     <v-card-text>
-                                        <p class="text-h5 text-md-subtitle1 text-uppercase text-center font-weight-bold mt-5 text-color-testimonios">
-                                            Plásticos Técnicos Mexicanos
+                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-2 text-color-testimonios">
+                                            <!--Plásticos Técnicos Mexicanos--> PTM
                                         </p>
                                         <p class="ma-0 text-h6 text-center text-color-testimonios">
                                             José Juan Reyes Chávez
@@ -281,7 +281,7 @@
                                             <v-icon color="#19D3C5">mdi-star</v-icon>
                                             <v-icon color="#19D3C5">mdi-star</v-icon>
                                         </div>
-                                        <p class="mt-2 text-center">
+                                        <p class="mt-2 text-center" :class="{'text-truncate' : windowSize < 1450 && windowSize > 1129 }">
                                             “En POLNAC hemos encontrado soluciones prácticas para las necesidades de nuestra compañía, 
                                             inmediata respuesta y variedad en productos, así como un amplio conocimiento técnico que nos 
                                             ha permitido ser más eficientes en nuestros procesos y costos”.
@@ -340,7 +340,7 @@
                         <v-img src="/map.png" contain max-height="450" max-width="450" alt="sucursales"></v-img >
                     </v-col>
                     <v-col v-if="windowSize < 1129">
-                        <p class="text-body-all text-justify">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro y Tijuana.</p>
+                        <p class="text-body-all text-justify">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
                     </v-col>
                 </v-row>
                 <v-row class="mx-5">
@@ -353,7 +353,7 @@
                         <p class="text-body-all text-center">de <span class="font-weight-bold">capacidad de producción</span> anual</p>
                     </v-col>
                     <v-col lg="6" md="6" sm="12" xs="12" v-if="windowSize > 1129">
-                        <p class="text-body-all text-left">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro y Tijuana.</p>
+                        <p class="text-body-all text-left">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
                     </v-col>
                 </v-row>
 

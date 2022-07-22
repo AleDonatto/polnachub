@@ -80,7 +80,7 @@
                                                         </v-col>
                                                         <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
                                                             <v-img src="/menu-search/masterbach.png" contain max-height="65"></v-img>
-                                                            <p class="">Masterbach</p>
+                                                            <p class="">Masterbatch</p>
                                                         </v-col>
                                                         <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
                                                             <v-img src="/menu-search/aditivos.png" contain max-height="65"></v-img>

@@ -4,7 +4,7 @@
             <v-row justify="center">
                 <v-col cols="12">
                     <h1 class="font-archivo font-size-30 white--text text-center my-10">
-                        ¿Necesitas más información sobre <span class="font-weight-bold">POLIRESIN</span>?
+                        ¿Necesitas más información sobre <span class="font-weight-bold">{{this.$route.path.includes('poliresin') ? 'POLIRESIN' : 'TRANSPOLIMER'}}</span>?
                     </h1>
                 </v-col>
             </v-row>
