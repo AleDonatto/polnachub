@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-transpolimer">
+    <div :class="{'bg-transpolimer': windowSize > 1129, 'bg-transpolimer-mb': windowSize < 1129 }">
         <v-row justify="center">
             <v-col cols="12" class="mt-12" align="center">
                 <img src="../../static/transpolimer/logotranspolimer.png" alt="logo transpolimer">
@@ -27,14 +27,22 @@ export default {
         }
     },
     computed: {
-        ...mapState(['pagetranspolimer','basePathApiUrl'])
+        ...mapState(['pagetranspolimer','basePathApiUrl', 'windowHeight','windowSize'])
     }
 }
 </script>
 
 <style scoped>
 .bg-transpolimer{
-    background-image: linear-gradient(to right,rgba(253, 79, 23, 0.8),rgba(32, 26, 26, 0.8)), url('../../static/transpolimer/bg-transpolimer.png');
+    background-image: url('../../static/transpolimer/bg-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+}
+
+.bg-transpolimer-mb{
+    background-image: url('../../static/transpolimer/bg-bannermb.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

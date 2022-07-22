@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="bg-search">
+        <div :class="{'bg-search':windowSize > 1129, 'bg-search-mb': windowSize < 1129 }">
             <v-row justify="center" class="">
                 <v-col cols="12" class="mt-16 mb-10" align="center">
-                    <h1 class="mt-10 white--text font-title text-h3 font-weight-bold">Buscador de productos</h1>
+                    <h1 class="mt-10 white--text font-archivo font-size-30 font-weight-bold">Buscador de productos</h1>
                 </v-col>
             </v-row>
             <v-container v-if="windowSize > 1129">
@@ -75,7 +75,16 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
 
 .bg-search{
-    background-image: linear-gradient(to right,rgba(25, 211, 197, 0.8),rgba(119, 61, 189, 0.8)), url('../../static/search/bg-search.png');
+    background-image: url('../../static/search/bg-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 420px;
+}
+
+.bg-search-mb{
+    background-image: url('../../static/search/bg-bannermb.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

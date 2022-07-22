@@ -3,7 +3,7 @@
         <v-container>
             <v-row justify="center">
                 <v-col cols="12" align="center" class="my-16">
-                    <h1 class="white--text font-archivo text-h3 my-5 font-weight-bold">¿Necesitas más información?</h1>
+                    <h1 class="white--text font-archivo font-size-40 my-5 font-weight-bold">¿Necesitas más información?</h1>
                     <p class="white--text text-h5 my-5">Revisa nuestro amplio catálogo de productos</p>
                     <v-btn class="font-size-20 black--text px-10 my-5 py-6 body-1 text-none rounded-lg" color="#19D3C5">Ver productos</v-btn>
                 </v-col>                    

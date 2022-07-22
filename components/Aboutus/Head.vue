@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-about">
+    <div :class="{'bg-about': windowSize > 1129, 'bg-about-mb': windowSize < 1129 }">
         <v-row justify="center" class="py-10">
             <v-col cols="12" class="mt-12" align="center">
-                <h1 class="font-archivo text-h3 white--text font-weight-bold">¿Quiénes somos?</h1>
+                <h1 class="font-archivo font-size-40 white--text font-weight-bold">¿Quiénes somos?</h1>
             </v-col>
             <v-col cols="9" class="mt-5 mb-10" align="center">
                 <p class="title white--text">
@@ -15,8 +15,17 @@
 </template>
 
 <script>
-export default {
+import { mapState } from 'vuex'
 
+export default {
+    data() {
+        return {
+
+        }
+    },
+    computed: {
+        ...mapState(['windowSize', 'windowHeight'])
+    }
 }
 </script>
 
@@ -24,7 +33,16 @@ export default {
 
 .bg-about{
     /**url('../../static/aboutus/bg-about.png') */
-    background-image: linear-gradient(to right, rgba(58, 136, 231, 0.9),rgba(119, 61, 189, 0.8)), url('../../static/aboutus/bg-about.png');
+    background-image: url('../../static/aboutus/bg-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+}
+
+.bg-about-mb{
+    /**url('../../static/aboutus/bg-about.png') */
+    background-image: url('../../static/aboutus/bg-bannermb.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

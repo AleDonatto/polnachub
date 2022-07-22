@@ -4,7 +4,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="mt-16">
-                        <h1 class="text-h5 font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>
+                        <h1 class="font-archivo font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>
                     </v-col>
                 </v-row>
 

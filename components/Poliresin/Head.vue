@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-poliresin">
+    <div :class="{'bg-poliresin': windowSize > 1129, 'bg-poliresin-mb': windowSize < 1129 }">
         <v-row justify="center">
             <v-col cols="12" class="mt-12" align="center">
                 <v-img src="/poliresin/POLIRESINLOGO.png" contain max-width="450"></v-img>
@@ -35,7 +35,14 @@ export default {
 
 <style scoped>
 .bg-poliresin{
-    background-image: linear-gradient(rgba(42, 68, 150,0.7) ,rgba(21, 147, 70,0.7)),url('../../static/poliresin/bg-poliresin.png');
+    background-image: url('../../static/poliresin/bg-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+}
+.bg-poliresin-mb{
+    background-image: url('../../static/poliresin/bg-bannermb.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

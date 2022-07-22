@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-laboratory">
+    <div :class="{'bg-laboratory': windowSize > 1229, 'bg-laboratory-mb': windowSize < 1129 }">
         <v-row justify="center">
             <v-col cols="12" align="center">
                 <h1 class="mt-16 font-archivo font-size-40 white--text font-weight-bold">Laboratorio</h1>
@@ -16,18 +16,30 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     data() {
         return {
 
         }
+    },
+    computed: {
+        ...mapState(['windowHeight','windowSize'])
     }
 }
 </script>
 
 <style scoped>
 .bg-laboratory{
-    background-image: linear-gradient(to right, rgba(25, 211, 197, 0.9),rgba(61, 124, 201, 0.9)), url('../../static/laboratory/bg-laboratory.png');
+    background-image: url('../../static/laboratory/bg-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+}
+.bg-laboratory-mb{
+    background-image: url('../../static/laboratory/bg-banner.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

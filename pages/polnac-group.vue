@@ -1,16 +1,16 @@
 <template>
     <div>
-        <PolnacwikiHead/>
-        <PolnacwikiSections/>
+        <GrupoHead/>
+        <GrupoSections />
     </div>
 </template>
 
 <script>
 export default {
+    name: "GrupoPolnac",
+    head: {},
     data() {
-        return {
-
-        }
+        return {};
     },
     mounted() {
         this.$store.dispatch('defaultLanguaje')
@@ -27,6 +27,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

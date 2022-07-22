@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-polnacblue">
+    <div :class="{'bg-polnacblue': windowSize > 1129, 'bg-polnacblue-mb': windowSize < 1129 }">
         <v-row justify="center">
             <v-col cols="12" align="center">
                 <h1 class="mt-16 font-archivo font-size-40 white--text font-weight-bold">POLNAC Blue</h1>
@@ -15,14 +15,31 @@
 </template>
 
 <script>
-export default {
+import { mapState } from 'vuex'
 
+export default {
+    data() {
+        return {
+
+        }
+    }, 
+    computed: {
+        ...mapState(['windowHeight','windowSize'])
+    }
 }
 </script>
 
 <style scoped>
 .bg-polnacblue{
-    background-image: linear-gradient(to right,rgba(25, 211, 197, 0.9), rgba(61, 124, 201, 0.9)), url('../../static/polnacblue/bg-polnacblue.png');
+    background-image: url('../../static/polnacblue/bg-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+}
+
+.bg-polnacblue-mb{
+    background-image: url('../../static/polnacblue/bg-bannermb.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

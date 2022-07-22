@@ -3,7 +3,9 @@
         <v-container>
             <v-row justify="center">
                 <v-col cols="12">
-                    <h2 class="white--text text-center my-10">¿Necesitas más información sobre POLIRESIN?</h2>
+                    <h1 class="font-archivo font-size-30 white--text text-center my-10">
+                        ¿Necesitas más información sobre <span class="font-weight-bold">POLIRESIN</span>?
+                    </h1>
                 </v-col>
             </v-row>
             <v-form>

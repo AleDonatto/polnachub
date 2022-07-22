@@ -4,7 +4,7 @@
             <v-container>
                 <v-row justify="center" class="my-10">
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="end">
-                        <h1 class="text-h3 font-title-section font-weight-bold">
+                        <h1 class="font-archivo font-size-40 font-weight-bold">
                             Misión
                         </h1>
 
@@ -24,7 +24,7 @@
                         <v-img src="/aboutus/img-vision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="650"></v-img>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="end">
-                        <h1 class="text-h3 font-title-section font-weight-bold">
+                        <h1 class="font-archivo font-size-40 font-weight-bold">
                             Visión
                         </h1>
 
@@ -43,7 +43,7 @@
                 <v-row justify="center">
                     <v-col cols="12" class="my-15" align="center">
                         <!--<v-img src="/aboutus/video.png" contain max-height="550"></v-img>-->
-                        <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="880" height="480" type="text/html" 
+                        <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '880': '395' " :height="windowSize > 1129 ? '480' : '220'" type="text/html" 
                         src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                         </iframe>
                     </v-col>
@@ -55,7 +55,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" class="my-10">
-                        <h1 class="font-title-section text-h3 text-center font-weight-bold">Valores de la empresa</h1>
+                        <h1 class="font-archivo font-size-40 text-center font-weight-bold">Valores de la empresa</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -150,7 +150,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" class="my-10">
-                        <h1 class="text-h3 font-title-section display-1 font-weight-bold text-center">Infraestructura</h1>
+                        <h1 class="font-archivo font-size-40 font-weight-bold text-center">Infraestructura</h1>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -238,7 +238,7 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="my-10">
-                        <h1 class="font-title-section text-h3 font-weight-bold text-center">POLNAC en el tiempo</h1>
+                        <h1 class="font-archivo font-size-40 font-weight-bold text-center">POLNAC en el tiempo</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -258,7 +258,7 @@
             <v-container>
                 <v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="12" align="center" class="mt-10 mb-5">
-                        <h1 class="text-h3 font-title-section font-weight-bold text-center">Política de calidad</h1>
+                        <h1 class="font-archivo font-size-40 font-weight-bold text-center">Política de calidad</h1>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" align="center">
                         <v-img src="/aboutus/politica-calidad.png" contain max-width="450"></v-img>
@@ -266,7 +266,7 @@
                 </v-row>
                 <v-row justify="center" class="mb-15 mt-10">
                     <v-col cols="12" lg="6" md="6" align-self="end">
-                        <h1 class="text-h3 font-title-section font-weight-bold text-left my-5" v-if="windowSize > 1129">Política de calidad</h1>
+                        <h1 class="font-archivo font-size-40 font-weight-bold text-left my-5" v-if="windowSize > 1129">Política de calidad</h1>
                         <p class="text-body-all">
                             Diseñar, fabricar, comercializar y distribuir resinas plásticas y concentrados de color, con el compromiso 
                             de satisfacer los requerimientos de los clientes, a través de un Sistema de Calidad basado en la norma 
@@ -286,7 +286,7 @@
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="img-about-l" :class="{'height-mb': windowSize < 1129}"></v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" :class="{'img-about-r': windowSize > 1129 , 'img-about-r-mb': windowSize < 1129 }">
                     <div class="py-10 my-10" :class="{'px-16': windowSize > 1129, 'px-2': windowSize < 1129}">
-                        <h1 class="text-h4 font-weight-bold my-10 white--text">¿Te interesa trabajar con nosotros?</h1>
+                        <h1 class="font-archivo font-size-40 font-weight-bold my-10 white--text">¿Te interesa trabajar con nosotros?</h1>
                         <p class="white--text text-body-all">
                             ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
                             Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
@@ -317,9 +317,6 @@ export default {
 <style scoped>
 .bg-valores{
     background: #F1F3F6;
-}
-.font-title-section{
-    font-family: 'Archivo' !important;
 }
 .letters{
     color: #E0E621
