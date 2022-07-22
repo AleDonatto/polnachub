@@ -214,17 +214,17 @@
                         
                         <v-row justify="center" class="mx-5" v-if="windowSize > 1129">
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
-                                <v-card class="px-5 my-2" height="300" color="white">
+                                <v-card class="my-2" height="300" color="white">
                                     <v-card-text>
-                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-2 text-color-testimonios">
+                                        <p class="font-archivo font-size-24 text-uppercase text-center font-weight-bold mt-2 text-color-testimonios">
                                             CHIAPLAST
                                         </p>
-                                        <p class="ma-0 text-h6 text-center text-color-testimonios">
+                                        <p class="font-archivo font-size-20 ma-0 font-weight-bold text-center text-color-testimonios">
                                             María Luisa Hernández Vásquez
                                         </p>
                                         <p class="ma-0 text-center text-color-testimonios">Gerente de Compras</p>
                                         <div class="text--primary text-center">
-                                            <v-icon color="#19D3C5" >mdi-star</v-icon>
+                                            <v-icon color="#19D3C5">mdi-star</v-icon>
                                             <v-icon color="#19D3C5">mdi-star</v-icon>
                                             <v-icon color="#19D3C5">mdi-star</v-icon>
                                             <v-icon color="#19D3C5">mdi-star</v-icon>
@@ -240,12 +240,12 @@
                                 </v-card>
                             </v-col>
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
-                                <v-card class="mx-5 px-5 my-2" height="330" color="rgba(9, 187, 174, 1)">
+                                <v-card class=" my-2" height="330" color="rgba(9, 187, 174, 1)">
                                     <v-card-text>
-                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-2 black--text" >
+                                        <p class="font-archivo font-size-24 text-uppercase text-center font-weight-bold mt-2 black--text" >
                                             Criser
                                         </p>
-                                        <p class="ma-0 text-h6 text-center black--text">
+                                        <p class="font-archivo font-size-20 ma-0 font-weight-bold text-center black--text">
                                             Juan Carlos Aguirre Palomo
                                         </p>
                                         <p class="ma-0 text-center black--text">Jefe de Planeación y Compras</p>
@@ -266,12 +266,12 @@
                                 </v-card>
                             </v-col>
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
-                                <v-card class="mx-5 px-5 my-2" height="300" color="white">
+                                <v-card class="my-2" height="300" color="white">
                                     <v-card-text>
-                                        <p class="text-h5 text-uppercase text-center font-weight-bold mt-2 text-color-testimonios">
-                                            <!--Plásticos Técnicos Mexicanos--> PTM
+                                        <p class="font-archivo font-size-24 text-uppercase text-center font-weight-bold mt-2 text-color-testimonios">
+                                            {{ windowSize > 1390 ?  'Plásticos Técnicos Mexicanos' : ' P T M ' }}
                                         </p>
-                                        <p class="ma-0 text-h6 text-center text-color-testimonios">
+                                        <p class="ma-0 font-archivo font-size-20 font-weight-bold text-center text-color-testimonios">
                                             José Juan Reyes Chávez
                                         </p>
                                         <p class="ma-0 text-center text-color-testimonios">Comprador</p>
@@ -281,7 +281,7 @@
                                             <v-icon color="#19D3C5">mdi-star</v-icon>
                                             <v-icon color="#19D3C5">mdi-star</v-icon>
                                         </div>
-                                        <p class="mt-2 text-center" :class="{'text-truncate' : windowSize < 1450 && windowSize > 1129 }">
+                                        <p class="mt-2 text-center">
                                             “En POLNAC hemos encontrado soluciones prácticas para las necesidades de nuestra compañía, 
                                             inmediata respuesta y variedad en productos, así como un amplio conocimiento técnico que nos 
                                             ha permitido ser más eficientes en nuestros procesos y costos”.
