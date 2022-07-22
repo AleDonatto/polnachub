@@ -216,7 +216,7 @@
                         <v-list-item-title class="text-none">{{ $t('appbar.aboutus') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/polnac">
+                <v-list-item link to="/polnac-group">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Grupo Polnac</v-list-item-title>  
                     </v-list-item-content>
