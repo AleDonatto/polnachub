@@ -1,5 +1,5 @@
 <template>
-    <section class="mt-16" :class="{'bg-alliance-end': this.$route.path.includes('alliance'), 'bg-polnac-end': this.$route.path.includes('polnac')}">
+    <section class="mt-16" :class="{'bg-alliance-end': this.$route.path.includes('alliance'), 'bg-polnac-end': this.$route.path.includes('polnac') || this.$route.path.includes('wiki')}">
         <v-container>
             <v-row justify="center">
                 <v-col cols="12" align="center" class="my-16">

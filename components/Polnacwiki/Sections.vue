@@ -131,6 +131,8 @@
                 </v-row>
             </v-container>
         </section>
+
+        <Productos/>
     </div>
 </template>
 
@@ -139,12 +141,12 @@ export default {
     data() {
         return {
             item: [
-                {name: 'Métodos de Transformación'},
-                {name: 'Pruebas de Laboratorio'}   
+                { name: "Métodos de Transformación" },
+                { name: "Pruebas de Laboratorio" }
             ],
             tabs: [0]
-        }
-    }
+        };
+    },
 }
 </script>
 
