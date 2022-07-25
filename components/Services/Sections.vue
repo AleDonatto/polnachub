@@ -1,0 +1,111 @@
+<template>
+    <div>
+        <section>
+            <v-container>
+                <v-row justify="center" class="mt-16">
+                    <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
+                        <h1 class="text-h4 font-weight-bold">Terminal Ferroviaria</h1>
+                        <ul class="text-body-all mt-2">
+                            <li>5 km de vía conectadas a la línea Kansas City Southern de México</li>
+                            <li>Capacidad de almacenaje en vías de 200 hopper cars</li>
+                            <li>Báscula ferroviaria certificada y calibrada</li>
+                            <li>Moderno equipo de arrastre ferroviario para la recepción y almacenaje de hopper cars</li>
+                        </ul>
+                    </v-col>
+                    <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
+                        <h1 class="text-h4 font-weight-bold">Almacenaje</h1>
+                        <ul class="text-body-all mt-2">
+                            <li>Almacenamiento fiscal y nacional</li>
+                            <li>23,000 m2 de almacén cubierto con capacidad para 15,000 toneladas</li>
+                            <li>10 silos de almacenamiento con capacidad para 5,500 toneladas</li>
+                            <li>Todos los silos están equipados para la carga y descarga del material en hopper car y auto tolva.</li>
+                            <li>Andenes de carga y descarga diseñados para garantizar el buen estado de los productos almacenados</li>
+                            <li>Básculas certificadas y calibradas</li>
+                            <li>Sistema de transportación para mover material desde los silos a los equipos de envasado</li>
+                        </ul>
+                    </v-col>
+                    <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
+                        <h1 class="text-h4 font-weight-bold">Transvase</h1>
+                        <ul class="text-body-all">
+                            <li>Transferencias y cargas de resinas plásticas</li>
+                            <li>Trasvase de hopper car a auto tolva</li>
+                            <li>Trasvase de hopper car a silo</li>
+                            <li>Trasvase de silo a auto tolva</li>
+                            <li>Trasvase de hopper car a sacos de 25kg</li>
+                            <li>Trasvase de hopper car a super sacos</li>
+                            <li>Trasvase de sacos a auto tolvo/super sacos</li>
+                            <li>Trasvase de super sacos a sacos de 25kg</li>
+                        </ul>
+                    </v-col>
+
+                    <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
+                        <h1 class="text-h4 font-weight-bold">Ensacado</h1>
+                        <ul class="text-body-all mt-2">
+                            <li>5 líneas de ensacado</li>
+                            <li>Cada línea de ensacado maneja diferente tipo de resinas para evitar contaminaciones</li>
+                            <li>Servicio de ensacado de resinas plásticas en sacos de 25kg y super sacos de 1000kg</li>
+                            <li>Sistema de ensacado con tecnología FFS (Form-Fill-Seal)</li>
+                            <li>Sistema de ensacado de válvula</li>
+                            <li>Emplayado tipo cápsula “Stretch Hood”, la cual brinda mayor protección y estabilidad al producto</li>
+                        </ul>
+                    </v-col>
+                    <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
+                        <h1 class="text-h4 font-weight-bold">Distribución</h1>
+                        <ul class="text-body-all mt-2">
+                            <li>Flotilla de Transporte Especializado: tolvas de aluminio y acero de carbón auto cargables, tractores, hopper cars, Torton, Camioneta 3.5 tons</li>
+                            <li>Unidades con sistema de rastreo satelital GPS en tiempo real las 24 horas al día</li>
+                        </ul>
+                    </v-col>
+                    <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
+                        <h1 class="text-h4 font-weight-bold">Contenedores</h1>
+                        <ul class="text-body-all mt-2">
+                            <li>Grúa para el servicio de carga, descarga y almacenamiento de contenedores</li>
+                            <li>Contenedores de 20, 40, 48 y 53 pies</li>
+                            <li>Transporte ferroviario y terrestre</li>
+                            <li>Alianza estratégica con Naviera para la importación y exportación de contenedores</li>
+                        </ul>
+                    </v-col>
+                </v-row>
+
+                <v-row justify="center">
+                    <v-col cols="12" class="mt-10">
+                        <p class="text-body-all">De igual manera, <span class="font-weight-bold">POLNAC</span> pone a tu disposición su moderno y acreditado laboratorio de pruebas. Equipo e instalaciones de vanguardia para el análisis y evaluación de materiales plásticas a tu alcance:</p>
+                    </v-col>
+                    <v-col cols="10" lg="6" md="6" align="center" class="mb-16">
+                        <v-btn class="rounded-lg text-none d-flex justify-space-between" block outlined color="#19D3C5">
+                            <span class="black--text">Ver pruebas de laboratorio</span>
+                             <v-icon right class="black--text">
+                                mdi-chevron-right
+                            </v-icon>
+                        </v-btn>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+        <section class="bg-servicio mt-16">
+            <v-container>
+                <v-row justify="center">
+                    <v-col cols="12" align="center" class="my-16">
+                        <h1 class="white--text font-archivo font-size-40 my-5 font-weight-bold">¿Te interesa un servicio?</h1>
+                        <v-btn class="font-size-20 black--text px-10 my-5 py-6 body-1 text-none rounded-lg" color="#19D3C5">
+                            Solicitar información
+                        </v-btn>
+                    </v-col>                    
+                </v-row>
+            </v-container>
+        </section>
+    </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style scoped>
+.bg-servicio{
+    background-color: #3D7CC9;
+}
+</style>
