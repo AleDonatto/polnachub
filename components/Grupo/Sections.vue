@@ -28,7 +28,7 @@
             <v-container>
                 <v-row class="" justify="center">
                     <v-col align="center">
-                        <h1 class="font-archivo text-h3 font-weight-bold my-10">Empresas filiales</h1>
+                        <h1 class="font-archivo font-size-40 font-weight-bold my-10">Empresas filiales</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="my-16">
@@ -54,7 +54,7 @@
             <v-container>
                 <v-row>
                     <v-col align="center" class="my-10">
-                        <h1 class="font-archivo text-h3 font-weight-bold">Nuestras marcas</h1>
+                        <h1 class="font-archivo font-size-40 font-weight-bold">Nuestras marcas</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="my-16"> 

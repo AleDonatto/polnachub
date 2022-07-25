@@ -11,7 +11,7 @@
                 <v-row justify="center" class="mt-10">
                     <v-col cols="2" align="center">
                         <v-img src="/menu-search/plasticos.png" contain max-height="90"></v-img>
-                        <p class="mt-2">Plásticos de ingeniería</p>
+                        <p class="mt-2">Plásticos de Ingeniería</p>
                     </v-col>
                     <v-col cols="2" align="center">
                         <v-img src="/menu-search/compuesto.png" contain max-height="90"></v-img>
@@ -27,7 +27,7 @@
                     </v-col>
                     <v-col cols="2" align="center">
                         <v-img src="/menu-search/carbonato.png" contain max-height="90"></v-img>
-                        <p class="mt-2">Carbonato de calcio</p>
+                        <p class="mt-2">Carbonato de Calcio</p>
                     </v-col>
                 </v-row>
                 <v-row justify="center">

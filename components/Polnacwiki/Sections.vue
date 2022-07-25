@@ -30,7 +30,7 @@
                         </v-row>
 
                     </v-col>
-                    <v-col cols="8" v-if="windowSize < 1129">
+                    <v-col cols="8" v-if="windowSize > 1129">
                         <v-expansion-panels v-model="tabs" multiple v-if="showTransf && !showLab ">
                             <v-expansion-panel class="my-2 rounded-xl">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
@@ -234,6 +234,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     data() {
         return {
@@ -244,8 +246,11 @@ export default {
             tabs: [0],
             showTransf: true,
             showLab: false,
-        };
+        }
     },
+    computed: {
+        ...mapState(['windowSize', 'windowHeight'])
+    }
 }
 </script>
 

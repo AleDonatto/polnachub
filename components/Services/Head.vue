@@ -6,7 +6,7 @@
             </v-col>
         </v-row>
         <v-row justify="center">
-            <v-col cols="8">
+            <v-col cols="10" lg="8" md="8" sm="10" xs="10" align="center">
                 <p class="white--text mt-10 mb-16 title">
                     <span class="yellow--text font-weight-bold">POLNAC</span>: La única empresa 360° de la industria plástica. Soluciones para cualquier reto. 
                     Bajo nuestra filial, Transpolimer, encontrarás un extenso repertorio de Servicios 

@@ -2,7 +2,7 @@
     <div :class="{'bg-grupo': windowSize > 1129, 'bg-grupo-mb': windowSize < 1129 }">
         <v-row justify="center">
             <v-col cols="8" align="center" class="mt-16">
-                <h1 class="mt-5 font-archivo text-h3 white--text font-weight-bold">Grupo POLNAC</h1>
+                <h1 class="mt-5 font-archivo font-size-40 white--text font-weight-bold">Grupo POLNAC</h1>
 
                 <p class="title white--text mt-8 mb-16">
                     Desde 1984, la familia <span class="yellow--text font-weight-bold">POLNAC</span> ha acrecentado sus miembros. <br>
