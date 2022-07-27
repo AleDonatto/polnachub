@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     name: 'SearchProducts',
     data() {
@@ -14,6 +16,9 @@ export default {
         }
     },
     mounted() {
+        if(this.credentials === null){
+            this.$store.dispatch('getCredetials')
+        }
         this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
@@ -24,6 +29,9 @@ export default {
             this.$store.commit('StateAssign', {windowSize:window.innerWidth})
             this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         }
+    },
+    computed: {
+        ...mapState(['credentials'])
     }
 
 }

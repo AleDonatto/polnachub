@@ -9,16 +9,20 @@
             <v-container v-if="windowSize > 1129">
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Tipo de resina" rounded solo></v-select>
+                        <v-select placeholder="Tipo de resina" rounded solo
+                        :items="pTipoResina.records" item-text="Name" item-value="Name" name="tResina"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Fabricante" rounded solo></v-select>
+                        <v-select placeholder="Fabricante" rounded solo
+                        :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Mercado" rounded solo></v-select>
+                        <v-select placeholder="Mercado" rounded solo
+                        :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="mb-16">
-                        <v-select placeholder="Método de Transformación" rounded solo></v-select>
+                        <v-select placeholder="Método de Transformación" rounded solo
+                        :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                 </v-row>
             </v-container>
@@ -28,16 +32,20 @@
             <v-container class="form">
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Tipo de resina" rounded outlined solo></v-select>
+                        <v-select placeholder="Tipo de resina" rounded solo
+                        :items="pTipoResina.records" item-text="Name" item-value="Name" name="tResina"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Fabricante" rounded outlined solo></v-select>
+                        <v-select placeholder="Fabricante" rounded solo
+                        :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Mercado" rounded outlined solo></v-select>
+                        <v-select placeholder="Mercado" rounded solo
+                        :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="">
-                        <v-select placeholder="Método de Transformación" rounded outlined solo ></v-select>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="mb-16">
+                        <v-select placeholder="Método de Transformación" rounded solo
+                        :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -64,10 +72,15 @@ export default {
 
         }
     },
+    mounted() {
+        this.$store.dispatch('getFabricante')
+        this.$store.dispatch('getMercado')
+        this.$store.dispatch('getMetodoTransformacion')
+        this.$store.dispatch('getTypeResina')
+    },
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize', 'pFabricante', 'pMercado', 'pMetTransformacion','pTipoResina'])
     }
-
 }
 </script>
 

@@ -62,18 +62,27 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
-    //'nuxt-i18n',
-    //'@nuxtjs/strapi'
+    '@nuxtjs/proxy',
   ],
-  /*i18n:{
-    locales: ['es', 'en'],
-    defaultLocale: 'es'
-  },*/
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'http://localhost:1337',
+    //baseURL: 'http://localhost:1337',
+    proxy: true
+  },
+
+  proxy: {
+    "/salesforce": {
+      target: 'https://test.salesforce.com/',
+      pathRewrite: {'^/salesforce': '/'}
+    },
+    "/polnac": {
+      target: 'https://polnac--bxt01.my.salesforce.com/',
+      pathRewrite: {'^/polnac': '/'},
+      changeOrigin: true
+    },
+    "/strapi" : 'http://localhost:1337',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
