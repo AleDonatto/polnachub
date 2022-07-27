@@ -19,7 +19,7 @@ export default {
         /*if(this.credentials === null){
             this.$store.dispatch('getCredetials')
         }*/
-        this.$store.dispatch('getCredetials')
+        this.$store.dispatch('getCredentials')
         this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
