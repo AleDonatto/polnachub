@@ -75,7 +75,8 @@ export default {
   proxy: {
     "/salesforce": {
       target: 'https://test.salesforce.com/',
-      pathRewrite: {'^/salesforce': '/'}
+      pathRewrite: {'^/salesforce': '/'},
+      changeOrigin: true
     },
     "/polnac": {
       target: 'https://polnac--bxt01.my.salesforce.com/',
