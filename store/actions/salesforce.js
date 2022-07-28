@@ -29,7 +29,7 @@ export default {
         const params = new URLSearchParams()
         params.append('q', 'SELECT+Name+FROM+Familia_de_productos__c')
 
-        await this.$axios.get('/polnac/services/data/v55.0/query/?q=SELECT+Name+FROM+Familia_de_productos__c')
+        await this.$axios.get('/products/services/data/v55.0/query/?q=SELECT+Name+FROM+Familia_de_productos__c')
         .then( res => {
             //console.log(res)
             commit('StateAssign', {pTipoResina: res.data})
@@ -40,7 +40,7 @@ export default {
         const params = new URLSearchParams()
         params.append('q', 'SELECT+Name+FROM+Mercados__c')
 
-        await this.$axios.get('/polnac/services/data/v55.0/query/?q=SELECT+Name+FROM+Mercados__c')
+        await this.$axios.get('/products/services/data/v55.0/query/?q=SELECT+Name+FROM+Mercados__c')
         .then( res => {
             //console.log(res)
             commit('StateAssign', {pMercado: res.data})
@@ -52,7 +52,7 @@ export default {
         params.append('q', 'SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
 
         //await this.$axios.get('/salesforcepolnac/services/data/v55.0/query/', params)
-        await this.$axios.get('/polnac/services/data/v55.0/query/?q=SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
+        await this.$axios.get('/products/services/data/v55.0/query/?q=SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
         .then(res => {
             //console.log(res.data)
             commit('StateAssign', {pMetTransformacion: res.data})
@@ -64,7 +64,7 @@ export default {
         const qparams = new URLSearchParams()
         qparams.append('q', 'SELECT+Name+FROM+Fabricantes_Web__c')
     
-        await this.$axios.get('/polnac/services/data/v55.0/query/?q=SELECT+Name+FROM+Fabricantes_Web__c')
+        await this.$axios.get('/products/services/data/v55.0/query/?q=SELECT+Name+FROM+Fabricantes_Web__c')
         .then(res => {
             //console.log(res)
             commit('StateAssign', {pFabricante: res.data})

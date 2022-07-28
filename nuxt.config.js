@@ -80,7 +80,7 @@ export default {
     },
     "/products": {
       target: 'https://polnac--bxt01.my.salesforce.com/',
-      pathRewrite: {'^/polnac': '/'},
+      pathRewrite: {'^/products': '/'},
       changeOrigin: true
     },
     "/strapi" : 'http://localhost:1337',
