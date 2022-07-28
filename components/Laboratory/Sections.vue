@@ -521,12 +521,12 @@
                     <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align="center" align-self="center" :class="{'mb-16': windowSize < 1129 }">
                         <p class="font-size-20 text-left">Adicionalmente se realizan otras pruebas como:</p>
                         <ul class="font-size-20 text-left">
-                            <li><span class="font-weight-bold">Determeinación</span> de humedad</li>
-                            <li><span class="font-weight-bold">Determeinación</span> de color con espectrofotómetro</li>
-                            <li><span class="font-weight-bold">Preparacion</span> de probetas de inyección</li>
-                            <li><span class="font-weight-bold">Interperimo</span> (envejecimiento)</li>
-                            <li>DSC <span class="font-weight-bold">Calorimetria</span> diferencial de barrido</li>
-                            <li>Espectrofotómetro de IR (<span class="font-weight-bold">infrarojo</span>)</li>
+                            <li>Determinación de humedad</li>
+                            <li>Determinación de color con espectrofotómetro</li>
+                            <li>Preparación de probetas de inyección</li>
+                            <li>Interperismo (envejecimiento)</li>
+                            <li>DSC Calorimetría diferencial de barrido</li>
+                            <li>Espectrofotómetro de IR (infrarrojo)</li>
                             <li>TGA análisis termogravimétrico</li>
                             <li>Microscopía Electrónica de Barrido</li>
                         </ul>
