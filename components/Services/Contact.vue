@@ -40,7 +40,6 @@
                         </v-col>
                         <v-col cols="12">
                             <v-checkbox
-                                v-model="checkbox"
                                 :rules="[v => !!v || 'You must agree to continue!']"
                                 label="Aceptar Aviso de Privacidad"
                                 required
