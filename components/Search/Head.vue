@@ -73,13 +73,15 @@ export default {
         }
     },
     mounted() {
-        this.$store.dispatch('getFabricante')
-        this.$store.dispatch('getMercado')
-        this.$store.dispatch('getMetodoTransformacion')
-        this.$store.dispatch('getTypeResina')
+        if(this.credentials !== null){
+            this.$store.dispatch('getFabricante')
+            this.$store.dispatch('getMercado')
+            this.$store.dispatch('getMetodoTransformacion')
+            this.$store.dispatch('getTypeResina')
+        }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize', 'pFabricante', 'pMercado', 'pMetTransformacion','pTipoResina'])
+        ...mapState(['windowHeight','windowSize', 'pFabricante', 'pMercado', 'pMetTransformacion','pTipoResina', 'credentials'])
     }
 }
 </script>
