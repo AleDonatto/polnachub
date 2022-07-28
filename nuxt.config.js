@@ -78,7 +78,7 @@ export default {
       pathRewrite: {'^/salesforce': '/'},
       changeOrigin: true
     },
-    "/polnac": {
+    "/products": {
       target: 'https://polnac--bxt01.my.salesforce.com/',
       pathRewrite: {'^/polnac': '/'},
       changeOrigin: true

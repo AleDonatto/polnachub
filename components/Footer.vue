@@ -5,7 +5,7 @@
         <v-container fluid :class="{'mx-16': windowSize > 1129, 'mx-5': windowSize < 1129}">
           <v-row class="mt-16">
             <v-col cols="12" lg="4" m="4" class="mt-10">
-              <div class="d-flex" :class="{'justify-left': windowSize > 1129, 'justify-center': windowSize < 1129}">
+              <div class="mt-2 d-flex" :class="{'justify-left': windowSize > 1129, 'justify-center': windowSize < 1129}">
                 <img src="../static/Logo-polnac-footer.png" alt="logo polnac">
               </div>
               <p v-if="windowSize > 1129" class="body-1 pr-4 text-left mt-1 teal--text accent-3--text" >
@@ -91,7 +91,7 @@
           </v-row>
 
           <v-row class="mb-10" justify="center">
-            <v-col cols="12" lg="6" md="6" class="">
+            <v-col cols="12" lg="6" md="6" class="" v-if="windowSize > 1129">
               <p class="teal--text accent-3--text body-1">
                 Polímeros Nacionales S.A. de C.V. 2022 - Todos los derechos reservados
               </p>
@@ -103,6 +103,12 @@
                 Consulta nuestros 
                 <a href="/" target="_blank" rel="noopener noreferrer" class="teal--text accent-3--text">Términos y Condiciones</a> y 
                 <a href="/" target="_blank" rel="noopener noreferrer" class="teal--text accent-3--text">Aviso de Privacidad</a>
+              </p>
+            </v-col>
+            <v-col v-if="windowSize < 1129" cols="12" class="mb-10">
+              <p class="teal--text accent-3--text body-1">
+                Polímeros Nacionales S.A. de C.V. Lázaro Cárdenas No. 49, Col. 
+                San Jerónimo Tepetlacalco, Tlalnepantla, Estado de México. C.P. 54090.
               </p>
             </v-col>
           </v-row>
@@ -143,7 +149,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   margin-top: -100px;
-  height: 610px;
+  height: 690px;
   width: 100%;
 }
 .letters{

@@ -4,7 +4,7 @@
             <v-col cols="12" align="center">
                 <h1 class="font-archivo font-size-40 mt-16 white--text font-weight-bold">Innovación & Desarrollo</h1>
             </v-col>
-            <v-col cols="10" align="center">
+            <v-col cols="10" lg="6" md="6" sm="10" xs="10" align="center">
                 <p class="title white--text mt-10 mb-16">
                     Donde está la innovación está <span class="yellow--text font-weigth-bold">POLNAC</span>: Nos distingue nuestra pasión para encontrar nuevos mercados, 
                     nuevas soluciones, nuevos desarrollos. 

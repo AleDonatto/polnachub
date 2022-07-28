@@ -8,7 +8,7 @@
                         src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                         </iframe>
                     </v-col>
-                    <v-col cols="12" class="my-10">
+                    <v-col cols="12" xl="10" class="my-10">
                         <p class="font-size-20">
                             El equipo de trabajo <span class="font-weight-bold">POLNAC</span> opera bajo los estándares más elevados lo cual aseguran completa 
                             imparcialidad y confidencialidad en la elaboración de pruebas y emisión de resultados. 
@@ -503,7 +503,7 @@
                 </v-row>
 
                 <v-row justify="center">
-                    <v-col cols="12"  align="center" class="mb-16 mt-10">
+                    <v-col cols="12"  align="center" class="mb-5 mt-10">
                         <v-btn outlined class="rounded-lg text-none px-10 py-5" color="#19D3C5">
                             <span class="black--text">Mostrar más pruebas</span>
                         </v-btn>
@@ -514,8 +514,11 @@
 
         <section>
             <v-container>
-                <v-row justify="center" class="my-10">
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center" align-self="center">
+                <v-row justify="center" class="my-10"> 
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="center" v-if="windowSize < 1129">
+                        <v-img src="/laboratory/pruebas-laboratory.png" contain max-height="360"></v-img>
+                    </v-col>
+                    <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align="center" align-self="center" :class="{'mb-16': windowSize < 1129 }">
                         <p class="font-size-20 text-left">Adicionalmente se realizan otras pruebas como:</p>
                         <ul class="font-size-20 text-left">
                             <li>Determeinación de humedad</li>
@@ -528,8 +531,8 @@
                             <li>Microscopía Electrónica de Barrido</li>
                         </ul>
                     </v-col>
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="center" class="mb-16">
-                        <v-img src="/laboratory/pruebas-laboratory.png" contain max-height="360"></v-img>
+                    <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="center" class="mb-16" v-if="windowSize > 1129">
+                        <v-img src="/laboratory/pruebas-laboratory.png" contain max-height="370"></v-img>
                     </v-col>
                 </v-row>
             </v-container>
