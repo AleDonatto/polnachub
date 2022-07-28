@@ -9,22 +9,23 @@
             <v-container v-if="windowSize > 1129">
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Tipo de resina" rounded solo
-                        :items="pTipoResina.records" item-text="Name" item-value="Name" name="tResina"></v-select>
+                        <v-select placeholder="Tipo de resina" rounded solo v-model="vresina"
+                        :items="pTipoResina.records" item-text="Name" item-value="attributes" name="tResina"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Fabricante" rounded solo
-                        :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
+                        :items="pFabricante.records" item-text="Name" item-value="attributes"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Mercado" rounded solo
-                        :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
+                        :items="pMercado.records" item-text="Name" item-value="attributes"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="mb-16">
-                        <v-select placeholder="Método de Transformación" rounded solo
-                        :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
+                        <v-select placeholder="Método de Transformación" rounded solo v-model="mtransformacion"
+                        :items="pMetTransformacion.records" item-text="Name" item-value="attributes" name="mtransformacion"></v-select>
                     </v-col>
                 </v-row>
+                <p>{{mtransformacion}}</p>
             </v-container>
         </div>
 
@@ -33,19 +34,19 @@
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Tipo de resina" rounded solo
-                        :items="pTipoResina.records" item-text="Name" item-value="Name" name="tResina"></v-select>
+                        :items="pTipoResina.records" item-text="Name" item-value="attributes.type" name="tResina"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Fabricante" rounded solo
-                        :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
+                        :items="pFabricante.records" item-text="Name" item-value="attributes.type"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Mercado" rounded solo
-                        :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
+                        :items="pMercado.records" item-text="Name" item-value="attributes.type"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="mb-16">
                         <v-select placeholder="Método de Transformación" rounded solo
-                        :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
+                        :items="pMetTransformacion.records" item-text="Name" item-value="attributes.type"></v-select>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -64,12 +65,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
     data(){
         return {
-
+            vresina: '',
+            mtransformacion: ''
         }
     },
     mounted() {
@@ -81,6 +83,9 @@ export default {
                 this.$store.dispatch('getTypeResina')
             }
         }, 2000);
+    },
+    methods: {
+        ...mapActions(['consProducts'])
     },
     computed: {
         ...mapState(['windowHeight','windowSize', 'pFabricante', 'pMercado', 'pMetTransformacion','pTipoResina', 'credentials'])

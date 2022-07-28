@@ -12,6 +12,7 @@ export default () => new Vuex.Store({
         windowHeight:null,
         lang: null,
         credentials: null,
+        //pages from strapi
         pagetranspolimer: null,
         pagepoliresin: null,
         basePathApiUrl: 'http://localhost:1337',
@@ -27,6 +28,9 @@ export default () => new Vuex.Store({
         pMercado: [],
         pTipoResina: [],
         pMetTransformacion: [],
+        //tables products
+        tablePruebas: [],
+
 
     }),
     actions,

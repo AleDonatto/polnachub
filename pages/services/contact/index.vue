@@ -1,6 +1,5 @@
 <template>
     <div>
-        <p>page form contact</p>
         <ServicesContact/>
     </div>
 </template>

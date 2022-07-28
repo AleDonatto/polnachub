@@ -72,9 +72,25 @@ export default {
         .catch(err => {
             //console.log(err)
         })
-        
 
-    }
+    },
+
+    async consProducts({commit, dispatch ,state}, product){
+
+        const {type} = product
+        const query = `SELECT+Name,Family,Activo_en_web_P__c,Tipo_de_Resina_P__c,Fabricante_P__c,
+        Color_P__c,Densidad_P__c,Impacto_IZOD_P__c,Dureza_Shore_p__c,Concentraci_n_P__c,Viscosidad_P__c,Modulo_de_flexi_n_P__c,Detalles_producto_web_P__c,
+        Indice_de_Fluidez_p__c,Aditivo_P__c,Calzado_y_Textil_Check__c,Automotriz_y_Transportaci_n_Check__c,Construcci_n_Check__c,Cuidado_Personal_Check__c,
+        Empaque_R_gido_Check__c,Consumo_Check__c,Industrial_Check__c,Electrodom_sticos_Check__c,El_ctrico_Electr_nico_Check__c,Agr_cola_Check__c,Empaque_Flexible_Check__c,
+        Coextrusi_n_Check__c,Rotomoldeo_Check__c,Inyecci_n_Check__c,Extrusi_n_Chek__c,Termoformado_Check__c,Inyecci_n_Soplo_Check__c,Grupo_Pag_Web_p__c,
+        Extrusi_n_Soplo_Chek__c+FROM+Product2+WHERE(${type} = True)`
+
+        await this.$axios.get(`/products/services/data/v55.0/query/?q=${query}`)
+        .then(res => {
+            console.log(res)
+            commit('StateAssign', {tablePruebas: res.data})
+        })
+    } 
 
 
 } 
