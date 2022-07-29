@@ -76,7 +76,7 @@ export default {
     "/salesforce": {
       target: 'https://test.salesforce.com/',
       pathRewrite: {'^/salesforce': '/'},
-      changeOrigin: true
+      secure: false
     },
     "/products": {
       target: 'https://polnac--bxt01.my.salesforce.com/',

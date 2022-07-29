@@ -9,8 +9,8 @@ export default {
         params.append('client_secret', state.userSalesforce.client_secret)
 
         //await this.$axios.post('https://test.salesforce.com/Token', params)
-        const dataToken  = await this.$axios.post('https://test.salesforce.com/services/oauth2/token', params)
-        /*.then(res => {
+        await this.$axios.post('/salesforce/services/oauth2/token', params)
+        .then(res => {
             let access_token = res.data.access_token
             
             this.$axios.setToken(access_token, 'Bearer')
@@ -22,14 +22,7 @@ export default {
         })
         .catch( err => {
             console.log('getToken(): ' + err)
-        })*/
-        let access_token = dataToken.data.access_token
-        this.$axios.setToken(access_token, 'Bearer')
-        //this.axios.defaults.headers.common = {'Authorization': `Bearer ${access_token}`}
-
-        localStorage.setItem('userToken', access_token)
-        commit('StateAssign', {credentials: dataToken.data})
-        console.log('get credentials')
+        })
     }, 
 
     async getTypeResina ({commit}){
