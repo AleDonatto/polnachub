@@ -27,7 +27,7 @@
                         </p>
                     </v-col>
                     <v-col cols="12" class="mb-10">
-                        <v-carousel :show-arrows="false" height="340" dark>
+                        <v-carousel :show-arrows="false" height="340" dark v-if="windowSize > 1129">
                             <v-carousel-item v-for="(item,i) in 4" :key="i">
                                 <v-sheet color="white" height="100%">
                                     <v-row>
@@ -44,6 +44,18 @@
                                 </v-sheet>
                             </v-carousel-item>
                         </v-carousel>
+
+                        <v-carousel :show-arrows="false" height="340" dark v-if="windowSize < 1129">
+                            <v-carousel-item v-for="(item,i) in items" :key="i">
+                                <v-sheet color="white" height="100%">
+                                    <v-row>
+                                        <v-col cols="12">
+                                            <v-img :src="item.img" contain max-height="270"></v-img>
+                                        </v-col>
+                                    </v-row>
+                                </v-sheet>
+                            </v-carousel-item>
+                        </v-carousel>
                     </v-col>
                 </v-row>
             </v-container>
@@ -51,17 +63,17 @@
 
         <section>
             <v-container>
-                <v-row justify="start">
-                    <v-col cols="10">
+                <v-row>
+                    <v-col cols="8">
                         <h1 class="font-size-30 font-weight-bold">Otros mercados</h1>
                     </v-col>
-                    <v-col cols="2" align="right">
+                    <v-col cols="4" align="right">
                         <nuxt-link to="/market" class="color-decotarion">
                             <h1 class="purple-polnac">Ver todas</h1>
                         </nuxt-link>
                     </v-col>
                 </v-row>
-                <v-row justify="center" class="mb-16">
+                <v-row justify="center" class="mb-16" v-if="windowSize > 1129">
                     <v-col cols="3">
                         <nuxt-link to="/market/type/2">
                             <v-img src="/market/tconstruccion.png" contain max-height="270"></v-img>
@@ -83,6 +95,19 @@
                         </nuxt-link>
                     </v-col>
                 </v-row>
+                <v-row v-if="windowSize < 1129" class="mb-16">
+                    <v-carousel :show-arrows="false" dark height="270">
+                            <v-carousel-item v-for="(item,i) in itemsMercado" :key="i">
+                               <v-row justify="center">
+                                    <v-col cols="11">
+                                        <nuxt-link :to="`/market/type/${i}`">
+                                            <v-img :src="item.img" contain max-height="270"></v-img>
+                                        </nuxt-link>
+                                    </v-col>
+                                </v-row>
+                            </v-carousel-item>
+                        </v-carousel>
+                </v-row>
             </v-container>
         </section>
     </div>
@@ -93,7 +118,19 @@ import { mapState } from 'vuex'
 
 export default {
      data() {
-        return {}
+        return {
+            itemsMercado: [
+                {img : require('../../static/market/tconstruccion.png')},
+                {img : require('../../static/market/telectrico.png')},
+                {img : require('../../static/market/tautomotriz.png')},
+                {img : require('../../static/market/tconsumo.png')},
+            ],
+            items: [
+                {img : require('../../static/market/caja.png')},
+                {img : require('../../static/market/tostador.png')},
+                {img : require('../../static/market/refrigerador.png')},
+            ]
+        }
     },
     computed: {
         ...mapState(['windowHeight','windowSize'])
