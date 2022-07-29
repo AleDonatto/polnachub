@@ -1,6 +1,7 @@
 <template>
     <div>
-
+        <MarketHead/>
+        <MarketSections/>
     </div>
 </template>
 
