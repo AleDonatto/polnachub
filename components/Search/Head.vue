@@ -3,7 +3,7 @@
         <div :class="{'bg-search':windowSize > 1129, 'bg-search-mb': windowSize < 1129 }">
             <v-row justify="center" class="">
                 <v-col cols="12" class="mt-16 mb-10" align="center">
-                    <h1 class="mt-10 white--text font-archivo font-size-30 font-weight-bold">Buscador de productos</h1>
+                    <h1 class="mt-10 white--text font-archivo font-size-40 font-weight-bold">Buscador de productos</h1>
                 </v-col>
             </v-row>
             <v-container v-if="windowSize > 1129">
@@ -17,11 +17,11 @@
                         :items="pFabricante.records" item-text="Name" item-value="attributes"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Mercado" rounded solo
+                        <v-select placeholder="Mercado" rounded solo 
                         :items="pMercado.records" item-text="Name" item-value="attributes"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="mb-16">
-                        <v-select placeholder="Método de Transformación" rounded solo v-model="mtransformacion"
+                        <v-select placeholder="Método de Transformación" rounded solo v-model="mtransformacion" 
                         :items="pMetTransformacion.records" item-text="Name" item-value="attributes" name="mtransformacion"></v-select>
                     </v-col>
                 </v-row>

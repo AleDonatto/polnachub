@@ -32,10 +32,10 @@
                 <v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129">
                     <v-tabs-slider color></v-tabs-slider>
                     <v-tab class="black--text text-none mx-1 px-0" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
-                    <v-tab class="black--text text-none mx-1 px-0" to="/polnac-group">{{ $t('appbar.innovation') }}</v-tab>
+                    <v-tab class="black--text text-none mx-1 px-0" to="/innovation">{{ $t('appbar.innovation') }}</v-tab>
                     <v-tab class="black--text text-none mx-1 px-0" to="/search-products">{{ $t('appbar.products') }}</v-tab>
-                    <v-tab class="black--text text-none mx-0 px-0" to="">{{ $t('appbar.services') }}</v-tab>
-                    <v-tab class="black--text text-none mx-0 px-0" to="">{{ $t('appbar.market') }}</v-tab>
+                    <v-tab class="black--text text-none mx-0 px-0" to="/services">{{ $t('appbar.services') }}</v-tab>
+                    <v-tab class="black--text text-none mx-0 px-0" to="/polnac-group">{{ $t('appbar.market') }}</v-tab>
                     <v-tab class="black--text text-none mx-0 px-0" to="">Blog</v-tab>
                     <v-tab class="black--text text-none mx-0 px-0">{{ $t('appbar.contact') }}</v-tab>
                     
@@ -221,7 +221,7 @@
                         <v-list-item-title class="text-none">Grupo Polnac</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link >
+                <v-list-item link to="/polnack-wiki">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Polnac Wiki</v-list-item-title>  
                     </v-list-item-content>
@@ -236,17 +236,17 @@
                         <v-list-item-title class="text-none">Trabaja con nosotrso</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <v-list-item link to="/search-products">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">{{ $t('appbar.products') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <v-list-item link to="/services">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">{{ $t('appbar.services') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <v-list-item link to="/laboratory">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Pruebas de Laboratorio</v-list-item-title>  
                     </v-list-item-content>
