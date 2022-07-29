@@ -16,14 +16,16 @@ export default {
         }
     },
     mounted() {
-        if(this.credentials === null){
-            this.$store.dispatch('getCredentials')
-        }
         //this.$store.dispatch('getCredentials')
         this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
+    },
+    created() {
+        if(this.credentials === null){
+            this.$store.dispatch('getCredentials')
+        }
     },
     methods: {
         Resize(){
