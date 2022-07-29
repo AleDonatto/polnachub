@@ -1,16 +1,13 @@
 <template>
-    <div>
-        <MarketHead/>
-        <MarketSections/>
-    </div>
+    <MarketType/>
 </template>
 
 <script>
 export default {
-    data(){
-        return {
-
-        }
+    name: 'PageTypeMarket',
+    head: {},
+    data() {
+        return {}
     },
     mounted() {
         this.$store.dispatch('defaultLanguaje')
@@ -24,6 +21,7 @@ export default {
             this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         }
     }
+
 }
 </script>
 
