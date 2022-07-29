@@ -9,7 +9,7 @@ export default {
         params.append('client_secret', state.userSalesforce.client_secret)
 
         //await this.$axios.post('https://test.salesforce.com/Token', params)
-        const dataToken  = await this.$axios.post('/salesforce/services/oauth2/token', params)
+        const dataToken  = await this.$axios.post('https://test.salesforce.com/services/oauth2/token', params)
         /*.then(res => {
             let access_token = res.data.access_token
             
