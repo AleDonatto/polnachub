@@ -30,8 +30,21 @@ export default () => new Vuex.Store({
         pMetTransformacion: [],
         //tables products
         tablePruebas: [],
-
-
+        //
+        tablePE: [],
+        tablePP: [],
+        tableEstirenicos: [],
+        tableRotomoldeo: [],
+        tableMasterbatch: [],
+        tableIngenieria: [],
+        tableCompuestosprecolor: [],
+        tableCompuestoscargados: [],
+        tableTermoplasticos: [],
+        tablePVC: [],
+        tableAditivos: [],
+        tableCalcio: [],
+        tableBioplasticos: [],
+        tableHules: [],
     }),
     actions,
     getters,
