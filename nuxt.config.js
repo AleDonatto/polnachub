@@ -78,9 +78,9 @@ export default {
       pathRewrite: {'^/salesforce': '/'},
       secure: false
     },
-    "/products": {
+    "/data_products": {
       target: 'https://polnac--bxt01.my.salesforce.com/',
-      pathRewrite: {'^/products': '/'},
+      pathRewrite: {'^/data_products': '/'},
       changeOrigin: true
     },
     "/strapi" : 'http://localhost:1337',

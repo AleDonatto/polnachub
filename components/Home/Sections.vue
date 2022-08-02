@@ -123,30 +123,25 @@
                     </v-col>
                 </v-row>
             </v-container>
-            <v-container fluid v-if="windowSize > 1129">
-                <v-sheet class="mx-auto" max-width="1150">
-                    <v-slide-group v-model="model" class="pa-5" center-active show-arrows>
-                        <v-slide-item v-for="(item, index) in catPoducts" :key="index" >
-                            <!--<v-card class="ma-5 card-blog shadow-out" max-width="325" max-height="390">
-                                <img :src="item.img" style="width: 100%" alt="pruebas"/>
-                                <v-card-title></v-card-title>
-                                <v-card-subtitle></v-card-subtitle>
-                                <v-card-actions>
-                                </v-card-actions>
-                            </v-card>-->
-
-                            <v-hover v-slot="{ hover }">
-                                <v-card class="ma-5 card-blog shadow-out" max-width="325" max-height="390">
-                                    <v-img :src="item.img" style="width: 100%">
-                                        <v-expand-transition>
-                                            
-                                        <!--<div v-if="hover" class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal text-h2 white--text" style="height: 100%;"></div>-->
-                                        <v-img :src="item.imgH" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
-                                        </v-expand-transition>
-                                    </v-img>
+            <v-container v-if="windowSize > 1129">
+                <v-sheet class="mx-auto" height="250">
+                    <v-slide-group v-model="model" class="pa-5" show-arrows>
+                        <v-slide-item v-for="(item, index) in productos" :key="index" >
+                            <nuxt-link :to="`/products/${index}`">
+                                <v-card height="250" class="shadow-out">
+                                    <v-hover v-slot="{ hover }">
+                                        <v-card class="ma-5 card-blog shadow-out" width="220" height="390">
+                                            <v-img :src="item.img" style="width: 100%">
+                                                <v-expand-transition>
+                                                    
+                                                <!--<div v-if="hover" class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal text-h2 white--text" style="height: 100%;"></div>-->
+                                                <v-img :src="item.imgH" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                                </v-expand-transition>
+                                            </v-img>
+                                        </v-card>
+                                    </v-hover>
                                 </v-card>
-                            </v-hover>
-
+                            </nuxt-link>
                         </v-slide-item>
                     </v-slide-group>
                 </v-sheet>
@@ -543,18 +538,20 @@ export default {
                 {img: require('../../static/blog-tendencias.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-polnac.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
             ],
-            catPoducts: [
-                { img: require('../../static/plasticos.png'), imgH: require('../../static/h-plasticos.png')},
-                { img: require('../../static/compuestos.png'), imgH: require('../../static/h-compuestos.png')},
-                { img: require('../../static/masrterbach.png'), imgH: require('../../static/h-masterbach.png')},
-                { img: require('../../static/aditivos.png'), imgH: require('../../static/h-aditivos.png')},
-                { img: require('../../static/carbonato.png'), imgH: require('../../static/h-carbonato.png')},
-                { img: require('../../static/rotomoldeo.png'), imgH: require('../../static/h-rotomoldeo.png')},
-
-                { img: require('../../static/masrterbach.png'), imgH: require('../../static/h-masterbach.png')},
-                { img: require('../../static/aditivos.png'), imgH: require('../../static/h-aditivos.png')},
-                { img: require('../../static/carbonato.png'), imgH: require('../../static/h-carbonato.png')},
-                { img: require('../../static/rotomoldeo.png'), imgH: require('../../static/h-rotomoldeo.png')},
+            productos: [
+                {img: require('../../static/plasticos.png'), imgH: require('../../static/h-plasticos.png')},
+                {img: require('../../static/compuestos.png'),imgH: require('../../static/h-compuestos.png') },
+                {img: require('../../static/masterbatch.png'),imgH: require('../../static/h-masterbach.png') },
+                {img: require('../../static/aditivos.png'), imgH: require('../../static/h-aditivos.png') },
+                {img: require('../../static/carbonato.png'),imgH: require('../../static/h-carbonato.png') },
+                {img: require('../../static/rotomoldeo.png'),imgH: require('../../static/h-rotomoldeo.png') },
+                {img: require('../../static/pvc.png'), imgH: require('../../static/h-pvc.png')},
+                {img: require('../../static/termoplasticos.png'), imgH: require('../../static/h-termo.png') },
+                {img: require('../../static/biodegradables.png'), imgH: require('../../static/h-biodegradables.png') },
+                {img: require('../../static/hules.png'), imgH: require('../../static/h-hules.png') },
+                {img: require('../../static/polietileno.png'), imgH: require('../../static/h-polietileno.png') },
+                {img: require('../../static/polipropileno.png'), imgH: require('../../static/h-polipropileno.png') },
+                {img: require('../../static/estirenicos.png'), imgH: require('../../static/h-estirenicos.png') },
             ],
             items: [
                 {
