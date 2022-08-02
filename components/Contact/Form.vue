@@ -7,22 +7,19 @@
                         <h1 class="font-archivo font-size-34 font-weight-bold text-center mt-16">Contáctanos con solo dos pasos</h1>
                     </v-col>
                 </v-row>
-                <v-stepper v-model="e1" class="my-16">
+                <v-stepper v-model="e1" class="mt-10 mb-16 shadow-none">
                     <v-stepper-header>
                         <v-row>
-                            <v-col>
-                                <v-stepper-step :complete="e1 > 1" step="1"></v-stepper-step>
+                            <v-col cols="6">
+                                <v-stepper-step :complete="e1 > 1" step="1" color="#19D3C5"></v-stepper-step>
                             </v-col>
-                            <v-col>
-                                <v-stepper-step :complete="e1 > 2" step="2"></v-stepper-step>
-                            </v-col>
-                            <v-col cols="12">
-                                
+                            <v-col cols="6">
+                                <v-stepper-step :complete="e1 > 2" step="2" color="#19D3C5"></v-stepper-step>
                             </v-col>
                         </v-row>
                     </v-stepper-header>
 
-                    <v-stepper-items>
+                    <v-stepper-items class="">
                         <v-stepper-content step="1" class="mb-2">
                             <v-row>
                                 <v-col cols="12">
@@ -98,6 +95,7 @@
 
                         <v-stepper-content step="2">
                             <v-form>
+                                <p class="my-5 font-size-20 font-weight-bold">Llena el siguiente formulario</p>
                                 <v-row>
                                     <v-col cols="6">
                                         <v-text-field label="Nombes" solo outlined class="rounded-xl"></v-text-field>
@@ -110,11 +108,11 @@
                                         <v-text-field label="Empresa" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
                                     <v-col cols="6">
-                                        <v-text-field label="Área" solo outlined class="rounded-xl"></v-text-field>
+                                        <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value"></v-select>
                                     </v-col>
 
                                     <v-col cols="6">
-                                        <v-text-field label="Industria de la empresa" solo outlined class="rounded-xl"></v-text-field>
+                                        <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value"></v-select>
                                     </v-col>
                                     <v-col cols="6">
                                         <v-text-field label="Celular" solo outlined class="rounded-xl"></v-text-field>
@@ -131,18 +129,18 @@
                                         <v-text-field label="Código Postal" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
                                     <v-col cols="6">
-                                        <v-text-field label="País" solo outlined class="rounded-xl"></v-text-field>
+                                        <v-select label="País" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
 
                                     <v-col cols="6">
-                                        <v-text-field label="Estado" solo outlined class="rounded-xl"></v-text-field>
+                                        <v-select label="Estado" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
                                     <v-col cols="6">
-                                        <v-text-field label="Ciudad" solo outlined class="rounded-xl"></v-text-field>
+                                        <v-select label="Ciudad" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
 
                                     <v-col cols="12">
-                                        <v-text-field label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl"></v-text-field>
+                                        <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
                                     <v-col cols="12">
                                         <v-textarea solo outlined class="rounded-xl" label="Cuéntanos brevemente qué deseas consultar con nosotros."></v-textarea>
@@ -150,10 +148,10 @@
                                 </v-row>
                                 <v-row>
                                     <v-col cols="6">
-                                        <v-checkbox label="Soy cliente"></v-checkbox>
+                                        <v-checkbox label="Soy cliente" color="#19D3C5" class="color-checkbox"></v-checkbox>
                                     </v-col>
                                     <v-col cols="6">
-                                        <v-checkbox label="Aceptar Aviso de Privacidad"></v-checkbox>
+                                        <v-checkbox label="Aceptar Aviso de Privacidad" color="#19D3C5"></v-checkbox>
                                     </v-col>
                                 </v-row>
                                 <v-row>
@@ -164,7 +162,7 @@
                                         </v-btn>
                                     </v-col>
                                     <v-col cols="6">
-                                        <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between">
+                                        <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="dialog = !dialog">
                                             <span class="text-left">Enviar</span>
                                             <v-icon right>mdi-chevron-right</v-icon>
                                         </v-btn>
@@ -176,6 +174,44 @@
                 </v-stepper>
             </v-container>
         </section>
+
+
+        <v-dialog v-model="dialog" width="700">
+            <v-card elevation="6">
+                <v-card-title>
+                    <v-row justify="end">
+                        <v-col cols="2">
+                            <v-btn outlined color="white"  @click="dialog = false">
+                                <v-img src="/contact/line.png" contain max-width="25"></v-img>
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card-title>
+
+                <v-card-text>
+                    <v-row justify="center">
+                        <v-col cols="6">
+                            <v-img src="/contact/dialog.png" contain max-height="120"></v-img>
+                        </v-col>
+                        <v-col cols="12">
+                            <h1 class="font-size-24 font-weight-bold text-center black--text">¡Tu mensaje ha sido enviado!</h1>
+                        </v-col>
+                        <v-col cols="8">
+                            <p class="text-body-all text-center text-center black--text">Gracias por tu mensaje. Te responderemos lo antes posible en tu correo.</p>
+                        </v-col>
+                        <v-col cols="7" class="mt-5">
+                            <v-btn block class="rounded-xl text-none py-6" color="#19D3C5" @click="dialog = false">Entendido</v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card-text>
+
+                <v-divider></v-divider>
+
+                <v-card-actions>
+                    <!--<v-btn color="primary" text @click="dialog = false">I accept</v-btn>-->
+                </v-card-actions>
+        </v-card>
+    </v-dialog>
     </div>
 </template>
 
@@ -186,6 +222,8 @@ export default {
             e1: 1,
             model: null,
             model2: null,
+            rango: 50,
+            dialog: false,
             mercado: [
                 {img: require('../../static/contact/consumo.png') },
                 {img: require('../../static/contact/flexible.png') },
@@ -212,6 +250,35 @@ export default {
                 {img: require('../../static/contact/polietileno.png') },
                 {img: require('../../static/contact/polipropileno.png') },
                 {img: require('../../static/contact/estirenicos.png') },
+            ],
+            area: [
+                {value: 'Almacén'},
+                {value: 'Calidad'},
+                {value: 'Comercial'},
+                {value: 'Compras'},
+                {value: 'Dirección'},
+                {value: 'Investigación'},
+                {value: 'Logística'},
+                {value: 'Mercadotecnia'},
+                {value: 'Operaciones'},
+                {value: 'Producción'},
+                {value: 'Tesorería / Contabilidad'},
+                {value: 'Otra'},
+            ],
+            industria: [
+                {value: 'Consumo'},
+                {value: 'Empaque Flexible'},
+                {value: 'Empaque Rígico'},
+                {value: 'Agrícola'},
+                {value: 'Cuidado Personal'},
+                {value: 'Eléctrico-Electrónico'},
+                {value: 'Electrodomésticos'},
+                {value: 'Industrial'},
+                {value: 'Automotriz y Transportación'},
+                {value: 'Construcción'},
+                {value: 'Calzado y textil'},
+                {value: 'Médico y farmacéutico'},
+                {value: 'Otra'},
             ]
         } 
     } 
@@ -229,5 +296,11 @@ z-index: 0.2;
 }
 .content-left{
     justify-content: left !important;
+}
+.color-checkbox{
+    color: #19D3C5 !important;
+}
+.shadow-none{
+    box-shadow: none !important;
 }
 </style>
