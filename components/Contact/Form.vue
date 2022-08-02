@@ -19,6 +19,10 @@
                         </v-row>
                     </v-stepper-header>
 
+                    <div>
+                        <v-progress-linear :value="progress" color="#19D3C5"></v-progress-linear>
+                    </div>
+
                     <v-stepper-items class="">
                         <v-stepper-content step="1" class="mb-2">
                             <v-row>
@@ -29,7 +33,7 @@
                                             <v-slide-item v-for="(item ,index) in mercado" :key="index" v-slot="{ active, toggle }">
                                                 <v-card class="ma-4" @click="toggle" height="160" width="280"  :color="active ? 'primary' : 'white'">
                                                     <v-row class="fill-height" align="center" justify="center">
-                                                        <v-img class="ma-4" :src="item.img" contain max-height="150" max-width="280" :class="{'z-index-lower': active }"></v-img>
+                                                       <v-img class="ma-4" :src="item.img" contain max-height="150" max-width="280" :class="{'z-index-lower': active }"></v-img>
                                                         <v-scale-transition class="z-index-1">
                                                             <v-icon v-if="active" class="z-index-1" color="white" size="48" v-text="'mdi-close-circle-outline'"></v-icon>
                                                         </v-scale-transition>
@@ -62,80 +66,69 @@
                             </v-row>
 
                             <v-row justify="center">
-                                <v-col cols="6">
+                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                     <p class="font-archivo font-size-20 font-weight-bold">Resina de interés</p>
                                     <v-select class="rounded-xl" outlined label="Selecciona tipo de resina"></v-select>
                                 </v-col>
-                                <v-col cols="6">
+                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                     <p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>
                                     <v-select class="rounded-xl" outlined label="Selecciona rango promedio"></v-select>
                                 </v-col>
                             </v-row>
 
                             <v-row justify="end">
-                                <v-col cols="6" align="right">
-                                    <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="e1 = 2">
+                                <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="right">
+                                    <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="nextStep">
                                         <span class="text-left">Continuar</span>
                                         <v-icon right>mdi-chevron-right</v-icon>
                                     </v-btn>
                                 </v-col>
                             </v-row>
-
-                            <!--<v-btn
-                            color="primary"
-                            @click="e1 = 2"
-                            >
-                            Continue
-                            </v-btn>
-
-                            <v-btn text>
-                            Cancel
-                            </v-btn>-->
                         </v-stepper-content>
 
                         <v-stepper-content step="2">
                             <v-form>
                                 <p class="my-5 font-size-20 font-weight-bold">Llena el siguiente formulario</p>
                                 <v-row>
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-text-field label="Nombes" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-text-field label="Apellidos" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
 
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-text-field label="Empresa" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value"></v-select>
                                     </v-col>
 
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value"></v-select>
                                     </v-col>
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-text-field label="Celular" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
 
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-text-field label="Extensión" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
 
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-text-field label="Código Postal" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-select label="País" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
 
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-select label="Estado" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-select label="Ciudad" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
 
@@ -145,23 +138,22 @@
                                     <v-col cols="12">
                                         <v-textarea solo outlined class="rounded-xl" label="Cuéntanos brevemente qué deseas consultar con nosotros."></v-textarea>
                                     </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col cols="6">
+
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-checkbox label="Soy cliente" color="#19D3C5" class="color-checkbox"></v-checkbox>
                                     </v-col>
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-checkbox label="Aceptar Aviso de Privacidad" color="#19D3C5"></v-checkbox>
                                     </v-col>
                                 </v-row>
                                 <v-row>
-                                    <v-col cols="6">
-                                        <v-btn block color="#19D3C5" outlined class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="e1 = 1">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                        <v-btn block color="#19D3C5" outlined class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="previousStep">
                                             <v-icon left color="black">mdi-chevron-left</v-icon>
                                             <span class="text-left black--text">Regresar</span>
                                         </v-btn>
                                     </v-col>
-                                    <v-col cols="6">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                         <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="dialog = !dialog">
                                             <span class="text-left">Enviar</span>
                                             <v-icon right>mdi-chevron-right</v-icon>
@@ -222,7 +214,7 @@ export default {
             e1: 1,
             model: null,
             model2: null,
-            rango: 50,
+            progress: 55,
             dialog: false,
             mercado: [
                 {img: require('../../static/contact/consumo.png') },
@@ -281,7 +273,17 @@ export default {
                 {value: 'Otra'},
             ]
         } 
-    } 
+    },
+    methods: {
+        nextStep(){
+            this.progress = 100
+            this.e1 = 2
+        },
+        previousStep(){
+            this.progress = 55
+            this.e1 = 1
+        }
+    }
 }
 </script>
 
@@ -302,5 +304,8 @@ z-index: 0.2;
 }
 .shadow-none{
     box-shadow: none !important;
+}
+.click-image{
+    background: linear-gradient(0deg, rgba(101, 93, 198, 0.4), rgba(101, 93, 198, 0.4));
 }
 </style>

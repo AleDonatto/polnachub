@@ -1,7 +1,7 @@
 <template>
     <div>
         <section v-if="windowSize > 1129">
-            <v-container v-if="tablePVC === []">
+            <v-container v-if="tablePVC.length === 0">
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="mt-16">
                         <h1 class="font-archivo font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>
