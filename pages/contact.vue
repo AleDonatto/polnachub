@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>pruebas</p>
+        <ContactForm/>
     </div>
 </template>
 

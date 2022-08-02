@@ -126,55 +126,82 @@ export default {
         Coextrusi_n_Check__c,Rotomoldeo_Check__c,Inyecci_n_Check__c,Extrusi_n_Chek__c,Termoformado_Check__c,Inyecci_n_Soplo_Check__c,Grupo_Pag_Web_p__c,
         Extrusi_n_Soplo_Chek__c+FROM+Product2+WHERE (Family='${product}')`
 
-        console.log(product)
-
         await this.$axios.get(`/products/services/data/v55.0/query/?q=${query}`)
         .then(res => {
-            console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
 
-            dispatch('createtable')
+            dispatch('createtables')
         })  
     },
 
-    createtable({commit, dispatch, state}){
+    createtables({commit, dispatch, state}){
         const products = state.tablePruebas.records
+        console.log
 
         products.map(item => {
+            let aux = []
 
             switch (item.Tipo_de_Resina_P__c) {
                 case 'PE':
-                    state.tablePE.push(item)
+                    console.log('PE')
+                    aux.push(...state.tablePE, item)
+                    commit('StateAssign', {tablePE: aux})
                     break;
                 case 'PP': 
-                    state.tablePP.push(item)
+                    console.log('PP')
+                    //state.tablePP.push(...state.tablePP,item)
                     break;
                 case 'Estirénicos': 
+                    console.log('Estirénicos')
+                    //state.tableEstirenicos.push(...tableEstirenicos, item)
                     break;
                 case 'Rotomoldeo': 
+                    console.log('rotomoldeo')
+                    //state.tableRotomoldeo.push(...state.tableRotomoldeo, item)
                     break;
                 case 'Masterbatch': 
+                    console.log('masterbatch')
+                    //state.tableMasterbatch.push(...state.tableMasterbatch, item)
                     break;
                 case 'Ingeniería': 
+                    console.log('ingenieria')
+                    //state.tableIngenieria.push(...state.tableIngenieria, item)
                     break;
                 case 'Compuestos precolor': 
+                    console.log('precolor')
+                    //state.tableCompuestosprecolor.push(...state.tableCompuestosprecolor, item)
                     break;
                 case 'Compuestos cargados': 
+                    console.log('cargados')
+                    //state.tableCompuestoscargados.push(...state.tableCompuestoscargados ,item)
                     break;
-                case 'Elastómeros Termoplásticos': 
+                case 'Elastómeros Termoplásticos':
+                    console.log('termoplasticos') 
+                    //state.tableTermoplasticos.push(...state.tableTermoplasticos, item)
                     break;
                 case 'PVC': 
+                    console.log('pvc')
+                    aux = state.tablePVC
+                    aux.push(...aux, item)
+                    commit('StateAssign', {tablePVC: aux})
+                    //state.tablePVC.push(...state.tablePVC, item)
                     break;
-                case 'Concentrados de Aditivos': 
+                case 'Concentrados de Aditivos':
+                    console.log('aditivos') 
+                    aux
+                    //state.tableAditivos.push(...state.tableAditivos, item)
                     break;
-                case 'Concentrados de Calcio': 
+                case 'Concentrados de Calcio':
+                    console.log('calcio') 
+                    //state.tableCalcio.push(...state.tableCalcio, item)
                     break;
                 case 'Bioplásticos': 
+                    console.log('bioplasticos')
+                    //state.tableBioplasticos.push(...state.tableBioplasticos, item)
                     break;
                 case 'Hules': 
-                    break;
-            
-                default:
+                    console.log('hules')
+                    //state.tableHules.push(...state.tableHules,item)
                     break;
             }
         })

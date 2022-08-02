@@ -1,7 +1,7 @@
 <template>
     <div>
         <section v-if="windowSize > 1129">
-            <v-container>
+            <v-container v-if="tablePVC === []">
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="mt-16">
                         <h1 class="font-archivo font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>
@@ -67,6 +67,15 @@
                     </v-col>
                 </v-row>
             </v-container>
+
+            <v-container v-else>
+                <v-data-table
+                    :headers="headers"
+                    :items="tablePVC"
+                    :items-per-page="10"
+                    class="elevation-1"
+                ></v-data-table>
+            </v-container>
         </section>
 
     </div>
@@ -78,11 +87,21 @@ import { mapState } from 'vuex'
 export default {
     data() {
         return {
-
+            headers: [
+                {text: 'Fabricante', value: 'Fabricante_P__c'},
+                {text: 'Clave', value: ''},
+                {text: 'Grupo', value: 'Family'},
+                {text: 'Dureza/Shore', value: ''},
+                {text: 'Indice de Fluidez', value: ''},
+                {text: 'Densidad', value: 'Densidad_P__c'},
+                {text: 'Descripción (Aditivos y color) ', value: ''},
+                {text: 'Método de Transformación', value: ''},
+                {text: 'Mercado', value: ''},
+            ]
         }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','tablePE','tablePP','tableEstirenicos', 'tablePVC'])
     }
 }
 </script>
