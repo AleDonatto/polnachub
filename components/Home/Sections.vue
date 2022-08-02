@@ -18,14 +18,16 @@
                             </p>
 
                             <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start': windowSize > 1129}">
-                                <v-btn color="#773DBD" class="rounded-lg px-10 body-1 py-5 white--text text-none">{{ $t('home.btnabout') }}</v-btn>
+                                <nuxt-link to="/polnac-group">
+                                    <v-btn color="#773DBD" class="rounded-lg px-10 body-1 py-5 white--text text-none">{{ $t('home.btnabout') }}</v-btn>
+                                </nuxt-link>
                             </div>
 
                         </v-col>
                         <v-col md="6" sm="12" xs="5" align="center" v-if="windowSize > 1129">
                             <!--<v-img src="./video.png" contain max-height="350" max-width="350"></v-img>-->
                             <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="400" height="250" type="text/html" 
-                                src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                                src="https://www.youtube-nocookie.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                             </iframe>
 
                         </v-col>
