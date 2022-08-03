@@ -292,7 +292,6 @@ export default {
     position:relative; 
     z-index:1;
 }
-
 .z-index-lower{
 z-index: 0.2;
 }
