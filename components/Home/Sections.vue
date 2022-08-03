@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <section>
             <v-container>
                 <div class="my-10 mx-10">

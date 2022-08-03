@@ -36,7 +36,7 @@
                     <v-tab class="black--text text-none mx-1 px-0" to="/search-products">{{ $t('appbar.products') }}</v-tab>
                     <v-tab class="black--text text-none mx-0 px-0" to="/services">{{ $t('appbar.services') }}</v-tab>
                     <v-tab class="black--text text-none mx-0 px-0" to="/market">{{ $t('appbar.market') }}</v-tab>
-                    <v-tab class="black--text text-none mx-0 px-0" to="">Blog</v-tab>
+                    <v-tab class="black--text text-none mx-0 px-0" to="/blog">Blog</v-tab>
                     <v-tab class="black--text text-none mx-0 px-0" to="/contact">{{ $t('appbar.contact') }}</v-tab>
                     
                     <v-tab class="mx-0 px-0">
