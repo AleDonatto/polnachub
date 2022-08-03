@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section>
+        <section v-if="windowSize > 1129">
             <v-container>
                 <v-row justify="center" class="my-10">
                     <v-col cols="6">
@@ -26,12 +26,12 @@
 
         <section>
             <v-container>
-                <v-row>
-                    <v-col cols="3">
-                        <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                <v-row justify="center" :class="{'my-16' : windowSize < 1129 }">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
                             <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
                             <v-card-title>Nuevos horizontes</v-card-title>
-                            <v-card-subtitle>
+                            <v-card-subtitle class="text-left">
                                 El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
                             </v-card-subtitle>
                             <v-card-actions>
@@ -39,11 +39,11 @@
                             </v-card-actions>
                         </v-card>
                     </v-col>
-                    <v-col cols="3">
-                        <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
                             <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
                             <v-card-title>Nuevos horizontes</v-card-title>
-                            <v-card-subtitle>
+                            <v-card-subtitle class="text-left">
                                 El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
                             </v-card-subtitle>
                             <v-card-actions>
@@ -51,11 +51,11 @@
                             </v-card-actions>
                         </v-card>
                     </v-col>
-                    <v-col cols="3">
-                        <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
                             <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
                             <v-card-title>Nuevos horizontes</v-card-title>
-                            <v-card-subtitle>
+                            <v-card-subtitle class="text-left">
                                 El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
                             </v-card-subtitle>
                             <v-card-actions>
@@ -63,11 +63,11 @@
                             </v-card-actions>
                         </v-card>
                     </v-col>
-                    <v-col cols="3">
-                        <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                        <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :width="windowSize>1129 ? '325' : '300'" :height="windowSize >1129 ? '390': '360'">
                             <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
                             <v-card-title>Nuevos horizontes</v-card-title>
-                            <v-card-subtitle>
+                            <v-card-subtitle class="text-left">
                                 El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
                             </v-card-subtitle>
                             <v-card-actions>
@@ -76,7 +76,7 @@
                         </v-card>
                     </v-col>
 
-                    <v-col cols="3">
+                    <v-col cols="3" v-if="windowSize >1129">
                         <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
                             <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
                             <v-card-title>Nuevos horizontes</v-card-title>
@@ -88,7 +88,7 @@
                             </v-card-actions>
                         </v-card>
                     </v-col>
-                    <v-col cols="3">
+                    <v-col cols="3"  v-if="windowSize >1129">
                         <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
                             <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
                             <v-card-title>Nuevos horizontes</v-card-title>
@@ -100,7 +100,7 @@
                             </v-card-actions>
                         </v-card>
                     </v-col>
-                    <v-col cols="3">
+                    <v-col cols="3"  v-if="windowSize >1129">
                         <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
                             <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
                             <v-card-title>Nuevos horizontes</v-card-title>
@@ -112,7 +112,7 @@
                             </v-card-actions>
                         </v-card>
                     </v-col>
-                    <v-col cols="3">
+                    <v-col cols="3"  v-if="windowSize >1129">
                         <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
                             <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
                             <v-card-title>Nuevos horizontes</v-card-title>
@@ -128,7 +128,7 @@
             </v-container>
         </section>
 
-        <section>
+        <section  v-if="windowSize >1129">
             <v-container fluid>
                 <v-row justify="center">
                     <v-col cols="12" align="center">
@@ -136,7 +136,7 @@
                     </v-col>
                 </v-row>
                 <v-row justify="center">
-                    <v-col cols="10" class="mb-10">
+                    <v-col cols="12" lg="9" md="10" class="mb-10">
                         <v-sheet class="mx-auto" height="250">
                             <v-slide-group v-model="model" class="pa-5" show-arrows>
                                 <v-slide-item v-for="(item, index) in productos" :key="index" >
@@ -165,7 +165,7 @@
 
         <section>
             <v-container>
-                <v-row>
+                <v-row  v-if="windowSize >1129">
                     <v-col cols="3">
                         <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
                             <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
@@ -266,7 +266,7 @@
                 </v-row>
 
                 <v-row justify="center">
-                    <v-col cols="4" class="mb-16">
+                    <v-col cols="12" lg="4" md="4" sm="10" xs="10" class="mb-16">
                         <v-btn outlined block color="#19D3C5" class="text-none py-6 rounded-lg">
                             <span class="black--text">Mostrar más artículos</span>
                         </v-btn>
@@ -283,6 +283,7 @@ import { mapState } from 'vuex'
 export default {
     data(){
         return {
+            model: null,
             productos: [
                 {img: require('../../static/plasticos.png'), imgH: require('../../static/h-plasticos.png')},
                 {img: require('../../static/compuestos.png'),imgH: require('../../static/h-compuestos.png') },
