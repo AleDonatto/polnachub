@@ -2,29 +2,45 @@
     <div>
         <section>
             <v-container>
-                <v-row justify="center" class="my-16">
+                <v-row justify="start" class="my-16">
                     <v-col cols="12" lg="4" mg="4">
-                        <v-row justify="start">
+                        <v-row>
                             <v-col>
-                                <v-btn @click="showTransf" class="mt-2 text-none px-10 py-2" block rounded color="rgba(25, 211, 197, 0.3)">
-                                    <v-icon left>
-                                        mdi-alert-circle-outline
-                                    </v-icon>
-                                    Métodos de Transformación
-                                    <v-icon right>
-                                        {{ Transf ? 'mdi-chevron-right' : 'mdi-chevron-down' }}
-                                    </v-icon>
+                                <v-btn @click="showTransf" class="mt-2 text-none px-10 py-2 d-flex justify-start" block rounded color="rgba(25, 211, 197, 0.3)">
+                                    <v-row class="mt-1">
+                                        <v-col>
+                                            <v-icon left>
+                                                mdi-alert-circle-outline
+                                            </v-icon>
+                                        </v-col>
+                                        <v-col>
+                                            <p class="text-left">Métodos de Transformación</p>
+                                        </v-col>
+                                        <v-col>
+                                            <v-icon right>
+                                                {{ Transf ? 'mdi-chevron-right' : 'mdi-chevron-down' }}
+                                            </v-icon>
+                                        </v-col>
+                                    </v-row>
                                 </v-btn>
                             </v-col>
-                            <v-col>
-                                <v-btn @click="showLab" class="mt-2 text-none px-10 py-2" block rounded color="rgba(25, 211, 197, 0.3)">
-                                    <v-icon left>
-                                        mdi-alert-circle-outline
-                                    </v-icon>
-                                    Pruebas de Laboratorio
-                                    <v-icon right>
-                                        {{ Lab ? 'mdi-chevron-right' : 'mdi-chevron-down'}}
-                                    </v-icon>
+                            <v-col align="start">
+                                <v-btn @click="showLab" class="mt-2 text-none px-10 py-2 d-flex justify-start" block rounded color="rgba(25, 211, 197, 0.3)">
+                                    <v-row class="mt-1">
+                                        <v-col>
+                                            <v-icon left>
+                                                mdi-alert-circle-outline
+                                            </v-icon>
+                                        </v-col>
+                                        <v-col>
+                                            <p class="text-left">Pruebas de Laboratorio</p>
+                                        </v-col>
+                                        <v-col>
+                                            <v-icon right>
+                                                {{ Lab ? 'mdi-chevron-right' : 'mdi-chevron-down'}}
+                                            </v-icon>
+                                        </v-col>
+                                    </v-row>
                                 </v-btn>
                             </v-col>
                         </v-row>
