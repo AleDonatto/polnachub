@@ -17,7 +17,7 @@
                             </p>
 
                             <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start': windowSize > 1129}">
-                                <nuxt-link to="/polnac-group">
+                                <nuxt-link to="/polnac-group" class="decoration-none">
                                     <v-btn color="#773DBD" class="rounded-lg px-10 body-1 py-5 white--text text-none">{{ $t('home.btnabout') }}</v-btn>
                                 </nuxt-link>
                             </div>
@@ -412,7 +412,9 @@
                         los mejores materiales a precios competitivos. 
                     </p>
                     <div class="d-flex justify-center">
-                        <v-btn class="rounded-lg my-10 px-10 py-5 body-1 black--text text-none" color="#19D3C5" rounded>{{$t('home.btnalliances') }}</v-btn>
+                        <nuxt-link to="/alliances" class="decoration-none">
+                            <v-btn class="rounded-lg my-10 px-10 py-5 body-1 black--text text-none" color="#19D3C5" rounded>{{$t('home.btnalliances') }}</v-btn>
+                        </nuxt-link>
                     </div>
                 </v-container>
             </div>
@@ -486,7 +488,9 @@
                 </v-sheet>
 
                 <div class="d-flex justify-center mb-16">
-                    <v-btn rounded class="rounded-lg subtitle-1 px-10 py-5 white--text text-none" color="black">{{$t('home.btnblog')}}</v-btn>
+                    <nuxt-link to="/blog" class="decoration-none">
+                        <v-btn rounded class="rounded-lg subtitle-1 px-10 py-5 white--text text-none" color="black">{{$t('home.btnblog')}}</v-btn>
+                    </nuxt-link>
                 </div>
             </v-container>
         </section>

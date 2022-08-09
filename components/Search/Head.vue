@@ -26,6 +26,7 @@
                     </v-col>
                 </v-row>
                 <p>{{mtransformacion}}</p>
+                <p>{{credentials }}</p>
             </v-container>
         </div>
 

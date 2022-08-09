@@ -46,22 +46,54 @@
                             ></v-checkbox>
                         </v-col>
                         <v-col cols="6" class="mb-16">
-                            <v-btn color="#19D3C5" class="rounded-lg text-none py-6" block>Enviar</v-btn>
+                            <v-btn color="#19D3C5" class="rounded-lg text-none py-6" block @click="dialog = !dialog">Enviar</v-btn>
                         </v-col>
 
                     </v-row>
                 </v-form>
             </v-container>
         </section>
+
+        <v-dialog v-model="dialog" width="500" overlay-color="#19D3C5">
+            <v-card elevation="6">
+                <v-card-title>
+                    <v-row justify="center">
+                        <v-col cols="7">
+                            <h1 class="font-size-16 font-weight-bold">¡Tu mensaje ha sido enviado!</h1>
+                        </v-col>
+                        <v-col cols="2">
+                            <v-btn outlined color="white"  @click="dialog = false">
+                                <v-img src="/contact/line.png" contain max-width="15"></v-img>
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card-title>
+                <v-divider></v-divider>
+                <v-card-text>
+                    <v-row justify="center">
+                        <v-col cols="10">
+                            <p class="font-size-16 text-center mt-5 black--text">Gracias por escribirnos, uno de nuestros representantes se pondrá en contacto contigo.</p>
+                        </v-col>
+                    </v-row>
+                </v-card-text>
+
+                <v-card-actions>
+                    <!--<v-btn color="primary" text @click="dialog = false">I accept</v-btn>-->
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            dialog: false,
+        }
+    }
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>

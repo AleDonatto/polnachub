@@ -4,7 +4,7 @@
             <v-container>
                 <v-row justify="center" class="my-16">
                     <v-col cols="12" lg="4" mg="4">
-                        <v-row>
+                        <v-row justify="start">
                             <v-col>
                                 <v-btn @click="showTransf" class="mt-2 text-none px-10 py-2" block rounded color="rgba(25, 211, 197, 0.3)">
                                     <v-icon left>

@@ -16,7 +16,7 @@ export default {
             this.$axios.setToken(access_token, 'Bearer')
             //this.axios.defaults.headers.common = {'Authorization': `Bearer ${access_token}`}
 
-            localStorage.setItem('userToken', access_token)
+            //localStorage.setItem('userToken', access_token)
             commit('StateAssign', {credentials: res.data})
             console.log('get credentials')
         })
@@ -27,7 +27,7 @@ export default {
 
     async getCredentialsOther({commit, dispatch, state}){
 
-        const params = new URLSearchParams();
+        /*const params = new URLSearchParams();
         params.append('username', state.userSalesforce.username)
         params.append('password', state.userSalesforce.password)
         params.append('grant_type', state.userSalesforce.grant_type)
@@ -48,14 +48,14 @@ export default {
         })
         .catch( err => {
             console.log('getToken(): ' + err)
-        })
+        })*/
     }, 
 
     async getTypeResina ({commit}){
         const params = new URLSearchParams()
         params.append('q', 'SELECT+Name+FROM+Familia_de_productos__c')
 
-        await this.$axios.get('/data_products/services/data/v55.0/query/?q=SELECT+Name+FROM+Familia_de_productos__c')
+        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Familia_de_productos__c')
         .then( res => {
             //console.log(res)
             commit('StateAssign', {pTipoResina: res.data})
@@ -66,7 +66,7 @@ export default {
         const params = new URLSearchParams()
         params.append('q', 'SELECT+Name+FROM+Mercados__c')
 
-        await this.$axios.get('/data_products/services/data/v55.0/query/?q=SELECT+Name+FROM+Mercados__c')
+        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Mercados__c')
         .then( res => {
             //console.log(res)
             commit('StateAssign', {pMercado: res.data})
@@ -78,7 +78,7 @@ export default {
         params.append('q', 'SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
 
         //await this.$axios.get('/salesforcepolnac/services/data/v55.0/query/', params)
-        await this.$axios.get('/data_products/services/data/v55.0/query/?q=SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
+        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
         .then(res => {
             //console.log(res.data)
             commit('StateAssign', {pMetTransformacion: res.data})
@@ -90,7 +90,7 @@ export default {
         const qparams = new URLSearchParams()
         qparams.append('q', 'SELECT+Name+FROM+Fabricantes_Web__c')
     
-        await this.$axios.get('/data_products/services/data/v55.0/query/?q=SELECT+Name+FROM+Fabricantes_Web__c')
+        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Fabricantes_Web__c')
         .then(res => {
             //console.log(res)
             commit('StateAssign', {pFabricante: res.data})
@@ -111,7 +111,7 @@ export default {
         Coextrusi_n_Check__c,Rotomoldeo_Check__c,Inyecci_n_Check__c,Extrusi_n_Chek__c,Termoformado_Check__c,Inyecci_n_Soplo_Check__c,Grupo_Pag_Web_p__c,
         Extrusi_n_Soplo_Chek__c+FROM+Product2+WHERE(${type} = True)`
 
-        await this.$axios.get(`/data_products/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -126,7 +126,7 @@ export default {
         Coextrusi_n_Check__c,Rotomoldeo_Check__c,Inyecci_n_Check__c,Extrusi_n_Chek__c,Termoformado_Check__c,Inyecci_n_Soplo_Check__c,Grupo_Pag_Web_p__c,
         Extrusi_n_Soplo_Chek__c+FROM+Product2+WHERE (Family='${product}')`
 
-        await this.$axios.get(`/data_products/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             commit('StateAssign', {tablePruebas: res.data})
 

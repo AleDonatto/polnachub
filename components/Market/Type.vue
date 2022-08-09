@@ -65,7 +65,7 @@
             <v-container>
                 <v-row>
                     <v-col cols="8">
-                        <h1 class="font-size-30 font-weight-bold">Otros mercados</h1>
+                        <h1 class="font-size-30 font-weight-bold">Productos recomendados</h1>
                     </v-col>
                     <v-col cols="4" align="right">
                         <nuxt-link to="/market" class="color-decotarion">
@@ -76,22 +76,22 @@
                 <v-row justify="center" class="mb-16" v-if="windowSize > 1129">
                     <v-col cols="3">
                         <nuxt-link to="/market/type/2">
-                            <v-img src="/market/tconstruccion.png" contain max-height="270"></v-img>
+                            <v-img src="/contact/plasticos.png" contain max-height="270"></v-img>
                         </nuxt-link>
                     </v-col>
                     <v-col cols="3">
                         <nuxt-link to="/market/type/3">
-                            <v-img src="/market/telectrico.png" contain max-height="270"></v-img>
+                            <v-img src="/contact/compuestos.png" contain max-height="270"></v-img>
                         </nuxt-link>
                     </v-col>
                     <v-col cols="3">
                         <nuxt-link to="/market/type/4">
-                            <v-img src="/market/tautomotriz.png" contain max-height="270"></v-img>
+                            <v-img src="/contact/masterbatch.png" contain max-height="270"></v-img>
                         </nuxt-link>
                     </v-col>
                     <v-col cols="3">
                         <nuxt-link to="/market/type/5">
-                            <v-img src="/market/tconsumo.png" contain max-height="270"></v-img>
+                            <v-img src="/contact/aditivos.png" contain max-height="270"></v-img>
                         </nuxt-link>
                     </v-col>
                 </v-row>
@@ -120,15 +120,15 @@ export default {
      data() {
         return {
             itemsMercado: [
-                {img : require('../../static/market/tconstruccion.png')},
-                {img : require('../../static/market/telectrico.png')},
-                {img : require('../../static/market/tautomotriz.png')},
-                {img : require('../../static/market/tconsumo.png')},
+                {img : require('../../static/contact/plasticos.png')},
+                {img : require('../../static/contact/compuestos.png')},
+                {img : require('../../static/contact/masterbatch.png')},
+                {img : require('../../static/contact/aditivos.png')},
             ],
             items: [
-                {img : require('../../static/market/caja.png')},
-                {img : require('../../static/market/tostador.png')},
-                {img : require('../../static/market/refrigerador.png')},
+                {img : require('../../static/contact/plasticos.png')},
+                {img : require('../../static/contact/compuestos.png')},
+                {img : require('../../static/contact/masterbatch.png')},
             ]
         }
     },

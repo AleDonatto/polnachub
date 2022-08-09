@@ -168,7 +168,7 @@
         </section>
 
 
-        <v-dialog v-model="dialog" width="700">
+        <v-dialog v-model="dialog" width="700" overlay-color="#2E2E65">
             <v-card elevation="6">
                 <v-card-title>
                     <v-row justify="end">

@@ -8,6 +8,10 @@
     font-family: 'Archivo' !important;
 }
 
+.font-size-16{
+    font-size: 1rem !important;
+}
+
 .font-size-18{
     font-size: 1.125rem !important;
 }
@@ -34,6 +38,11 @@
 
 .font-size-56 {
     font-size: 3.5rem !important;
+}
+
+.decoration-none{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.87) !important;
 }
 
 
