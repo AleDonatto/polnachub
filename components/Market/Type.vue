@@ -27,7 +27,7 @@
                         </p>
                     </v-col>
                     <v-col cols="12" class="mb-10">
-                        <v-carousel :show-arrows="false" height="340" dark v-if="windowSize > 1129">
+                        <v-carousel class="carousel-black" :show-arrows="false" height="340" dark  cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize > 1129">
                             <v-carousel-item v-for="(item,i) in 4" :key="i">
                                 <v-sheet color="white" height="100%">
                                     <v-row>
@@ -45,8 +45,8 @@
                             </v-carousel-item>
                         </v-carousel>
 
-                        <v-carousel :show-arrows="false" height="340" dark v-if="windowSize < 1129">
-                            <v-carousel-item v-for="(item,i) in items" :key="i">
+                        <v-carousel :show-arrows="false"  cycle hide-delimiter-background show-arrows-on-hover height="340" dark v-if="windowSize < 1129">
+                            <v-carousel-item v-for="(item,i) in items" :key="i" class="carousel-black">
                                 <v-sheet color="white" height="100%">
                                     <v-row>
                                         <v-col cols="12">
@@ -96,17 +96,17 @@
                     </v-col>
                 </v-row>
                 <v-row v-if="windowSize < 1129" class="mb-16">
-                    <v-carousel :show-arrows="false" dark height="270">
-                            <v-carousel-item v-for="(item,i) in itemsMercado" :key="i">
-                               <v-row justify="center">
-                                    <v-col cols="11">
-                                        <nuxt-link :to="`/market/type/${i}`">
-                                            <v-img :src="item.img" contain max-height="270"></v-img>
-                                        </nuxt-link>
-                                    </v-col>
-                                </v-row>
-                            </v-carousel-item>
-                        </v-carousel>
+                    <v-carousel class="carousel-black" :show-arrows="false" dark height="270" cycle hide-delimiter-background show-arrows-on-hover>
+                        <v-carousel-item v-for="(item,i) in itemsMercado" :key="i">
+                            <v-row justify="center">
+                                <v-col cols="11">
+                                    <nuxt-link :to="`/market/type/${i}`">
+                                        <v-img :src="item.img" contain max-height="270"></v-img>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </v-carousel-item>
+                    </v-carousel>
                 </v-row>
             </v-container>
         </section>
@@ -159,5 +159,9 @@ export default {
 }
 .color-decotarion{
     text-decoration-color: #773DBD !important;
+}
+
+.theme--dark.v-btn.v-btn--icon {
+    color: black !important;
 }
 </style>

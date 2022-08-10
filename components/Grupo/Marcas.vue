@@ -25,9 +25,9 @@
 
                 <v-row justify="center">
                     <v-col cols="12" class="my-16">
-                        <v-carousel :show-arrows="false" height="340" dark v-if="windowSize > 1129">
+                        <v-carousel class="carousel-black" height="340" cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize > 1129">
                             <v-carousel-item v-for="(item,i) in 4" :key="i">
-                                <v-sheet color="white" height="100%">
+                                <v-sheet height="100%">
                                     <v-row>
                                         <v-col cols="4">
                                             <v-img src="/group/baja.png" contain max-height="270"></v-img>
@@ -43,7 +43,7 @@
                             </v-carousel-item>
                         </v-carousel>
 
-                        <v-carousel :show-arrows="false" height="340" dark v-if="windowSize < 1129">
+                        <v-carousel class="carousel-black" height="340" cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize < 1129">
                             <v-carousel-item v-for="(item,i) in items" :key="i">
                                 <v-sheet color="white" height="100%">
                                     <v-row>
@@ -164,7 +164,7 @@
                 </v-row>
                 <v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="12" class="mb-16">
-                        <v-carousel :show-arrows="false" dark height="280">
+                        <!--<v-carousel height="280" cycle hide-delimiter-background show-arrows-on-hover>
                             <v-carousel-item v-for="(item,i) in itemsMarcas" :key="i">
                                <v-row justify="center">
                                     <v-col cols="11" align="center">
@@ -174,6 +174,20 @@
                                         </nuxt-link>
                                     </v-col>
                                 </v-row>
+                            </v-carousel-item>
+                        </v-carousel>-->
+                        <v-carousel class="carousel-black" cycle height="280" hide-delimiter-background show-arrows-on-hover>
+                            <v-carousel-item v-for="(item,i) in itemsMarcas" :key="i">
+                                 <v-sheet height="100%">
+                                    <v-row justify="center">
+                                        <v-col cols="11" align="center">
+                                            <nuxt-link :to="`/marcas/${i+1}`" class="decoration-none">
+                                                <v-img :src="item.img" contain max-width="270"></v-img>
+                                                <p class="text-body-all text-left mt-2 black--text">{{ item.text }}</p>
+                                            </nuxt-link>
+                                        </v-col>
+                                    </v-row>
+                                </v-sheet>
                             </v-carousel-item>
                         </v-carousel>
                     </v-col>

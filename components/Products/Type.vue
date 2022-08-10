@@ -8,21 +8,20 @@
                     </v-col>
                 </v-row>
                 <v-row class="my-10">
-                    <v-col cols="6">
-                        <v-carousel dark cycle :height="windowSize > 1129 ? '300' : '210'" hide-delimiter-background show-arrows-on-hover>
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                        <v-carousel cycle :height="windowSize > 1129 ? '300' : '210'" hide-delimiter-background show-arrows-on-hover>
                             <v-carousel-item v-for="(slide, i) in 3" :key="i">
                                 <v-sheet height="100%">
                                     <v-row class="fill-height" align="center" justify="center">
                                         <div>
-                                            <v-img src="/products/testproducts.png" contain width="520" v-if="windowSize>1129"></v-img>
-                                            <v-img src="/transpolimer/carousel-mb.png" contain width="320" v-else></v-img>
+                                            <v-img src="/products/testproducts.png" contain width="520"></v-img>\
                                         </div>
                                     </v-row>
                                 </v-sheet>
                             </v-carousel-item>
                         </v-carousel>
                     </v-col>
-                    <v-col cols="6">
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                         <p class="text-body-all">
                             Gracias a su amplia gama de propiedades, su bajo costo, y su facilidad de procesamiento se ha 
                             convertido en uno de los plásticos más utilizados a nivel mundial. Miembro de la familia de las 
@@ -33,9 +32,9 @@
                     </v-col>
                 </v-row>
 
-                <v-row class="my-10">
+                <v-row class="my-10" v-if="windowSize > 1129">
                     <v-col cols="12">
-                        <v-carousel dark cycle :height="windowSize > 1129 ? '280' : '210'" hide-delimiter-background show-arrows-on-hover>
+                        <v-carousel class="carousel-black" dark cycle :height="windowSize > 1129 ? '280' : '210'" hide-delimiter-background show-arrows-on-hover>
                             <v-carousel-item v-for="(slide, i) in 3" :key="i">
                                 <v-sheet height="100%">
                                     <!--<v-row class="fill-height" align="center" justify="center">
@@ -65,7 +64,7 @@
 
         <section>
             <v-container>
-                <v-row class="my-10">
+                <v-row class="mb-5">
                     <v-col cols="12">
                         <v-expansion-panels v-model="tabs" multiple>
                             <v-expansion-panel class="my-2 rounded-xl">
@@ -74,7 +73,7 @@
                                 </v-expansion-panel-header>
                                 <v-expansion-panel-content class="mt-5 shadow-none">
                                     <v-row>
-                                        <v-col cols="6">
+                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                             <p class="text-body-all">
                                                 Es un material de fácil procesamiento y con una gran presencia en la industria 
                                                 de empaque y envase. Algunas de sus características más importantes son: 
@@ -82,9 +81,9 @@
                                                 de otros materiales semi-cristalinos, de igual manera es un óptimo aislante eléctrico.
                                             </p>
                                         </v-col>
-                                        <v-col cols="6">
+                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                             <v-row>
-                                                <v-col cols="6">
+                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                     <p class="font-weight-bold font-size-20">Métodos de transformación:</p>
                                                     <div class="d-flex inline-block">
                                                         <img src="../../static/group/check.png" height="17" alt="">
@@ -99,7 +98,7 @@
                                                         <p class=" ml-3 text-body-all">Inyección</p>
                                                     </div>
                                                 </v-col>
-                                                <v-col cols="6">
+                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                     <p class="font-weight-bold font-size-20">Mercados:</p>
                                                     <div class="d-flex inline-block">
                                                         <img src="../../static/market/lempaque.png" height="20" alt="">
@@ -131,16 +130,16 @@
                                 </v-expansion-panel-header>
                                 <v-expansion-panel-content class="mt-5">
                                     <v-row>
-                                        <v-col cols="6">
+                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                             <p class="text-body-all">
                                                 El polietileno más versátil gracias a que es un excelente aislante 
                                                 eléctrico que posee buena resistencia química y mecánica. Es un material 
                                                 de costo atractivo y de una gran maleabilidad a la hora de transformación.
                                             </p>
                                         </v-col>
-                                        <v-col cols="6">
+                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                             <v-row>
-                                                <v-col cols="6">
+                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                     <p class="font-weight-bold font-size-20">Métodos de transformación:</p>
                                                     <div class="d-flex inline-block">
                                                         <img src="../../static/group/check.png" height="17" alt="">
@@ -163,7 +162,7 @@
                                                         <p class=" ml-3 text-body-all">Rotomoldeo</p>
                                                     </div>
                                                 </v-col>
-                                                <v-col cols="6">
+                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                     <p class="font-weight-bold font-size-20">Mercados:</p>
                                                     <div class="d-flex inline-block">
                                                         <img src="../../static/market/lempaque.png" height="20" alt="">
@@ -262,6 +261,18 @@
                         </v-expansion-panels>
                     </v-col>
                 </v-row>
+                <v-row justify="center" v-if="windowSize < 1129">
+                    <v-col cols="12" align="center">
+                        <v-btn block outlined color="#19D3C5" class="rounded-xl text-none">
+                            <span class="black--text">Me interesa este producto</span>
+                        </v-btn>
+                    </v-col>
+                    <v-col cols="12" align="center">
+                        <v-btn block color="#19D3C5" class="rounded-xl text-none">
+                            <span class="black--text">Ver más productos</span>
+                        </v-btn>
+                    </v-col>
+                </v-row>
             </v-container>
         </section>
 
@@ -300,17 +311,17 @@
                         </v-col>
                 </v-row>
                 <v-row v-if="windowSize < 1129" class="mb-16">
-                    <v-carousel :show-arrows="false" dark height="270">
-                            <v-carousel-item v-for="(item,i) in itemsMercado" :key="i">
-                                <v-row justify="center">
-                                    <v-col cols="11">
-                                        <nuxt-link :to="`/market/type/${i}`">
-                                            <v-img :src="item.img" contain max-height="270"></v-img>
-                                        </nuxt-link>
-                                    </v-col>
-                                </v-row>
-                            </v-carousel-item>
-                        </v-carousel>
+                    <v-carousel class="carousel-black" :show-arrows="false" hide-delimiter-background show-arrows-on-hover height="270">
+                        <v-carousel-item v-for="(item,i) in itemsMercado" :key="i">
+                            <v-row justify="center">
+                                <v-col cols="11">
+                                    <nuxt-link :to="`/market/type/${i}`">
+                                        <v-img :src="item.img" contain max-height="270"></v-img>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </v-carousel-item>
+                    </v-carousel>
                 </v-row>
             </v-container>
         </section>
@@ -324,10 +335,10 @@ export default {
     data() {
         return {
             itemsMercado: [
-                {img : require('../../static/market/tconstruccion.png')},
-                {img : require('../../static/market/telectrico.png')},
-                {img : require('../../static/market/tautomotriz.png')},
-                {img : require('../../static/market/tconsumo.png')},
+                {img : require('../../static/contact/plasticos.png')},
+                {img : require('../../static/contact/masterbatch.png')},
+                {img : require('../../static/contact/calcio.png')},
+                {img : require('../../static/contact/pvc.png')},
             ],
             items: [
                 {img : require('../../static/market/caja.png')},

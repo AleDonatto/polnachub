@@ -44,5 +44,12 @@
     text-decoration: none;
     color: rgba(0, 0, 0, 0.87) !important;
 }
+.shadow-out{
+    box-shadow: none !important;
+}
+
+.carousel-black .v-btn .v-btn__content .v-icon {
+    color: black !important;
+}
 
 

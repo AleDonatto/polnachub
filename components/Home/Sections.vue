@@ -475,20 +475,22 @@
                     <v-slide-group v-model="model" class="pa-4" center-active show-arrows>
                         <v-slide-item v-for="(item, index) in blogs" :key="index" >
                             <!--max-width="325" max-height="390"-->
-                            <v-card class="card-blog shadow-out" :class="{'ma-5': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                <img :src="item.img" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>{{item.title}}</v-card-title>
-                                <v-card-subtitle>{{item.description}}</v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
+                            <nuxt-link :to="`/blogs/${index+1}`" class="decoration-none">
+                                <v-card class="card-blog shadow-out" :class="{'ma-5': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                    <img :src="item.img" style="width: 100%" alt="pruebas"/>
+                                    <v-card-title>{{item.title}}</v-card-title>
+                                    <v-card-subtitle>{{item.description}}</v-card-subtitle>
+                                    <v-card-actions>
+                                        <v-spacer></v-spacer>
+                                    </v-card-actions>
+                                </v-card>
+                            </nuxt-link>
                         </v-slide-item>
                     </v-slide-group>
                 </v-sheet>
 
                 <div class="d-flex justify-center mb-16">
-                    <nuxt-link to="/blog" class="decoration-none">
+                    <nuxt-link to="/blogs" class="decoration-none">
                         <v-btn rounded class="rounded-lg subtitle-1 px-10 py-5 white--text text-none" color="black">{{$t('home.btnblog')}}</v-btn>
                     </nuxt-link>
                 </div>

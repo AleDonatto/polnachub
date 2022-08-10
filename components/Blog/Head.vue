@@ -6,7 +6,18 @@
             </v-col>
         </v-row>
         <v-row justify="center" class="mt-4" v-if="windowSize > 1129">
-            <v-col cols="1">
+            <v-col cols="8">
+                <v-tabs fixed-tabs background-color="transparent">
+                    <v-tabs-slider color="yellow"></v-tabs-slider>
+                    <v-tab class="white--text">Todos</v-tab>
+                    <v-tab class="white--text">Tendencias</v-tab>
+                    <v-tab class="white--text">Productos</v-tab>
+                    <v-tab class="white--text">Mercados</v-tab>
+                    <v-tab class="white--text">POLNAC Blue</v-tab>
+                    <v-tab class="white--text">Eventos</v-tab>
+                </v-tabs>
+            </v-col>
+            <!--<v-col cols="1">
                 <p class="white--text">Todos</p>
             </v-col>
             <v-col cols="1">
@@ -23,7 +34,7 @@
             </v-col>
             <v-col cols="1">
                 <p class="white--text">Eventos</p>
-            </v-col>
+            </v-col>-->
         </v-row>
         <v-row justify="center">
             <v-col cols="8" class="mb-16">
