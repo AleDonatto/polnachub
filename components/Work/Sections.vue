@@ -64,8 +64,22 @@
                                         <p class="mt-2">Sube tu archivo</p>
                                         <v-btn color="#19D3C5" class="rounded-xl px-6 text-none">
                                             <p class="mt-3">Selecciona un archivo</p>
-                                            <v-file-input truncate-length="15" class="rounded-xl" color="#19D3C5"></v-file-input>
                                         </v-btn>
+                                        <!--<v-file-input class="rounded-xl" color="#19D3C5" label="Selecciona un archivo"></v-file-input>
+
+                                        <input ref="uploader" class="d-none" type="file" accept="image/*" @change="OnFileChanged" >
+                                        <input type="text" v-model="imageUrl" name="imageUrl" hidden>
+                                        <v-col cols="12"  v-if="!imageUrl" class="brandingTextGrey--text" align="center" >Add images for his news user from the upload image button...</v-col>
+                                        <v-col cols="12"  v-else class="brandingTextGrey--text" align="center" >
+                                            <v-row>
+                                                <v-col  cols="3">
+                                                    <v-icon color="red" class="float-right pointer" @click="imageUrl = null">mdi-close</v-icon>
+                                                    <img :src="imageUrl" alt="" height="200" width="200">
+                                                </v-col>
+                                            </v-row>
+                                        </v-col>
+                                        <v-col cols="12" v-if="!this.imageUrl" class="mainPurple--text mt-5" align="center" ><h2>UPLOAD YOUR IMAGES</h2></v-col>
+                                        <v-col cols="12" v-if="!this.imageUrl" align="center" class="white--text"><v-btn @click="OpenFileSelector()" class="pa-7 mx-5 white--text step-button"  color="mainPurple">UPLOAD IMAGE</v-btn></v-col>-->
                                     </div>
                                 </v-col>
 
@@ -73,7 +87,7 @@
                                     <v-checkbox label="Aceptar Aviso de Privacidad" color="#19D3C5"></v-checkbox>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <v-btn block class="rounded-xl text-none py-6 d-flex justify-space-between" color="#19D3C5">
+                                    <v-btn block class="rounded-xl text-none py-6 d-flex justify-space-between" color="#19D3C5" @click="dialog = !dialog">
                                         <span class="text-left">Enviar solicitud</span>
                                         <v-icon right>
                                             mdi-chevron-right
@@ -86,6 +100,43 @@
                 </v-row>
             </v-container>
         </section>
+
+        <v-dialog v-model="dialog" width="700" overlay-color="#2E2E65">
+            <v-card elevation="6">
+                <v-card-title>
+                    <v-row justify="end">
+                        <v-col cols="2">
+                            <v-btn outlined color="white"  @click="dialog = false">
+                                <v-img src="/contact/line.png" contain max-width="25"></v-img>
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card-title>
+
+                <v-card-text>
+                    <v-row justify="center">
+                        <v-col cols="6">
+                            <v-img src="/contact/dialog.png" contain max-height="120"></v-img>
+                        </v-col>
+                        <v-col cols="12">
+                            <h1 class="font-size-24 font-weight-bold text-center black--text">¡Tu solicitud ha sido enviada!</h1>
+                        </v-col>
+                        <v-col cols="8">
+                            <p class="text-body-all text-center text-center black--text">Gracias por tu interés. Nuestro equipo de reclutamiento se pondrá en contacto contigo.</p>
+                        </v-col>
+                        <v-col cols="7" class="mt-5">
+                            <v-btn block class="rounded-xl text-none py-6" color="#19D3C5" @click="dialog = false">Entendido</v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card-text>
+
+                <v-divider></v-divider>
+
+                <v-card-actions>
+                    <!--<v-btn color="primary" text @click="dialog = false">I accept</v-btn>-->
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -112,10 +163,61 @@ export default {
                 {value: 'Servicios Generales'},
                 {value: 'Otra'},
             ],
+            dialog:false,
+            images: [],
+            imageUrls: [],
         }
     },
     computed: {
         ...mapState(['windowSize', 'windowHeight'])
+    },
+    methods: {
+        RemoveImage(ind) {
+            this.images = this.images.filter(i => i.index !== ind);
+            this.imageUrls = this.imageUrls.splice(ind, 1);
+            for (let i = 0; i < this.images.length; i++) {
+                this.images[i].index = i;
+            }
+        },
+        OpenFileSelector() {
+            this.$refs.uploader.click();
+        },
+        async OnFileChanged(e) {
+            this.UploadFile(e.target.files[0]);
+        },
+        UploadFile(file) {
+            let reader = new FileReader();
+            reader.onload = f => {
+                let src = f.target.result;
+                //let base64 = src.split(',')[1];
+                //this.ShowImage(src, file);
+            };
+            reader.readAsDataURL(file);
+        },
+        ShowImage(base64, file) {
+            this.RenderImage(base64, file);
+        },
+        async RenderImage(base64, file) {
+            base64 = base64.split(",")[1];
+            /*const s3 = new AWS.S3({
+                accessKeyId: this.aws.access,
+                secretAccessKey: this.aws.secretAccessKey,
+                region:this.aws.region
+            });
+            const rawData = atob(base64);
+            const bytes = new Array(rawData.length);
+            for (var x = 0; x < rawData.length; x++) {
+                bytes[x] = rawData.charCodeAt(x);
+            }
+            const uploadedImage = await s3.upload({
+                Bucket: this.aws.bucket,
+                Key: "images/" + file.name.toLowerCase(),
+                Body: Buffer(bytes),
+                ContentEncoding: "byte",
+            }).promise();
+            this.imageUrls.push(uploadedImage.Location);
+            this.images.push({ base64: uploadedImage.Location, file: file, index: this.images.length });*/
+        },
     }
 }
 </script>

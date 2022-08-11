@@ -7,7 +7,7 @@
 
 <script>
 export default {
-    name:'Trabaja con Nosotros',
+    name:'Work-at-polnac',
     head: {
 
     },

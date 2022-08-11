@@ -291,7 +291,11 @@
                             ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
                             Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
                         </p>
-                        <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">Ver vacantes</v-btn>
+                        <nuxt-link to="/work-at-polnac" class="decoration-none">
+                            <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
+                                Ver vacantes
+                            </v-btn>
+                        </nuxt-link>
                     </div>
                     </v-col>
                 </v-row>

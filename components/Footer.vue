@@ -14,21 +14,40 @@
               </p>
             </v-col>
             <v-col cols="2" class="mt-10" v-if="windowSize > 1129">
-              <p class="white--text body-1">¿Quiénes Somos?</p>
+              <nuxt-link to="/aboutus" class="decoration-none">
+                <p class="white--text body-1">¿Quiénes Somos?</p>
+              </nuxt-link>
               <p class="white--text body-1">Colaboradores</p>
-              <p class="white--text body-1">Trabaja con nosotros</p>
-              <p class="white--text body-1">Grupo POLNAC</p>
+              <nuxt-link to="/work-at-polnac" class="decoration-none">
+                <p class="white--text body-1">Trabaja con nosotros</p>
+              </nuxt-link>
+              <nuxt-link to="/polnac-group" class="decoration-none white--text">
+                <p class="white--text body-1">Grupo POLNAC</p>
+              </nuxt-link>
             </v-col>
             <v-col cols="2" class="mt-10" v-if="windowSize > 1129">
-              <p class="white--text body-1">Productos</p>
-              <p class="white--text body-1">Innovación</p>
-              <p class="white--text body-1">Servicios</p>
-              <p class="white--text body-1">Mercados</p>
+              <nuxt-link to="/search-products" class="decoration-none">
+                <p class="white--text body-1">Productos</p>
+              </nuxt-link>
+              <nuxt-link to="/innovation" class="decoration-none">
+                <p class="white--text body-1">Innovación</p>
+              </nuxt-link>
+              <nuxt-link to="/services" class="decoration-none">
+                <p class="white--text body-1">Servicios</p>
+              </nuxt-link>
+              <nuxt-link to="/market" class="decoration-none">
+                <p class="white--text body-1">Mercados</p>
+              </nuxt-link>
             </v-col>
             <v-col cols="2" class="mt-10" v-if="windowSize > 1129">
-              <p class="white--text body-1">Blog</p>
+              <nuxt-link to="/blogs" class="decoration-none">
+                <p class="white--text body-1">Blog</p>
+              </nuxt-link>
               <p class="white--text body-1">Sucursales</p>
-              <p class="white--text body-1">Contacto</p>
+              
+              <nuxt-link to="/contact" class="decoration-none">
+                <p class="white--text body-1">Contacto</p>
+              </nuxt-link>
             </v-col>
             <v-col cols="2" class="mt-10" align="center" v-if="windowSize > 1129">
               <v-row justify="center">
