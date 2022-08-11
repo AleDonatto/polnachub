@@ -8,7 +8,7 @@
               <div class="mt-2 d-flex" :class="{'justify-left': windowSize > 1129, 'justify-center': windowSize < 1129}">
                 <img src="../static/Logo-polnac-footer.png" alt="logo polnac">
               </div>
-              <p v-if="windowSize > 1129" class="body-1 pr-4 text-left mt-1 teal--text accent-3--text" >
+              <p v-if="windowSize > 1129" class="body-1 pr-4 text-left mt-4 teal--text accent-3--text" >
                 Polímeros Nacionales S.A. de C.V. <br>
                 Lázaro Cárdenas No. 49, Col. San Jerónimo Tepetlacalco, Tlalnepantla, Estado de México. C.P. 54090.
               </p>
@@ -52,16 +52,16 @@
             <v-col cols="2" class="mt-10" align="center" v-if="windowSize > 1129">
               <v-row justify="center">
                 <v-col cols="3">
-                  <v-icon dark class="mx-2">mdi-linkedin</v-icon>
+                  <v-img src="/Linkedin.png" contain max-height="27"></v-img>
                 </v-col>
                 <v-col cols="3">
-                  <v-icon dark class="mx-2">mdi-facebook</v-icon>
+                  <v-img src="/Facebook.png" contain max-height="27"></v-img>
                 </v-col>
                 <v-col cols="3">
-                  <v-icon dark class="mx-2">mdi-instagram</v-icon>
+                  <v-img src="/Instagram.png" contain max-height="27"></v-img>
                 </v-col>
                 <v-col cols="3">
-                  <v-icon dark class="mx-2">mdi-twitter</v-icon>
+                  <v-img src="/Twitter.png" contain max-height="27"></v-img>
                 </v-col>
               </v-row>
               <v-row class="d-block mt-2">

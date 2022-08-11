@@ -36,10 +36,11 @@ export default {
     height: 320px;
 }
 .bg-market-mb{
-    background-image: url('../../static/market/bg-marketmb.png');
+    background-image: url('../../static/market/bg-market-mb.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+    height: 320px;
 }
 </style>
