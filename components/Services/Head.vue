@@ -6,9 +6,9 @@
             </v-col>
         </v-row>
         <v-row justify="center">
-            <v-col cols="10" lg="8" md="8" sm="10" xs="10" align="center">
-                <p class="white--text mt-10 mb-16 title">
-                    <span class="yellow--text font-weight-bold">POLNAC</span>: La única empresa 360° de la industria plástica. Soluciones para cualquier reto. 
+            <v-col cols="10" lg="5" md="5" sm="9" xs="9">
+                <p class="white--text mt-10 mb-16 title text-center">
+                    <span class="yellow--text font-weight-bold">POLNAC</span>: La única empresa 360° de la industria plástica. Soluciones para cualquier reto.
                     Bajo nuestra filial, Transpolimer, encontrarás un extenso repertorio de Servicios 
                     Logísticos Especializados: terminal ferroviaria, servicios de almacenaje, trasvase, 
                     ensacado, distribución, y servicio de carga y descarga de contenedores. 

@@ -11,41 +11,42 @@
                 <v-form ref="formContact" class="mb-16">
                     <v-row justify="center">
 
-                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12">
+                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-text-field outlined solo label="Nombres" class="rounded-xl"></v-text-field>
                         </v-col>
-                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12">
+                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-text-field outlined solo class="rounded-xl" label="Apellidos"></v-text-field>
                         </v-col>
-                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12">
+                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-text-field outlined solo class="rounded-xl" label="Cargo"></v-text-field>
                         </v-col>
-                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12">
+                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-text-field outlined solo class="rounded-xl" label="Empresa"></v-text-field>
                         </v-col>
-                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12">
+                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-text-field outlined solo class="rounded-xl" label="Correo Electronico"></v-text-field>
                         </v-col>
-                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12">
+                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-text-field outlined solo class="rounded-xl" label="Telefono"></v-text-field>
                         </v-col>
-                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12">
+                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-select outlined solo class="rounded-xl" label="Ubicación"></v-select>
                         </v-col>
-                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12">
+                        <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-select outlined solo class="rounded-xl" label="Servicio que te interesa"></v-select>
                         </v-col>
-                        <v-col cols="12">
-                            <v-textarea outlined solo class="rounded-xl" label="Cuéntanos qué información necesitas consultar con nosotros."></v-textarea>
+                        <v-col cols="12" class="margin-botton-0">
+                            <v-textarea outlined solo class="rounded-xl text-area" label="Cuéntanos qué información necesitas consultar con nosotros."></v-textarea>
                         </v-col>
-                        <v-col cols="12" class="mt-0">
+                        <v-col cols="12" class="">
                             <v-checkbox
                                 :rules="[v => !!v || 'You must agree to continue!']"
                                 label="Aceptar Aviso de Privacidad"
                                 required
+                                color="#19D3C5"
                             ></v-checkbox>
                         </v-col>
-                        <v-col cols="6" class="mb-16">
+                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="mb-16">
                             <v-btn color="#19D3C5" class="rounded-lg text-none py-6" block @click="dialog = !dialog">Enviar</v-btn>
                         </v-col>
 
@@ -96,4 +97,15 @@ export default {
 </script>
 
 <style scoped>
+.margin-botton-0{
+    margin-bottom: -35px !important;
+}
+.text-area .v-text-field .v-label {
+    max-width: 90% !important;
+    overflow: visible !important;
+    text-overflow: ellipsis !important;
+    top: 6px !important;
+    white-space: normal !important;
+    pointer-events: none !important;
+}
 </style>

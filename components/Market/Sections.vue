@@ -163,13 +163,9 @@ export default {
     line-height: 1.5rem;
     height: 3rem;
     overflow: hidden !important;
-    text-overflow: '...' !important;
+    text-overflow: ellipsis !important;
     content: '...' !important;
 }
 
-.text-truncate::after {
-    content: '...' !important;
-    white-space: nowrap;
-}
 
 </style>

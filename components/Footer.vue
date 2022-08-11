@@ -4,7 +4,7 @@
       <v-row justify="center" >
         <v-container fluid :class="{'mx-16': windowSize > 1129, 'mx-5': windowSize < 1129}">
           <v-row class="mt-16">
-            <v-col cols="12" lg="4" m="4" class="mt-10">
+            <v-col cols="12" xl="3" lg="3" m="3" class="mt-10">
               <div class="mt-2 d-flex" :class="{'justify-left': windowSize > 1129, 'justify-center': windowSize < 1129}">
                 <img src="../static/Logo-polnac-footer.png" alt="logo polnac">
               </div>
@@ -51,17 +51,20 @@
             </v-col>
             <v-col cols="2" class="mt-10" align="center" v-if="windowSize > 1129">
               <v-row justify="center">
-                <v-col cols="3">
+                <v-col cols="2">
                   <v-img src="/Linkedin.png" contain max-height="27"></v-img>
                 </v-col>
-                <v-col cols="3">
+                <v-col cols="2">
                   <v-img src="/Facebook.png" contain max-height="27"></v-img>
                 </v-col>
-                <v-col cols="3">
+                <v-col cols="2">
                   <v-img src="/Instagram.png" contain max-height="27"></v-img>
                 </v-col>
-                <v-col cols="3">
+                <v-col cols="2">
                   <v-img src="/Twitter.png" contain max-height="27"></v-img>
+                </v-col>
+                <v-col cols="2">
+                  <v-img src="/Youtube.png" contain max-height="27"></v-img>
                 </v-col>
               </v-row>
               <v-row class="d-block mt-2">
@@ -86,17 +89,20 @@
               <p class="teal--text accent-3--text body-1"><v-icon class="mr-2" dark>mdi-whatsapp</v-icon> (55) 2585 2650</p>
               <p class="teal--text accent-3--text body-1">digital@polnac.com</p>
               <v-row justify="center">
-                <v-col cols="3">
-                  <v-icon dark class="mx-2">mdi-linkedin</v-icon>
+                <v-col cols="2">
+                  <v-img src="/Linkedin.png" contain max-height="27"></v-img>
                 </v-col>
-                <v-col cols="3">
-                  <v-icon dark class="mx-2">mdi-facebook</v-icon>
+                <v-col cols="2">
+                  <v-img src="/Facebook.png" contain max-height="27"></v-img>
                 </v-col>
-                <v-col cols="3">
-                  <v-icon dark class="mx-2">mdi-instagram</v-icon>
+                <v-col cols="2">
+                  <v-img src="/Instagram.png" contain max-height="27"></v-img>
                 </v-col>
-                <v-col cols="3">
-                  <v-icon dark class="mx-2">mdi-twitter</v-icon>
+                <v-col cols="2">
+                  <v-img src="/Twitter.png" contain max-height="27"></v-img>
+                </v-col>
+                <v-col cols="2">
+                  <v-img src="/Youtube.png" contain max-height="27"></v-img>
                 </v-col>
               </v-row>
             </v-col>
