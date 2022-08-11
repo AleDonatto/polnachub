@@ -4,8 +4,8 @@
             <v-container>
                 <v-row justify="center" class="mt-16">
                     <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
-                        <h1 class="text-h4 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Terminal Ferroviaria</h1>
-                        <ul class="text-body-all mt-2" :class="{'mx-6' : windowSize < 1129 }">
+                        <h1 class="font-size-28 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Terminal Ferroviaria</h1>
+                        <ul class="text-body-all mt-5" :class="{'mx-6' : windowSize < 1129 }">
                             <li>5 km de vía conectadas a la línea Kansas City Southern de México</li>
                             <li>Capacidad de almacenaje en vías de 200 hopper cars</li>
                             <li>Báscula ferroviaria certificada y calibrada</li>
@@ -16,8 +16,8 @@
                         </div>
                     </v-col>
                     <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
-                        <h1 class="text-h4 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Almacenaje</h1>
-                        <ul class="text-body-all mt-2" :class="{'mx-6' : windowSize < 1129 }">
+                        <h1 class="font-size-28 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Almacenaje</h1>
+                        <ul class="text-body-all mt-5" :class="{'mx-6' : windowSize < 1129 }">
                             <li>Almacenamiento fiscal y nacional</li>
                             <li>23,000 m2 de almacén cubierto con capacidad para 15,000 toneladas</li>
                             <li>10 silos de almacenamiento con capacidad para 5,500 toneladas</li>
@@ -29,8 +29,8 @@
                         <v-divider class="mt-5" v-if="windowSize < 1129"></v-divider>
                     </v-col>
                     <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
-                        <h1 class="text-h4 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Transvase</h1>
-                        <ul class="text-body-all" :class="{'mx-6' : windowSize < 1129 }">
+                        <h1 class="font-size-28 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Transvase</h1>
+                        <ul class="text-body-all mt-5" :class="{'mx-6' : windowSize < 1129 }">
                             <li>Transferencias y cargas de resinas plásticas</li>
                             <li>Trasvase de hopper car a auto tolva</li>
                             <li>Trasvase de hopper car a silo</li>
@@ -44,8 +44,8 @@
                     </v-col>
 
                     <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
-                        <h1 class="text-h4 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Ensacado</h1>
-                        <ul class="text-body-all mt-2" :class="{'mx-6' : windowSize < 1129 }">
+                        <h1 class="font-size-28 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Ensacado</h1>
+                        <ul class="text-body-all mt-5" :class="{'mx-6' : windowSize < 1129 }">
                             <li>5 líneas de ensacado</li>
                             <li>Cada línea de ensacado maneja diferente tipo de resinas para evitar contaminaciones</li>
                             <li>Servicio de ensacado de resinas plásticas en sacos de 25kg y super sacos de 1000kg</li>
@@ -56,16 +56,16 @@
                         <v-divider class="mt-5" v-if="windowSize < 1129"></v-divider>
                     </v-col>
                     <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
-                        <h1 class="text-h4 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Distribución</h1>
-                        <ul class="text-body-all mt-2" :class="{'mx-6' : windowSize < 1129 }">
+                        <h1 class="font-size-28 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Distribución</h1>
+                        <ul class="text-body-all mt-5" :class="{'mx-6' : windowSize < 1129 }">
                             <li>Flotilla de Transporte Especializado: tolvas de aluminio y acero de carbón auto cargables, tractores, hopper cars, Torton, Camioneta 3.5 tons</li>
                             <li>Unidades con sistema de rastreo satelital GPS en tiempo real las 24 horas al día</li>
                         </ul>
                         <v-divider class="mt-5" v-if="windowSize < 1129"></v-divider>
                     </v-col>
                     <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
-                        <h1 class="text-h4 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Contenedores</h1>
-                        <ul class="text-body-all mt-2" :class="{'mx-6' : windowSize < 1129 }">
+                        <h1 class="font-size-28 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Contenedores</h1>
+                        <ul class="text-body-all mt-5" :class="{'mx-6' : windowSize < 1129 }">
                             <li>Grúa para el servicio de carga, descarga y almacenamiento de contenedores</li>
                             <li>Contenedores de 20, 40, 48 y 53 pies</li>
                             <li>Transporte ferroviario y terrestre</li>

@@ -202,8 +202,8 @@
                 <v-card-actions>
                     <!--<v-btn color="primary" text @click="dialog = false">I accept</v-btn>-->
                 </v-card-actions>
-        </v-card>
-    </v-dialog>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 

@@ -64,10 +64,10 @@
                                         <p class="mt-2">Sube tu archivo</p>
                                         <v-btn color="#19D3C5" class="rounded-xl px-6 text-none">
                                             <p class="mt-3">Selecciona un archivo</p>
+                                            <v-file-input></v-file-input>
                                         </v-btn>
-                                        <!--<v-file-input class="rounded-xl" color="#19D3C5" label="Selecciona un archivo"></v-file-input>
 
-                                        <input ref="uploader" class="d-none" type="file" accept="image/*" @change="OnFileChanged" >
+                                        <!--<input ref="uploader" class="d-none" type="file" accept="image/*" @change="OnFileChanged" >
                                         <input type="text" v-model="imageUrl" name="imageUrl" hidden>
                                         <v-col cols="12"  v-if="!imageUrl" class="brandingTextGrey--text" align="center" >Add images for his news user from the upload image button...</v-col>
                                         <v-col cols="12"  v-else class="brandingTextGrey--text" align="center" >
