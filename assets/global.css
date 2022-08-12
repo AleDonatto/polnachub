@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
+
+@font-face {
+    font-family: 'Archivo';
+    src: local('Archivo'), url(~assets/font/Archivo-Light.ttf) format("truetype");
+}
 
 .text-body-all{
     font-size: 1.125rem !important;
