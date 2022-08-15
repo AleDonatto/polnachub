@@ -49,22 +49,22 @@
                 <p class="white--text body-1">Contacto</p>
               </nuxt-link>
             </v-col>
-            <v-col cols="2" class="mt-10" align="center" v-if="windowSize > 1129">
-              <v-row justify="center">
+            <v-col cols="3" class="mt-10" align="start" v-if="windowSize > 1129">
+              <v-row justify="">
                 <v-col cols="2">
-                  <v-img src="/Linkedin.png" contain max-height="27"></v-img>
+                  <v-img src="/Linkedin.png" contain max-height="28"></v-img>
                 </v-col>
                 <v-col cols="2">
-                  <v-img src="/Facebook.png" contain max-height="27"></v-img>
+                  <v-img src="/Facebook.png" contain max-height="28"></v-img>
                 </v-col>
                 <v-col cols="2">
-                  <v-img src="/Instagram.png" contain max-height="27"></v-img>
+                  <v-img src="/Instagram.png" contain max-height="28"></v-img>
                 </v-col>
                 <v-col cols="2">
-                  <v-img src="/Twitter.png" contain max-height="27"></v-img>
+                  <v-img src="/Twitter.png" contain max-height="28"></v-img>
                 </v-col>
                 <v-col cols="2">
-                  <v-img src="/Youtube.png" contain max-height="27"></v-img>
+                  <v-img src="/Youtube.png" contain max-height="28"></v-img>
                 </v-col>
               </v-row>
               <v-row class="d-block mt-2">

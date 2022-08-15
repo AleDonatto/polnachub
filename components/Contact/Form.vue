@@ -26,6 +26,46 @@
                     <v-stepper-items class="">
                         <v-stepper-content step="1" class="mb-2">
                             <v-row>
+                                <v-card
+    max-width="400"
+    class="mx-auto"
+  >
+    <v-container class="pa-1">
+      <v-item-group
+        v-model="selected"
+        multiple
+      >
+        <v-row>
+          <v-col
+            v-for="(item, i) in mercado"
+            :key="i"
+            cols="12"
+            md="6"
+          >
+            <v-item v-slot="{ active, toggle }">
+              <v-img
+                :src="item.img"
+                height="150"
+                class="text-right pa-2"
+                @click="toggle"
+              >
+                <v-btn
+                  icon
+                  dark
+                >
+                  <v-icon>
+                    {{ active ? 'mdi-heart' : 'mdi-heart-outline' }}
+                  </v-icon>
+                </v-btn>
+              </v-img>
+            </v-item>
+          </v-col>
+        </v-row>
+      </v-item-group>
+    </v-container>
+  </v-card>
+                            </v-row>
+                            <v-row>
                                 <v-col cols="12">
                                     <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>
                                     <v-sheet class="mx-auto">
