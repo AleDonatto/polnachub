@@ -43,8 +43,9 @@
               <nuxt-link to="/blogs" class="decoration-none">
                 <p class="white--text body-1">Blog</p>
               </nuxt-link>
-              <p class="white--text body-1">Sucursales</p>
-              
+              <nuxt-link to="/branch-ofices" class="decoration-none">
+                <p class="white--text body-1">Sucursales</p>
+              </nuxt-link>
               <nuxt-link to="/contact" class="decoration-none">
                 <p class="white--text body-1">Contacto</p>
               </nuxt-link>

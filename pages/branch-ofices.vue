@@ -1,8 +1,13 @@
 <template>
-  
+    <div>
+        <SucursalesHead/>
+        <SucursalesSections/>
+    </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     name: 'branchOfices',
     head: {
@@ -22,7 +27,7 @@ export default {
             this.$store.commit('StateAssign', {windowSize:window.innerWidth})
             this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         }
-    }
+    },
 }
 </script>
 
