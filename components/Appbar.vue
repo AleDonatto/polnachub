@@ -387,7 +387,7 @@
                             </v-card>
                             <div class="d-flex flex-column justify-center">
                                 <div class="d-flex justify-center">
-                                    <v-btn class="text-none px-16 rounded-lg mt-2" color="#19D3C5">
+                                    <v-btn class="text-none px-16 rounded-lg mt-2" color="#19D3C5" @click="login">
                                         Entrar
                                     </v-btn>
                                 </div>
@@ -441,6 +441,10 @@ export default {
             if(lang === 'ENG'){
                 this.$i18n.locale = 'eng'
             }
+        },
+        login(){
+            this.dialog = false
+            this.$router.push('/client/dashboard')
         }
     }
 
