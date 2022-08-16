@@ -214,8 +214,8 @@ export default {
     data (){
         return{
             e1: 1,
-            model: null,
-            model2: null,
+            model: [],
+            model2: [],
             progress: 55,
             dialog: false,
             mercado: [

@@ -51,14 +51,15 @@ export default {
         })*/
     }, 
 
-    async getTypeResina ({commit}){
+    async getProducto({commit}){
         const params = new URLSearchParams()
         params.append('q', 'SELECT+Name+FROM+Familia_de_productos__c')
 
-        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Familia_de_productos__c')
+        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c')
+        //await this.$axios.get('https://polnac--bxt01.my.salesforce.com/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c')
         .then( res => {
             //console.log(res)
-            commit('StateAssign', {pTipoResina: res.data})
+            commit('StateAssign', {pProducto: res.data})
         })
     },
 

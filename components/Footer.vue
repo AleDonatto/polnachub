@@ -116,7 +116,7 @@
             </v-col>
           </v-row>
 
-          <v-row class="mb-10" justify="center">
+          <v-row class="" justify="center">
             <v-col cols="12" lg="6" md="6" class="" v-if="windowSize > 1129">
               <p class="teal--text accent-3--text body-1">
                 Polímeros Nacionales S.A. de C.V. 2022 - Todos los derechos reservados
@@ -131,7 +131,7 @@
                 <a href="/" target="_blank" rel="noopener noreferrer" class="teal--text accent-3--text">Aviso de Privacidad</a>
               </p>
             </v-col>
-            <v-col v-if="windowSize < 1129" cols="12" class="mb-10">
+            <v-col v-if="windowSize < 1129" cols="12" class="">
               <p class="teal--text accent-3--text body-1">
                 Polímeros Nacionales S.A. de C.V. Lázaro Cárdenas No. 49, Col. 
                 San Jerónimo Tepetlacalco, Tlalnepantla, Estado de México. C.P. 54090.
@@ -165,8 +165,8 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   width: 100%;
-  height: 480px;
-  margin-top: -40px;
+  height: 500px;
+  margin-top: -35px;
 }
 .img-footer-mobile-button{
   /*background-color: #655DC6;*/
@@ -174,7 +174,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  margin-top: -100px;
+  margin-top: -110px;
   height: 690px;
   width: 100%;
 }

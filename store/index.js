@@ -26,7 +26,7 @@ export default () => new Vuex.Store({
         },
         pFabricante: [],
         pMercado: [],
-        pTipoResina: [],
+        pProducto: [],
         pMetTransformacion: [],
         //tables products
         tablePruebas: [],

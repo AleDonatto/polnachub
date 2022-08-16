@@ -9,8 +9,8 @@
             <v-container v-if="windowSize > 1129">
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Tipo de resina" rounded solo v-model="vresina" @change="consTypeResina(vresina)"
-                        :items="pTipoResina.records" item-text="Name" item-value="Name" name="tResina"></v-select>
+                        <v-select placeholder="Producto" rounded solo v-model="vresina" @change="consTypeResina(vresina)"
+                        :items="pProducto.records" item-text="Name" item-value="Name" name="tResina"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Fabricante" rounded solo
@@ -35,7 +35,7 @@
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Tipo de resina" rounded solo
-                        :items="pTipoResina.records" item-text="Name" item-value="attributes.type" name="tResina"></v-select>
+                        :items="pProducto.records" item-text="Name" item-value="attributes.type" name="tResina"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Fabricante" rounded solo
@@ -81,7 +81,7 @@ export default {
                 this.$store.dispatch('getFabricante')
                 this.$store.dispatch('getMercado')
                 this.$store.dispatch('getMetodoTransformacion')
-                this.$store.dispatch('getTypeResina')
+                this.$store.dispatch('getProducto')
             }
         }, 2000);
     },
@@ -89,7 +89,7 @@ export default {
         ...mapActions(['consProducts', 'consTypeResina'])
     },
     computed: {
-        ...mapState(['windowHeight','windowSize', 'pFabricante', 'pMercado', 'pMetTransformacion','pTipoResina', 'credentials'])
+        ...mapState(['windowHeight','windowSize', 'pFabricante', 'pMercado', 'pMetTransformacion','pProducto', 'credentials'])
     }
 }
 </script>
