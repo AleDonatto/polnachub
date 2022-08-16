@@ -3,7 +3,7 @@
         <section>
             <v-container>
                 <v-row justify="center" class="my-10">
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="end">
+                    <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="end">
                         <h1 class="font-archivo font-size-40 font-weight-bold">
                             Misión
                         </h1>
@@ -15,15 +15,15 @@
                             desarrollo que demanda la sociedad, accionistas, personal y proveedores.
                         </p>
                     </v-col>
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
+                    <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" align="center">
                         <v-img src="/aboutus/img-mision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="650"></v-img>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center" v-if="windowSize > 1129">
+                    <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" align="center" v-if="windowSize > 1129">
                         <v-img src="/aboutus/img-vision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="650"></v-img>
                     </v-col>
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="end">
+                    <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="end">
                         <h1 class="font-archivo font-size-40 font-weight-bold">
                             Visión
                         </h1>
@@ -153,8 +153,8 @@
                         <h1 class="font-archivo font-size-40 font-weight-bold text-center">Infraestructura</h1>
                     </v-col>
                 </v-row>
-                <v-row>
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                <v-row justify="center">
+                    <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12">
                         <v-row>
                             <v-col cols="12">
                                 <p class="text-body-all">
@@ -177,7 +177,7 @@
                             </v-col>
                         </v-row>
                     </v-col>
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" v-if="windowSize > 1129">
+                    <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" v-if="windowSize > 1129">
                         <v-row>
                             <v-col cols="6" align="center" class="pt-10">
                                 <v-img src="/aboutus/inventario.png" contain max-width="200"></v-img>
@@ -265,7 +265,7 @@
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="mb-15 mt-10">
-                    <v-col cols="12" lg="6" md="6" align-self="end">
+                    <v-col cols="12" xl="4" lg="6" md="6" align-self="end">
                         <h1 class="font-archivo font-size-40 font-weight-bold text-left my-5" v-if="windowSize > 1129">Política de calidad</h1>
                         <p class="text-body-all">
                             Diseñar, fabricar, comercializar y distribuir resinas plásticas y concentrados de color, con el compromiso 
@@ -273,7 +273,7 @@
                             ISO 9001 y un proceso de mejora continua, en absoluto respeto al medio ambiente.
                         </p>
                     </v-col>
-                    <v-col cols="12" lg="6" md="6" align="center" v-if="windowSize > 1129">
+                    <v-col cols="12" xl="5" lg="6" md="6" align="center" v-if="windowSize > 1129">
                         <v-img src="/aboutus/politica-calidad.png" contain max-width="450"></v-img>
                     </v-col>
                 </v-row>
@@ -282,21 +282,21 @@
 
         <section>
             <v-container fluid>
-                <v-row>
+                <v-row class="mb-16 size-mx red" >
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="img-about-l" :class="{'height-mb': windowSize < 1129}"></v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" :class="{'img-about-r': windowSize > 1129 , 'img-about-r-mb': windowSize < 1129 }">
-                    <div class="py-10 my-10" :class="{'px-16': windowSize > 1129, 'px-2': windowSize < 1129}">
-                        <h1 class="font-archivo font-size-40 font-weight-bold my-10 white--text">¿Te interesa trabajar con nosotros?</h1>
-                        <p class="white--text text-body-all">
-                            ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
-                            Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
-                        </p>
-                        <nuxt-link to="/work-at-polnac" class="decoration-none">
-                            <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
-                                Ver vacantes
-                            </v-btn>
-                        </nuxt-link>
-                    </div>
+                        <div class="py-10 my-10" :class="{'px-16': windowSize > 1129, 'px-2': windowSize < 1129}">
+                            <h1 class="font-archivo font-size-40 font-weight-bold my-10 white--text">¿Te interesa trabajar con nosotros?</h1>
+                            <p class="white--text text-body-all">
+                                ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
+                                Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
+                            </p>
+                            <nuxt-link to="/work-at-polnac" class="decoration-none">
+                                <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
+                                    Ver vacantes
+                                </v-btn>
+                            </nuxt-link>
+                        </div>
                     </v-col>
                 </v-row>
             </v-container>
@@ -330,6 +330,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  height: 550px;
 }
 
 .img-about-r{
@@ -348,5 +349,9 @@ export default {
 .height-mb {
   height: 450px;
   width: 100%;
+}
+
+.size-mx{
+    height: 480px;
 }
 </style>

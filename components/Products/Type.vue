@@ -7,33 +7,38 @@
                         <h1 class="font-archivo font-size-34 font-weight-bold">Polietileno</h1>
                     </v-col>
                 </v-row>
-                <v-row class="my-10">
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                        <v-carousel cycle :height="windowSize > 1129 ? '300' : '210'" hide-delimiter-background show-arrows-on-hover>
-                            <v-carousel-item v-for="(slide, i) in 3" :key="i">
-                                <v-sheet height="100%">
-                                    <v-row class="fill-height" align="center" justify="center">
-                                        <div>
-                                            <v-img src="/products/testproducts.png" contain width="520"></v-img>\
-                                        </div>
-                                    </v-row>
-                                </v-sheet>
-                            </v-carousel-item>
-                        </v-carousel>
+                <v-row class="my-10" justify="center">
+                    <v-col cols="12" xl="9">
+                        <v-row>
+                            <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                <v-carousel cycle :height="windowSize > 1129 ? '300' : '210'" hide-delimiter-background show-arrows-on-hover>
+                                    <v-carousel-item v-for="(slide, i) in 3" :key="i">
+                                        <v-sheet height="100%">
+                                            <v-row class="fill-height" align="center" justify="center">
+                                                <div>
+                                                    <v-img src="/products/testproducts.png" contain width="520"></v-img>\
+                                                </div>
+                                            </v-row>
+                                        </v-sheet>
+                                    </v-carousel-item>
+                                </v-carousel>
+                            </v-col>
+                            <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                <p class="text-body-all">
+                                    Gracias a su amplia gama de propiedades, su bajo costo, y su facilidad de procesamiento se ha 
+                                    convertido en uno de los plásticos más utilizados a nivel mundial. Miembro de la familia de las 
+                                    poliolefinas y derivado de la polimerización del etileno.
+                                    <br><br>
+                                    POLNAC comercializa diferentes variedades de Polietileno para distintas aplicaciones: 
+                                </p>
+                            </v-col>
+                        </v-row>
                     </v-col>
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                        <p class="text-body-all">
-                            Gracias a su amplia gama de propiedades, su bajo costo, y su facilidad de procesamiento se ha 
-                            convertido en uno de los plásticos más utilizados a nivel mundial. Miembro de la familia de las 
-                            poliolefinas y derivado de la polimerización del etileno.
-                            <br><br>
-                            POLNAC comercializa diferentes variedades de Polietileno para distintas aplicaciones: 
-                        </p>
-                    </v-col>
+                    
                 </v-row>
 
-                <v-row class="my-10" v-if="windowSize > 1129">
-                    <v-col cols="12">
+                <v-row class="my-10" v-if="windowSize > 1129" justify="center">
+                    <v-col cols="12" xl="9">
                         <v-carousel class="carousel-black" dark cycle :height="windowSize > 1129 ? '280' : '210'" hide-delimiter-background show-arrows-on-hover>
                             <v-carousel-item v-for="(slide, i) in 3" :key="i">
                                 <v-sheet height="100%">
@@ -64,8 +69,8 @@
 
         <section>
             <v-container>
-                <v-row class="mb-5">
-                    <v-col cols="12">
+                <v-row class="mb-5" justify="center">
+                    <v-col cols="12" xl="9">
                         <v-expansion-panels v-model="tabs" multiple>
                             <v-expansion-panel class="my-2 rounded-xl">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
@@ -277,9 +282,9 @@
         </section>
 
         <section>
-            <v-container>
-                <v-row>
-                    <v-col cols="8">
+            <v-container class="mb-16">
+                <v-row justify="center">
+                    <v-col cols="8" xl="5">
                         <h1 class="font-size-30 font-weight-bold">Otros productos</h1>
                     </v-col>
                     <v-col cols="4" align="right">
@@ -289,26 +294,30 @@
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="mb-16" v-if="windowSize > 1129">
-                        <v-col cols="3">
-                            <nuxt-link to="/products/1">
-                                <v-img src="/contact/plasticos.png" contain max-height="270"></v-img>
-                            </nuxt-link>
-                        </v-col>
-                        <v-col cols="3">
-                            <nuxt-link to="/products/3">
-                                <v-img src="/contact/masterbatch.png" contain max-height="270"></v-img>
-                            </nuxt-link>
-                        </v-col>
-                        <v-col cols="3">
-                            <nuxt-link to="/products/4">
-                                <v-img src="/contact/calcio.png" contain max-height="270"></v-img>
-                            </nuxt-link>
-                        </v-col>
-                        <v-col cols="3">
-                            <nuxt-link to="/products/5">
-                                <v-img src="/contact/pvc.png" contain max-height="270"></v-img>
-                            </nuxt-link>
-                        </v-col>
+                    <v-col cols="12" xl="9">
+                        <v-row>
+                            <v-col cols="3">
+                                <nuxt-link to="/products/1">
+                                    <v-img src="/contact/plasticos.png" contain max-height="270"></v-img>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="3">
+                                <nuxt-link to="/products/3">
+                                    <v-img src="/contact/masterbatch.png" contain max-height="270"></v-img>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="3">
+                                <nuxt-link to="/products/4">
+                                    <v-img src="/contact/calcio.png" contain max-height="270"></v-img>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="3">
+                                <nuxt-link to="/products/5">
+                                    <v-img src="/contact/pvc.png" contain max-height="270"></v-img>
+                                </nuxt-link>
+                            </v-col>
+                        </v-row>
+                    </v-col>
                 </v-row>
                 <v-row v-if="windowSize < 1129" class="mb-16">
                     <v-carousel class="carousel-black" :show-arrows="false" hide-delimiter-background show-arrows-on-hover height="270">

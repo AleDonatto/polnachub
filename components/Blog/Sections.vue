@@ -3,10 +3,10 @@
         <section v-if="windowSize > 1129">
             <v-container>
                 <v-row justify="center" class="my-10">
-                    <v-col cols="6">
+                    <v-col cols="6" xl="5">
                         <v-img src="/blog/horizontes.png" contain max-height="320"></v-img>
                     </v-col>
-                    <v-col cols="6" align-self="center">
+                    <v-col cols="6" xl="4" align-self="center">
                         <p class="font-archivo font-weight-bold font-size-40">Nuevos horizontes</p>
                         <p class="text-body-all">
                             El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea 
@@ -26,119 +26,123 @@
 
         <section>
             <v-container>
-                <v-row justify="center" :class="{'my-16' : windowSize < 1129 }">
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <nuxt-link to="/blogs/1" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
-                                <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle class="text-left">
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <nuxt-link to="/blogs/2" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
-                                <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle class="text-left">
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <nuxt-link to="/blogs/3" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
-                                <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle class="text-left">
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <nuxt-link to="/blogs/4" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :width="windowSize>1129 ? '325' : '300'" :height="windowSize >1129 ? '390': '360'">
-                                <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle class="text-left">
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
+                <v-row justify="center">
+                    <v-col cols="12" xl="9">
+                        <v-row justify="center" :class="{'my-16' : windowSize < 1129 }">
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <nuxt-link to="/blogs/1" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
+                                        <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle class="text-left">
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <nuxt-link to="/blogs/2" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
+                                        <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle class="text-left">
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <nuxt-link to="/blogs/3" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
+                                        <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle class="text-left">
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <nuxt-link to="/blogs/4" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :width="windowSize>1129 ? '325' : '300'" :height="windowSize >1129 ? '390': '360'">
+                                        <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle class="text-left">
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
 
-                    <v-col cols="3" v-if="windowSize >1129">
-                        <nuxt-link to="/blogs/5" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle>
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="3"  v-if="windowSize >1129">
-                        <nuxt-link to="/blogs/6" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle>
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="3"  v-if="windowSize >1129">
-                        <nuxt-link to="/blogs/7" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle>
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="3"  v-if="windowSize >1129">
-                        <nuxt-link to="/blogs/8" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle>
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
+                            <v-col cols="3" v-if="windowSize >1129">
+                                <nuxt-link to="/blogs/5" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                        <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle>
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="3"  v-if="windowSize >1129">
+                                <nuxt-link to="/blogs/6" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                        <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle>
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="3"  v-if="windowSize >1129">
+                                <nuxt-link to="/blogs/7" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                        <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle>
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="3"  v-if="windowSize >1129">
+                                <nuxt-link to="/blogs/8" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                        <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle>
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                        </v-row>
                     </v-col>
                 </v-row>
             </v-container>
@@ -181,127 +185,131 @@
 
         <section>
             <v-container>
-                <v-row  v-if="windowSize >1129">
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <nuxt-link to="/blogs/1" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
-                                <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle class="text-left">
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <nuxt-link to="/blogs/2" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
-                                <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle class="text-left">
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <nuxt-link to="/blogs/3" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
-                                <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle class="text-left">
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <nuxt-link to="/blogs/4" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :width="windowSize>1129 ? '325' : '300'" :height="windowSize >1129 ? '390': '360'">
-                                <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle class="text-left">
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-
-                    <v-col cols="3" v-if="windowSize >1129">
-                        <nuxt-link to="/blogs/5" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle>
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="3"  v-if="windowSize >1129">
-                        <nuxt-link to="/blogs/6" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle>
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="3"  v-if="windowSize >1129">
-                        <nuxt-link to="/blogs/7" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle>
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="3"  v-if="windowSize >1129">
-                        <nuxt-link to="/blogs/8" class="decoration-none">
-                            <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
-                                <v-card-title>Nuevos horizontes</v-card-title>
-                                <v-card-subtitle>
-                                    El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
-                                </v-card-subtitle>
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                </v-card-actions>
-                            </v-card>
-                        </nuxt-link>
-                    </v-col>
-                </v-row>
-
                 <v-row justify="center">
-                    <v-col cols="12" lg="4" md="4" sm="10" xs="10" class="mb-16">
-                        <v-btn outlined block color="#19D3C5" class="text-none py-6 rounded-lg">
-                            <span class="black--text">Mostrar más artículos</span>
-                        </v-btn>
+                    <v-col cols="12" xl="9">
+                        <v-row  v-if="windowSize >1129">
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <nuxt-link to="/blogs/1" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
+                                        <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle class="text-left">
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <nuxt-link to="/blogs/2" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
+                                        <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle class="text-left">
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <nuxt-link to="/blogs/3" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
+                                        <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle class="text-left">
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <nuxt-link to="/blogs/4" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :width="windowSize>1129 ? '325' : '300'" :height="windowSize >1129 ? '390': '360'">
+                                        <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle class="text-left">
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+
+                            <v-col cols="3" v-if="windowSize >1129">
+                                <nuxt-link to="/blogs/5" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                        <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle>
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="3"  v-if="windowSize >1129">
+                                <nuxt-link to="/blogs/6" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                        <img src="/blog-mercados.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle>
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="3"  v-if="windowSize >1129">
+                                <nuxt-link to="/blogs/7" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                        <img src="/blog-tendencias.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle>
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                            <v-col cols="3"  v-if="windowSize >1129">
+                                <nuxt-link to="/blogs/8" class="decoration-none">
+                                    <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                        <img src="/blog-polnac.png" style="width: 100%" alt="pruebas"/>
+                                        <v-card-title>Nuevos horizontes</v-card-title>
+                                        <v-card-subtitle>
+                                            El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                        </v-card-subtitle>
+                                        <v-card-actions>
+                                            <v-spacer></v-spacer>
+                                        </v-card-actions>
+                                    </v-card>
+                                </nuxt-link>
+                            </v-col>
+                        </v-row>
+
+                        <v-row justify="center" class="mb-15">
+                            <v-col cols="12" lg="4" md="4" sm="10" xs="10" class="mb-16">
+                                <v-btn outlined block color="#19D3C5" class="text-none py-6 rounded-lg">
+                                    <span class="black--text">Mostrar más artículos</span>
+                                </v-btn>
+                            </v-col>
+                        </v-row>
                     </v-col>
                 </v-row>
             </v-container>

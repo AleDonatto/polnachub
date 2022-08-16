@@ -4,31 +4,35 @@
             <v-container>
                 <div class="my-10 mx-10">
                     <v-row justify="center">
-                        <v-col md="6" sm="12" xs="12" align-self="center" align="center">
-                            <h1 class="font-archivo font-title text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}">
-                                <span class="font-weigth-bold">{{ $t('home.secabout.polnac') }}</span> <br>
-                                <span class="text-teal">{{ $t('home.secabout.year') }}</span> 
-                            </h1>
+                        <v-col cols="12" xl="9">
+                            <v-row>
+                                <v-col md="6" sm="12" xs="12" align-self="center" align="center">
+                                    <h1 class="font-archivo font-title text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}">
+                                        <span class="font-weigth-bold">{{ $t('home.secabout.polnac') }}</span> <br>
+                                        <span class="text-teal">{{ $t('home.secabout.year') }}</span> 
+                                    </h1>
 
-                            <v-img src="./video.png" contain max-height="350" max-width="350" v-if="windowSize < 1129"></v-img>
+                                    <v-img src="./video.png" contain max-height="350" max-width="350" v-if="windowSize < 1129"></v-img>
 
-                            <p class="text-body-all my-5 text-left">
-                                Desde 1984 <span class="font-weight-bold">POLNAC</span> ha construido una historia basada en innovación, compromiso y mejora continua. <span class="font-weight-bold">POLNAC</span> siempre a la vanguardia. 
-                            </p>
+                                    <p class="text-body-all my-5 text-left">
+                                        Desde 1984 <span class="font-weight-bold">POLNAC</span> ha construido una historia basada en innovación, compromiso y mejora continua. <span class="font-weight-bold">POLNAC</span> siempre a la vanguardia. 
+                                    </p>
 
-                            <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start': windowSize > 1129}">
-                                <nuxt-link to="/polnac-group" class="decoration-none">
-                                    <v-btn color="#773DBD" class="rounded-lg px-10 body-1 py-5 white--text text-none">{{ $t('home.btnabout') }}</v-btn>
-                                </nuxt-link>
-                            </div>
+                                    <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start': windowSize > 1129}">
+                                        <nuxt-link to="/polnac-group" class="decoration-none">
+                                            <v-btn color="#773DBD" class="rounded-lg px-10 body-1 py-5 white--text text-none">{{ $t('home.btnabout') }}</v-btn>
+                                        </nuxt-link>
+                                    </div>
 
-                        </v-col>
-                        <v-col md="6" sm="12" xs="5" align="center" v-if="windowSize > 1129">
-                            <!--<v-img src="./video.png" contain max-height="350" max-width="350"></v-img>-->
-                            <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="400" height="250" type="text/html" 
-                                src="https://www.youtube-nocookie.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
-                            </iframe>
+                                </v-col>
+                                <v-col md="6" sm="12" xs="5" align="center" v-if="windowSize > 1129">
+                                    <!--<v-img src="./video.png" contain max-height="350" max-width="350"></v-img>-->
+                                    <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="400" height="250" type="text/html" 
+                                        src="https://www.youtube-nocookie.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                                    </iframe>
 
+                                </v-col>
+                            </v-row>
                         </v-col>
                     </v-row>
                 </div>

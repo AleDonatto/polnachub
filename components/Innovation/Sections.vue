@@ -6,7 +6,7 @@
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" v-if="windowSize < 1129">
                         <v-img src="/innovation/asesoria.png" contain max-height="350"></v-img>
                     </v-col>
-                    <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" align-self="end">
+                    <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="end">
                         <p class="font-size-20">
                             Apegados siempre a las más altas normas internacionales
                             de calidad y seguridad. Nuestro inagotable equipo de Investigación y Desarrollo trabaja para respaldar e impulsar las innovaciones de nuestros socios de negocio. 
@@ -18,10 +18,10 @@
                         <v-img src="/innovation/asesoria.png" contain max-height="370"></v-img>
                     </v-col>
 
-                    <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" class="mt-8" align="center">
+                    <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" class="mt-8" :class="{'mb-16': windowSize >1129 }" align="center">
                         <v-img src="/innovation/equipo.png" contain max-height="370"></v-img>
                     </v-col>
-                    <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" class="mt-8" align-self="center">
+                    <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" class="mt-8 mb-16" align-self="center">
                         <p class="font-size-20">
                             Equipos de vanguardia y los mejores técnicos nos permiten garantizar la calidad de nuestros productos.
                             <br> <br>

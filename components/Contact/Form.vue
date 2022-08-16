@@ -7,165 +7,173 @@
                         <h1 class="font-archivo font-size-34 font-weight-bold text-center mt-16">Contáctanos con solo dos pasos</h1>
                     </v-col>
                 </v-row>
-                <v-stepper v-model="e1" class="mt-10 mb-16 shadow-none">
-                    <v-stepper-header>
+                <v-row justify="center">
+                    <v-col cols="12" xl="9">
                         <v-row>
-                            <v-col cols="6">
-                                <v-stepper-step :complete="e1 > 1" step="1" color="#19D3C5"></v-stepper-step>
-                            </v-col>
-                            <v-col cols="6">
-                                <v-stepper-step :complete="e1 > 2" step="2" color="#19D3C5"></v-stepper-step>
+                            <v-col cols="12">
+                                <v-stepper v-model="e1" class="mt-10 mb-16 shadow-none">
+                                    <v-stepper-header>
+                                        <v-row>
+                                            <v-col cols="6">
+                                                <v-stepper-step :complete="e1 > 1" step="1" color="#19D3C5"></v-stepper-step>
+                                            </v-col>
+                                            <v-col cols="6">
+                                                <v-stepper-step :complete="e1 > 2" step="2" color="#19D3C5"></v-stepper-step>
+                                            </v-col>
+                                        </v-row>
+                                    </v-stepper-header>
+
+                                    <div>
+                                        <v-progress-linear :value="progress" color="#19D3C5"></v-progress-linear>
+                                    </div>
+
+                                    <v-stepper-items class="">
+                                        <v-stepper-content step="1" class="mb-2">
+                                            <v-row>
+                                                <v-col cols="12">
+                                                    <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>
+                                                    <v-sheet class="mx-auto">
+                                                        <v-slide-group v-model="model" class="pa-4" active-class="success" show-arrows-false multiple>
+                                                            <v-slide-item v-for="(item ,index) in mercado" :key="index" v-slot="{ active, toggle }">
+                                                                <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
+                                                                    <v-row class="fill-height" align="center" justify="center">
+                                                                        <v-img class="ma-4 text-right pa-2" :src="item.img" contain max-height="130" max-width="210" :class="{'z-index-lower': active }">
+                                                                            <v-btn icon dark>
+                                                                                <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
+                                                                            </v-btn>
+                                                                        </v-img>
+                                                                    </v-row>
+                                                                </v-card>
+                                                            </v-slide-item>
+                                                        </v-slide-group>
+                                                    </v-sheet>        
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row>
+                                                <v-col cols="12">
+                                                    <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un producto</h1>
+                                                    <v-sheet class="mx-auto">
+                                                        <v-slide-group v-model="model2" class="pa-4" active-class="success" show-arrows-false multiple>
+                                                            <v-slide-item v-for="(item, index) in productos" :key="index" v-slot="{ active, toggle }">
+                                                                <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
+                                                                    <v-row class="fill-height" align="center" justify="center">
+                                                                        <v-img class="ma-4 text-right pa-2" :src="item.img" contain max-height="130" max-width="210" :class="{'z-index-lower': active }">
+                                                                            <v-btn icon dark>
+                                                                                <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
+                                                                            </v-btn>
+                                                                        </v-img>
+                                                                    </v-row>
+                                                                </v-card>
+                                                            </v-slide-item>
+                                                        </v-slide-group>
+                                                    </v-sheet>        
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row justify="center">
+                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                                    <p class="font-archivo font-size-20 font-weight-bold">Resina de interés</p>
+                                                    <v-select class="rounded-xl" outlined label="Selecciona tipo de resina"></v-select>
+                                                </v-col>
+                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                                    <p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>
+                                                    <v-select class="rounded-xl" outlined label="Selecciona rango promedio"></v-select>
+                                                </v-col>
+                                            </v-row>
+
+                                            <v-row justify="end">
+                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="right">
+                                                    <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="nextStep">
+                                                        <span class="text-left">Continuar</span>
+                                                        <v-icon right>mdi-chevron-right</v-icon>
+                                                    </v-btn>
+                                                </v-col>
+                                            </v-row>
+                                        </v-stepper-content>
+
+                                        <v-stepper-content step="2">
+                                            <v-form>
+                                                <p class="my-5 font-size-20 font-weight-bold">Llena el siguiente formulario</p>
+                                                <v-row>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-text-field label="Nombes" solo outlined class="rounded-xl"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-text-field label="Apellidos" solo outlined class="rounded-xl"></v-text-field>
+                                                    </v-col>
+
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-text-field label="Empresa" solo outlined class="rounded-xl"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value"></v-select>
+                                                    </v-col>
+
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value"></v-select>
+                                                    </v-col>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-text-field label="Celular" solo outlined class="rounded-xl"></v-text-field>
+                                                    </v-col>
+
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-text-field label="Extensión" solo outlined class="rounded-xl"></v-text-field>
+                                                    </v-col>
+
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-text-field label="Código Postal" solo outlined class="rounded-xl"></v-text-field>
+                                                    </v-col>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-select label="País" solo outlined class="rounded-xl"></v-select>
+                                                    </v-col>
+
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-select label="Estado" solo outlined class="rounded-xl"></v-select>
+                                                    </v-col>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-select label="Ciudad" solo outlined class="rounded-xl"></v-select>
+                                                    </v-col>
+
+                                                    <v-col cols="12" class="margin-botton-0">
+                                                        <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl"></v-select>
+                                                    </v-col>
+                                                    <v-col cols="12" class="margin-botton-0">
+                                                        <v-textarea solo outlined class="rounded-xl" label="Cuéntanos brevemente qué deseas consultar con nosotros."></v-textarea>
+                                                    </v-col>
+
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-checkbox label="Soy cliente" color="#19D3C5" class="color-checkbox"></v-checkbox>
+                                                    </v-col>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <v-checkbox label="Aceptar Aviso de Privacidad" color="#19D3C5"></v-checkbox>
+                                                    </v-col>
+                                                </v-row>
+                                                <v-row>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                                        <v-btn block color="#19D3C5" outlined class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="previousStep">
+                                                            <v-icon left color="black">mdi-chevron-left</v-icon>
+                                                            <span class="text-left black--text">Regresar</span>
+                                                        </v-btn>
+                                                    </v-col>
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                                        <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="dialog = !dialog">
+                                                            <span class="text-left">Enviar</span>
+                                                            <v-icon right>mdi-chevron-right</v-icon>
+                                                        </v-btn>
+                                                    </v-col>
+                                                </v-row>
+                                            </v-form>
+                                        </v-stepper-content>
+                                    </v-stepper-items>
+                                </v-stepper>
                             </v-col>
                         </v-row>
-                    </v-stepper-header>
-
-                    <div>
-                        <v-progress-linear :value="progress" color="#19D3C5"></v-progress-linear>
-                    </div>
-
-                    <v-stepper-items class="">
-                        <v-stepper-content step="1" class="mb-2">
-                            <v-row>
-                                <v-col cols="12">
-                                    <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>
-                                    <v-sheet class="mx-auto">
-                                        <v-slide-group v-model="model" class="pa-4" active-class="success" show-arrows-false multiple>
-                                            <v-slide-item v-for="(item ,index) in mercado" :key="index" v-slot="{ active, toggle }">
-                                                <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
-                                                    <v-row class="fill-height" align="center" justify="center">
-                                                        <v-img class="ma-4 text-right pa-2" :src="item.img" contain max-height="130" max-width="210" :class="{'z-index-lower': active }">
-                                                            <v-btn icon dark>
-                                                                <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
-                                                            </v-btn>
-                                                        </v-img>
-                                                    </v-row>
-                                                </v-card>
-                                            </v-slide-item>
-                                        </v-slide-group>
-                                    </v-sheet>        
-                                </v-col>
-                            </v-row>
-
-                            <v-row>
-                                <v-col cols="12">
-                                    <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un producto</h1>
-                                    <v-sheet class="mx-auto">
-                                        <v-slide-group v-model="model2" class="pa-4" active-class="success" show-arrows-false multiple>
-                                            <v-slide-item v-for="(item, index) in productos" :key="index" v-slot="{ active, toggle }">
-                                                <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
-                                                    <v-row class="fill-height" align="center" justify="center">
-                                                        <v-img class="ma-4 text-right pa-2" :src="item.img" contain max-height="130" max-width="210" :class="{'z-index-lower': active }">
-                                                            <v-btn icon dark>
-                                                                <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
-                                                            </v-btn>
-                                                        </v-img>
-                                                    </v-row>
-                                                </v-card>
-                                            </v-slide-item>
-                                        </v-slide-group>
-                                    </v-sheet>        
-                                </v-col>
-                            </v-row>
-
-                            <v-row justify="center">
-                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <p class="font-archivo font-size-20 font-weight-bold">Resina de interés</p>
-                                    <v-select class="rounded-xl" outlined label="Selecciona tipo de resina"></v-select>
-                                </v-col>
-                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>
-                                    <v-select class="rounded-xl" outlined label="Selecciona rango promedio"></v-select>
-                                </v-col>
-                            </v-row>
-
-                            <v-row justify="end">
-                                <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="right">
-                                    <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="nextStep">
-                                        <span class="text-left">Continuar</span>
-                                        <v-icon right>mdi-chevron-right</v-icon>
-                                    </v-btn>
-                                </v-col>
-                            </v-row>
-                        </v-stepper-content>
-
-                        <v-stepper-content step="2">
-                            <v-form>
-                                <p class="my-5 font-size-20 font-weight-bold">Llena el siguiente formulario</p>
-                                <v-row>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-text-field label="Nombes" solo outlined class="rounded-xl"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-text-field label="Apellidos" solo outlined class="rounded-xl"></v-text-field>
-                                    </v-col>
-
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-text-field label="Empresa" solo outlined class="rounded-xl"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value"></v-select>
-                                    </v-col>
-
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value"></v-select>
-                                    </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-text-field label="Celular" solo outlined class="rounded-xl"></v-text-field>
-                                    </v-col>
-
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-text-field label="Extensión" solo outlined class="rounded-xl"></v-text-field>
-                                    </v-col>
-
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-text-field label="Código Postal" solo outlined class="rounded-xl"></v-text-field>
-                                    </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-select label="País" solo outlined class="rounded-xl"></v-select>
-                                    </v-col>
-
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-select label="Estado" solo outlined class="rounded-xl"></v-select>
-                                    </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-select label="Ciudad" solo outlined class="rounded-xl"></v-select>
-                                    </v-col>
-
-                                    <v-col cols="12" class="margin-botton-0">
-                                        <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl"></v-select>
-                                    </v-col>
-                                    <v-col cols="12" class="margin-botton-0">
-                                        <v-textarea solo outlined class="rounded-xl" label="Cuéntanos brevemente qué deseas consultar con nosotros."></v-textarea>
-                                    </v-col>
-
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-checkbox label="Soy cliente" color="#19D3C5" class="color-checkbox"></v-checkbox>
-                                    </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                        <v-checkbox label="Aceptar Aviso de Privacidad" color="#19D3C5"></v-checkbox>
-                                    </v-col>
-                                </v-row>
-                                <v-row>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                        <v-btn block color="#19D3C5" outlined class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="previousStep">
-                                            <v-icon left color="black">mdi-chevron-left</v-icon>
-                                            <span class="text-left black--text">Regresar</span>
-                                        </v-btn>
-                                    </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                        <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="dialog = !dialog">
-                                            <span class="text-left">Enviar</span>
-                                            <v-icon right>mdi-chevron-right</v-icon>
-                                        </v-btn>
-                                    </v-col>
-                                </v-row>
-                            </v-form>
-                        </v-stepper-content>
-                    </v-stepper-items>
-                </v-stepper>
+                    </v-col>
+                </v-row>
             </v-container>
         </section>
 
