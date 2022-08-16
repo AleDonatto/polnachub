@@ -26,57 +26,18 @@
                     <v-stepper-items class="">
                         <v-stepper-content step="1" class="mb-2">
                             <v-row>
-                                <v-card
-    max-width="400"
-    class="mx-auto"
-  >
-    <v-container class="pa-1">
-      <v-item-group
-        v-model="selected"
-        multiple
-      >
-        <v-row>
-          <v-col
-            v-for="(item, i) in mercado"
-            :key="i"
-            cols="12"
-            md="6"
-          >
-            <v-item v-slot="{ active, toggle }">
-              <v-img
-                :src="item.img"
-                height="150"
-                class="text-right pa-2"
-                @click="toggle"
-              >
-                <v-btn
-                  icon
-                  dark
-                >
-                  <v-icon>
-                    {{ active ? 'mdi-heart' : 'mdi-heart-outline' }}
-                  </v-icon>
-                </v-btn>
-              </v-img>
-            </v-item>
-          </v-col>
-        </v-row>
-      </v-item-group>
-    </v-container>
-  </v-card>
-                            </v-row>
-                            <v-row>
                                 <v-col cols="12">
                                     <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>
                                     <v-sheet class="mx-auto">
-                                        <v-slide-group v-model="model" class="pa-4" show-arrows>
+                                        <v-slide-group v-model="model" class="pa-4" active-class="success" show-arrows multiple>
                                             <v-slide-item v-for="(item ,index) in mercado" :key="index" v-slot="{ active, toggle }">
-                                                <v-card class="ma-4" @click="toggle" height="160" width="280"  :color="active ? 'primary' : 'white'">
+                                                <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
                                                     <v-row class="fill-height" align="center" justify="center">
-                                                       <v-img class="ma-4" :src="item.img" contain max-height="150" max-width="280" :class="{'z-index-lower': active }"></v-img>
-                                                        <v-scale-transition class="z-index-1">
-                                                            <v-icon v-if="active" class="z-index-1" color="white" size="48" v-text="'mdi-close-circle-outline'"></v-icon>
-                                                        </v-scale-transition>
+                                                        <v-img class="ma-4 text-right pa-2" :src="item.img" contain max-height="130" max-width="210" :class="{'z-index-lower': active }">
+                                                            <v-btn icon dark>
+                                                                <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
+                                                            </v-btn>
+                                                        </v-img>
                                                     </v-row>
                                                 </v-card>
                                             </v-slide-item>
@@ -89,14 +50,15 @@
                                 <v-col cols="12">
                                     <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un producto</h1>
                                     <v-sheet class="mx-auto">
-                                        <v-slide-group v-model="model2" class="pa-4" active-class="success" show-arrows>
+                                        <v-slide-group v-model="model2" class="pa-4" active-class="success" show-arrows multiple>
                                             <v-slide-item v-for="(item, index) in productos" :key="index" v-slot="{ active, toggle }">
-                                                <v-card class="ma-4" @click="toggle" height="160" width="280"  :color="active ? 'primary' : 'white'">
+                                                <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
                                                     <v-row class="fill-height" align="center" justify="center">
-                                                        <v-img class="ma-4" :src="item.img" contain max-height="150" max-width="280" :class="{'z-index-lower': active }"></v-img>
-                                                        <v-scale-transition class="z-index-1">
-                                                            <v-icon v-if="active" class="z-index-1" color="white" size="48" v-text="'mdi-close-circle-outline'"></v-icon>
-                                                        </v-scale-transition>
+                                                        <v-img class="ma-4 text-right pa-2" :src="item.img" contain max-height="130" max-width="210" :class="{'z-index-lower': active }">
+                                                            <v-btn icon dark>
+                                                                <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
+                                                            </v-btn>
+                                                        </v-img>
                                                     </v-row>
                                                 </v-card>
                                             </v-slide-item>
@@ -311,7 +273,8 @@ export default {
                 {value: 'Calzado y textil'},
                 {value: 'Médico y farmacéutico'},
                 {value: 'Otra'},
-            ]
+            ],
+            selected: ''
         } 
     },
     methods: {

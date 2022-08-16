@@ -24,7 +24,7 @@
                     <v-col cols="2" align="center">
                         <nuxt-link to="/products/3" class="text-decoration-none">
                             <v-img src="/menu-search/masterbach.png" contain max-height="90"></v-img>
-                            <p class="mt-2 black--text">Masterbach</p>
+                            <p class="mt-2 black--text">Masterbatch</p>
                         </nuxt-link>
                     </v-col>
                     <v-col cols="2" align="center">
