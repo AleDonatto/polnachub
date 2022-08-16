@@ -29,7 +29,7 @@
                                 <v-col cols="12">
                                     <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>
                                     <v-sheet class="mx-auto">
-                                        <v-slide-group v-model="model" class="pa-4" active-class="success" show-arrows multiple>
+                                        <v-slide-group v-model="model" class="pa-4" active-class="success" show-arrows-false multiple>
                                             <v-slide-item v-for="(item ,index) in mercado" :key="index" v-slot="{ active, toggle }">
                                                 <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
                                                     <v-row class="fill-height" align="center" justify="center">
@@ -50,7 +50,7 @@
                                 <v-col cols="12">
                                     <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un producto</h1>
                                     <v-sheet class="mx-auto">
-                                        <v-slide-group v-model="model2" class="pa-4" active-class="success" show-arrows multiple>
+                                        <v-slide-group v-model="model2" class="pa-4" active-class="success" show-arrows-false multiple>
                                             <v-slide-item v-for="(item, index) in productos" :key="index" v-slot="{ active, toggle }">
                                                 <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
                                                     <v-row class="fill-height" align="center" justify="center">
@@ -92,59 +92,59 @@
                             <v-form>
                                 <p class="my-5 font-size-20 font-weight-bold">Llena el siguiente formulario</p>
                                 <v-row>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-text-field label="Nombes" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-text-field label="Apellidos" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
 
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-text-field label="Empresa" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value"></v-select>
                                     </v-col>
 
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value"></v-select>
                                     </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-text-field label="Celular" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
 
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-text-field label="Extensión" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
 
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-text-field label="Código Postal" solo outlined class="rounded-xl"></v-text-field>
                                     </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-select label="País" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
 
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-select label="Estado" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-select label="Ciudad" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
 
-                                    <v-col cols="12">
+                                    <v-col cols="12" class="margin-botton-0">
                                         <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl"></v-select>
                                     </v-col>
-                                    <v-col cols="12">
+                                    <v-col cols="12" class="margin-botton-0">
                                         <v-textarea solo outlined class="rounded-xl" label="Cuéntanos brevemente qué deseas consultar con nosotros."></v-textarea>
                                     </v-col>
 
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-checkbox label="Soy cliente" color="#19D3C5" class="color-checkbox"></v-checkbox>
                                     </v-col>
-                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                         <v-checkbox label="Aceptar Aviso de Privacidad" color="#19D3C5"></v-checkbox>
                                     </v-col>
                                 </v-row>
@@ -309,5 +309,8 @@ z-index: 0.2;
 }
 .click-image{
     background: linear-gradient(0deg, rgba(101, 93, 198, 0.4), rgba(101, 93, 198, 0.4));
+}
+.margin-botton-0{
+    margin-bottom: -35px !important;
 }
 </style>
