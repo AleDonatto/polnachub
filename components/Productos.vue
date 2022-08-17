@@ -3,7 +3,7 @@
         <v-container>
             <v-row justify="center" class="mb-10">
                 <v-col cols="12" align="center" class="mt-16">
-                    <h1 class="white--text font-archivo font-size-40 my-5 font-weight-bold">¿Necesitas más información?</h1>
+                    <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">¿Necesitas más información?</h1>
                     <p class="white--text text-h5">Revisa nuestro amplio catálogo de productos</p>
                 </v-col>                    
                 <v-col cols="5" lg="4" md="4" sm="5" xs="5" class="mb-16">
@@ -29,8 +29,10 @@ export default {
 }
 .bg-alliance-end{
     background-color: #655DC6;
+    height: 480px;
 }
 .bg-polnac-end{
     background-color: #3D7CC9;
+    height: 480px;
 }
 </style>

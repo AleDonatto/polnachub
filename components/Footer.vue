@@ -166,7 +166,7 @@ export default {
   background-position: center center;
   width: 100%;
   height: 500px;
-  margin-top: -35px;
+  margin-top: -45px;
 }
 .img-footer-mobile-button{
   /*background-color: #655DC6;*/

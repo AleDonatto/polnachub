@@ -103,9 +103,9 @@
 
         <section class="bg-servicio mt-16">
             <v-container>
-                <v-row justify="center">
-                    <v-col cols="12" align="center" class="my-16">
-                        <h1 class="white--text font-archivo font-size-40 my-5 font-weight-bold">¿Te interesa un servicio?</h1>
+                <v-row justify="center" class="mb-16">
+                    <v-col cols="12" align="center" class="mt-16">
+                        <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">¿Te interesa un servicio?</h1>
                         <nuxt-link to="/services/contact" class="text-decoration-none">
                             <v-btn class="font-size-20 black--text px-10 my-5 py-6 body-1 text-none rounded-lg" color="#19D3C5">
                                 Solicitar información
@@ -134,6 +134,7 @@ export default {
 <style scoped>
 .bg-servicio{
     background-color: #3D7CC9;
+    height: 480px;
 }
 .text-decoration-none{
     text-decoration: none;

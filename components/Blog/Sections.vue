@@ -327,7 +327,7 @@ export default {
             productos: [
                 {img: require('../../static/plasticos.png'), imgH: require('../../static/h-plasticos.png')},
                 {img: require('../../static/compuestos.png'),imgH: require('../../static/h-compuestos.png') },
-                {img: require('../../static/masterbatch.png'),imgH: require('../../static/h-masterbach.png') },
+                {img: require('../../static/masterbatch.png'),imgH: require('../../static/h-masterbatch.png') },
                 {img: require('../../static/aditivos.png'), imgH: require('../../static/h-aditivos.png') },
                 {img: require('../../static/carbonato.png'),imgH: require('../../static/h-carbonato.png') },
                 {img: require('../../static/rotomoldeo.png'),imgH: require('../../static/h-rotomoldeo.png') },

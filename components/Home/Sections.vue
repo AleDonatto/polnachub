@@ -26,10 +26,10 @@
 
                                 </v-col>
                                 <v-col md="6" sm="12" xs="5" align="center" v-if="windowSize > 1129">
-                                    <!--<v-img src="./video.png" contain max-height="350" max-width="350"></v-img>-->
-                                    <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="400" height="250" type="text/html" 
+                                    <v-img src="./video.png" contain max-height="350" max-width="350"></v-img>
+                                    <!--<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="400" height="250" type="text/html" 
                                         src="https://www.youtube-nocookie.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
-                                    </iframe>
+                                    </iframe>-->
 
                                 </v-col>
                             </v-row>
@@ -507,7 +507,7 @@
                     <v-col class="img-footer-mobile">
                     </v-col>
                 </v-row>
-                <v-row justify="center">
+                <v-row justify="center" >
                     <v-col cols="12" lg="6" md="6" class="img-footer-cita" >
                         <v-row justify="center">
                             <v-col cols="9">
@@ -552,7 +552,7 @@ export default {
             productos: [
                 {img: require('../../static/plasticos.png'), imgH: require('../../static/h-plasticos.png')},
                 {img: require('../../static/compuestos.png'),imgH: require('../../static/h-compuestos.png') },
-                {img: require('../../static/masterbatch.png'),imgH: require('../../static/h-masterbach.png') },
+                {img: require('../../static/masterbatch.png'),imgH: require('../../static/h-masterbatch.png') },
                 {img: require('../../static/aditivos.png'), imgH: require('../../static/h-aditivos.png') },
                 {img: require('../../static/carbonato.png'),imgH: require('../../static/h-carbonato.png') },
                 {img: require('../../static/rotomoldeo.png'),imgH: require('../../static/h-rotomoldeo.png') },
@@ -658,7 +658,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 100%;
+  height: 510px;
 }
 
 .img-footer {
@@ -666,6 +666,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  height: 510px;
 }
 
 .img-footer-mobile {
