@@ -12,6 +12,10 @@
     font-family: 'Archivo' !important;
 }
 
+.font-size-14{
+    font-size: 0.875rem !important;
+}
+
 .font-size-16{
     font-size: 1rem !important;
 }
@@ -71,5 +75,30 @@
 
 .text-green{
     color: #19D3C5;
+}
+
+.secondary-color{
+    background-color: #773DBD !important;
+}
+.secondary-color:hover{
+    background-color: #6533A3 !important;
+}
+
+
+.primary-color{
+    background-color: #19D3C5 !important;
+}
+.primary-color:hover{
+    background-color: #1EC2B6 !important;
+}
+
+
+.default-color{
+    background-color: #130A1F !important;
+    color: white !important;
+}
+.default-color:hover{
+    background-color: #FFFFFF !important;
+    color: black !important;
 }
 

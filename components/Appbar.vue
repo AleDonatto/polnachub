@@ -24,22 +24,22 @@
             <!--<v-toolbar-title :class="{'ml-16': windowSize > 1129}" />-->
             <v-container fluid>
                 <v-row justify="center">
-                    <v-col cols="2" md="2">
+                    <v-col cols="3" md="2" sm="3" xs="3">
                         <nuxt-link to="/">
-                            <!--<img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-4" :height="windowSize<1129 ? '20' : ''"/>-->
-                            <v-img src="/Logo-polnac.png" contain max-width="170" class="mt-2"></v-img>
+                            <img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-3" :height="windowSize<1129 ? '20' : ''"/>
+                            <!--<v-img src="/Logo-polnac.png" contain max-width="180" class="mt-2"></v-img>-->
                         </nuxt-link>
                     </v-col>
                     <v-col cols="9" xl="7" lg="8" md="8">
                         <v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129" class="d-flex align-end flex-column">
                             <v-tabs-slider color></v-tabs-slider>
-                            <v-tab class="black--text text-none mx-0 px-0" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0" to="/innovation">{{ $t('appbar.innovation') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0" to="/search-products">{{ $t('appbar.products') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0" to="/services">{{ $t('appbar.services') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0" to="/market">{{ $t('appbar.market') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0" to="/blogs">Blog</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0" to="/contact">{{ $t('appbar.contact') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/innovation">{{ $t('appbar.innovation') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/search-products">{{ $t('appbar.products') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/services">{{ $t('appbar.services') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/market">{{ $t('appbar.market') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/blogs">Blog</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/contact">{{ $t('appbar.contact') }}</v-tab>
                             
                             <v-tab class="mx-0 px-0">
                                 <v-menu

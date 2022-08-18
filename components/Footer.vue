@@ -74,7 +74,7 @@
                 </v-col>
               </v-row>
               <div class="mt-2">
-                <v-btn rounded class="black--text body-1 text-none teal">¿Eres colaborador?</v-btn>
+                <v-btn rounded class="black--text body-1 text-none primary-color">¿Eres colaborador?</v-btn>
               </div>
             </v-col>
           </v-row>

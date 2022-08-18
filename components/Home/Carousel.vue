@@ -23,11 +23,11 @@
                 <!--:class="{'bg-img' : index !== 2}"-->
                 <v-sheet tile class="bg-img" :class="windowSize > 1129 ? 'size-bg' : 'size-bg-mb'">
                     <!--<video src="../../static/video/home.mp4" autoplay="true" controls muted="muted" loop="true" v-if="index === 2" :class="{'size-video' : windowSize > 1129, 'size-video-mb': windowSize < 1129}"></video>-->
-                    <v-row justify="center">
-                        <v-container>
-                            <v-col xl="6" md="6" sm="12" xs="12" class="py-10 my-10">
+                    <v-container>
+                        <v-row justify="center">
+                            <v-col cols="12" xl="5" md="6" sm="12" xs="12" class="py-10 my-10">
                                 <h1 class="font-archivo font-title pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
-                                   <mark class="text-mark white--text">{{ $t('home.portafolio') }}</mark> 
+                                    <mark class="text-mark white--text">{{ $t('home.portafolio') }}</mark> 
                                 </h1>
                                 <p class="subtitle-1 white--text mt-3 pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
                                     <!--{{ $t('home.subportafolio', {polnac: 'POLNAC'}) }}
@@ -37,11 +37,12 @@
                                 </p>
 
                                 <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start ml-5': windowSize > 1129}">
-                                    <v-btn rounded class="rounded-lg px-10 py-5 black--text body-1 text-none" color="rgba(25, 211, 197, 1)">{{ $t('home.btnhead') }}</v-btn>
+                                    <v-btn rounded class="rounded-xl px-10 py-5 black--text body-1 text-none" color="rgba(25, 211, 197, 1)">{{ $t('home.btnhead') }}</v-btn>
                                 </div>
                             </v-col>
-                        </v-container>
-                    </v-row>
+                            <v-col cols="12" xl="4" lg="6" md="6"></v-col>
+                        </v-row>
+                    </v-container>
                 </v-sheet>
             </v-carousel-item>
         </v-carousel>
@@ -115,7 +116,11 @@ video{
     overflow: hidden;
 }
 .text-mark{
-    background-color: rgba(46, 46, 101, 0.99);
+    background-color: rgba(74, 25, 102, 0.99);
     line-height: -2px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
 }
 </style>

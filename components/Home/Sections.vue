@@ -1,10 +1,10 @@
 <template>
     <div>
         <section>
-            <v-container>
+            <v-container class="">
                 <div class="my-10 mx-10">
                     <v-row justify="center">
-                        <v-col cols="12" xl="9">
+                        <v-col cols="12" xl="9" class="">
                             <v-row>
                                 <v-col md="6" sm="12" xs="12" align-self="center" align="center">
                                     <h1 class="font-archivo font-title text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}">
@@ -20,7 +20,7 @@
 
                                     <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start': windowSize > 1129}">
                                         <nuxt-link to="/polnac-group" class="decoration-none">
-                                            <v-btn color="#773DBD" class="rounded-lg px-10 body-1 py-5 white--text text-none">{{ $t('home.btnabout') }}</v-btn>
+                                            <v-btn class="rounded-xl px-10 body-1 py-5 white--text text-none secondary-color">{{ $t('home.btnabout') }}</v-btn>
                                         </nuxt-link>
                                     </div>
 
@@ -40,15 +40,15 @@
         </section>
 
         <section>
-            <div class="my-10 mx-10">
+            <div class="my-10">
                 <h1 class="font-archivo font-size-40 font-weight-bold text-center my-10">{{ $t('home.titledestacados') }}</h1>
                 <v-row>
                     <v-col xl="3" md="3" sm="12" xs="12" class="des-1" v-if="windowSize > 1129">
                     </v-col>
                     <v-col xl="3" md="3" sm="12" xs="12" class="des-2" v-if="windowSize > 1129">
                     </v-col>
-                    <v-col xl="3" md="3" sm="12" xs="12" class="des-3">
-                        <h4 class="white--text text-img">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</h4>
+                    <v-col xl="3" md="3" sm="12" xs="12" class="des-3 px-10">
+                        <h4 class="font-size-20 white--text text-img ">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</h4>
                         <p class="white--text mt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel accumsan...</p>
                         <p class="white--text text-right">...Ver mas</p>
                     </v-col>
@@ -56,7 +56,7 @@
                     </v-col>
                 </v-row>
                 <div class="d-flex justify-center my-10">
-                    <v-btn class="rounded-lg text-body-all white--text body-1 px-10 py-4 text-none" color="black">{{ $t('home.btnproducts') }}</v-btn>
+                    <v-btn active-class="red" class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ $t('home.btnproducts') }}</v-btn>
                 </div>
             </div>
         </section>
@@ -136,11 +136,11 @@
                                 <v-card height="250" class="shadow-out">
                                     <v-hover v-slot="{ hover }">
                                         <v-card class="ma-5 card-blog shadow-out" width="220" height="390">
-                                            <v-img :src="item.img" style="width: 100%">
+                                            <v-img :src="item.img" style="width: 100%" alt="pruebas">
                                                 <v-expand-transition>
                                                     
                                                 <!--<div v-if="hover" class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal text-h2 white--text" style="height: 100%;"></div>-->
-                                                <v-img :src="item.imgH" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                                <v-img :src="item.imgH" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>
                                                 </v-expand-transition>
                                             </v-img>
                                         </v-card>
@@ -163,7 +163,7 @@
             </v-container>
             <v-container>
                 <div class="d-flex justify-center mb-10">
-                    <v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none" color="#773DBD" rounded>{{ $t('home.btncategories') }}</v-btn>
+                    <v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none secondary-color" rounded>{{ $t('home.btncategories') }}</v-btn>
                 </div>
             </v-container>
         </section>
@@ -295,7 +295,7 @@
 
                         <v-row v-if="windowSize < 1129 ">
                             <v-col cols="12" align="center" align-self="center">
-                                <v-card class="mx-5 px-5 my-2" height="330" color="rgba(9, 187, 174, 1)">
+                                <v-card class="mx-5 my-2" height="330" color="rgba(9, 187, 174, 1)">
                                     <v-card-text>
                                         <p class="text-h5 text-uppercase text-center font-weight-bold mt-5 black--text" >
                                             Criser
@@ -329,80 +329,85 @@
 
         <section>
             <v-container>
-                <v-row justify="center" class="mt-10 mx-2">
-                    <v-col lg="6" md="6" sm="12" xs="12" align="center">
-                        <h1 class="display-2 text-left">Empresa <span class="font-weight-bold text-map">100% mexicana </span> de <span class="text-teal font-weight-bold">alcance mundial</span></h1>
-                        <p class="text-body-all mt-2 text-justify">
-                            <span class="font-weight-bold">POLNAC</span> brinda un servicio integral, eficiente y confiable a través de una atención personalizada enfocada en las necesidades y especificaciones de cada cliente.
-                        </p>
-                    </v-col>
-                    <v-col lg="6" md="6" sm="12" xs="12" align="center">
-                        <v-img src="/map.png" contain max-height="450" max-width="450" alt="sucursales"></v-img >
-                    </v-col>
-                    <v-col v-if="windowSize < 1129">
-                        <p class="text-body-all text-justify">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
-                    </v-col>
-                </v-row>
-                <v-row class="mx-5">
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12">
-                        <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h3': windowSize < 1129}">+300,000 m<sup>2</sup></h1>
-                        <p class="text-body-all text-center">de <span class="font-weight-bold">infraestructura</span> para la fabricación de productos</p>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12">
-                        <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h3': windowSize < 1129}">+90,000 ton</h1>
-                        <p class="text-body-all text-center">de <span class="font-weight-bold">capacidad de producción</span> anual</p>
-                    </v-col>
-                    <v-col lg="6" md="6" sm="12" xs="12" v-if="windowSize > 1129">
-                        <p class="text-body-all text-left">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
-                    </v-col>
-                </v-row>
+                <v-row justify="center">
+                    <v-col cols="12" xl="9" lg="12" md="12">
+                        <v-row justify="center" class="mt-10 mx-2">
+                            <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
+                                <h1 class="display-2 text-left">Empresa <span class="font-weight-bold text-map">100% mexicana </span> de <span class="text-teal font-weight-bold">alcance mundial</span></h1>
+                                <p class="text-body-all mt-2 text-justify">
+                                    <span class="font-weight-bold">POLNAC</span> brinda un servicio integral, eficiente y confiable a través de una atención personalizada enfocada en las necesidades y especificaciones de cada cliente.
+                                </p>
+                            </v-col>
+                            <v-col lg="6" md="6" sm="12" xs="12" align="center">
+                                <v-img src="/map.png" contain max-height="450" max-width="450" alt="sucursales"></v-img >
+                            </v-col>
+                            <v-col v-if="windowSize < 1129">
+                                <p class="text-body-all text-justify">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
+                            </v-col>
+                        </v-row>
+                        <v-row :class="{'max-5': windowSize>1129 }">
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12">
+                                <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h4': windowSize < 1129}">+300,000 m<sup>2</sup></h1>
+                                <p class="text-body-all text-center">de <span class="font-weight-bold">infraestructura</span> para la fabricación de productos</p>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12">
+                                <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h4': windowSize < 1129}">+90,000 ton</h1>
+                                <p class="text-body-all text-center">de <span class="font-weight-bold">capacidad de producción</span> anual</p>
+                            </v-col>
+                            <v-col lg="6" md="6" sm="12" xs="12" v-if="windowSize > 1129">
+                                <p class="text-body-all text-left">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
+                            </v-col>
+                        </v-row>
 
-                <v-row justify="center" class="mx-5">
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-img src="/plantas.png" contain max-height="70"></v-img>
-                        <!--<div class="d-flex justify-center">
-                            <img src="../../static/plantas.png" alt="plantas de fabricacion" />
-                        </div>-->
-                        <p class="text-body-all text-center mt-2">Tres avanzadas <span class="font-weight-bold">plantas de fabricación</span> en México y Estados Unidos</p>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <!--<div class="d-flex justify-center">
-                            <img src="../../static/sucursales.png" alt="sucursales" />
-                        </div>-->
-                        <v-img src="/sucursales.png" contain max-height="70"></v-img>
-                        <p class="text-body-all text-center mt-2">Cinco <span class="font-weight-bold">sucursales internacionales</span>: USA, Europa, Colombia, Ecuador y Guatemala</p>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <!--<div class="d-flex justify-center">
-                            <img src="../../static/almacen.png" alt="almacen" />
-                        </div>-->
-                        <v-img src="/almacen.png" contain max-height="70"></v-img>
-                        <p class="text-body-all text-center mt-2">Equipos de <span class="font-weight-bold">almacenamiento</span> y <span class="font-weight-bold">transporte</span> de vanguardia</p>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <!--<div class="d-flex justify-center">
-                            <img src="../../static/ferrocarril.png" alt="ferrocarril" />
-                        </div>-->
-                        <v-img src="/ferrocarril.png" contain max-height="70"></v-img>
-                        <p class=" text-body-all text-center mt-2"><span class="font-weight-bold">Terminal ferroviaria</span> con más de 5 km de vías</p>
+                        <v-row justify="center" class="mx-5">
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <v-img src="/plantas.png" contain max-height="70"></v-img>
+                                <!--<div class="d-flex justify-center">
+                                    <img src="../../static/plantas.png" alt="plantas de fabricacion" />
+                                </div>-->
+                                <p class="text-body-all text-center mt-2">Tres avanzadas <span class="font-weight-bold">plantas de fabricación</span> en México y Estados Unidos</p>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <!--<div class="d-flex justify-center">
+                                    <img src="../../static/sucursales.png" alt="sucursales" />
+                                </div>-->
+                                <v-img src="/sucursales.png" contain max-height="70"></v-img>
+                                <p class="text-body-all text-center mt-2">Cinco <span class="font-weight-bold">sucursales internacionales</span>: USA, Europa, Colombia, Ecuador y Guatemala</p>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <!--<div class="d-flex justify-center">
+                                    <img src="../../static/almacen.png" alt="almacen" />
+                                </div>-->
+                                <v-img src="/almacen.png" contain max-height="70"></v-img>
+                                <p class="text-body-all text-center mt-2">Equipos de <span class="font-weight-bold">almacenamiento</span> y <span class="font-weight-bold">transporte</span> de vanguardia</p>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <!--<div class="d-flex justify-center">
+                                    <img src="../../static/ferrocarril.png" alt="ferrocarril" />
+                                </div>-->
+                                <v-img src="/ferrocarril.png" contain max-height="70"></v-img>
+                                <p class=" text-body-all text-center mt-2"><span class="font-weight-bold">Terminal ferroviaria</span> con más de 5 km de vías</p>
+                            </v-col>
+                        </v-row>
+                        <v-row justify="center" class="mb-10">
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <!--<div class="d-flex justify-center">
+                                    <img src="../../static/laboratorio.png" alt="laboratorios" />
+                                </div>-->
+                                <v-img src="/laboratorio.png" contain max-height="70"></v-img>
+                                <p class="text-body-all text-center mt-2"><span class="font-weight-bold">Moderno laboratorio</span> de Innovación & Desarrollo</p>
+                            </v-col>
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
+                                <!--<div class="d-flex justify-center">
+                                    <img src="../../static/estandares.png" alt="estandares" />
+                                </div>-->
+                                <v-img src="/estandares.png" contain max-height="70"></v-img>
+                                <p class="text-body-all text-center mt-2">Procesos alineados y certificados bajo <span class="font-weight-bold">estándares internacionales</span>.</p>
+                            </v-col>
+                        </v-row>
                     </v-col>
                 </v-row>
-                <v-row justify="center" class="mb-10">
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <!--<div class="d-flex justify-center">
-                            <img src="../../static/laboratorio.png" alt="laboratorios" />
-                        </div>-->
-                        <v-img src="/laboratorio.png" contain max-height="70"></v-img>
-                        <p class="text-body-all text-center mt-2"><span class="font-weight-bold">Moderno laboratorio</span> de Innovación & Desarrollo</p>
-                    </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <!--<div class="d-flex justify-center">
-                            <img src="../../static/estandares.png" alt="estandares" />
-                        </div>-->
-                        <v-img src="/estandares.png" contain max-height="70"></v-img>
-                        <p class="text-body-all text-center mt-2">Procesos alineados y certificados bajo <span class="font-weight-bold">estándares internacionales</span>.</p>
-                    </v-col>
-                </v-row>
+                
             </v-container>
         </section>
 
@@ -417,7 +422,7 @@
                     </p>
                     <div class="d-flex justify-center">
                         <nuxt-link to="/alliances" class="decoration-none">
-                            <v-btn class="rounded-lg my-10 px-10 py-5 body-1 black--text text-none" color="#19D3C5" rounded>{{$t('home.btnalliances') }}</v-btn>
+                            <v-btn class="rounded-lg my-10 px-10 py-5 body-1 black--text text-none primary-color" rounded>{{$t('home.btnalliances') }}</v-btn>
                         </nuxt-link>
                     </div>
                 </v-container>
@@ -475,8 +480,8 @@
                 </div>-->
 
 
-                <v-sheet class="mx-auto my-10" max-width="1600">
-                    <v-slide-group v-model="model" class="pa-4" center-active show-arrows>
+                <v-sheet class="my-10" max-width="1600">
+                    <v-slide-group v-model="model" class="py-4 px-2" center-active show-arrows>
                         <v-slide-item v-for="(item, index) in blogs" :key="index" >
                             <!--max-width="325" max-height="390"-->
                             <nuxt-link :to="`/blogs/${index+1}`" class="decoration-none">
@@ -510,13 +515,13 @@
                 <v-row justify="center" >
                     <v-col cols="12" lg="6" md="6" class="img-footer-cita" >
                         <v-row justify="center">
-                            <v-col cols="9">
-                                <div class="py-10 my-10 mb-16">
+                            <v-col cols="10">
+                                <div class="py-10 mb-16">
                                     <h1 class="text-h4 font-weight-bold my-10 white--text">{{ $t('home.titleappointment') }}</h1>
                                     <p class="white--text text-body-all">
                                         {{ $t('home.subappointment') }}
                                     </p>
-                                    <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg px-10 py-5 subtitle-1 black--text text-none">
+                                    <v-btn class="rounded-lg px-10 py-5 subtitle-1 black--text text-none primary-color">
                                         {{ $t('home.btnappointment') }}
                                     </v-btn>
                                 </div>
