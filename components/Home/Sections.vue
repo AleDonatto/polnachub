@@ -48,9 +48,11 @@
                     <v-col xl="3" md="3" sm="12" xs="12" class="des-2" v-if="windowSize > 1129">
                     </v-col>
                     <v-col xl="3" md="3" sm="12" xs="12" class="des-3 px-10">
-                        <h4 class="font-size-20 white--text text-img ">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</h4>
-                        <p class="white--text mt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel accumsan...</p>
-                        <p class="white--text text-right">...Ver mas</p>
+                        <div class="" style="height: 100%;">
+                            <h4 class="font-size-20 white--text text-img ">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</h4>
+                            <p class="white--text mt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel accumsan...</p>
+                            <p class="white--text text-right">...Ver mas</p>
+                        </div>
                     </v-col>
                     <v-col xl="3" md="3" sm="12" xs="12" class="des-4" v-if="windowSize > 1129">
                     </v-col>
@@ -130,12 +132,12 @@
             </v-container>
             <v-container v-if="windowSize > 1129">
                 <v-sheet class="mx-auto" height="250">
-                    <v-slide-group v-model="model" class="pa-5" show-arrows>
+                    <v-slide-group v-model="model" class="px-4 py-5" show-arrows>
                         <v-slide-item v-for="(item, index) in productos" :key="index" >
                             <nuxt-link :to="`/products/${index}`">
-                                <v-card height="250" class="shadow-out">
+                                <v-card height="200" class="shadow-out">
                                     <v-hover v-slot="{ hover }">
-                                        <v-card class="ma-5 card-blog shadow-out" width="220" height="390">
+                                        <v-card class="mx-5 my-5 card-blog shadow-out" width="220" height="250">
                                             <v-img :src="item.img" style="width: 100%" alt="pruebas">
                                                 <v-expand-transition>
                                                     
@@ -478,25 +480,31 @@
                 <div class="d-flex justify-center mb-10">
                     <v-btn rounded class="subtitle-1 white--text text-none" color="black">{{$t('home.btnblog')}}</v-btn>
                 </div>-->
-
-
-                <v-sheet class="my-10" max-width="1600">
-                    <v-slide-group v-model="model" class="py-4 px-2" center-active show-arrows>
-                        <v-slide-item v-for="(item, index) in blogs" :key="index" >
-                            <!--max-width="325" max-height="390"-->
-                            <nuxt-link :to="`/blogs/${index+1}`" class="decoration-none">
-                                <v-card class="card-blog shadow-out" :class="{'ma-5': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                    <img :src="item.img" style="width: 100%" alt="pruebas"/>
-                                    <v-card-title>{{item.title}}</v-card-title>
-                                    <v-card-subtitle>{{item.description}}</v-card-subtitle>
-                                    <v-card-actions>
-                                        <v-spacer></v-spacer>
-                                    </v-card-actions>
-                                </v-card>
-                            </nuxt-link>
-                        </v-slide-item>
-                    </v-slide-group>
-                </v-sheet>
+                <v-row justify="center">
+                    <v-col cols="12" xl="9">
+                        <v-row justify="center">
+                            <v-col cols="12" align="center">
+                                <v-sheet class="my-10 sections" max-width="1600" >
+                                    <v-slide-group v-model="model" class="py-4 px-2 " center-active show-arrows>
+                                        <v-slide-item v-for="(item, index) in blogs" :key="index">
+                                            <!--max-width="325" max-height="390"-->
+                                            <nuxt-link :to="`/blogs/${index+1}`" class="decoration-none">
+                                                <v-card class="card-blog shadow-out" :class="{'ma-5': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                                    <img :src="item.img" style="width: 100%" alt="pruebas"/>
+                                                    <v-card-title>{{item.title}}</v-card-title>
+                                                    <v-card-subtitle class="text-left">{{item.description}}</v-card-subtitle>
+                                                    <v-card-actions>
+                                                        <v-spacer></v-spacer>
+                                                    </v-card-actions>
+                                                </v-card>
+                                            </nuxt-link>
+                                        </v-slide-item>
+                                    </v-slide-group>
+                                </v-sheet>
+                            </v-col>
+                        </v-row>
+                    </v-col>
+                </v-row>
 
                 <div class="d-flex justify-center mb-16">
                     <nuxt-link to="/blogs" class="decoration-none">
@@ -627,7 +635,7 @@ export default {
     width: 600px;
 }
 .text-img{
-    margin-top: 130px;
+    margin-top: 10vh;
 }
 .bg-testimonios{
     background-image: linear-gradient(rgba(61, 124, 201, 0.7), rgba(101, 93, 198,0.7)), url('../../static/testimonios.png');
@@ -695,4 +703,6 @@ export default {
 .shadow-out{
     box-shadow: none !important;
 }
+
+
 </style>

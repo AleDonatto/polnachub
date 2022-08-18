@@ -102,3 +102,10 @@
     color: black !important;
 }
 
+.sections > .v-slide-group.v-item-group > .v-slide-group__next, .v-slide-group.v-item-group > .v-slide-group__prev > .v-icon {
+    font-size: 45px !important;
+}
+
+.sections > .v-slide-group.v-item-group > .v-slide-group__next, .v-slide-group.v-item-group > .v-slide-group__next > .v-icon {
+    font-size: 45px !important;
+}
