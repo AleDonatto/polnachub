@@ -4,7 +4,7 @@ import i18n from './languajes/i18n'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s | Polímeros Nacionales S.A. de C.V.',
+    titleTemplate: '%s | Polímeros Nacionales',
     title: 'POLNAC',
     htmlAttrs: {
       lang: 'es-MX'

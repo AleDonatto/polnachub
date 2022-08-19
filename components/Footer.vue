@@ -53,19 +53,29 @@
             <v-col cols="3" class="mt-10" align="start" v-if="windowSize > 1129">
               <v-row justify="">
                 <v-col cols="2">
-                  <v-img src="/Linkedin.png" contain max-height="28"></v-img>
+                  <a href="https://www.linkedin.com/company/polnac/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
+                    <v-img src="/Linkedin.png" contain max-height="28"></v-img>
+                  </a>
                 </v-col>
                 <v-col cols="2">
-                  <v-img src="/Facebook.png" contain max-height="28"></v-img>
+                  <a href="https://www.facebook.com/Polnac.Oficial" target="_blank" rel="noopener noreferrer">
+                    <v-img src="/Facebook.png" contain max-height="28"></v-img>
+                  </a>
                 </v-col>
                 <v-col cols="2">
-                  <v-img src="/Instagram.png" contain max-height="28"></v-img>
+                  <a href="https://www.instagram.com/polnac.oficial/" target="_blank" rel="noopener noreferrer">
+                    <v-img src="/Instagram.png" contain max-height="28"></v-img>
+                  </a>
                 </v-col>
                 <v-col cols="2">
-                  <v-img src="/Twitter.png" contain max-height="28"></v-img>
+                  <a href="https://twitter.com/PolnacOficial" target="_blank" rel="noopener noreferrer">
+                    <v-img src="/Twitter.png" contain max-height="28"></v-img>
+                  </a>
                 </v-col>
                 <v-col cols="2">
-                  <v-img src="/Youtube.png" contain max-height="28"></v-img>
+                  <a href="https://www.youtube.com/channel/UCNvsE4YYBZjCoxGXmpXGdkQ" target="_blank" rel="noopener noreferrer">
+                    <v-img src="/Youtube.png" contain max-height="28"></v-img>
+                  </a>
                 </v-col>
               </v-row>
               <v-row class="d-block mt-2">

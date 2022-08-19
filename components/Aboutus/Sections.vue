@@ -43,7 +43,7 @@
                 <v-row justify="center">
                     <v-col cols="12" class="my-15" align="center">
                         <!--<v-img src="/aboutus/video.png" contain max-height="550"></v-img>-->
-                        <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '880': '395' " :height="windowSize > 1129 ? '480' : '220'" type="text/html" 
+                        <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '880': '395' " :height="windowSize > 1129 ? '480' : '220'" type="text/html" 
                         src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                         </iframe>
                     </v-col>

@@ -5,8 +5,12 @@
                 <v-row justify="center">
                     <v-col cols="12" class="mt-16" align="center">
                         <!--<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '1080' : '360'" :height="windowSize > 1129 ? '600' : '260'" type="text/html" 
-                        src="https://www.youtube-nocookie.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                        src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                         </iframe>-->
+
+                        <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '1080' : '360'" :height="windowSize > 1129 ? '600' : '260'" type="text/html" 
+                        src="https://tourmkr.com/F1KVqkjYDY/37164458p&241.89h&88.13t">
+                        </iframe>
                     </v-col>
                     <v-col cols="12" xl="10" class="my-10">
                         <p class="font-size-20">

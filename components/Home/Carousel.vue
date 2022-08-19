@@ -37,7 +37,7 @@
                                 </p>
 
                                 <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start ml-5': windowSize > 1129}">
-                                    <v-btn rounded class="rounded-xl px-10 py-5 black--text body-1 text-none" color="rgba(25, 211, 197, 1)">{{ $t('home.btnhead') }}</v-btn>
+                                    <v-btn rounded class="rounded-xl px-10 py-5 black--text body-1 text-none primary-color">{{ $t('home.btnhead') }}</v-btn>
                                 </div>
                             </v-col>
                             <v-col cols="12" xl="4" lg="6" md="6"></v-col>

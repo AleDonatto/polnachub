@@ -25,11 +25,11 @@
                                     </div>
 
                                 </v-col>
-                                <v-col md="6" sm="12" xs="5" align="center" v-if="windowSize > 1129">
-                                    <v-img src="./video.png" contain max-height="350" max-width="350"></v-img>
-                                    <!--<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="400" height="250" type="text/html" 
-                                        src="https://www.youtube-nocookie.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
-                                    </iframe>-->
+                                <v-col md="6" sm="12" xs="5" class="" align="center" v-if="windowSize > 1129">
+                                    <!--<v-img src="./video.png" contain max-height="350" max-width="350"></v-img>-->
+                                    <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
+                                        src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                                    </iframe>
 
                                 </v-col>
                             </v-row>
@@ -58,7 +58,7 @@
                     </v-col>
                 </v-row>
                 <div class="d-flex justify-center my-10">
-                    <v-btn active-class="red" class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ $t('home.btnproducts') }}</v-btn>
+                    <v-btn class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ $t('home.btnproducts') }}</v-btn>
                 </div>
             </div>
         </section>
@@ -508,7 +508,7 @@
 
                 <div class="d-flex justify-center mb-16">
                     <nuxt-link to="/blogs" class="decoration-none">
-                        <v-btn rounded class="rounded-lg subtitle-1 px-10 py-5 white--text text-none" color="black">{{$t('home.btnblog')}}</v-btn>
+                        <v-btn rounded class="rounded-lg subtitle-1 px-10 py-5 white--text text-none default-color">{{$t('home.btnblog')}}</v-btn>
                     </nuxt-link>
                 </div>
             </v-container>
@@ -704,5 +704,8 @@ export default {
     box-shadow: none !important;
 }
 
+.video{
+    
+}
 
 </style>
