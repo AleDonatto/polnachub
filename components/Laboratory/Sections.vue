@@ -68,7 +68,7 @@
                                             <p class="body-2 font-weight-bold">Conoce más sobre el proceso</p>
                                         </v-col>
                                         <v-col cols="4" class="mt-2">
-                                            <nuxt-link to="/polnac-wiki">
+                                            <nuxt-link to="/polnac-wiki?tag=laboratory">
                                                 <p class="body-2 more font-weight-bold">Leer más</p>
                                             </nuxt-link>
                                         </v-col>
@@ -348,7 +348,7 @@
                                     <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
                                 </v-col>
                                 <v-col cols="3" class="mt-2">
-                                    <nuxt-link to="/polnac-wiki">
+                                    <nuxt-link to="/polnac-wiki?tag=laboratory&id=1">
                                         <p class="font-size-18 more font-weight-bold">Leer más</p>
                                     </nuxt-link>
                                 </v-col>
@@ -374,7 +374,7 @@
                                     <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
                                 </v-col>
                                 <v-col cols="3" class="mt-2">
-                                    <nuxt-link to="/polnac-wiki">
+                                    <nuxt-link to="/polnac-wiki?tag=laboratory&id=2">
                                         <p class="font-size-18 more font-weight-bold">Leer más</p>
                                     </nuxt-link>
                                 </v-col>

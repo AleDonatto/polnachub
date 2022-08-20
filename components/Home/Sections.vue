@@ -703,9 +703,4 @@ export default {
 .shadow-out{
     box-shadow: none !important;
 }
-
-.video{
-    
-}
-
 </style>

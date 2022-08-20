@@ -47,6 +47,7 @@
 
                     </v-col>
                     <v-col cols="8" v-if="windowSize > 1129">
+
                         <v-expansion-panels v-model="tabs" multiple v-if="Transf && !Lab ">
                             <v-expansion-panel class="my-2 rounded-xl">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
@@ -144,208 +145,16 @@
                             </v-expansion-panel>
                         </v-expansion-panels>
 
-                        <v-expansion-panels v-model="tabs" multiple v-if="Lab && !Transf">
-                            <v-expansion-panel class="my-2 rounded-xl">
+                        <v-expansion-panels v-model="tabsLab" multiple v-if="Lab && !Transf">
+                            <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in dataLab" :key="index">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                    Índice de Fluidez
+                                    {{ item.title  }}
                                 </v-expansion-panel-header>
                                 <v-expansion-panel-content class="mt-5 shadow-none">
-                                    Cantidad de material plastificado en gramos que fluye a través del orificio de un dado de 
-                                    dimensiones fijas, sujeto a presión y temperaturas predeterminadas. Es también una medida 
-                                    indirecta del peso molecular. 
+                                    {{ item.des }}
                                 </v-expansion-panel-content>
                             </v-expansion-panel>
 
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Densidad
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Medida de cuánto material se encuentra en un espacio determinado. Ayuda a determinar la 
-                                    pureza de los polímeros antes de su procesamiento. Es vital para determinar la homogeneidad 
-                                    de las resinas. De igual manera sirve para precisar si existe algún material externo se ha 
-                                    mezclado con la materia prima. 
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Determinación de Humedad
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    El porcentaje de humedad que contiene un polímero. Usando una termobalanza, equipo que irradia 
-                                    calor, se evapora el agua y se calcula la pérdida de peso. Es una prueba muy importante para los 
-                                    plásticos higroscópicos, aquellos que absorben la humedad del ambiente, como por ejemplo las 
-                                    poliamidas, el policarbonato y el PET.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Contenido de Cenizas
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Utilizando un equipo denominado Mufla se calcina el material a través de la gasificación del 
-                                    polímero convirtiéndose en monóxido de carbono y dióxido de carbono, finalmente se calcula el 
-                                    contenido de cenizas de un polímero. 
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Impacto
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Medición de la resistencia al impacto por medio de la caída de un peso desde una altura 
-                                    determinada y controlada. Un impactómetro mide la energía absorbida por la probeta de prueba. 
-                                    Mientras más alta sean los valores de resistencia al impacto mayor será la resistencia del polímero.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Módulo de Flexión
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    La resistencia a la flexión es la propiedad que tienen los plásticos de soportar un esfuerzo 
-                                    sobre ellos antes de doblarse. Ayuda a determinar si el material es demasiado o muy poco flexible 
-                                    para la aplicación final.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Tensión y Elongación
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Mide el esfuerzo máximo para que el material se estire a su punto máximo y llegue a su punto de 
-                                    cedencia. La tensión se define como la capacidad que presentan los plásticos a oponerse a un 
-                                    esfuerzo de tensión aplicado en un área determinada. Se mide como la máxima carga de tensión 
-                                    por unidad de área que resiste antes de la ruptura del material. La elongación es la máxima 
-                                    extensión que alcanza una probeta hasta llegar al punto de ruptura después de someterla a un 
-                                    estiramiento.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Dureza Shore A y D
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Es la resistencia que presentan los plásticos al ser mellados o rayados sobre su superficie. 
-                                    El método consiste en colocar una muestra o probeta y dejar caer sobre ella un punzón. Con apoyo 
-                                    de un durómetro se calcula la dureza del plástico. 
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Resistencia a la inflamabilidad
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    La tendencia de un termoplástico a extinguir o a propagar una llama cuando entra en combustión 
-                                    en un periodo específico Esta prueba indica la rapidez con que se propaga el fuego. Es una prueba 
-                                    vital para diversos sectores, tales como: automotriz, eléctrico-electrónico, construcción, consumo, 
-                                    textil y electrodomésticos. 
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Temperatura de Deflexión Bajo Carga (HDT)
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Es la temperatura a la cual ocurre la deformación de un polímero bajo una carga normalizada. 
-                                    En un baño de aceite a base de silicona el material es sometido a una carga constante y a 
-                                    temperaturas variables. Una vez que el material ceda se registra la temperatura. Es una prueba 
-                                    muy importante para materiales que estarán sometidos a altas temperaturas.  
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Análisis Termogravimétrico (TGA)
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Evaluación de las propiedades térmicas mediante la pérdida de peso de una muestra cuando se 
-                                    incrementa la temperatura a una velocidad uniforme. Indica la composición de la muestra, incluidos 
-                                    los volátiles y refuerzos inertes. Esta prueba ayuda a: identificar plásticos, contenido de humedad, 
-                                    materia volátil, procesos de degradación y oxidación, estabilidad térmica, composición química, 
-                                    entre otros. 
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Calorimetría Diferencial de Barrido (DSC)
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                   Mide los cambios de entalpía (el flujo de energía térmica en los procesos químicos efectuados 
-                                   a presión constante cuando el único trabajo es de presión-volumen) debido a modificaciones en 
-                                   las propiedades químicas y físicas de un material, en función del tiempo o temperatura. 
-                                   Es una prueba que proporciona información valiosa sobre las condiciones de procesamiento, 
-                                   aplicación, defectos de calidad, pureza, seguridad química, reactividad y estabilidad. 
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Determinación de Color con Espectrofotómetro
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                   Proporciona los valores y coordenadas de un color. El espectrofotómetro es un equipo diseñado 
-                                   para medir el espectro de transmitancia o reflectancia de un objeto. El objetivo es comparar la 
-                                   radiación para cada longitud de onda a la salida del objeto. 
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Espectrofotómetro de Infrarrojo
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                   Puede emplearse para la identificación cualitativa y cuantitativa de plásticos. La absorción 
-                                   de luz por molécula es única, por lo que cada espectro que ésta aporta también es único. 
-                                   Una de sus grandes ventajes es que solamente con la comparación con otros espectros previamente 
-                                   identificados es posible identificar muestras con diversos problemas. 
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    Determinación de Brillo
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                   Una medida de cuán brillante o reflejante es un material que se encuentra en un ángulo 
-                                   especifico respecto al haz de luz incidente. El brillo depende considerablemente de la lisura y 
-                                   planicidad de la muestra. Por lo que esta prueba se ocupa cuando se desea comparar o medir de 
-                                   forma relativa estos atributos.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                   Intemperismo (Envejecimiento)
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                   En condiciones ambientales atmosféricas los plásticos de degradan debido a la acción 
-                                   del oxígeno, la radiación de luz UV, y la humedad. Esta prueba mide la resistencia a la 
-                                   intemperie de los plásticos. Ayuda a predecir el tiempo que resiste un material expuesto a 
-                                   condiciones ambientales reales. 
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                   Reología Rotacional
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                   Permite conocer el índice de fluidez con mayor complejidad, el peso molecular, y ayuda a 
-                                   determinar el método de transformación adecuado. De igual manera, permite conocer si la 
-                                   resina cuenta con material reciclado o si es material prime. Suele ser utilizada para 
-                                   aplicaciones de gran complejidad como por ejemplo en materiales para el mercado automotriz.   
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
                         </v-expansion-panels>
                     </v-col>
                 </v-row>
@@ -367,8 +176,36 @@ export default {
                 { name: "Pruebas de Laboratorio" }
             ],
             tabs: [0],
-            Transf: true,
-            Lab: false,
+            tabsLab: [0],
+            Transf: false,
+            Lab: true,
+            dataLab: [
+                { title: 'Índice de Fluidez', des: 'Cantidad de material plastificado en gramos que fluye a través del orificio de un dado de dimensiones fijas, sujeto a presión y temperaturas predeterminadas. Es también una medida indirecta del peso molecular.'},
+                { title: 'Densidad', des: 'Medida de cuánto material se encuentra en un espacio determinado. Ayuda a determinar la pureza de los polímeros antes de su procesamiento. Es vital para determinar la homogeneidad de las resinas. De igual manera sirve para precisar si existe algún material externo se ha mezclado con la materia prima.'},
+                { title: 'Determinación de Humedad', des: 'Utilizando un equipo denominado Mufla se calcina el material a través de la gasificación del polímero convirtiéndose en monóxido de carbono y dióxido de carbono, finalmente se calcula el contenido de cenizas de un polímero. '},
+                { title: 'Contenido de Cenizas', des: 'Medición de la resistencia al impacto por medio de la caída de un peso desde una altura determinada y controlada. Un impactómetro mide la energía absorbida por la probeta de prueba. Mientras más alta sean los valores de resistencia al impacto mayor será la resistencia del polímero.'},
+                { title: 'Impacto', des: 'La resistencia a la flexión es la propiedad que tienen los plásticos de soportar un esfuerzo sobre ellos antes de doblarse. Ayuda a determinar si el material es demasiado o muy poco flexible para la aplicación final.'},
+                { title: 'Tensión y Elongación', des: 'Mide el esfuerzo máximo para que el material se estire a su punto máximo y llegue a su punto de cedencia. La tensión se define como la capacidad que presentan los plásticos a oponerse a un esfuerzo de tensión aplicado en un área determinada. Se mide como la máxima carga de tensión por unidad de área que resiste antes de la ruptura del material. La elongación es la máxima extensión que alcanza una probeta hasta llegar al punto de ruptura después de someterla a un estiramiento.'},
+                { title: 'Dureza Shore A y D', des: 'Es la resistencia que presentan los plásticos al ser mellados o rayados sobre su superficie. El método consiste en colocar una muestra o probeta y dejar caer sobre ella un punzón. Con apoyo de un durómetro se calcula la dureza del plástico.'},
+                { title: 'Resistencia a la inflamabilidad', des: 'La tendencia de un termoplástico a extinguir o a propagar una llama cuando entra en combustión en un periodo específico Esta prueba indica la rapidez con que se propaga el fuego. Es una prueba vital para diversos sectores, tales como: automotriz, eléctrico-electrónico, construcción, consumo, textil y electrodomésticos. '},
+                { title: 'Temperatura de Deflexión Bajo Carga (HDT)', des: 'Es la temperatura a la cual ocurre la deformación de un polímero bajo una carga normalizada. En un baño de aceite a base de silicona el material es sometido a una carga constante y a temperaturas variables. Una vez que el material ceda se registra la temperatura. Es una prueba muy importante para materiales que estarán sometidos a altas temperaturas. '},
+                { title: 'Análisis Termogravimétrico (TGA)', des: 'Evaluación de las propiedades térmicas mediante la pérdida de peso de una muestra cuando se incrementa la temperatura a una velocidad uniforme. Indica la composición de la muestra, incluidos los volátiles y refuerzos inertes. Esta prueba ayuda a: identificar plásticos, contenido de humedad, materia volátil, procesos de degradación y oxidación, estabilidad térmica, composición química, entre otros.'},
+                { title: 'Calorimetría Diferencial de Barrido (DSC)', des: 'Mide los cambios de entalpía (el flujo de energía térmica en los procesos químicos efectuados a presión constante cuando el único trabajo es de presión-volumen) debido a modificaciones en las propiedades químicas y físicas de un material, en función del tiempo o temperatura. Es una prueba que proporciona información valiosa sobre las condiciones de procesamiento, aplicación, defectos de calidad, pureza, seguridad química, reactividad y estabilidad. '},
+                { title: 'Determinación de Color con Espectrofotómetro', des: 'Proporciona los valores y coordenadas de un color. El espectrofotómetro es un equipo diseñado para medir el espectro de transmitancia o reflectancia de un objeto. El objetivo es comparar la radiación para cada longitud de onda a la salida del objeto.'},
+                { title: 'Espectrofotómetro de Infrarrojo', des: 'Puede emplearse para la identificación cualitativa y cuantitativa de plásticos. La absorción de luz por molécula es única, por lo que cada espectro que ésta aporta también es único. Una de sus grandes ventajes es que solamente con la comparación con otros espectros previamente identificados es posible identificar muestras con diversos problemas. '},
+                { title: 'Determinación de Brillo', des: ' Una medida de cuán brillante o reflejante es un material que se encuentra en un ángulo especifico respecto al haz de luz incidente. El brillo depende considerablemente de la lisura y planicidad de la muestra. Por lo que esta prueba se ocupa cuando se desea comparar o medir de forma relativa estos atributos.'},
+                { title: 'Intemperismo (Envejecimiento)', des: 'En condiciones ambientales atmosféricas los plásticos de degradan debido a la acción del oxígeno, la radiación de luz UV, y la humedad. Esta prueba mide la resistencia a la intemperie de los plásticos. Ayuda a predecir el tiempo que resiste un material expuesto a condiciones ambientales reales.'},
+                { title: 'Reología Rotacional', des: 'Permite conocer el índice de fluidez con mayor complejidad, el peso molecular, y ayuda a determinar el método de transformación adecuado. De igual manera, permite conocer si la resina cuenta con material reciclado o si es material prime. Suele ser utilizada para aplicaciones de gran complejidad como por ejemplo en materiales para el mercado automotriz. '},
+            ]
+        }
+    },
+    mounted() {
+        if(this.$route.query.tag){
+            this.Lab = true 
+            this.Transf = false
+            const id = parseInt(this.$route.query.id - 1)
+
+            this.tabsLab = [id]
         }
     },
     methods: {

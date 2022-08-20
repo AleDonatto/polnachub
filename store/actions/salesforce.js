@@ -137,7 +137,6 @@ export default {
 
     createtables({commit, dispatch, state}){
         const products = state.tablePruebas.records
-        console.log
 
         products.map(item => {
             let aux = []
