@@ -504,12 +504,340 @@
                             </v-row>
                         </div>
                     </v-col>
+
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Módulo de Flexión</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col cols="6" align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col cols="6" align-self="center" class="mt-2">
+                                    <p>ASTMD D 790</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row >
+                                <v-col cols="6" align-self="center" class="mt-2">
+                                    <p>ISO</p>
+                                </v-col>
+                                <v-col cols="6" align-self="center" class="mt-2">
+                                    <p>ISO 178</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Temperatura de reblandecimiento VICAT</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTMD D 1525</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ISO</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ISO 306</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Temperatura de deflexión bajo carga</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTMD D 648</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ISO</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ISO 75-1</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Contenido de Cenizas</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col cols="6" align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col cols="6" align-self="center" class="mt-2">
+                                    <p>ASTMD D 5630</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Contenido de carga en resinas curadas</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTMD D 2584</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Determinación de brillo</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTMD 523</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Resistencia a la Flama</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col cols="6" align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col cols="6" align-self="center" class="mt-2">
+                                    <p>UL94</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Dureza Shore A y D</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTMD D 2240</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Determinación de contracción por molde</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTMD D955</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row >
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ISO</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ISO 294-4</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Fluidez en seco y Densidad en bulto</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTMD D1895</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-if="showMore">
+                        <div class="rounded-lg bg-pruebas px-5 py-1">
+                            <p class="font-size-18 font-weight-bold">Tamaño de partícula</p>
+                        </div>
+                        <div class="">
+                            <v-row >
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTM</p>
+                                </v-col>
+                                <v-col align-self="center" class="mt-2">
+                                    <p>ASTMD D1921</p>
+                                </v-col>
+                            </v-row>
+                            <v-divider></v-divider>
+                            <v-row>
+                                <v-col cols="9" class="mt-2">
+                                    <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                </v-col>
+                                <v-col cols="3" class="mt-2">
+                                    <nuxt-link to="/polnac-wiki">
+                                        <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                    </nuxt-link>
+                                </v-col>
+                            </v-row>
+                        </div>
+                    </v-col>
+
+
                 </v-row>
 
                 <v-row justify="center">
                     <v-col cols="12"  align="center" class="mb-5 mt-10">
-                        <v-btn outlined class="rounded-lg text-none px-10 py-5" color="#19D3C5">
-                            <span class="black--text">Mostrar más pruebas</span>
+                        <v-btn outlined class="rounded-lg text-none px-10 py-5" color="#19D3C5" @click="showMore = !showMore">
+                            <span class="black--text">{{ showMore === true ? 'Ocultar pruebas' : 'Mostrar más pruebas'}}</span>
                         </v-btn>
                     </v-col>
                 </v-row>
@@ -552,6 +880,7 @@ export default {
         return {
             panel: [0],
             readonly: false,
+            showMore: false,
         }
     },
     computed: {
