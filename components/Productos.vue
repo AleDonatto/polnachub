@@ -6,8 +6,8 @@
                     <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">¿Necesitas más información?</h1>
                     <p class="white--text text-h5">Revisa nuestro amplio catálogo de productos</p>
                 </v-col>                    
-                <v-col cols="5" lg="4" md="4" sm="5" xs="5" class="mb-16">
-                    <v-btn block class="font-size-20 black--text px-10 mb-5 py-6 body-1 text-none rounded-lg" color="#19D3C5">Ver productos</v-btn>
+                <v-col cols="6" lg="4" md="4" sm="6" xs="6" class="mb-16" align="center">
+                    <v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">Ver productos</v-btn>
                 </v-col>
             </v-row>
         </v-container>

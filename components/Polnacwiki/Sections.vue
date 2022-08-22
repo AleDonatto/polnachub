@@ -143,6 +143,24 @@
                                     kayaks, y un sin número más de productos. 
                                 </v-expansion-panel-content>
                             </v-expansion-panel>
+
+                            <v-expansion-panel class="my-2 rounded-xl">
+                                <v-expansion-panel-header class="font-weight-bold panel-color">
+                                    Coextrusión
+                                </v-expansion-panel-header>
+                                <v-expansion-panel-content class="mt-5">
+                                    La coextrusión, como su nombre indica, es la extrusión paralela y simultanea de dos o más polímeros 
+                                    para obtener una sola estructura multicapa. En este proceso se pueden integrar materiales que 
+                                    normalmente no son compatibles. Este proceso logra obtener productos finales con mejores 
+                                    características que la extrusión normal. Igualmente, puede ayudar a reducir costos. 
+                                    <br><br>
+                                    Aunado a esto, es un proceso clave para envases que requieran una mayor protección a gases, 
+                                    aromas y químicos, un claro ejemplo es en la industria alimenticia. Sin embargo, es un proceso 
+                                    que requiere una alta aptitud técnica para lograr buenos resultados en los productos finales, 
+                                    ya que es necesario tomar en cuenta las diferencias en las características de flujo de los 
+                                    distintos materiales. 
+                                </v-expansion-panel-content>
+                            </v-expansion-panel>
                         </v-expansion-panels>
 
                         <v-expansion-panels v-model="tabsLab" multiple v-if="Lab && !Transf">
@@ -161,7 +179,7 @@
             </v-container>
         </section>
 
-        <Productos/>
+        <Productos class="mb-2"/>
     </div>
 </template>
 
