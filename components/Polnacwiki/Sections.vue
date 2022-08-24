@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section>
+        <section v-if="windowSize > 1129">
             <v-container>
                 <v-row justify="start" class="my-16">
                     <v-col cols="12" lg="4" mg="4">
@@ -46,7 +46,7 @@
                         </v-row>
 
                     </v-col>
-                    <v-col cols="8" v-if="windowSize > 1129">
+                    <v-col cols="8">
 
                         <v-expansion-panels v-model="tabs" multiple v-if="Transf && !Lab ">
                             <v-expansion-panel class="my-2 rounded-xl">
@@ -179,7 +179,229 @@
             </v-container>
         </section>
 
-        <Productos class="mb-2"/>
+        <section v-if="windowSize < 1129" class="mb-16">
+            <v-card class="mx-auto shadow-out mb-10">
+                <v-card-title class="text-h6 font-weight-regular justify-space-between">
+                    <!--<span>{{ currentTitle }}</span>-->
+                    <!--<v-avatar color="primary lighten-2" class="subheading white--text" size="24" v-text="step"></v-avatar>-->
+                </v-card-title>
+
+                <v-window v-model="step" class="mb-10">
+                    <v-window-item :value="1">
+                        <p class="mx-5 font-size-16">Revisa el contenido por categoría</p>
+                        <v-row class="" justify="center">
+                            <v-col cols="11">
+                                <v-row>
+                                    <v-col>
+                                        <v-btn @click="mTransformacion" class="mt-2 text-none px-10 py-2 d-flex justify-start font-weight-bold" block rounded color="rgba(25, 211, 197, 0.3)">
+                                            <v-row class="mt-1">
+                                                <v-col>
+                                                    <v-icon left>mdi-alert-circle-outline</v-icon>
+                                                </v-col>
+                                                <v-col>
+                                                    <p class="">Métodos de Transformación</p>
+                                                </v-col>
+                                                <v-col>
+                                                    <v-icon right class="">mdi-chevron-right</v-icon>
+                                                </v-col>
+                                            </v-row>
+                                        </v-btn>
+                                    </v-col>
+                                    <v-col align="start">
+                                        <v-btn @click="pLaboratorio" class="mt-2 mb-5 text-none px-10 py-2 d-flex justify-start font-weight-bold" block rounded color="rgba(25, 211, 197, 0.3)">
+                                            <v-row class="mt-1">
+                                                <v-col>
+                                                    <v-icon left>mdi-alert-circle-outline</v-icon>
+                                                </v-col>
+                                                <v-col>
+                                                    <p class="text-left">Pruebas de Laboratorio</p>
+                                                </v-col>
+                                                <v-col>
+                                                    <v-icon right>mdi-chevron-right</v-icon>
+                                                </v-col>
+                                            </v-row>
+                                        </v-btn>
+                                    </v-col>
+                                </v-row>
+
+                            </v-col>
+                        </v-row>
+                    </v-window-item>
+
+                    <v-window-item :value="2">
+                        <v-container>
+                            <v-btn @click="backQuestions" class="my-5 shadow-out text-none px-5 py-2 font-weight-bold text-purple" color="white" block >
+                                <v-row class="mt-1">
+                                    <v-col cols="1">
+                                        <v-icon left color="#773DBD">mdi-chevron-left</v-icon>
+                                    </v-col>
+                                    <v-col>
+                                        <p class="text-left text-purple font-size-16">Preguntas</p>
+                                    </v-col>
+                                </v-row>
+                            </v-btn>
+                            <v-expansion-panels v-model="tabs" multiple>
+                                <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel-header class="font-weight-bold panel-color" >
+                                        Extrusión
+                                    </v-expansion-panel-header>
+                                    <v-expansion-panel-content class="mt-5 shadow-none">
+                                        Es el proceso de transformación más común de la industria. Es un proceso que consiste de tres 
+                                        etapas: la plastificación del material, formado del producto, y finalmente enfriamiento. 
+                                        En primer término, un husillo plastifica el material, posteriormente sale a través de un dado 
+                                        que le da su forma final, por último, se enfría para consolidar la forma y otorgar solidez a la 
+                                        figura terminada. 
+                                        <br><br>
+                                        Dependiendo de la fisonomía del dado y del articulo final la extrusión se clasifica en diversos 
+                                        métodos: película tubular, dado plano, monorientado, doble husillo, perfilería, tubería y 
+                                        recubrimiento. Algunas de las aplicaciones de la extrusión son: película tubular para la industria 
+                                        alimenticia, tubería flexible y rígida, y monofilamentos para fibras sintéticas.
+                                    </v-expansion-panel-content>
+                                </v-expansion-panel>
+
+                                <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel-header class="font-weight-bold panel-color">
+                                        Inyección
+                                    </v-expansion-panel-header>
+                                    <v-expansion-panel-content class="mt-5">
+                                        Es uno de los métodos de transformación más versátiles, se pueden producir piezas de unos cuantos 
+                                        gramos hasta varios kilogramos de peso. Junto con el método de extrusión representan los principales 
+                                        procesos de transformación para la producción de artículos plásticos. Mediante el uso de presión y 
+                                        temperatura se plastifica la resina base. Es un método de transformación de cinco etapas: cierre de 
+                                        molde, inyección del material, sostenimiento, alimentación, enfriamiento, apertura del molde y 
+                                        expulsión de la pieza. La unidad de inyección se encarga de fundir, mezclar e inyectar el material 
+                                        al molde. <br><br>
+                                        Los productos derivados de este proceso de transformación representan una gran parte de 
+                                        los artículos plásticos de uso diario; estos productos se encuentran en prácticamente todas las 
+                                        industrias, desde el mercado automotriz, médico, al sector industrial y de consumo. 
+                                    </v-expansion-panel-content>
+                                </v-expansion-panel>
+
+                                <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel-header class="font-weight-bold panel-color">
+                                        Soplado
+                                    </v-expansion-panel-header>
+                                    <v-expansion-panel-content class="mt-5">
+                                        El soplado de productos plásticos se emplea para la producción de artículos vacuos. De este proceso 
+                                        se obtienen una gran gama de productos de todo tipo de tamaños y formas, por ejemplo: envases, 
+                                        recipientes, artículos para el hogar, juguetes y productos técnicos. Es un proceso que se clasifica 
+                                        en tres rubros: extrusión soplo, inyección soplo e inyección soplo biorientado. La extrusión soplo 
+                                        consiste en la plastificación de la materia prima para formar un tubo denominado párison. 
+                                        <br><br>
+                                        A continuación, un molde captura el párison y mediante un pin de soplado o un tubo hueco se introduce 
+                                        aire en el interior del molde hasta que el párison toma la figura del molde. Posteriormente, la pieza 
+                                        es enfriada y es expulsa del molde. De este proceso derivan productos tales como los tinacos, tanques 
+                                        de gasolina, juguetes, pelotas, y todo tipo de recipientes con formas complejas. Por otra parte, 
+                                        la inyección soplo consiste de tres fases: la inyección de un preforma, una etapa de soplada para 
+                                        darle su forma, y finalmente de enfriado y expulsión del molde. De él se obtienen productos como 
+                                        los garrafones de agua, y un sinfín de artículos para la industria alimenticia. Finalmente, la 
+                                        inyección soplo biorientado se distingue por el uso de una varilla durante la etapa de soplado 
+                                        para mejorar las propiedades mecánicas del preforma. El principal mercado de artículos derivados 
+                                        se este proceso es el de bebidas carbonatadas, pero también se utiliza en la producción de artículos 
+                                        médicos y alimenticios.
+                                    </v-expansion-panel-content>
+                                </v-expansion-panel>
+
+                                <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel-header class="font-weight-bold panel-color">
+                                        Termoformado
+                                    </v-expansion-panel-header>
+                                    <v-expansion-panel-content class="mt-5">
+                                        Es un proceso de transformación que requiere una lámina previamente extruida. Por lo tanto, se le 
+                                        considera un método de transformación secundario. Es un proceso de transformación con una gran 
+                                        variedad de procesos, gracias a su versatilidad, sin embargo, hay cinco pasos básicos: calentamiento 
+                                        de la lámina termoplástica en el área de formado, por medio de un sistema de vacío elimina el aire 
+                                        atrapado y ayuda a la lámina a tomar la forma requerida, más adelante, se enfría la pieza, se separa 
+                                        del molde y finalmente se recortan las partes superfluas de la pieza. <br><br>
+                                        Es un proceso que permite la producción de una increíble graduación de productos, verbigracia: envases y embalaje, desechables, 
+                                        cubre-llantas, quemacocos, macetas, lavabos, bañeras, invernaderos, y una infinidad de otros productos. 
+                                    </v-expansion-panel-content>
+                                </v-expansion-panel>
+
+                                <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel-header class="font-weight-bold panel-color">
+                                        Rotomoldeo
+                                    </v-expansion-panel-header>
+                                    <v-expansion-panel-content class="mt-5">
+                                        El proceso de rotomoldeo se utiliza para la fabricación de productos huecos con una gran diversidad 
+                                        de formas, tamaños y aplicaciones. Consiste básicamente en la rotación en dos ejes de un molde al 
+                                        cual se le aplica calor. La variable clave en el proceso de rotomoldeo es el tipo de calentamiento 
+                                        que se utiliza para plastificar la resina. Principalmente son dos los tipos de calentamientos 
+                                        utilizados: flama abierta y horno. <br><br>  
+                                        De igual manera, es un proceso que utiliza una multiplicidad de presentaciones en cuanto a la materia prima, 
+                                        por ejemplo: polvo (sobre todo para poliolefinas), micro-pellets, y presentación liquida para PVC y Poliamida 6. 
+                                        Su aparición más común en nuestro día a día es en la forma de tinacos, conos de tránsito, barreras viales, 
+                                        no obstante, también se utiliza para un gran surtido de artículos como muebles, perreras, tarimas, tanques de combustibles, 
+                                        kayaks, y un sin número más de productos. 
+                                    </v-expansion-panel-content>
+                                </v-expansion-panel>
+
+                                <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel-header class="font-weight-bold panel-color">
+                                        Coextrusión
+                                    </v-expansion-panel-header>
+                                    <v-expansion-panel-content class="mt-5">
+                                        La coextrusión, como su nombre indica, es la extrusión paralela y simultanea de dos o más polímeros 
+                                        para obtener una sola estructura multicapa. En este proceso se pueden integrar materiales que 
+                                        normalmente no son compatibles. Este proceso logra obtener productos finales con mejores 
+                                        características que la extrusión normal. Igualmente, puede ayudar a reducir costos. 
+                                        <br><br>
+                                        Aunado a esto, es un proceso clave para envases que requieran una mayor protección a gases, 
+                                        aromas y químicos, un claro ejemplo es en la industria alimenticia. Sin embargo, es un proceso 
+                                        que requiere una alta aptitud técnica para lograr buenos resultados en los productos finales, 
+                                        ya que es necesario tomar en cuenta las diferencias en las características de flujo de los 
+                                        distintos materiales. 
+                                    </v-expansion-panel-content>
+                                </v-expansion-panel>
+                            </v-expansion-panels>
+                        </v-container>
+                    </v-window-item>
+
+                    <v-window-item :value="3">
+                         <v-btn @click="backQuestions" class="my-5 shadow-out text-none px-5 py-2 font-weight-bold" color="white" block >
+                            <v-row class="mt-1">
+                                <v-col cols="1">
+                                    <v-icon left color="#773DBD">mdi-chevron-left</v-icon>
+                                </v-col>
+                                <v-col>
+                                    <p class="text-left text-purple font-size-16">Preguntas</p>
+                                </v-col>
+                            </v-row>
+                        </v-btn>
+                        <v-container>
+                            <v-expansion-panels v-model="tabsLab" multiple>
+                                <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in dataLab" :key="index">
+                                    <v-expansion-panel-header class="font-weight-bold panel-color" >
+                                        {{ item.title  }}
+                                    </v-expansion-panel-header>
+                                    <v-expansion-panel-content class="mt-5 shadow-none">
+                                        {{ item.des }}
+                                    </v-expansion-panel-content>
+                                </v-expansion-panel>
+                            </v-expansion-panels>
+                        </v-container>
+                    </v-window-item>
+
+                    <v-window-item :value="4">
+                        <div class="pa-4 text-center">
+                        <v-img
+                            class="mb-4"
+                            contain
+                            height="128"
+                            src="https://cdn.vuetifyjs.com/images/logos/v.svg"
+                        ></v-img>
+                        <h3 class="text-h6 font-weight-light mb-2">
+                            Welcome to Vuetify
+                        </h3>
+                        <span class="text-caption grey--text">Thanks for signing up!</span>
+                        </div>
+                    </v-window-item>
+                </v-window>
+            </v-card>
+            <div class="mb-2"></div>
+        </section>
+
+        <Productos class="mb-2" v-if="showbanners"/>
     </div>
 </template>
 
@@ -214,7 +436,9 @@ export default {
                 { title: 'Determinación de Brillo', des: ' Una medida de cuán brillante o reflejante es un material que se encuentra en un ángulo especifico respecto al haz de luz incidente. El brillo depende considerablemente de la lisura y planicidad de la muestra. Por lo que esta prueba se ocupa cuando se desea comparar o medir de forma relativa estos atributos.'},
                 { title: 'Intemperismo (Envejecimiento)', des: 'En condiciones ambientales atmosféricas los plásticos de degradan debido a la acción del oxígeno, la radiación de luz UV, y la humedad. Esta prueba mide la resistencia a la intemperie de los plásticos. Ayuda a predecir el tiempo que resiste un material expuesto a condiciones ambientales reales.'},
                 { title: 'Reología Rotacional', des: 'Permite conocer el índice de fluidez con mayor complejidad, el peso molecular, y ayuda a determinar el método de transformación adecuado. De igual manera, permite conocer si la resina cuenta con material reciclado o si es material prime. Suele ser utilizada para aplicaciones de gran complejidad como por ejemplo en materiales para el mercado automotriz. '},
-            ]
+            ],
+            step: 1,
+            window: 0,
         }
     },
     mounted() {
@@ -234,10 +458,22 @@ export default {
         showLab(){
             this.Lab = !this.Lab
             this.Transf = false
+        },
+        mTransformacion(){
+            this.step = 2
+            this.$store.commit('StateAssign', {showbanners:false})
+        },
+        pLaboratorio(){
+            this.step = 3
+            this.$store.commit('StateAssign', {showbanners:false})
+        },
+        backQuestions(){
+            this.step = 1
+            this.$store.commit('StateAssign', {showbanners:true})
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight'])
+        ...mapState(['windowSize', 'windowHeight', 'showbanners']),
     }
 }
 </script>

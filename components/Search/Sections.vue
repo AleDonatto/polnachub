@@ -1,7 +1,7 @@
 <template>
     <div>
         <section v-if="windowSize > 1129">
-            <v-container v-if="tablePVC.length === 0">
+            <v-container v-if="tableCompuestosprecolor.length === 0">
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="mt-16">
                         <h1 class="font-archivo font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>
@@ -94,14 +94,15 @@
                 </v-row>
             </v-container>
 
-            <v-container v-else>
+            <v-container v-else class="mb-10">
                 <v-data-table
                     :headers="headers"
-                    :items="tablePVC"
+                    :items="tableCompuestosprecolor"
                     :items-per-page="10"
-                    class="elevation-1"
+                    class="elevation-1 mt-16 mb-16"
                 ></v-data-table>
             </v-container>
+
         </section>
 
     </div>
@@ -114,20 +115,20 @@ export default {
     data() {
         return {
             headers: [
-                {text: 'Fabricante', value: 'Fabricante_P__c'},
-                {text: 'Clave', value: ''},
-                {text: 'Grupo', value: 'Family'},
-                {text: 'Dureza/Shore', value: ''},
-                {text: 'Indice de Fluidez', value: ''},
-                {text: 'Densidad', value: 'Densidad_P__c'},
-                {text: 'Descripción (Aditivos y color) ', value: ''},
-                {text: 'Método de Transformación', value: ''},
-                {text: 'Mercado', value: ''},
+                {text: 'Fabricante', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Clave', value: 'Name'},
+                {text: 'Indice de Fluidez', value: 'Indice_de_Fluidez_p__c'},
+                {text: 'Impacto IZOD', value: 'Impacto_IZOD__c'},
+                {text: 'Modulo de flexión', value: 'Modulo_de_flexi_n__c'},
+                {text: 'Resina Base', value: ''},
+                {text: 'Color', value: 'Color__c'},
+                {text: 'Descripcion', value: 'Description__c'},
+                {text: 'Metodo de transformcion', value: 'Extrusion__r.Name'},
             ]
         }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize','tablePE','tablePP','tableEstirenicos', 'tablePVC'])
+        ...mapState(['windowHeight','windowSize','tablePE','tablePP','tableEstirenicos', 'tablePVC', 'tableCompuestosprecolor'])
     }
 }
 </script>

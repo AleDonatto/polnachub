@@ -9,24 +9,26 @@
             <v-container v-if="windowSize > 1129">
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Producto" rounded solo v-model="vresina" @change="consTypeResina(vresina)"
+                        <p>{{producto}}</p>
+                        <v-select placeholder="Producto" rounded solo v-model="producto" @change="consTypeResina(producto)"
                         :items="pProducto.records" item-text="Name" item-value="Name" name="tResina"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Fabricante" rounded solo
-                        :items="pFabricante.records" item-text="Name" item-value="attributes"></v-select>
+                        <p>{{fabricante}}</p>
+                        <v-select placeholder="Fabricante" rounded solo v-model="fabricante"
+                        :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Mercado" rounded solo multiple :menu-props="{ maxHeight: '400' }"
-                        :items="pMercado.records" item-text="Name" item-value="attributes"></v-select>
+                        <p>{{mercado}}</p>
+                        <v-select placeholder="Mercado" rounded solo v-model="mercado"
+                        :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="mb-16">
-                        <v-select placeholder="Método de Transformación" rounded solo v-model="mtransformacion" multiple :menu-props="{ maxHeight: '400' }"
-                        :items="pMetTransformacion.records" item-text="Name" item-value="attributes" name="mtransformacion"></v-select>
+                        <p>{{mTransformacion}}</p>
+                        <v-select placeholder="Método de Transformación" rounded solo v-model="mTransformacion"
+                        :items="pMetTransformacion.records" item-text="Name" item-value="Name" ></v-select>
                     </v-col>
                 </v-row>
-                <p>{{mtransformacion}}</p>
-                <p>{{credentials }}</p>
             </v-container>
         </div>
 
@@ -71,8 +73,10 @@ import { mapState, mapActions } from 'vuex'
 export default {
     data(){
         return {
-            vresina: '',
-            mtransformacion: ''
+            producto: '',
+            fabricante: '',
+            mercado: '',
+            mTransformacion: ''
         }
     },
     mounted() {

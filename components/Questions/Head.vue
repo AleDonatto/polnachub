@@ -1,5 +1,5 @@
 <template>
-    <div :class="{'bg-questions': windowSize > 1129 , 'bg-questions-mb': windowSize< 1129 }">
+    <div :class="{'bg-questions': windowSize > 1129 , 'bg-questions-mb': windowSize< 1129 }" v-if="showbanners">
         <v-row justify="center">
             <v-col cols="12" align="center">
                 <h1 class="mt-16 font-archivo font-size-40 white--text">Preguntas Frecuentes</h1>
@@ -23,7 +23,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight'])
+        ...mapState(['windowSize', 'windowHeight', 'showbanners'])
     }
 
 }

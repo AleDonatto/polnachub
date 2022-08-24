@@ -79,7 +79,7 @@ export default {
         params.append('q', 'SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
 
         //await this.$axios.get('/salesforcepolnac/services/data/v55.0/query/', params)
-        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
+        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+M_todos_de_transformaci_n__c')
         .then(res => {
             //console.log(res.data)
             commit('StateAssign', {pMetTransformacion: res.data})
@@ -120,12 +120,15 @@ export default {
     },
 
     async consTypeResina({commit, dispatch, state},product){
-        const query = `SELECT+Name,Family,Activo_en_web_P__c,Tipo_de_Resina_P__c,Fabricante_P__c,
-        Color_P__c,Densidad_P__c,Impacto_IZOD_P__c,Dureza_Shore_p__c,Concentraci_n_P__c,Viscosidad_P__c,Modulo_de_flexi_n_P__c,Detalles_producto_web_P__c,
-        Indice_de_Fluidez_p__c,Aditivo_P__c,Calzado_y_Textil_Check__c,Automotriz_y_Transportaci_n_Check__c,Construcci_n_Check__c,Cuidado_Personal_Check__c,
-        Empaque_R_gido_Check__c,Consumo_Check__c,Industrial_Check__c,Electrodom_sticos_Check__c,El_ctrico_Electr_nico_Check__c,Agr_cola_Check__c,Empaque_Flexible_Check__c,
-        Coextrusi_n_Check__c,Rotomoldeo_Check__c,Inyecci_n_Check__c,Extrusi_n_Chek__c,Termoformado_Check__c,Inyecci_n_Soplo_Check__c,Grupo_Pag_Web_p__c,
-        Extrusi_n_Soplo_Chek__c+FROM+Product2+WHERE (Family='${product}')`
+        const query = `SELECT+NAME, Description, Familia_de_productos__r.Name, Proveedor_Pweb__r.Name, 
+        Extrusion__r.Name, Extrusion_Blow_Molding__r.Name, Injection__r.Name, Injection_Blow_Molding__r.Name, 
+        Thermoforming__r.Name, Coextrusion__r.Name, Rotomolding__r.Name, Construction__r.Name, 
+        Electrical_Electronics__r.Name, Medical_Pharmaceutical__r.Name, Personal__r.Name, 
+        Footwear__r.Name, Agriculture__r.Name, Automotive__r.name, Rigid_Packaging__r.Name, 
+        Industrial__r.Name, Flexible_Packaging__r.Name, Appliances__r.Name, Consumer__r.Name, 
+        Activo_en_web__c, Grupos__r.Name, Grupo__r.Name, Carrier__c, Densidad__c, Indice_de_Fluidez_p__c, 
+        Aditivo__c, Color__c, Impacto_IZOD__c, Dureza_Shore__c, Concentraci_n__c, Visco__c, 
+        Modulo_de_flexi_n__c, Detalles_producto_web__c, Description__c+FROM+Product2+WHERE (Name ='PA602NT-20')`
 
         await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
         .then(res => {
@@ -141,9 +144,9 @@ export default {
         products.map(item => {
             let aux = []
 
-            console.log(item)
+            //console.log(item.Grupos__r.Name)
 
-            switch (item.Tipo_de_Resina_P__c) {
+            switch (item.Grupos__r.Name) {
                 case 'PE':
                     console.log('PE')
                     aux.push(...state.tablePE, item)
@@ -169,9 +172,10 @@ export default {
                     console.log('ingenieria')
                     //state.tableIngenieria.push(...state.tableIngenieria, item)
                     break;
-                case 'Compuestos precolor': 
-                    console.log('precolor')
-                    //state.tableCompuestosprecolor.push(...state.tableCompuestosprecolor, item)
+                case 'Precolor Specialties': 
+                    //console.log('precolor')
+                    aux.push(...state.tableCompuestosprecolor, item)
+                    commit('StateAssign', {tableCompuestosprecolor: aux})
                     break;
                 case 'Compuestos cargados': 
                     console.log('cargados')
