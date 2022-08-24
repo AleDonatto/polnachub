@@ -282,21 +282,29 @@
 
         <section>
             <v-container fluid>
-                <v-row class="mb-16 size-mx red" >
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="img-about-l" :class="{'height-mb': windowSize < 1129}"></v-col>
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" :class="{'img-about-r': windowSize > 1129 , 'img-about-r-mb': windowSize < 1129 }">
-                        <div class="py-10 my-10" :class="{'px-16': windowSize > 1129, 'px-2': windowSize < 1129}">
-                            <h1 class="font-archivo font-size-40 font-weight-bold my-10 white--text">¿Te interesa trabajar con nosotros?</h1>
-                            <p class="white--text text-body-all">
-                                ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
-                                Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
-                            </p>
-                            <nuxt-link to="/work-at-polnac" class="decoration-none">
-                                <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
-                                    Ver vacantes
-                                </v-btn>
-                            </nuxt-link>
-                        </div>
+                <v-row justify="center" v-if="windowSize < 1129">
+                    <v-col class="img-about-l">
+                    </v-col>
+                </v-row>
+                <v-row justify="center" >
+                    <v-col cols="6" class="img-about-l" v-if="windowSize > 1129"></v-col>
+                    <v-col cols="12" lg="6" md="6" class="img-about-r" >
+                        <v-row justify="center">
+                            <v-col cols="10">
+                                <div class="py-10 my-10" :class="{'px-16': windowSize > 1129, 'px-2': windowSize < 1129}">
+                                    <h1 class="font-archivo font-size-40 font-weight-bold my-10 white--text">¿Te interesa trabajar con nosotros?</h1>
+                                    <p class="white--text text-body-all">
+                                        ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
+                                        Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
+                                    </p>
+                                    <nuxt-link to="/work-at-polnac" class="decoration-none">
+                                        <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
+                                            Ver vacantes
+                                        </v-btn>
+                                    </nuxt-link>
+                                </div>
+                            </v-col>
+                        </v-row>
                     </v-col>
                 </v-row>
             </v-container>
@@ -310,11 +318,11 @@ import { mapState } from 'vuex'
 
 export default {
     data() {
-        return {}
+        return {};
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight'])
-    }
+        ...mapState(["windowSize", "windowHeight"])
+    },
 }
 </script>
 

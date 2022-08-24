@@ -1,8 +1,18 @@
 <template>
   <v-footer padless>
     <div :class="{'img-footer-d':windowSize > 1129 , 'img-footer-mobile-button': windowSize < 1129}">
-      <v-row justify="center" >
+      
+      <v-row justify="center">
         <v-container fluid :class="{'mx-16': windowSize > 1129, 'mx-5': windowSize < 1129}">
+          <v-row justify="center" align="end" class="mb-10">
+            <v-col cols="11" align="end">
+              <v-fab-transition>
+                <v-btn color="teal" dark fab class="position-btn" @click="chatWhatsapp">
+                  <v-icon>mdi-whatsapp</v-icon>                          
+                </v-btn>
+              </v-fab-transition>
+            </v-col>
+          </v-row>
           <v-row class="mt-16">
             <v-col cols="12" xl="3" lg="3" m="3" class="mt-10">
               <div class="mt-2 d-flex" :class="{'justify-left': windowSize > 1129, 'justify-center': windowSize < 1129}">
@@ -163,6 +173,11 @@ export default {
   },
   computed: {
     ...mapState(['windowHeight','windowSize'])
+  },
+  methods:{
+    chatWhatsapp(){
+      window.open('https://wa.me/525525852650')
+    }
   }
 }
 </script>
@@ -175,7 +190,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   width: 100%;
-  height: 500px;
+  height: 540px;
   margin-top: -45px;
 }
 .img-footer-mobile-button{
