@@ -529,9 +529,11 @@
                                     <p class="white--text text-body-all">
                                         {{ $t('home.subappointment') }}
                                     </p>
-                                    <v-btn class="rounded-lg px-10 py-5 subtitle-1 black--text text-none primary-color">
-                                        {{ $t('home.btnappointment') }}
-                                    </v-btn>
+                                    <nuxt-link to="/schedule-an-appointment" class="decoration-none">
+                                        <v-btn class="rounded-lg px-10 py-5 subtitle-1 black--text text-none primary-color">
+                                            {{ $t('home.btnappointment') }}
+                                        </v-btn>
+                                    </nuxt-link>
                                 </div>
                             </v-col>
                         </v-row>

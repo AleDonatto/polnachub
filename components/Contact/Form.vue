@@ -214,6 +214,8 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
+
+        
     </div>
 </template>
 
@@ -293,8 +295,8 @@ export default {
         previousStep(){
             this.progress = 55
             this.e1 = 1
-        }
-    }
+        },
+    },
 }
 </script>
 
