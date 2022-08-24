@@ -63,6 +63,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
     '@nuxtjs/proxy',
+    'vue-social-sharing/nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

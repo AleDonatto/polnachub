@@ -64,14 +64,64 @@
                         </nuxt-link>
                     </v-col>
                     <v-col cols="12" lg="9" md="9" sm="12" xs="12">
-                        <v-row>
-                            <v-img src="/blog/blog-individual.png" contain :max-height="windowSize<1129 ? '210': '450'"></v-img>
-
-                            <v-fab-transition>
-                                <v-btn color="#19D3C5" dark fab class="position-btn">
-                                    <v-icon>mdi-share-variant</v-icon>
-                                </v-btn>
-                            </v-fab-transition>
+                        <v-row justify="center" align="end">
+                            <v-col cols="12" align="center">
+                                <v-img src="/blog/blog-individual.png" contain :max-height="windowSize<1129 ? '210': '450'"></v-img>
+                            </v-col>
+                            <v-col cols="12" xl="7" lg="10" md="10" align="end" class="positions" >
+                                <v-fab-transition>
+                                    <v-btn color="#19D3C5" dark fab class="position-btn" :class="{'mt-5': windowHeight > 950 }"
+                                    @click="showButttons = !showButttons">
+                                        <v-icon>mdi-share-variant</v-icon>
+                                    </v-btn>
+                                </v-fab-transition>
+                                <v-fab-transition v-if="showButttons">
+                                    <v-btn color="blue" dark fab class="position-btn" :class="{'mt-5': windowHeight > 950 }">
+                                        <ShareNetwork
+                                            class="white--text decoration-none"
+                                            network="twitter"
+                                            url="https://idyllic-chaja-53a02e.netlify.app/blogs/1"
+                                            title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
+                                            description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+                                            quote="The hot reload is so fast it\'s near instant. - Evan You"
+                                            hashtags="vuejs,vite"
+                                        >
+                                            <v-icon>mdi-twitter</v-icon>
+                                        </ShareNetwork>
+                                    </v-btn>
+                                </v-fab-transition>
+                                <v-fab-transition v-if="showButttons">
+                                    <v-btn color="teal" dark fab class="position-btn" :class="{'mt-5': windowHeight > 950 }">
+                                        <ShareNetwork
+                                            class="white--text decoration-none"
+                                            network="whatsapp"
+                                            url="https://idyllic-chaja-53a02e.netlify.app/blogs/1"
+                                            title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
+                                            description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+                                            quote="The hot reload is so fast it\'s near instant. - Evan You"
+                                            hashtags="vuejs,vite"
+                                        >
+                                            <v-icon>mdi-whatsapp</v-icon>
+                                        </ShareNetwork>
+                                    </v-btn>
+                                </v-fab-transition>
+                                <v-fab-transition v-if="showButttons">
+                                    <v-btn color="indigo" dark fab class="position-btn" :class="{'mt-5': windowHeight > 950 }">
+                                        <ShareNetwork
+                                            class="white--text decoration-none"
+                                            network="facebook"
+                                            url="https://idyllic-chaja-53a02e.netlify.app/blogs/1"
+                                            title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
+                                            description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+                                            quote="The hot reload is so fast it\'s near instant. - Evan You"
+                                            hashtags="vuejs,vite"
+                                        >
+                                            <v-icon dark>mdi-facebook</v-icon>
+                                        </ShareNetwork>
+                                    </v-btn>
+                                </v-fab-transition>
+                                
+                            </v-col>
                             
                         </v-row>
 
@@ -141,15 +191,15 @@
                         <v-row>
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                                 <v-img src="/group/logo-bioresin.png" contain max-height="120"></v-img>
-                                <p class="font-size-18 mt-2">Especialistas en la distribución y fabricación de resinas biodegradables.</p>
+                                <p class="font-size-18 mt-2 text-truncate">Especialistas en la distribución y fabricación de resinas biodegradables.</p>
                             </v-col>
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                                 <v-img src="/group/logo-rototech.png" contain max-height="120"></v-img>
-                                <p class="font-size-18 mt-2">La línea de negocio especializada en la producción y comercialización de resinas plásticas para el proceso de rotomoldeo.</p>
+                                <p class="font-size-18 mt-2 text-truncate">La línea de negocio especializada en la producción y comercialización de resinas plásticas para el proceso de rotomoldeo.</p>
                             </v-col>
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                                 <v-img src="/group/logo-flexlene.png" contain max-height="120"></v-img>
-                                <p class="font-size-18 mt-2">Expertos en el diseño, desarrollo y fabricación de Compuestos de Policloruro de Vinilo(PVC).</p>
+                                <p class="font-size-18 mt-2 text-truncate">Expertos en el diseño, desarrollo y fabricación de Compuestos de Policloruro de Vinilo(PVC).</p>
                             </v-col>
                         </v-row>
 
@@ -163,7 +213,7 @@
                                 </nuxt-link>
                             </v-col>
                         </v-row>
-                        <v-row v-if="windowSize>1129">
+                        <v-row v-if="windowSize>1129" class="mb-16">
                             <v-col cols="4">
                                 <v-img src="/blog/mercados.png" contain max-height="220"></v-img>
                             </v-col>
@@ -175,7 +225,7 @@
                             </v-col>
                         </v-row>
 
-                        <v-row v-if="windowSize<1129">
+                        <v-row v-if="windowSize<1129" class="mb-16">
                             <v-carousel class="carousel-black" cycle height="400" hide-delimiter-background show-arrows-on-hover>
                                 <v-carousel-item v-for="(slide, i) in itemsBlogs" :key="i">
                                     <v-sheet color=""  height="100%">
@@ -215,21 +265,33 @@ export default {
                 {img: require('../../static/blog-productos.png') },
                 {img: require('../../static/blog-mercados.png') },
                 {img: require('../../static/blog-polnac.png') },
-            ]
+            ],
+            showButttons: false
         }
     },
     computed: {
         ...mapState(['windowSize', 'windowHeight'])
+    },
+    methods: {
+        shareFacebook(){
+            window.open('http://facebook.com/sharer.php?u=https://idyllic-chaja-53a02e.netlify.app/blogs/1')
+        },
+        shareTwitter() {
+            window.open('http://twitter.com/home?status=https://idyllic-chaja-53a02e.netlify.app/blogs/1')
+        },
+        shareWhatsapp(){
+            window.open('')
+        }
     }
 }
 </script>
 
 <style scoped>
 .position-btn{
-    position: fixed !important;
-    top: 90% !important;
-    left: 80% !important;
-    z-index: 1;
+    position: relative !important;
+}
+.positions {
+    margin-top: -8vh;
 }
 .color-decotarion{
     text-decoration-color: #773DBD !important;
