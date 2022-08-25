@@ -4,11 +4,12 @@
             <v-container>
                 <v-row justify="center" class="mt-16">
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                        <v-select v-model="sucursal" class="rounded-xl" outlined :items="sucursales" item-text="sucursal" item-value="id" 
+                        <v-select v-model="region" class="rounded-xl" outlined :items="regiones" item-text="sucursal" item-value="id" 
                         label="Selecciona área geográfica" @change="getSucursal"></v-select>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                        <v-select class="rounded-xl" outlined></v-select>
+                        <v-select label="Sucursales" class="rounded-xl" outlined :disabled="sucursalesDisabled"
+                        :items="sucursales" item-text="name" item-value="id"></v-select>
                     </v-col>
                 </v-row>
                 <!--<v-row justify="center">
@@ -81,13 +82,14 @@ import { mapState } from 'vuex';
 export default {
     data() {
         return{
-            sucursal: '',
-            sucursales: [
+            region: '',
+            regiones: [
                 {id:0, sucursal: 'México'},
                 {id:1, sucursal: 'USA'},
                 {id:2, sucursal: 'LATAM'},
                 {id:3, sucursal: 'Europa'},
             ],
+            sucursales: null,
             dataSucursales: [
                 {title: 'POLNAC México', images: [{img:require('../../static/sucursales/s-mexico.png')}, {img: require('../../static/sucursales/s-mexico2.png')}], address: 'Lázaro Cárdenas No. 49, San Jerónimo Tepetlacalco, Tlalnepantla, Estado de México, 54090 México', tel: '(55) 2585 2650' },
                 {title: 'POLNAC U.S.A.', images: [{img:require('../../static/sucursales/s-usa.png')},{img: require('../../static/sucursales/s-usa2.png')}], address: '4831 Underwood Rd. Pasadena, Texas 77505, U.S.A.', tel: '' },
@@ -101,7 +103,8 @@ export default {
                 {position: {lat: 30.0, lng: 40.0}},
                 {position: {lat:19.415290318763805, lng:-99.12714146567397}}
             ],
-            data: {}
+            data: {},
+            sucursalesDisabled: true 
         }
     },
     computed: {
@@ -112,7 +115,35 @@ export default {
     },
     methods: {
         getSucursal(){
-            this.data = this.dataSucursales[this.sucursal]
+            console.log(this.region)
+            if(this.region===0){
+                const array = [
+                    {id:0, name:'Estado de mexico' },
+                    {id:1, name:'Monterrey' },
+                    {id:2, name:'Leon' },
+                    {id:3, name:'Guadalajara' },
+                    {id:4, name:'Puebla' },
+                    {id:5, name:'Merida' },
+                    {id:6, name:'Queretaro + CEDIS' },
+                    {id:7, name:'San Luis Potosi' },
+                ]
+                const mapArray = [
+                    {position: {lat:19.415290318763805, lng:-99.12714146567397}},
+                    {position: {lat:25.73816511924164, lng:-100.20343800183194}},
+                    {position: {lat:25.73816511924164, lng:-100.20343800183194}},
+                    {position: {lat:21.094554508369278, lng:-101.63085859481089}},
+                    {position: {lat:19.037830462326582, lng:-98.17787986964119}}, //puebla
+                    {position: {lat:20.988265309491354, lng:-89.68002826142865}}, //merida
+                    {position: {lat:22.0824458381272, lng:-100.89562760188646}}, //san luis
+                    {position: {lat:20.580859718783074, lng:-103.36861251093539}}//guadalajara
+
+                ]
+
+                this.markers = mapArray
+                this.sucursales = array
+                this.sucursalesDisabled = false
+            }
+            this.data = this.dataSucursales[this.region]
         }
     }
 }
