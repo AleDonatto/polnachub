@@ -5,13 +5,12 @@
                 <v-row justify="center" class="mt-16">
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                         <v-select v-model="sucursal" class="rounded-xl" outlined :items="sucursales" item-text="sucursal" item-value="id" 
-                        label="Selecciona área geográfica (México)" @change="getSucursal"></v-select>
+                        label="Selecciona área geográfica" @change="getSucursal"></v-select>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                         <v-select class="rounded-xl" outlined></v-select>
                     </v-col>
                 </v-row>
-
                 <!--<v-row justify="center">
                     <v-col cols="12" align="center">
                         <v-img src="/sucursales/sucursales-mexico.png" contain max-height="450" v-if="windowSize>1129"></v-img>
@@ -20,7 +19,7 @@
                 </v-row>-->
                 <v-row justify="center">
                     <v-col cols="12" class="rounded-xl">
-                        <GmapMap :center="{lat:10, lng:10}" :zoom="7" map-type-id="terrain" style="width:100%; height:450px">
+                        <GmapMap :center="{lat:19.415290318763805, lng:-99.12714146567397}" :zoom="8" map-type-id="roadmap" style="width:100%; height:450px">
                             <GmapMarker title="example" :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true"/>
                         </GmapMap>
                     </v-col>
@@ -99,8 +98,8 @@ export default {
 
             },
             markers:[
-                {position: {lat: 10.0, lng: 10.0}},
-                {position: {lat: 10.0, lng: 10.0}}
+                {position: {lat: 30.0, lng: 40.0}},
+                {position: {lat:19.415290318763805, lng:-99.12714146567397}}
             ],
             data: {}
         }

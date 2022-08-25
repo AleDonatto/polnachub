@@ -3,14 +3,14 @@ import * as VueGoogleMaps from '~/node_modules/vue2-google-maps/src/main'
  
 Vue.use(VueGoogleMaps, {
   load: {
-    key: 'AIzaSyB5SPiDQWOvgm9boH6057wcWEZ3eo2VTn0',
+    key: 'AIzaSyBYopTtFe5gROHhoYMJBaoQZ4Z0H1jI9sA',
     libraries: 'places', // This is required if you use the Autocomplete plugin
     // OR: libraries: 'places,drawing'
     // OR: libraries: 'places,drawing,visualization'
     // (as you require)
  
     //// If you want to set the version, you can do so:
-    // v: '3.26',
+    v: '3.26',
   },
  
   //// If you intend to programmatically custom event listener code
