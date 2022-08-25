@@ -12,10 +12,17 @@
                     </v-col>
                 </v-row>
 
-                <v-row justify="center">
+                <!--<v-row justify="center">
                     <v-col cols="12" align="center">
                         <v-img src="/sucursales/sucursales-mexico.png" contain max-height="450" v-if="windowSize>1129"></v-img>
                         <v-img src="/sucursales/map-mobile.png" contain max-width="380" v-else></v-img>
+                    </v-col>
+                </v-row>-->
+                <v-row justify="center">
+                    <v-col cols="12" class="rounded-xl">
+                        <GmapMap :center="{lat:10, lng:10}" :zoom="7" map-type-id="terrain" style="width:100%; height:450px">
+                            <GmapMarker title="example" :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true"/>
+                        </GmapMap>
                     </v-col>
                 </v-row>
 
@@ -87,6 +94,13 @@ export default {
                 {title: 'POLNAC U.S.A.', images: [{img:require('../../static/sucursales/s-usa.png')},{img: require('../../static/sucursales/s-usa2.png')}], address: '4831 Underwood Rd. Pasadena, Texas 77505, U.S.A.', tel: '' },
                 {title: 'Colombia', images:[{img:require('../../static/sucursales/s-colombia.png')},{img: require('../../static/sucursales/s-colombia1.png')}], address: '', tel: '52 55 4607 0841' },
                 {title: 'Europe - Amsterdam Netherlands', images:[{img: require('../../static/sucursales/s-amsterdan.png')}, {img: require('../../static/sucursales/s-amsterdan2.png')}], address: '', tel: '52 55 4607 0841'},
+            ],
+            center: {
+
+            },
+            markers:[
+                {position: {lat: 10.0, lng: 10.0}},
+                {position: {lat: 10.0, lng: 10.0}}
             ],
             data: {}
         }
