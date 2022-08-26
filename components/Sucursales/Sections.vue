@@ -12,15 +12,15 @@
                         :items="sucursales" item-text="name" item-value="id"></v-select>
                     </v-col>
                 </v-row>
-                <!--<v-row justify="center">
+                <v-row justify="center">
                     <v-col cols="12" align="center">
                         <v-img src="/sucursales/sucursales-mexico.png" contain max-height="450" v-if="windowSize>1129"></v-img>
                         <v-img src="/sucursales/map-mobile.png" contain max-width="380" v-else></v-img>
                     </v-col>
-                </v-row>-->
-                <v-row justify="center">
+                </v-row>
+                <!--<v-row justify="center">
                     <v-col cols="12" class="rounded-xl">
-                        <!--{lat:19.415290318763805,lng:-99.12714146567397}-->
+                        {lat:19.415290318763805,lng:-99.12714146567397}
                         <GmapMap :center="center" :zoom="8" map-type-id="roadmap" style="width:100%; height:450px">
                             <GmapInfoWindow :options="infowindowOption" :position="infowindowPosition" :opened="infowindowOpened" @closeclick="handleCloseWindow">
                                 <div class="">
@@ -31,7 +31,7 @@
                             <GmapMarker title="example" :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" @click="handleMarker(m)"/>
                         </GmapMap>
                     </v-col>
-                </v-row>
+                </v-row>-->
 
                 <v-row class="mb-16">
                     <v-col cols="12" lg="8" md="8" sm="12" xs="12" class="mb-10">
@@ -84,7 +84,6 @@
 </template>
 
 <script>
-import { tSMethodSignature } from '@babel/types';
 import { mapState } from 'vuex';
 
 export default {

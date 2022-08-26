@@ -95,12 +95,37 @@
             </v-container>
 
             <v-container v-else class="mb-10">
-                <v-data-table
-                    :headers="headers"
-                    :items="tableCompuestosprecolor"
-                    :items-per-page="10"
-                    class="elevation-1 mt-16 mb-16"
-                ></v-data-table>
+                <v-card class="mt-10">
+                    <v-card-title>
+                        Nutricion
+                        <v-spacer></v-spacer>
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            hide-details
+                        ></v-text-field>
+                    </v-card-title>
+                    
+                    <v-data-table
+                        :headers="headers"
+                        :items="tableCompuestosprecolor"
+                        :items-per-page="10"
+                        :search="search"
+                        class="elevation-1 mt-16 mb-16"
+                    >
+                        <template v-slot:item.htecnica="{ item }" class="">
+                            <div class="text-center mt-1 pointer">
+                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                    <p>Hoja técnica</p>
+                                </a>
+                            </div>
+                        </template>
+
+                    </v-data-table>
+                </v-card>
             </v-container>
 
         </section>
@@ -115,6 +140,7 @@ export default {
     data() {
         return {
             headers: [
+                {text: '', value: 'htecnica', sortable: false },
                 {text: 'Fabricante', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Clave', value: 'Name'},
                 {text: 'Indice de Fluidez', value: 'Indice_de_Fluidez_p__c'},
@@ -122,9 +148,10 @@ export default {
                 {text: 'Modulo de flexión', value: 'Modulo_de_flexi_n__c'},
                 {text: 'Resina Base', value: ''},
                 {text: 'Color', value: 'Color__c'},
-                {text: 'Descripcion', value: 'Description__c'},
                 {text: 'Metodo de transformcion', value: 'Extrusion__r.Name'},
-            ]
+                {text: 'Descripcion', value: 'Description__c'},
+            ],
+            search: ''
         }
     },
     computed: {

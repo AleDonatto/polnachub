@@ -206,4 +206,11 @@ export default {
 .letters{
   color: #E0E621
 }
+
+.position-btn{
+  position: fixed !important;
+  top: 90% !important;
+  left: 90% !important;
+  z-index: 1;
+}
 </style>
