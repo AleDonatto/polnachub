@@ -20,8 +20,15 @@
                 </v-row>-->
                 <v-row justify="center">
                     <v-col cols="12" class="rounded-xl">
-                        <GmapMap :center="{lat:19.415290318763805, lng:-99.12714146567397}" :zoom="8" map-type-id="roadmap" style="width:100%; height:450px">
-                            <GmapMarker title="example" :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true"/>
+                        <!--{lat:19.415290318763805,lng:-99.12714146567397}-->
+                        <GmapMap :center="center" :zoom="8" map-type-id="roadmap" style="width:100%; height:450px">
+                            <GmapInfoWindow :options="infowindowOption" :position="infowindowPosition" :opened="infowindowOpened" @closeclick="handleCloseWindow">
+                                <div class="">
+                                    <h1>POLNAC México (test)</h1>
+                                    <p class="mt-5">Dirección: Lázaro Cárdenas No. 49, San Jerónimo Tepetlacalco, Tlalnepantla, Estado de México, 54090 México (test)</p>
+                                </div>
+                            </GmapInfoWindow>
+                            <GmapMarker title="example" :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" @click="handleMarker(m)"/>
                         </GmapMap>
                     </v-col>
                 </v-row>
@@ -77,6 +84,7 @@
 </template>
 
 <script>
+import { tSMethodSignature } from '@babel/types';
 import { mapState } from 'vuex';
 
 export default {
@@ -97,25 +105,37 @@ export default {
                 {title: 'Europe - Amsterdam Netherlands', images:[{img: require('../../static/sucursales/s-amsterdan.png')}, {img: require('../../static/sucursales/s-amsterdan2.png')}], address: '', tel: '52 55 4607 0841'},
             ],
             center: {
-
+                lat:19.415290318763805,lng:-99.12714146567397
             },
             markers:[
-                {position: {lat: 30.0, lng: 40.0}},
-                {position: {lat:19.415290318763805, lng:-99.12714146567397}}
             ],
             data: {},
-            sucursalesDisabled: true 
+            sucursalesDisabled: true,
+            infowindowOption: {
+                pixelOffset: {
+                    width: 0,
+                    height: -35
+                }
+            },
+            infowindowPosition: { lat: 0, lng: 0},
+            infowindowOpened: false,
+            selectedMarker:{}
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight'])
+        ...mapState(['windowSize', 'windowHeight']),
+        /*infowindowPosition() {
+            return {
+                lat: parseFloat(this.selectedMarker.latitude),
+                lng: parseFloat(this.selectedMarker.longitude)
+            }
+        },*/
     },
     mounted(){
         this.data = this.dataSucursales[0]
     },
     methods: {
         getSucursal(){
-            console.log(this.region)
             if(this.region===0){
                 const array = [
                     {id:0, name:'Estado de mexico' },
@@ -144,8 +164,18 @@ export default {
                 this.sucursalesDisabled = false
             }
             this.data = this.dataSucursales[this.region]
+        },
+        handleMarker(item){
+            this.infowindowOpened = true
+            this.selectedMarker = item
+            this.infowindowPosition = {lat: this.selectedMarker.position.lat, lng: this.selectedMarker.position.lng }
+        },
+        handleCloseWindow(){
+            this.infowindowOpened = false
+            this.selectedMarker = {}
         }
-    }
+
+    },
 }
 </script>
 
