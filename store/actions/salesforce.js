@@ -21,7 +21,7 @@ export default {
             //console.log('get credentials')
         })
         .catch( err => {
-            console.log('getToken(): ' + err)
+            console.log('getToken with Proxy (): ' + err)
         })
     }, 
 
