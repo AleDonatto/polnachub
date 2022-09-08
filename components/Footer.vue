@@ -7,7 +7,7 @@
           <v-row justify="center" align="end" class="mb-10">
             <v-col cols="11" align="end">
               <v-fab-transition>
-                <v-btn color="teal" dark fab class="position-btn" @click="chatWhatsapp">
+                <v-btn color="teal" dark fab :class="{'position-btn':windowSize>1129, 'position-btn-mobile':windowSize<1129 }" @click="chatWhatsapp">
                   <v-icon>mdi-whatsapp</v-icon>                          
                 </v-btn>
               </v-fab-transition>
@@ -25,28 +25,30 @@
             </v-col>
             <v-col cols="2" class="mt-10" v-if="windowSize > 1129">
               <nuxt-link to="/aboutus" class="decoration-none">
-                <p class="white--text body-1">¿Quiénes Somos?</p>
+                <p class="white--text body-1">{{$t('appbar.quien')}}</p>
               </nuxt-link>
-              <p class="white--text body-1">Colaboradores</p>
+              <nuxt-link to="/alliances" class="decoration-none">
+                <p class="white--text body-1">{{$t('appbar.colaboradores')}}</p>
+              </nuxt-link>
               <nuxt-link to="/work-at-polnac" class="decoration-none">
-                <p class="white--text body-1">Trabaja con nosotros</p>
+                <p class="white--text body-1">{{$t('appbar.trabajo')}}</p>
               </nuxt-link>
               <nuxt-link to="/polnac-group" class="decoration-none white--text">
-                <p class="white--text body-1">Grupo POLNAC</p>
+                <p class="white--text body-1">{{$t('appbar.grupoPolnac')}}</p>
               </nuxt-link>
             </v-col>
             <v-col cols="2" class="mt-10" v-if="windowSize > 1129">
               <nuxt-link to="/search-products" class="decoration-none">
-                <p class="white--text body-1">Productos</p>
+                <p class="white--text body-1">{{ $t('appbar.products') }}</p>
               </nuxt-link>
               <nuxt-link to="/innovation" class="decoration-none">
-                <p class="white--text body-1">Innovación</p>
+                <p class="white--text body-1">{{$t('appbar.innovation')}}</p>
               </nuxt-link>
               <nuxt-link to="/services" class="decoration-none">
-                <p class="white--text body-1">Servicios</p>
+                <p class="white--text body-1">{{ $t('appbar.services') }}</p>
               </nuxt-link>
               <nuxt-link to="/market" class="decoration-none">
-                <p class="white--text body-1">Mercados</p>
+                <p class="white--text body-1">{{ $t('appbar.market') }}</p>
               </nuxt-link>
             </v-col>
             <v-col cols="2" class="mt-10" v-if="windowSize > 1129">
@@ -54,10 +56,10 @@
                 <p class="white--text body-1">Blog</p>
               </nuxt-link>
               <nuxt-link to="/branch-ofices" class="decoration-none">
-                <p class="white--text body-1">Sucursales</p>
+                <p class="white--text body-1">{{$t('appbar.sucursales')}}</p>
               </nuxt-link>
               <nuxt-link to="/contact" class="decoration-none">
-                <p class="white--text body-1">Contacto</p>
+                <p class="white--text body-1">{{ $t('appbar.contact') }}</p>
               </nuxt-link>
             </v-col>
             <v-col cols="3" class="mt-10" align="start" v-if="windowSize > 1129">
@@ -94,7 +96,7 @@
                 </v-col>
               </v-row>
               <div class="mt-2">
-                <v-btn rounded class="black--text body-1 text-none primary-color">¿Eres colaborador?</v-btn>
+                <v-btn rounded class="black--text body-1 text-none primary-color">{{$t('appbar.colaborador')}}</v-btn>
               </div>
             </v-col>
           </v-row>
@@ -211,6 +213,13 @@ export default {
   position: fixed !important;
   top: 90% !important;
   left: 90% !important;
+  z-index: 1;
+}
+
+.position-btn-mobile{
+  position: fixed !important;
+  top: 90% !important;
+  left: 80% !important;
   z-index: 1;
 }
 </style>

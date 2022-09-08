@@ -1,4 +1,9 @@
 <template>
+    <!--<div v-if="pageHome === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>-->
     <div>
         <section>
             <v-container class="">
@@ -11,16 +16,23 @@
                                         <span class="font-weigth-bold">{{ $t('home.secabout.polnac') }}</span> <br>
                                         <span class="text-teal">{{ $t('home.secabout.year') }}</span> 
                                     </h1>
+                                    <!--<div class="font-archivo font-title text-left font-weigth-bold" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}" v-html="$md.render(pageHome.txtPolnac)"></div>-->
 
-                                    <v-img src="./video.png" contain max-height="350" max-width="350" v-if="windowSize < 1129"></v-img>
+
+                                    <!--<v-img src="./video.png" contain max-height="350" max-width="350" v-if="windowSize < 1129"></v-img>-->
+                                    <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
+                                        :src="pageHome.linkVideo" v-if="windowSize < 1129">
+                                    </iframe>
 
                                     <p class="text-body-all my-5 text-left">
                                         Desde 1984 <span class="font-weight-bold">POLNAC</span> ha construido una historia basada en innovación, compromiso y mejora continua. <span class="font-weight-bold">POLNAC</span> siempre a la vanguardia. 
                                     </p>
+                                    <!--<div class="text-body-all my-5 text-left" v-html="$md.render(pageHome.txtDesPolnac)"></div>-->
 
                                     <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start': windowSize > 1129}">
                                         <nuxt-link to="/polnac-group" class="decoration-none">
                                             <v-btn class="rounded-xl px-10 body-1 py-5 white--text text-none secondary-color">{{ $t('home.btnabout') }}</v-btn>
+                                            <!--<v-btn class="rounded-xl px-10 body-1 py-5 white--text text-none secondary-color">{{ pageHome.txtbtnPolnac }}</v-btn>-->
                                         </nuxt-link>
                                     </div>
 
@@ -30,6 +42,9 @@
                                     <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
                                         src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                                     </iframe>
+                                    <!--<iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
+                                        :src="pageHome.linkVideo">
+                                    </iframe>-->
 
                                 </v-col>
                             </v-row>
@@ -42,6 +57,7 @@
         <section>
             <div class="my-10">
                 <h1 class="font-archivo font-size-40 font-weight-bold text-center my-10">{{ $t('home.titledestacados') }}</h1>
+                <!--<h1 class="font-archivo font-size-40 font-weight-bold text-center my-10">{{ pageHome.featured.title }}</h1>-->
                 <v-row>
                     <v-col xl="3" md="3" sm="12" xs="12" class="des-1" v-if="windowSize > 1129">
                     </v-col>
@@ -59,6 +75,7 @@
                 </v-row>
                 <div class="d-flex justify-center my-10">
                     <v-btn class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ $t('home.btnproducts') }}</v-btn>
+                    <!--<v-btn class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ pageHome.txtbtnProducts }}</v-btn>-->
                 </div>
             </div>
         </section>
@@ -66,6 +83,7 @@
         <section>
             <v-container>
                 <h1 class="font-archivo font-size-40 font-weight-bold black--text text-center my-10">{{ $t('home.catproducts') }}</h1>
+                <!--<h1 class="font-archivo font-size-40 font-weight-bold black--text text-center my-10">{{ pageHome.txtCatProducts }}</h1>-->
 
                 <v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
@@ -166,6 +184,7 @@
             <v-container>
                 <div class="d-flex justify-center mb-10">
                     <v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none secondary-color" rounded>{{ $t('home.btncategories') }}</v-btn>
+                    <!--<v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none secondary-color" rounded>{{ pageHome.txtbtnCatProducts }}</v-btn>-->
                 </div>
             </v-container>
         </section>
@@ -212,6 +231,7 @@
             <div class="bg-testimonios">
                 <v-carousel :show-arrows="false" hide-delimiter-background class="my-10" height="600">
                     <h1 class="font-archivo font-size-40 font-weight-bold white--text text-center my-10">{{ $t('home.titletestimonials') }}</h1>
+                    <!--<h1 class="font-archivo font-size-40 font-weight-bold white--text text-center my-10">{{ pageHome.txtTestimonials }}</h1>-->
                     <v-carousel-item v-for="(item,i) in items" :key="i" >
                         
                         <v-row justify="center" class="mx-5" v-if="windowSize > 1129">
@@ -336,15 +356,21 @@
                         <v-row justify="center" class="mt-10 mx-2">
                             <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
                                 <h1 class="display-2 text-left">Empresa <span class="font-weight-bold text-map">100% mexicana </span> de <span class="text-teal font-weight-bold">alcance mundial</span></h1>
+                                <!--<div class="display-2 text-left" v-html="$md.render( pageHome.txtCompany)"></div>-->
+
                                 <p class="text-body-all mt-2 text-justify">
                                     <span class="font-weight-bold">POLNAC</span> brinda un servicio integral, eficiente y confiable a través de una atención personalizada enfocada en las necesidades y especificaciones de cada cliente.
                                 </p>
+                                <!--<div class="text-body-all mt-2 text-justify" v-html="$md.render( pageHome.txtDesCompany)"></div>-->
+                                
                             </v-col>
                             <v-col lg="6" md="6" sm="12" xs="12" align="center">
                                 <v-img src="/map.png" contain max-height="450" max-width="450" alt="sucursales"></v-img >
+                                <!--<v-img :src="basePathApiUrl + pageHome.imgOffices.data.attributes.url" contain max-height="450" max-width="450" alt="sucursales"></v-img >-->
                             </v-col>
                             <v-col v-if="windowSize < 1129">
                                 <p class="text-body-all text-justify">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
+                                <!--<div class="text-body-all text-justify" v-html="$md.render( pageHome.txtOffices)"></div>-->
                             </v-col>
                         </v-row>
                         <v-row :class="{'max-5': windowSize>1129 }">
@@ -356,53 +382,48 @@
                                 <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h4': windowSize < 1129}">+90,000 ton</h1>
                                 <p class="text-body-all text-center">de <span class="font-weight-bold">capacidad de producción</span> anual</p>
                             </v-col>
+                            <!--<v-col cols="12" lg="3" md="3" sm="12" xs="12" v-for="(item, index) in pageHome.tecOffices.slice(0,2)" :key="index">                                
+                                --<div class="text-map font-weight-bold text-center" v-html="$md.render(item.title)"></div>--
+                                <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h4': windowSize < 1129}">{{item.title}}</h1>
+                                <div class="text-body-all text-center" v-html="$md.render(item.description)"></div>
+                            </v-col>-->
                             <v-col lg="6" md="6" sm="12" xs="12" v-if="windowSize > 1129">
                                 <p class="text-body-all text-left">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
+                                <!--<div class="text-body-all text-left" v-html="$md.render( pageHome.txtOffices)"></div>-->
                             </v-col>
                         </v-row>
 
                         <v-row justify="center" class="mx-5">
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                                 <v-img src="/plantas.png" contain max-height="70"></v-img>
-                                <!--<div class="d-flex justify-center">
-                                    <img src="../../static/plantas.png" alt="plantas de fabricacion" />
-                                </div>-->
                                 <p class="text-body-all text-center mt-2">Tres avanzadas <span class="font-weight-bold">plantas de fabricación</span> en México y Estados Unidos</p>
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                                <!--<div class="d-flex justify-center">
-                                    <img src="../../static/sucursales.png" alt="sucursales" />
-                                </div>-->
                                 <v-img src="/sucursales.png" contain max-height="70"></v-img>
                                 <p class="text-body-all text-center mt-2">Cinco <span class="font-weight-bold">sucursales internacionales</span>: USA, Europa, Colombia, Ecuador y Guatemala</p>
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                                <!--<div class="d-flex justify-center">
-                                    <img src="../../static/almacen.png" alt="almacen" />
-                                </div>-->
                                 <v-img src="/almacen.png" contain max-height="70"></v-img>
                                 <p class="text-body-all text-center mt-2">Equipos de <span class="font-weight-bold">almacenamiento</span> y <span class="font-weight-bold">transporte</span> de vanguardia</p>
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                                <!--<div class="d-flex justify-center">
-                                    <img src="../../static/ferrocarril.png" alt="ferrocarril" />
-                                </div>-->
                                 <v-img src="/ferrocarril.png" contain max-height="70"></v-img>
                                 <p class=" text-body-all text-center mt-2"><span class="font-weight-bold">Terminal ferroviaria</span> con más de 5 km de vías</p>
                             </v-col>
                         </v-row>
+                        <!--<v-row justify="center" class="mx-5">
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" v-for="(item, index) in pageHome.tecOffices.slice(2, 8)" :key="index">
+                                <v-img :src="basePathApiUrl + item.image.data.attributes.url " contain max-height="70"></v-img>
+                                --<p class="text-body-all text-center mt-2"></p>--
+                                <div class="text-body-all text-center mt-2" v-html="$md.render(item.description)"></div>
+                            </v-col>
+                        </v-row>-->
                         <v-row justify="center" class="mb-10">
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                                <!--<div class="d-flex justify-center">
-                                    <img src="../../static/laboratorio.png" alt="laboratorios" />
-                                </div>-->
                                 <v-img src="/laboratorio.png" contain max-height="70"></v-img>
                                 <p class="text-body-all text-center mt-2"><span class="font-weight-bold">Moderno laboratorio</span> de Innovación & Desarrollo</p>
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                                <!--<div class="d-flex justify-center">
-                                    <img src="../../static/estandares.png" alt="estandares" />
-                                </div>-->
                                 <v-img src="/estandares.png" contain max-height="70"></v-img>
                                 <p class="text-body-all text-center mt-2">Procesos alineados y certificados bajo <span class="font-weight-bold">estándares internacionales</span>.</p>
                             </v-col>
@@ -417,14 +438,17 @@
             <div class="bg-alianzas">
                 <v-container>
                     <h1 class="font-archivo font-size-40 text-center white--text font-weight-bold my-10">{{ $t('home.titlealliances') }}</h1>
+                    <!--<h1 class="font-archivo font-size-40 text-center white--text font-weight-bold my-10">{{ pageHome.alliances.title }}</h1>-->
                     <p class="text-body-all white--text text-center px-15">
                         <span class="text-uppercase font-weight-bold letters">POLNAC</span>  ha forjado <span class="font-weight-bold letters">alianzas estratégicas</span> con los principales productores de
                         materia prima a <span class="font-weight-bold letters">nivel mundial</span>, siempre buscando poner a disposición de sus clientes
                         los mejores materiales a precios competitivos. 
                     </p>
+                    <!--<div class="text-body-all white--text text-center px-15" v-html="$md.render(pageHome.alliances.description )"></div>-->
                     <div class="d-flex justify-center">
                         <nuxt-link to="/alliances" class="decoration-none">
                             <v-btn class="rounded-lg my-10 px-10 py-5 body-1 black--text text-none primary-color" rounded>{{$t('home.btnalliances') }}</v-btn>
+                            <!--<v-btn class="rounded-lg my-10 px-10 py-5 body-1 black--text text-none primary-color" rounded>{{ pageHome.alliances.txtBtn }}</v-btn>-->
                         </nuxt-link>
                     </div>
                 </v-container>
@@ -434,6 +458,7 @@
         <section>
             <v-container fluid>
                 <h1 class="font-archivo font-size-40 text-center black--text font-weight-bold my-10">Blog</h1>
+                <!--<h1 class="font-archivo font-size-40 text-center black--text font-weight-bold my-10">{{ pageHome.blog.title }}</h1>-->
                 <!--<v-row class="my-10" justify="center">
                     <v-col lg="3" md="3" sm="12" xs="12">
                         <v-card class="mx-auto" max-width="344">
@@ -509,6 +534,7 @@
                 <div class="d-flex justify-center mb-16">
                     <nuxt-link to="/blogs" class="decoration-none">
                         <v-btn rounded class="rounded-lg subtitle-1 px-10 py-5 white--text text-none default-color">{{$t('home.btnblog')}}</v-btn>
+                        <!--<v-btn rounded class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color">{{ pageHome.blog.txtBtn }}</v-btn>-->
                     </nuxt-link>
                 </div>
             </v-container>
@@ -526,13 +552,20 @@
                             <v-col cols="10">
                                 <div class="py-10 mb-16">
                                     <h1 class="text-h4 font-weight-bold my-10 white--text">{{ $t('home.titleappointment') }}</h1>
+                                    <!--<h1 class="text-h4 font-weight-bold my-10 white--text">{{ pageHome.appointment.title }}</h1>-->
                                     <p class="white--text text-body-all">
                                         {{ $t('home.subappointment') }}
                                     </p>
+                                    <!--<p class="white--text text-body-all">
+                                        {{ pageHome.appointment.description }}
+                                    </p>-->
                                     <nuxt-link to="/schedule-an-appointment" class="decoration-none">
                                         <v-btn class="rounded-lg px-10 py-5 subtitle-1 black--text text-none primary-color">
                                             {{ $t('home.btnappointment') }}
                                         </v-btn>
+                                        <!--<v-btn class="rounded-lg px-10 py-5 subtitle-1 black--text text-none primary-color">
+                                            {{ pageHome.appointment.txtBtn }}
+                                        </v-btn>-->
                                     </nuxt-link>
                                 </div>
                             </v-col>
@@ -596,7 +629,7 @@ export default {
         }
     },
     computed:{
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','pageHome','basePathApiUrl'])
     }
 }
 </script>

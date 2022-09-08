@@ -1,4 +1,9 @@
 <template>
+    <!--<div v-if="pageAlliances === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>-->
     <div>
         <section class="mt-16">
             <v-container>
@@ -108,6 +113,33 @@
                         </p>
                     </v-col>
                 </v-row>
+                
+                <!--<v-row justify="center" class="my-10">
+                    <div v-for="(item, index) in pageAlliances.companies" :key="index">
+                        <v-col v-if=" (index + 1) % 2 === 0">
+                            <v-row justify="center">
+                                <v-col class="my-10" cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="center" align="center">
+                                    <v-img :src="basePathApiUrl + item.image.data.attributes.url" contain max-width="350" class="mt-5 mb-5" v-if="windowSize < 1129"></v-img>
+                                    <div class="text-body-all text-left" v-html="$md.render( item.description)"></div>
+                                </v-col>
+                                <v-col class="my-10" cols="12" xl="5" lg="6" md="6" sm="12" xs="12" align-self="center" align="center" v-if="windowSize > 1129">
+                                    <v-img :src="basePathApiUrl + item.image.data.attributes.url" contain max-width="350"></v-img>
+                                </v-col>
+                            </v-row>
+                        </v-col>
+                        <v-col v-else>
+                            <v-row justify="center">
+                                <v-col class="my-10" cols="12" xl="5" lg="6" md="6" sm="12" xs="12" align-self="center" align="center" v-if="windowSize > 1129">
+                                    <v-img :src="basePathApiUrl + item.image.data.attributes.url" contain max-width="350"></v-img>
+                                </v-col>
+                                <v-col class="my-10" cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="center" align="center">
+                                    <v-img :src="basePathApiUrl + item.image.data.attributes.url" contain max-width="350" class="mt-5 mb-5" v-if="windowSize < 1129"></v-img>
+                                    <div class="text-body-all text-left" v-html="$md.render( item.description)"></div>
+                                </v-col>
+                            </v-row>
+                        </v-col>
+                    </div>
+                </v-row>-->
             </v-container>
         </section>
 
@@ -125,7 +157,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','pageAlliances','basePathApiUrl'])
     }
 }
 </script>

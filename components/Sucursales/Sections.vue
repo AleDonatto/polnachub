@@ -91,10 +91,10 @@ export default {
         return{
             region: '',
             regiones: [
-                {id:0, sucursal: 'México'},
+                {id:0, sucursal: 'MEXICO'},
                 {id:1, sucursal: 'USA'},
                 {id:2, sucursal: 'LATAM'},
-                {id:3, sucursal: 'Europa'},
+                {id:3, sucursal: 'EUROPA'},
             ],
             sucursales: null,
             dataSucursales: [

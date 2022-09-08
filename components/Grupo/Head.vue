@@ -1,13 +1,17 @@
 <template>
-    <div :class="{'bg-grupo': windowSize > 1129, 'bg-grupo-mb': windowSize < 1129 }">
+    <!-- v-if="pagePolnacGroup !== null" -->
+    <div :class="{'bg-grupo': windowSize > 1129, 'bg-grupo-mb': windowSize < 1129 }" >
         <v-row justify="center">
             <v-col cols="8" align="center" class="mt-16">
                 <h1 class="mt-5 font-archivo font-size-40 white--text font-weight-bold">Grupo POLNAC</h1>
+                <!--<h1 class="mt-5 font-archivo font-size-40 white--text font-weight-bold">{{ pagePolnacGroup.banner.title }}</h1>-->
 
                 <p class="title white--text mt-8 mb-16">
                     Desde 1984, la familia <span class="yellow--text font-weight-bold">POLNAC</span> ha acrecentado sus miembros. <br>
                     Hoy en día son tres empresas y 8 marcas las cuales forman parte del grupo líder en soluciones de la industria plástica.
                 </p>
+                <!--<div class="title white--text mt-8 mb-16" v-html="$md.render(pagePolnacGroup.banner.subtitle)"></div>-->
+                
             </v-col>
         </v-row>
     </div>
@@ -23,7 +27,7 @@ export default {
         }
     }, 
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','pagePolnacGroup'])
     }
 }
 </script>

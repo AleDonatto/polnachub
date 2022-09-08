@@ -1,10 +1,14 @@
 <template>
-    <div :class="{'bg-alliances': windowSize > 1129, 'bg-alliances-mb': windowSize < 1129 }">
+    <!-- v-if="pageAlliances !== null" -->
+    <div :class="{'bg-alliances': windowSize > 1129, 'bg-alliances-mb': windowSize < 1129 }" >
         <v-row justify="center" align-content="center">
             <v-col class="mt-12" align="center">
                 <p class="font-title text-h3 mt-16 white--text font-weight-bold">
                     Alianzas
                 </p>
+                <!--<p class="font-title text-h3 mt-16 white--text font-weight-bold">
+                    {{ pageAlliances.banner.title }}
+                </p>-->
             </v-col>
         </v-row>
     </div>
@@ -20,7 +24,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','pageAlliances'])
     }
 
 }

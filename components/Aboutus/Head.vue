@@ -1,14 +1,17 @@
 <template>
-    <div :class="{'bg-about': windowSize > 1129, 'bg-about-mb': windowSize < 1129 }">
+    <!--v-if="pageAboutUs !== null"-->
+    <div :class="{'bg-about': windowSize > 1129, 'bg-about-mb': windowSize < 1129 }" >
         <v-row justify="center" class="py-10">
             <v-col cols="12" class="mt-12" align="center">
                 <h1 class="font-archivo font-size-40 white--text font-weight-bold">¿Quiénes somos?</h1>
+                <!--<h1 class="font-archivo font-size-40 white--text font-weight-bold">{{pageAboutUs.head.title}}</h1>-->
             </v-col>
             <v-col cols="9" class="mt-5 mb-10" align="center">
                 <p class="title white--text">
                     Desde 1984, <span class="letters font-weight-bold">POLNAC</span> ha construido unas historia basada en la innovación, <br>
                     el compromiso, y la excelencia. <span class="letters font-weight-bold">POLNAC</span>: siempre comprometido, siempre a la vanguardia.
                 </p>
+                <!--<div class="title white--text " v-html="$md.render(pageAboutUs.head.subtitle)"></div>-->
             </v-col>
         </v-row>
     </div>
@@ -24,7 +27,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight'])
+        ...mapState(['windowSize', 'windowHeight','basePathApiUrl','pageAboutUs'])
     }
 }
 </script>

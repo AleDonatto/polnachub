@@ -1,4 +1,9 @@
 <template>
+    <!--<div v-if="pageMarkets === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>-->
     <div>
         <section>
             <v-container>
@@ -143,7 +148,26 @@
             </v-container>
         </section>
 
-        <Productos />
+        <section class="bg-servicio mt-16">
+            <v-container>
+                <v-row justify="center" class="mb-10">
+                    <v-col cols="12" align="center" class="mt-16">
+                        <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">¿Necesitas más información?</h1>
+                        <!--<h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">{{ pageMarkets.information.title }}</h1>-->
+                        <p class="white--text text-h5">Revisa nuestro amplio catálogo de productos</p>
+                        <!--<p class="white--text text-h5">{{ pageMarkets.information.description }}</p>-->
+                    </v-col>                    
+                    <v-col cols="6" lg="4" md="4" sm="6" xs="6" class="mb-16" align="center">
+                        <nuxt-link to="/search-products" class="decoration-none">
+                            <v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">Ver productos</v-btn>
+                            <!--<v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">{{ pageMarkets.information.txtBtn }}</v-btn>-->
+                        </nuxt-link>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+        <!--<Productos />-->
     </div>
 </template>
 
@@ -155,7 +179,7 @@ export default {
         return {}
     },
     computed: {
-        ...mapState(['windowSize','windowHeigth'])
+        ...mapState(['windowSize','windowHeigth','pageMarkets'])
     }
 }
 </script>
@@ -164,6 +188,12 @@ export default {
 .decoration-none{
     text-decoration: none !important;
 }
+
+.bg-servicio{
+    background-color: #3D7CC9;
+    height: 480px;
+}
+
 .text-truncate {
     line-height: 1.5rem;
     height: 3rem;

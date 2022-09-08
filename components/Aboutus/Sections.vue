@@ -1,11 +1,17 @@
 <template>
+    <!--<div v-if="pageAboutUs === null ">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>-->
     <div>
         <section>
             <v-container>
                 <v-row justify="center" class="my-10">
                     <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="end">
                         <h1 class="font-archivo font-size-40 font-weight-bold">
-                            Misión
+                            Misión 
+                            <!--{{pageAboutUs.mision.title}}-->
                         </h1>
 
                         <p class="mt-5 text-body-all">
@@ -14,18 +20,22 @@
                             de esta actividad satisfacer las expectativas profesionales, económicas y de 
                             desarrollo que demanda la sociedad, accionistas, personal y proveedores.
                         </p>
+                        <!--<div class="mt-5 text-body-all" v-html="$md.render( pageAboutUs.mision.description )"></div>-->
                     </v-col>
                     <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" align="center">
                         <v-img src="/aboutus/img-mision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="650"></v-img>
+                        <!--<v-img :src="basePathApiUrl + pageAboutUs.mision.image.data.attributes.url" contain alt="Planta de produccion de San Luis Potosi" max-width="650"></v-img>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" align="center" v-if="windowSize > 1129">
                         <v-img src="/aboutus/img-vision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="650"></v-img>
+                        <!--<v-img :src="basePathApiUrl + pageAboutUs.vision.image.data.attributes.url" contain alt="Planta de produccion de San Luis Potosi" max-width="650"></v-img>-->
                     </v-col>
                     <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="end">
                         <h1 class="font-archivo font-size-40 font-weight-bold">
                             Visión
+                            <!--{{pageAboutUs.vision.title}}-->
                         </h1>
 
                         <p class="mt-5 text-body-all">
@@ -35,9 +45,11 @@
                             con la mejor relación costo-beneficio. Aplicando la logística más rápida y económica 
                             para la entrega de sus pedidos. 
                         </p>
+                        <!--<div class="mt-5 text-body-all" v-html="$md.render( pageAboutUs.vision.description )"></div>-->
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center" v-if="windowSize < 1129">
                         <v-img src="/aboutus/img-vision.png" contain alt="Planta de produccion de San Luis Potosi" max-width="450"></v-img>
+                        <!--<v-img :src="basePathApiUrl + pageAboutUs.vision.image.data.attributes.url" contain alt="Planta de produccion de San Luis Potosi" max-width="450"></v-img>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -46,6 +58,9 @@
                         <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '880': '395' " :height="windowSize > 1129 ? '480' : '220'" type="text/html" 
                         src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                         </iframe>
+                        <!--<iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '880': '395' " :height="windowSize > 1129 ? '480' : '220'" type="text/html" 
+                        :src="pageAboutUs.linkVideo">
+                        </iframe>-->
                     </v-col>
                 </v-row>
             </v-container>
@@ -56,6 +71,7 @@
                 <v-row justify="center">
                     <v-col cols="12" class="my-10">
                         <h1 class="font-archivo font-size-40 text-center font-weight-bold">Valores de la empresa</h1>
+                        <!--<h1 class="font-archivo font-size-40 text-center font-weight-bold">{{pageAboutUs.txtTitleBussines}}</h1>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -143,6 +159,15 @@
                         </p>
                     </v-col>
                 </v-row>
+                <!--<v-row justify="center">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" v-for="(item, index) in pageAboutUs.businesValues" :key="index">
+                        <v-img :src="basePathApiUrl+item.image.data.attributes.url" contain max-height="90"></v-img>
+                        <p class="text-h5 mt-2 font-weight-medium">{{item.title}}</p>
+                        <p class="text-body-all">
+                            {{item.description}}
+                        </p>
+                    </v-col>
+                </v-row>-->
             </v-container>
         </section>
 
@@ -151,6 +176,7 @@
                 <v-row justify="center">
                     <v-col cols="12" class="my-10">
                         <h1 class="font-archivo font-size-40 font-weight-bold text-center">Infraestructura</h1>
+                        <!--<h1 class="font-archivo font-size-40 font-weight-bold text-center">{{ pageAboutUs.txtTitlenfrastructure }}</h1>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -239,6 +265,7 @@
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="my-10">
                         <h1 class="font-archivo font-size-40 font-weight-bold text-center">POLNAC en el tiempo</h1>
+                        <!--<h1 class="font-archivo font-size-40 font-weight-bold text-center">{{pageAboutUs.timeline.title}}</h1>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -259,22 +286,27 @@
                 <v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="12" align="center" class="mt-10 mb-5">
                         <h1 class="font-archivo font-size-40 font-weight-bold text-center">Política de calidad</h1>
+                        <!--<h1 class="font-archivo font-size-40 font-weight-bold text-center">{{pageAboutUs.quality.title}}</h1>-->
                     </v-col>
                     <v-col cols="12" lg="6" md="6" align="center">
                         <v-img src="/aboutus/politica-calidad.png" contain max-width="450"></v-img>
+                        <!--<v-img :src="basePathApiUrl + pageAboutUs.quality.image.data.attributes.url" contain max-width="450"></v-img>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="mb-15 mt-10">
                     <v-col cols="12" xl="4" lg="6" md="6" align-self="end">
                         <h1 class="font-archivo font-size-40 font-weight-bold text-left my-5" v-if="windowSize > 1129">Política de calidad</h1>
+                        <!--<h1 class="font-archivo font-size-40 font-weight-bold text-left my-5" v-if="windowSize > 1129">{{pageAboutUs.quality.title}}</h1>-->
                         <p class="text-body-all">
                             Diseñar, fabricar, comercializar y distribuir resinas plásticas y concentrados de color, con el compromiso 
                             de satisfacer los requerimientos de los clientes, a través de un Sistema de Calidad basado en la norma 
                             ISO 9001 y un proceso de mejora continua, en absoluto respeto al medio ambiente.
                         </p>
+                        <!--<div class="text-body-all" v-html="$md.render( pageAboutUs.quality.description )"></div>-->
                     </v-col>
                     <v-col cols="12" xl="5" lg="6" md="6" align="center" v-if="windowSize > 1129">
                         <v-img src="/aboutus/politica-calidad.png" contain max-width="450"></v-img>
+                        <!--<v-img :src="basePathApiUrl + pageAboutUs.quality.image.data.attributes.url" contain max-width="450"></v-img>-->
                     </v-col>
                 </v-row>
             </v-container>
@@ -288,19 +320,24 @@
                 </v-row>
                 <v-row justify="center" >
                     <v-col cols="6" class="img-about-l" v-if="windowSize > 1129"></v-col>
-                    <v-col cols="12" lg="6" md="6" class="img-about-r" >
+                    <v-col cols="12" lg="6" md="6" class="img-about-r">
                         <v-row justify="center">
                             <v-col cols="10">
                                 <div class="py-10 my-10" :class="{'px-16': windowSize > 1129, 'px-2': windowSize < 1129}">
                                     <h1 class="font-archivo font-size-40 font-weight-bold my-10 white--text">¿Te interesa trabajar con nosotros?</h1>
+                                    <!--<h1 class="font-archivo font-size-40 font-weight-bold my-10 white--text">{{ pageAboutUs.work.title }}</h1>-->
                                     <p class="white--text text-body-all">
                                         ¡Únete a una de las industrias más <span class="letters">sólidas y robustas</span> de la actualidad! 
                                         Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
                                     </p>
+                                    <!--<div class="white--text text-body-all" v-html="$md.render( pageAboutUs.work.description )"></div>-->
                                     <nuxt-link to="/work-at-polnac" class="decoration-none">
                                         <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
                                             Ver vacantes
                                         </v-btn>
+                                        <!--<v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
+                                            {{pageAboutUs.work.txtBtn}}
+                                        </v-btn>-->
                                     </nuxt-link>
                                 </div>
                             </v-col>
@@ -321,7 +358,7 @@ export default {
         return {};
     },
     computed: {
-        ...mapState(["windowSize", "windowHeight"])
+        ...mapState(["windowSize", "windowHeight", 'pageAboutUs', 'basePathApiUrl'])
     },
 }
 </script>

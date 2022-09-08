@@ -1,34 +1,47 @@
 <template>
-    <div>
+    <!-- v-if="pageSearchProducts !== null" -->
+    <div >
         <div :class="{'bg-search':windowSize > 1129, 'bg-search-mb': windowSize < 1129 }">
             <v-row justify="center" class="">
                 <v-col cols="12" class="mt-16 mb-10" align="center">
                     <h1 class="mt-10 white--text font-archivo font-size-40 font-weight-bold">Buscador de productos</h1>
+                    <!--<h1 class="mt-10 white--text font-archivo font-size-40 font-weight-bold">{{pageSearchProducts.banner.title}}</h1>-->
                 </v-col>
             </v-row>
             <v-container v-if="windowSize > 1129">
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <p>{{producto}}</p>
-                        <v-select placeholder="Producto" rounded solo v-model="producto" @change="consTypeResina(producto)"
+                        <!--<p>{{producto}}</p>-->
+                        <v-select placeholder="Producto" rounded solo v-model="producto"
                         :items="pProducto.records" item-text="Name" item-value="Name" name="tResina"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <p>{{fabricante}}</p>
+                        <!--<p>{{fabricante}}</p>-->
                         <v-select placeholder="Fabricante" rounded solo v-model="fabricante"
                         :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <p>{{mercado}}</p>
+                        <!--<p>{{mercado}}</p>-->
                         <v-select placeholder="Mercado" rounded solo v-model="mercado"
                         :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="mb-16">
-                        <p>{{mTransformacion}}</p>
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="">
+                        <!--<p>{{mTransformacion}}</p>-->
                         <v-select placeholder="Método de Transformación" rounded solo v-model="mTransformacion"
-                        :items="pMetTransformacion.records" item-text="Name" item-value="Name" ></v-select>
+                        :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                 </v-row>
+                <v-row justify="center">
+                    <v-col cols="4">
+                        <v-btn color='gray' rounded class="text-none text-none" block @click="cleanFilters">
+                            <span class="black--text">Cancelar</span>
+                        </v-btn>
+                    </v-col>
+                    <v-col cols="4" class="mb-16">
+                        <v-btn rounded color="#19d3c5" class="black--text text-none" block @click="searchProducts({producto, fabricante, mercado, mTransformacion})">Aplicar</v-btn>
+                    </v-col>
+                </v-row>
+                <!--<p>{{credentials}}</p>-->
             </v-container>
         </div>
 
@@ -36,25 +49,25 @@
             <v-container class="form">
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Tipo de resina" rounded solo
-                        :items="pProducto.records" item-text="Name" item-value="attributes.type" name="tResina"></v-select>
+                        <v-select placeholder="Tipo de resina" rounded solo v-model="producto"
+                        :items="pProducto.records" item-text="Name" item-value="Name" name="tResina" @change="consProducts(producto)"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Fabricante" rounded solo
-                        :items="pFabricante.records" item-text="Name" item-value="attributes.type"></v-select>
+                        <v-select placeholder="Fabricante" rounded solo v-model="fabricante"
+                        :items="pFabricante.records" item-text="Name" item-value="Name" @change="consFabricante(fabricante)"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Mercado" rounded solo
-                        :items="pMercado.records" item-text="Name" item-value="attributes.type"></v-select>
+                        <v-select placeholder="Mercado" rounded solo v-model="mercado"
+                        :items="pMercado.records" item-text="Name" item-value="Name" @change="consMercado(mercado)"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="mb-16">
-                        <v-select placeholder="Método de Transformación" rounded solo
-                        :items="pMetTransformacion.records" item-text="Name" item-value="attributes.type"></v-select>
+                        <v-select placeholder="Método de Transformación" rounded solo v-model="mTransformacion"
+                        :items="pMetTransformacion.records" item-text="Name" item-value="Name" @change="consMTransformacion(mTransformacion)"></v-select>
                     </v-col>
                 </v-row>
                 <v-row>
                     <v-col cols="6">
-                        <v-btn color='#19d3c5' rounded outlined class="text-none text-none" block>
+                        <v-btn color='#19d3c5' outlined class="text-none text-none" block>
                             <span class="black--text">Cancelar</span>
                         </v-btn>
                     </v-col>
@@ -87,13 +100,28 @@ export default {
                 this.$store.dispatch('getMetodoTransformacion')
                 this.$store.dispatch('getProducto')
             }
-        }, 2000);
-    },
-    methods: {
-        ...mapActions(['consProducts', 'consTypeResina'])
+        }, 6000);
     },
     computed: {
-        ...mapState(['windowHeight','windowSize', 'pFabricante', 'pMercado', 'pMetTransformacion','pProducto', 'credentials'])
+        ...mapState([
+            'windowHeight',
+            'windowSize',
+            'pageSearchProducts', 
+            'pFabricante', 
+            'pMercado', 
+            'pMetTransformacion',
+            'pProducto', 
+            'credentials',
+        ]),
+    },
+    methods: {
+        ...mapActions(['consProducts', 'consFabricante','consMercado','consMTransformacion','searchProducts']),
+        cleanFilters(){
+            this.producto = ''
+            this.fabricante = ''
+            this.mercado = ''
+            this.mTransformacion = ''
+        },
     }
 }
 </script>

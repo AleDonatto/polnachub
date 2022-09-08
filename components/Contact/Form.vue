@@ -1,10 +1,16 @@
 <template>
+    <!--<div v-if="pageContact === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>-->
     <div>
         <section>
             <v-container>
                 <v-row justify="center">
                     <v-col cols="10">
                         <h1 class="font-archivo font-size-34 font-weight-bold text-center mt-16">Contáctanos con solo dos pasos</h1>
+                        <!--<h1 class="font-archivo font-size-34 font-weight-bold text-center mt-16">{{pageContact.title}}</h1>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -32,6 +38,7 @@
                                             <v-row>
                                                 <v-col cols="12">
                                                     <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>
+                                                    <!--<h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelMarket}}</h1>-->
                                                     <v-sheet class="mx-auto">
                                                         <v-slide-group v-model="model" class="pa-4" active-class="success" show-arrows-false multiple>
                                                             <v-slide-item v-for="(item ,index) in mercado" :key="index" v-slot="{ active, toggle }">
@@ -53,6 +60,7 @@
                                             <v-row>
                                                 <v-col cols="12">
                                                     <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un producto</h1>
+                                                    <!--<h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelProduct}}</h1>-->
                                                     <v-sheet class="mx-auto">
                                                         <v-slide-group v-model="model2" class="pa-4" active-class="success" show-arrows-false multiple>
                                                             <v-slide-item v-for="(item, index) in productos" :key="index" v-slot="{ active, toggle }">
@@ -74,10 +82,12 @@
                                             <v-row justify="center">
                                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                     <p class="font-archivo font-size-20 font-weight-bold">Resina de interés</p>
+                                                    <!--<p class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelResina}}</p>-->
                                                     <v-select class="rounded-xl" outlined label="Selecciona tipo de resina"></v-select>
                                                 </v-col>
                                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                     <p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>
+                                                    <!--<p class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelToneladas}}</p>-->
                                                     <v-select class="rounded-xl" outlined label="Selecciona rango promedio"></v-select>
                                                 </v-col>
                                             </v-row>
@@ -94,7 +104,8 @@
 
                                         <v-stepper-content step="2">
                                             <v-form>
-                                                <p class="my-5 font-size-20 font-weight-bold">Llena el siguiente formulario</p>
+                                                <p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>
+                                                <!--<p class="my-5 font-size-20 font-weight-bold">{{ pageContact.labelForm }}</p>-->
                                                 <v-row>
                                                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                         <v-text-field label="Nombes" solo outlined class="rounded-xl"></v-text-field>
@@ -215,11 +226,12 @@
             </v-card>
         </v-dialog>
 
-        
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     data (){
         return{
@@ -297,6 +309,9 @@ export default {
             this.e1 = 1
         },
     },
+    computed: {
+        ...mapState(['pageContact'])
+    }
 }
 </script>
 

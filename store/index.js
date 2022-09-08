@@ -13,8 +13,19 @@ export default () => new Vuex.Store({
         lang: null,
         credentials: null,
         //pages from strapi
+        pageHome: null,
         pagetranspolimer: null,
         pagepoliresin: null,
+        pageInnovation: null,
+        pageAboutUs: null,
+        pageSearchProducts: null,
+        pageServices: null,
+        pageMarkets: null, 
+        pageBlog: null,
+        pagePolnacGroup: null,
+        pageContact: null,
+        pagePolnacBlue: null,
+        pageAlliances: null,
         basePathApiUrl: 'http://localhost:1337',
         //salesfoce connection
         userSalesforce: {
@@ -28,8 +39,13 @@ export default () => new Vuex.Store({
         pMercado: [],
         pProducto: [],
         pMetTransformacion: [],
+        valFabricante: null, 
+        valMercado: null, 
+        valMTransformacion: null,
+        valProducto: null,
         //tables products
         tablePruebas: [],
+        showMsgProd: false,
         //
         tablePE: [],
         tablePP: [],

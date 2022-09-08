@@ -1,4 +1,9 @@
 <template>
+    <!--<div v-if="pagePolnacGroup === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>-->
     <div>
         <section>
             <v-container>
@@ -18,9 +23,11 @@
                                 <p class="font-size-20 mt-5">
                                     La filosofía POLNAC respalda a todo el grupo: proporcionar soluciones innovadoras con el mejor servicio, la más alta calidad y a precios altamente competitivos.
                                 </p>
+                                <!--<div class="font-size-20" v-html="$md.render(pagePolnacGroup.group.description)"></div>-->
                             </v-col>
                             <v-col cols="12" lg="6" md="6" align-self="center">
                                 <v-img src="/group/log.png" contain max-height="340"></v-img>
+                                <!--<v-img :src="basePathApiUrl + pagePolnacGroup.group.image.data.attributes.url" contain max-height="340"></v-img>-->
                             </v-col>
                         </v-row>
                     </v-col>
@@ -33,21 +40,26 @@
                 <v-row class="" justify="center">
                     <v-col align="center">
                         <h1 class="font-archivo font-size-40 font-weight-bold my-10">Empresas filiales</h1>
+                        <!--<h1 class="font-archivo font-size-40 font-weight-bold my-10">{{pagePolnacGroup.txtTitlesubsidiaries}}</h1>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="my-16">
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
                         <v-img src="/group/logo-poliresin.png" contain max-height="150"></v-img>
+                        <!--<v-img :src="basePathApiUrl + pagePolnacGroup.imgLogoPoliresin.data.attributes.url" contain max-height="150"></v-img>-->
                         <v-btn rounded outlined color="#19D3C5" class="mt-4 px-10 py-6 text-none">
                             <nuxt-link to="/poliresin" class="text-decoration-none black--text">
-                                Saber más
+                                <!--{{pagePolnacGroup.txtBtnMore}}-->
+                                Ver mas 
                             </nuxt-link>
                         </v-btn>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
                         <v-img src="/group/logo-transpolimer.png" contain max-height="150"></v-img>
+                        <!--<v-img :src="basePathApiUrl + pagePolnacGroup.imgLogoTranspolimer.data.attributes.url" contain max-height="150"></v-img>-->
                         <v-btn rounded outlined color="#19D3C5" class="mt-4 px-10 py-6 text-none">
                             <nuxt-link to="/transpolimer" class="text-decoration-none black--text">Saber más</nuxt-link>
+                            <!--<nuxt-link to="/transpolimer" class="text-decoration-none black--text">{{pagePolnacGroup.txtBtnMore}}</nuxt-link>-->
                         </v-btn>
                     </v-col>
                 </v-row>
@@ -59,6 +71,7 @@
                 <v-row>
                     <v-col align="center" class="my-10">
                         <h1 class="font-archivo font-size-40 font-weight-bold">Nuestras marcas</h1>
+                        <!--<h1 class="font-archivo font-size-40 font-weight-bold">{{pagePolnacGroup.txtTitleBrands}}</h1>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="my-16"> 
@@ -135,7 +148,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','pagePolnacGroup','basePathApiUrl'])
     }
 }
 </script>

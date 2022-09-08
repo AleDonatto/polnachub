@@ -16,7 +16,7 @@
                                         <v-sheet height="100%">
                                             <v-row class="fill-height" align="center" justify="center">
                                                 <div>
-                                                    <v-img src="/products/testproducts.png" contain width="520"></v-img>\
+                                                    <v-img src="/products/testproducts.png" contain width="520"></v-img>
                                                 </div>
                                             </v-row>
                                         </v-sheet>

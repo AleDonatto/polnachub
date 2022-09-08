@@ -1,8 +1,10 @@
 <template>
-    <div :class="{'bg-market': windowSize > 1129, 'bg-market-mb': windowSize < 1129 }">
+    <!-- v-if="pageMarkets !== null" -->
+    <div :class="{'bg-market': windowSize > 1129, 'bg-market-mb': windowSize < 1129 }" >
         <v-row justify="center">
             <v-col cols="12" align="center">
                 <h1 class="mt-16 font-archivo font-size-40 white--text">Mercados</h1>
+                <!--<h1 class="mt-16 font-archivo font-size-40 white--text">{{pageMarkets.banner.title}}</h1>-->
             </v-col>
         </v-row>
         <v-row justify="center">
@@ -21,7 +23,7 @@ export default {
         return {}
     },
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','pageMarkets'])
     }
 }
 </script>

@@ -1,8 +1,10 @@
 <template>
+    <!--  v-if="pageServices !== null" -->
     <div :class="{'bg-services': windowSize > 1129, 'bg-services-mb': windowSize < 1129 }">
         <v-row justify="center">
             <v-col cols="12" align="center">
                 <h1 class="mt-16 font-archivo font-size-40 font-weight-bold white--text">Servicios</h1>
+                <!--<h1 class="mt-16 font-archivo font-size-40 font-weight-bold white--text">{{pageServices.banner.title}}</h1>-->
             </v-col>
         </v-row>
         <v-row justify="center">
@@ -13,6 +15,7 @@
                     Logísticos Especializados: terminal ferroviaria, servicios de almacenaje, trasvase, 
                     ensacado, distribución, y servicio de carga y descarga de contenedores. 
                 </p>
+                <!--<div class="white--text mt-10 mb-16 title text-center" v-html="$md.render( pageServices.banner.subtitle)"></div>-->
             </v-col>
         </v-row>
     </div>
@@ -27,11 +30,8 @@ export default {
 
         }
     },
-    mounted() {
-        
-    },
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize','pageServices'])
     }
 }
 </script>
