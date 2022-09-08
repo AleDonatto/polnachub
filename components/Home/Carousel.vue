@@ -32,7 +32,7 @@
                                     <mark class="text-mark white--text">{{ $t('home.portafolio') }}</mark>
                                     <!--<mark class="text-mark white--text">{{ color.title }}</mark> -->
                                 </h1>
-                                <p class="subtitle-1 white--text mt-3 pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">-->
+                                <p class="subtitle-1 white--text mt-3 pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}">
                                     <!--{{ $t('home.subportafolio', {polnac: 'POLNAC'}) }}
                                     <br>-->
                                     <span class="subtitle-1 letters text-uppercase font-weight-bold">POLNAC</span> se especializa en la fabricación de compuestos, concentrados de color, 

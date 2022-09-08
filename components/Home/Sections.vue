@@ -20,8 +20,11 @@
 
 
                                     <!--<v-img src="./video.png" contain max-height="350" max-width="350" v-if="windowSize < 1129"></v-img>-->
-                                    <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
+                                    <!--<iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
                                         :src="pageHome.linkVideo" v-if="windowSize < 1129">
+                                    </iframe>-->
+                                    <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" v-if="windowSize < 1129"
+                                        src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                                     </iframe>
 
                                     <p class="text-body-all my-5 text-left">

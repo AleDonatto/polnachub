@@ -1,17 +1,17 @@
 <template>
-    <div v-if="pageSearchProducts === null">
+    <!--<div v-if="pageSearchProducts === null">
         <v-sheet class="pa-3">
             <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
         </v-sheet>
-    </div>
-    <div v-else>
+    </div>-->
+    <div>
         <section v-if="windowSize > 1129">
             <v-container v-if="tableCompuestosprecolor.length < 1 && tablePE.length < 1 && tablePP.length < 1 && tableEstirenicos.length < 1
             && tableRotomoldeo.length < 1 && tablePVC.length < 1 && tableIngenieria.length <1 && tableMasterbatch.length < 1" >
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="mt-16">
-                        <!--<h1 class="font-archivo font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>-->
-                        <h1 class="font-archivo font-weight-bold">{{pageSearchProducts.titleSectionSearch}}</h1>
+                        <h1 class="font-archivo font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>
+                        <!--<h1 class="font-archivo font-weight-bold">{{pageSearchProducts.titleSectionSearch}}</h1>-->
                     </v-col>
                 </v-row>
 
