@@ -629,9 +629,10 @@ export default {
             let aux = []
             let exists = false
             
-            if(item.Familia_de_productos__r !== null && item.Activo_en_web__c === true){
+            //item.Familia_de_productos__r
+            if(item.Grupo__r !== null && item.Activo_en_web__c === true){
                 //console.log(item)
-                switch (item.Familia_de_productos__r.Name) {
+                switch (item.Grupo__r.Name) {
                     case 'Polyethylene':
                         //console.log('PE')
                         exists = state.tablePE.some(e => e.Name === item.Name)
@@ -656,7 +657,7 @@ export default {
                             commit('StateAssign', {tableEstirenicos: aux})
                         }
                         break;
-                    case 'Rotomoldeo': 
+                    case 'Natural Rotomolding Compounds' || 'Rotomolding compounds colors' || 'Black Rotomolding Compounds' || 'Specialty Rotomolding Compounds' || 'Rotomolding compounds pellets' || 'Rotomolding compounds SM' : 
                         //console.log('rotomoldeo')
                         exists = state.tableRotomoldeo.some(e => e.Name === item.Name)
                         if(!exists){
@@ -664,7 +665,7 @@ export default {
                             commit('StateAssign', {tableRotomoldeo: aux})
                         }
                         break;
-                    case 'MasterBatch': 
+                    case 'MasterBatch' || 'Masterbatch Colors' || 'Masterbatch Colors SM' || 'Masterbatch Basic' || 'Masterbatch Basic SM' || 'Specialty Masterbatch': 
                         //console.log('masterbatch')
                         exists = state.tableMasterbatch.some(e => e.Name === item.Name)
                         if(!exists){
@@ -672,7 +673,7 @@ export default {
                             commit('StateAssign', {tableMasterbatch: aux})
                         }
                         break;
-                    case 'Ingeniería': 
+                    case 'Engineering Plastics': 
                         //console.log('ingenieria')
                         exists = state.tableIngenieria.some(e => e.Name === item.Name)
                         if(!exists){
@@ -680,7 +681,10 @@ export default {
                             commit('StateAssign', {tableIngenieria: aux})
                         }
                         break;
-                    case 'Compuestos': 
+                    case 'Compuestos' || 'Precolor Poliolefins Compounds' ||
+                    'Precolor additives Compounds' || 'Precolor Styrenics Compounds' 
+                    || 'Precolor Specialties Compounds' || 'Precolor Poliolefins SM' 
+                    || 'Precolor Styrenics SM' || 'Precolor Specialties SM' : 
                         //console.log('Precolor Specialties')
                         exists = state.tableCompuestosprecolor.some(e => e.Name === item.Name)
                         if(!exists){
@@ -688,7 +692,8 @@ export default {
                             commit('StateAssign', {tableCompuestosprecolor: aux})
                         }
                         break;
-                    case 'Blends': 
+                    case 'Blends' || 'Filled Poliolefins Compounds' || 'Filled Styrenics Compounds' ||
+                    'Filled Specialties Compounds' || 'Filled Poliolefins SM' || 'Filled Styrenics SM' || 'Filled Specialties SM': 
                         //console.log('cargados')
                         exists = state.tableCompuestoscargados.some(e => e.Name === item.Name)
                         if(!exists){
@@ -704,7 +709,7 @@ export default {
                             commit('StateAssign', {tableTermoplasticos: aux})
                         }
                         break;
-                    case 'PVC': 
+                    case 'PVC' || 'Rigid PVC' || 'Semi-Rigid PVC' || 'Flexible PVC': 
                         //console.log('pvc')
                         exists = state.tableTermoplasticos.some(e => e.Name === item.Name)
                         if(!exists){
@@ -712,7 +717,7 @@ export default {
                             commit('StateAssign', {tablePVC: aux})
                         }
                         break;
-                    case 'Additive Concentrates':
+                    case 'Additive Concentrates' || 'Additive concentrates SM' || 'Process aids' || 'Process aids SM':
                         //console.log('aditivos') 
                         exists = state.tableAditivos.some(e => e.Name === item.Name)
                         if(!exists){
@@ -720,7 +725,7 @@ export default {
                             state.tableAditivos.push(...state.tableAditivos, item)
                         }
                         break;
-                    case 'Calcium Carbonate Concentrate SM':
+                    case 'Calcium Carbonate Concentrate' || 'Calcium Carbonate Concentrate SM':
                         //console.log('calcio') 
                         exists = state.tableCalcio.some(e => e.Name === item.Name)
                         if(!exists){
@@ -728,16 +733,16 @@ export default {
                             state.tableCalcio.push(...state.tableCalcio, aux)
                         }
                         break;
-                    case 'Bioplásticos': 
+                    case 'Bioplastics': 
                         console.log('bioplasticos')
                         exists = state.tableBioplasticos.some(e => e.Name === item.Name)
                         if(!exists){
                             aux.push(...state.tableBioplasticos, item)
-                            state.tableBioplasticos.push(...state.tableCalcio, aux)
+                            state.tableBioplasticos.push(...state.tableBioplasticos, aux)
                         }
                         //state.tableBioplasticos.push(...state.tableBioplasticos, item)
                         break;
-                    case 'Hules': 
+                    case 'Hules' || 'Thermoset Elastomers': 
                         console.log('hules')
                         exists = state.tableHules.some(e => e.Name === item.Name)
                         if(!exists){
