@@ -6,7 +6,13 @@
         "innovation": "Innovation",
         "products": "Products",
         "services": "Services",
-        "market": "Markets"
+        "market": "Markets",
+        "quien": "About Us?",
+        "colaboradores":"Collaborators",
+        "trabajo": "Work with us",
+        "grupoPolnac": "Polnac Group",
+        "sucursales": "Branch offices",
+        "colaborador": "Are you a collaborator?"
     },
     "home": {
         "portafolio": "Discover the ultimate portfolio of products.",
