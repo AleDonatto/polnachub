@@ -105,10 +105,22 @@
     color: black !important;
 }
 
+
 .sections > .v-slide-group.v-item-group > .v-slide-group__next, .v-slide-group.v-item-group > .v-slide-group__prev > .v-icon {
     font-size: 45px !important;
 }
 
 .sections > .v-slide-group.v-item-group > .v-slide-group__next, .v-slide-group.v-item-group > .v-slide-group__next > .v-icon {
     font-size: 45px !important;
+}
+
+
+.v-data-table-header{
+    background-color: rgba(25, 211, 197, 0.3) !important;
+    border-radius: 20px !important;
+}
+
+.v-data-table-header  tr  th {
+    font-size: 1rem;
+    font-weight: bold;
 }

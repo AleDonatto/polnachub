@@ -61,6 +61,7 @@ export default () => new Vuex.Store({
         tableCalcio: [],
         tableBioplasticos: [],
         tableHules: [],
+        tablePolvoC: [],
         //polnac wiki-blog
         showbanners: true
     }),

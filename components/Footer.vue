@@ -66,7 +66,7 @@
               <v-row justify="">
                 <v-col cols="2">
                   <a href="https://www.linkedin.com/company/polnac/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
-                    <v-img src="/Linkedin.png" contain max-height="28"></v-img>
+                    <v-img src="/linkedin.png" contain max-height="28"></v-img>
                   </a>
                 </v-col>
                 <v-col cols="2">
@@ -86,7 +86,7 @@
                 </v-col>
                 <v-col cols="2">
                   <a href="https://www.youtube.com/channel/UCNvsE4YYBZjCoxGXmpXGdkQ" target="_blank" rel="noopener noreferrer">
-                    <v-img src="/Youtube.png" contain max-height="28"></v-img>
+                    <v-img src="/youtube.png" contain max-height="28"></v-img>
                   </a>
                 </v-col>
               </v-row>

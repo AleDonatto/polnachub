@@ -5,17 +5,36 @@
         </v-sheet>
     </div>-->
     <div>
-        <section v-if="windowSize > 1129">
-            <v-container v-if="tableCompuestosprecolor.length < 1 && tablePE.length < 1 && tablePP.length < 1 && tableEstirenicos.length < 1
-            && tableRotomoldeo.length < 1 && tablePVC.length < 1 && tableIngenieria.length <1 && tableMasterbatch.length < 1" >
+        <section>
+            <!--v-if="tablePE.length < 1 && tablePP.length < 1 && tableEstirenicos.length < 1 && tableRotomoldeo.length < 1
+            && tableRotomoldeo.length < 1 && tableMasterbatch.length < 1 && tableIngenieria.length <1 && tableCompuestosprecolor.length < 1
+            && tableCompuestoscargados.length < 1 && tableTermoplasticos.length < 1 && tablePVC.length < 1 && tableAditivos.length < 1
+            && tableCalcio.length < 1 && tableBioplasticos.length < 1 && tableHules.length < 1 && tablePolvoC.length < 1"-->
+            <v-container  v-if="tablePE.length < 1 && tablePP.length < 1 && tableEstirenicos.length < 1 && tableRotomoldeo.length < 1
+            && tableRotomoldeo.length < 1 && tableMasterbatch.length < 1 && tableIngenieria.length <1 && tableCompuestosprecolor.length < 1
+            && tableCompuestoscargados.length < 1 && tableTermoplasticos.length < 1 && tablePVC.length < 1 && tableAditivos.length < 1
+            && tableCalcio.length < 1 && tableBioplasticos.length < 1 && tableHules.length < 1 && tablePolvoC.length < 1">
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="mt-16">
                         <h1 class="font-archivo font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>
                         <!--<h1 class="font-archivo font-weight-bold">{{pageSearchProducts.titleSectionSearch}}</h1>-->
+                        <!--<p>{{
+                            tablePE.length +'-'+
+                            tablePP.length +'-'+ 
+                            tableEstirenicos.length +'-'+
+                            tableRotomoldeo.length +'-'+
+                            tableMasterbatch.length +'-'+
+                            tableIngenieria.length +'-'+
+                            tableCompuestosprecolor.length +'-'+
+                            tableCalcio.length +'-'+
+                            tableBioplasticos.length +'-'+
+                            tableHules.length +'-'+
+                            tablePolvoC.length
+                        }}</p>-->
                     </v-col>
                 </v-row>
 
-                <v-row justify="center" class="mt-10">
+                <v-row justify="center" class="mt-10 mb-10">
                     <v-col cols="2" align="center">
                         <nuxt-link to="/products/1" class="text-decoration-none">
                             <v-img src="/menu-search/plasticos.png" contain max-height="90"></v-img>
@@ -46,8 +65,7 @@
                             <p class="mt-2 black--text">Carbonato de Calcio</p>
                         </nuxt-link>
                     </v-col>
-                </v-row>
-                <v-row justify="center">
+
                     <v-col cols="2" align="center">
                         <nuxt-link to="/products/5" class="text-decoration-none">
                             <v-img src="/menu-search/rotomoldeo.png" contain max-height="90"></v-img>
@@ -78,8 +96,7 @@
                             <p class="mt-2 black--text">Hules</p>
                         </nuxt-link>
                     </v-col>
-                </v-row>
-                <v-row justify="center" class="mb-16">
+
                     <v-col cols="2" align="center">
                         <nuxt-link to="/products/8" class="text-decoration-none">
                             <v-img src="/menu-search/polietileno.png" contain max-height="90"></v-img>
@@ -101,7 +118,8 @@
                 </v-row>
             </v-container>
 
-            <v-container fluid v-else class="mb-10 px-16">
+            <!--v-else -->
+            <v-container fluid class="mb-10 px-16" v-else>
                 <div class="text-center">
 
                     <v-chip class="ma-2 pa-5 white--text" close color="#773DBD" @click:close="chip1 = false" v-if="valProducto!==''">
@@ -117,42 +135,10 @@
                         {{this.valMTransformacion}}
                     </v-chip>
 
-                    <v-chip class="ma-2 pa-5" close color="red" text-color="white" @click:close="chip2 = false">
+                    <v-chip class="ma-2 pa-5" close color="red" text-color="white" @click:close="cleanTags">
                         Remove
                     </v-chip>
                 </div>
-
-                <v-card class="mt-10 shadow-out" v-if="tableCompuestosprecolor.length > 0 ">
-                    <v-card-title>
-                        Precolor Specialties
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headers"
-                        :items="tableCompuestosprecolor"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
-
-                    </v-data-table>
-                </v-card>
 
                 <v-card class="mt-10 shadow-out" v-if="tablePE.length > 0">
                     <v-card-title>
@@ -282,9 +268,9 @@
                     </v-data-table>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tablePVC.length > 0">
+                <v-card class="mt-10 shadow-out" v-if="tableMasterbatch.length > 0">
                     <v-card-title>
-                        PVC
+                        MasterBatch
                         <v-spacer></v-spacer>
                         <v-text-field
                             v-model="search"
@@ -296,8 +282,8 @@
                     </v-card-title>
                     
                     <v-data-table
-                        :headers="headersPVC"
-                        :items="tablePVC"
+                        :headers="headersMaster"
+                        :items="tableMasterbatch"
                         :items-per-page="10"
                         :search="search"
                         class="elevation-1 mt-5 mb-16"
@@ -346,9 +332,9 @@
                     </v-data-table>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableMasterbatch.length > 0">
+                <v-card class="mt-10 shadow-out" v-if="tableCompuestosprecolor.length > 0">
                     <v-card-title>
-                        MasterBatch
+                        Ingeniería
                         <v-spacer></v-spacer>
                         <v-text-field
                             v-model="search"
@@ -360,8 +346,8 @@
                     </v-card-title>
                     
                     <v-data-table
-                        :headers="headersMaster"
-                        :items="tableMasterbatch"
+                        :headers="headersComPrecolor"
+                        :items="tableCompuestosprecolor"
                         :items-per-page="10"
                         :search="search"
                         class="elevation-1 mt-5 mb-16"
@@ -377,9 +363,268 @@
 
                     </v-data-table>
                 </v-card>
+
+                <v-card class="mt-10 shadow-out" v-if="tableCompuestoscargados.length > 0">
+                    <v-card-title>
+                        Blens
+                        <v-spacer></v-spacer>
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            hide-details
+                        ></v-text-field>
+                    </v-card-title>
+                    
+                    <v-data-table
+                        :headers="headersComCargados"
+                        :items="tableCompuestoscargados"
+                        :items-per-page="10"
+                        :search="search"
+                        class="elevation-1 mt-5 mb-16"
+                    >
+                        <template v-slot:item.htecnica="{ item }" class="">
+                            <div class="text-center mt-1 pointer">
+                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                    <p>Hoja técnica</p>
+                                </a>
+                            </div>
+                        </template>
+
+                    </v-data-table>
+                </v-card>
+
+                <v-card class="mt-10 shadow-out" v-if="tableTermoplasticos.length > 0">
+                    <v-card-title>
+                        Thermoplastic Elastomers
+                        <v-spacer></v-spacer>
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            hide-details
+                        ></v-text-field>
+                    </v-card-title>
+                    
+                    <v-data-table
+                        :headers="headersTermPlasticos"
+                        :items="tableTermoplasticos"
+                        :items-per-page="10"
+                        :search="search"
+                        class="elevation-1 mt-5 mb-16"
+                    >
+                        <template v-slot:item.htecnica="{ item }" class="">
+                            <div class="text-center mt-1 pointer">
+                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                    <p>Hoja técnica</p>
+                                </a>
+                            </div>
+                        </template>
+
+                    </v-data-table>
+                </v-card>
+
+                <v-card class="mt-10 shadow-out" v-if="tablePVC.length > 0">
+                    <v-card-title>
+                        PVC
+                        <v-spacer></v-spacer>
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            hide-details
+                        ></v-text-field>
+                    </v-card-title>
+                    
+                    <v-data-table
+                        :headers="headersPVC"
+                        :items="tablePVC"
+                        :items-per-page="10"
+                        :search="search"
+                        class="elevation-1 mt-5 mb-16"
+                    >
+                        <template v-slot:item.htecnica="{ item }" class="">
+                            <div class="text-center mt-1 pointer">
+                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                    <p>Hoja técnica</p>
+                                </a>
+                            </div>
+                        </template>
+
+                    </v-data-table>
+                </v-card>
+
+                <v-card class="mt-10 shadow-out" v-if="tableAditivos.length > 0">
+                    <v-card-title>
+                        Additives
+                        <v-spacer></v-spacer>
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            hide-details
+                        ></v-text-field>
+                    </v-card-title>
+                    
+                    <v-data-table
+                        :headers="headersAditivos"
+                        :items="tableAditivos"
+                        :items-per-page="10"
+                        :search="search"
+                        class="elevation-1 mt-5 mb-16"
+                    >
+                        <template v-slot:item.htecnica="{ item }" class="">
+                            <div class="text-center mt-1 pointer">
+                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                    <p>Hoja técnica</p>
+                                </a>
+                            </div>
+                        </template>
+
+                    </v-data-table>
+                </v-card>
+
+                <v-card class="mt-10 shadow-out" v-if="tableCalcio.length > 0">
+                    <v-card-title>
+                        Calcium Carbonate
+                        <v-spacer></v-spacer>
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            hide-details
+                        ></v-text-field>
+                    </v-card-title>
+                    
+                    <v-data-table
+                        :headers="headersCalcio"
+                        :items="tableCalcio"
+                        :items-per-page="10"
+                        :search="search"
+                        class="elevation-1 mt-5 mb-16"
+                    >
+                        <template v-slot:item.htecnica="{ item }" class="">
+                            <div class="text-center mt-1 pointer">
+                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                    <p>Hoja técnica</p>
+                                </a>
+                            </div>
+                        </template>
+
+                    </v-data-table>
+                </v-card>
+
+                <v-card class="mt-10 shadow-out" v-if="tableBioplasticos.length > 0">
+                    <v-card-title>
+                        Bioplastics
+                        <v-spacer></v-spacer>
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            hide-details
+                        ></v-text-field>
+                    </v-card-title>
+                    
+                    <v-data-table
+                        :headers="headersBioplasticos"
+                        :items="tableBioplasticos"
+                        :items-per-page="10"
+                        :search="search"
+                        class="elevation-1 mt-5 mb-16"
+                    >
+                        <template v-slot:item.htecnica="{ item }" class="">
+                            <div class="text-center mt-1 pointer">
+                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                    <p>Hoja técnica</p>
+                                </a>
+                            </div>
+                        </template>
+
+                    </v-data-table>
+                </v-card>
+
+                <v-card class="mt-10 shadow-out" v-if="tableHules.length > 0">
+                    <v-card-title>
+                        Thermoset Elastomers
+                        <v-spacer></v-spacer>
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            hide-details
+                        ></v-text-field>
+                    </v-card-title>
+                    
+                    <v-data-table
+                        :headers="headersHules"
+                        :items="tableHules"
+                        :items-per-page="10"
+                        :search="search"
+                        class="elevation-1 mt-5 mb-16"
+                    >
+                        <template v-slot:item.htecnica="{ item }" class="">
+                            <div class="text-center mt-1 pointer">
+                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                    <p>Hoja técnica</p>
+                                </a>
+                            </div>
+                        </template>
+
+                    </v-data-table>
+                </v-card>
+
+                <v-card class="mt-10 shadow-out" v-if="tablePolvoC.length > 0">
+                    <v-card-title>
+                        Calcium carbonate powder
+                        <v-spacer></v-spacer>
+                        <v-text-field
+                            v-model="search"
+                            append-icon="mdi-magnify"
+                            label="Search"
+                            single-line
+                            hide-details
+                        ></v-text-field>
+                    </v-card-title>
+                    
+                    <v-data-table
+                        :headers="headersPolvo"
+                        :items="tablePolvoC"
+                        :items-per-page="10"
+                        :search="search"
+                        class="elevation-1 mt-5 mb-16"
+                    >
+                        <template v-slot:item.htecnica="{ item }" class="">
+                            <div class="text-center mt-1 pointer">
+                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                    <p>Hoja técnica</p>
+                                </a>
+                            </div>
+                        </template>
+
+                    </v-data-table>
+                </v-card>
+
             </v-container>
 
-            <v-dialog v-model="showMsgProd" width="700" overlay-color="#2E2E65">
+        </section>
+
+        <v-dialog v-model="showMsgProd" width="700" overlay-color="#2E2E65">
                 <v-card elevation="6">
                     <v-card-title>
                         <v-row justify="end">
@@ -416,112 +661,195 @@
                 </v-card>
             </v-dialog>
 
-        </section>
-
     </div>
 </template>
 
 <script>
-import { COMPLETIONSTATEMENT_TYPES } from '@babel/types'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
     data() {
         return {
-            headers: [
-                {text: '', value: 'htecnica', sortable: false },
-                {text: 'Maker', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Code', value: 'Name'},
-                {text: 'Flow index', value: 'Indice_de_Fluidez_p__c'},
-                {text: 'IZOD Impact', value: 'Impacto_IZOD__c'},
-                {text: 'Flexural modulus', value: 'Modulo_de_flexi_n__c'},
-                {text: 'Flexural modulus', value: ''},
-                {text: 'Color', value: 'Color__c'},
-                {text: 'Transformation method', value: 'Extrusion__r.Name'},
-                {text: 'Description', value: 'Description__c'},
-            ],
             headersPE: [
                 {text: '', value: 'htecnica', sortable: false },
-                {text: 'Maker', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Code', value: 'Name'},
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
                 {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Flow index', value: 'Indice_de_Fluidez_p__c'},
+                {text: 'Melt Flow Index', value: 'Indice_de_Fluidez_p__c'},
                 {text: 'Density', value: 'Densidad__c'},
                 {text: 'Description', value: 'Detalles_producto_web__c'},
-                {text: 'Transformation method', value: 'Extrusion__r.Name'},
+                {text: 'Manufacturing Process', value: 'Extrusion__r.Name'},
                 {text: 'Markets', value: 'Extrusion__r.Name'},
                 {text: 'Description', value: 'Description__c'},
             ],
             headersPP: [
                 {text: '', value: 'htecnica', sortable: false },
-                {text: 'Maker', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Code', value: 'Name'},
-                {text: 'Flow index', value: 'Indice_de_Fluidez_p__c'},
-                {text: 'Impacto IZOD', value: 'Impacto_IZOD__c'},
-                {text: 'Flexural modulus', value: 'Modulo_de_flexi_n__c'},
-                {text: 'Description', value: 'Detalles_producto_web__c'},
-                {text: 'Transformation method', value: 'Extrusion__r.Name'},
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Melt Flow Index', value: 'Indice_de_Fluidez_p__c'},
+                {text: 'IZOD Impact', value: 'Impacto_IZOD__c'},
+                {text: 'Flexural Modulus', value: 'Modulo_de_flexi_n__c'},
+                {text: 'Manufacturing Process', value: 'Extrusion__r.Name'},
                 {text: 'Markets', value: 'Extrusion__r.Name'},
                 {text: 'Description', value: 'Description__c'},
             ],
             headersEstirenicos: [
                 {text: '', value: 'htecnica', sortable: false },
-                {text: 'Maker', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Code', value: 'Name'},
-                {text: 'Flow index', value: 'Indice_de_Fluidez_p__c'},
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Melt Flow Index', value: 'Indice_de_Fluidez_p__c'},
                 {text: 'IZOD Impact', value: 'Impacto_IZOD__c'},
-                {text: 'Flexural modulus', value: 'Modulo_de_flexi_n__c'},
-                {text: 'Transformation method', value: 'Extrusion__r.Name'},
+                {text: 'Flexural Modulus', value: 'Modulo_de_flexi_n__c'},
+                {text: 'Manufacturing Process', value: 'Extrusion__r.Name'},
                 {text: 'Markets', value: 'Extrusion__r.Name'},
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersRotomoldeo: [
                 {text: '', value: 'htecnica', sortable: false },
-                {text: 'Maker', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Code', value: 'Name'},
-                {text: 'Flow index', value: 'Indice_de_Fluidez_p__c'},
-                {text: 'Base Resin', value: ''},
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Carrier', value: 'Carrier__c'},
                 {text: 'Color', value: 'Color__c'},
+                {text: 'Melt Flow Index', value: 'Indice_de_Fluidez_p__c'},
                 {text: 'Density', value: 'Densidad__c'},
+                {text: 'Base Resin', value: ''},
                 {text: 'Additive', value: 'Aditivo__c'},
+                {text: 'Manufacturing Process', value: 'Extrusion__r.Name'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
+            ],
+            headersMaster: [
+                {text: '', value: 'htecnica', sortable: false },
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Carrier', value: 'Carrier__c'},
+                {text: 'Color', value: 'Color__c'},
+                {text: 'Concentration', value: 'Concentraci_n__c'},
+                {text: 'Melt Flow Index', value: 'Indice_de_Fluidez_p__c'},
+                {text: 'Density', value: 'Densidad__c'},
+                {text: 'Base Resin', value: ''},
+                {text: 'Manufacturing Process', value: 'Extrusion__r.Name'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
+            ],
+            headersIng: [
+                {text: '', value: 'htecnica', sortable: false },
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Viscosity', value: 'Dureza_Shore__c'},
+                {text: 'Density', value: 'Densidad__c'},
+                {text: 'IZOD Impact', value: 'Impacto_IZOD_P__c'},
+                {text: 'Flexural modulus', value: 'Modulo_de_flexi_n__c'},
+                {text: 'Manufacturing Process', value: 'Extrusion__r.Name'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
+            ],
+            headersComPrecolor: [
+                {text: '', value: 'htecnica', sortable: false },
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Carrier', value: 'Carrier__c'},
+                {text: 'Melt Flow Index', value: 'Indice_de_Fluidez_p__c'},
+                {text: 'IZOD Impact', value: 'Impacto_IZOD_P__c'},
+                {text: 'Flexural modulus', value: 'Modulo_de_flexi_n__c'},
+                {text: 'Manufacturing Process', value: 'Extrusion__r.Name'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
+            ],
+            headersComCargados: [
+                {text: '', value: 'htecnica', sortable: false },
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Carrier', value: 'Carrier__c'},
+                {text: 'Concentration', value: 'Concentraci_n__c'},
+                {text: 'Melt Flow Index', value: 'Indice_de_Fluidez_p__c'},
+                {text: 'IZOD Impact', value: 'Impacto_IZOD_P__c'},
+                {text: 'Flexural modulus', value: 'Modulo_de_flexi_n__c'},
+                {text: 'Manufacturing Process', value: 'Extrusion__r.Name'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
+            ],
+            headersTermPlasticos: [
+                {text: '', value: 'htecnica', sortable: false },
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Hardness/Shore', value: 'Dureza_Shore__c'},
+                {text: 'Additive', value: ''},
+                {text: 'Color', value: 'Color__c'},
+                {text: 'Manufacturing Process', value: 'Extrusion__r.Name'},
                 {text: 'Markets', value: ''},
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersPVC: [
                 {text: '', value: 'htecnica', sortable: false },
-                {text: 'Maker', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Code', value: 'Name'},
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
                 {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Flow Index', value: 'Indice_de_Fluidez_p__c'},
+                {text: 'Hardness/Shore', value: 'Dureza_Shore__c'},
+                {text: 'Melt Flow Index', value: 'Indice_de_Fluidez_p__c'},
                 {text: 'Density', value: 'Densidad__c'},
-                {text: 'Transformation Method', value: 'Aditivo__c'},
+                {text: 'Manufacturing Process', value: 'Aditivo__c'},
                 {text: 'Markets', value: ''},
-                {text: 'Hardness', value: 'Dureza_Shore__c'},
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
-            headersIng: [
+            headersAditivos:[
                 {text: '', value: 'htecnica', sortable: false },
-                {text: 'Maker', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Code', value: 'Name'},
-                {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'IZOD Impact', value: 'Impacto_IZOD_P__c'},
-                {text: 'Flexural modulus', value: 'Modulo_de_flexi_n__c'},
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Carrier', value: 'Carrier__c'},
                 {text: 'Density', value: 'Densidad__c'},
-                {text: 'Transformation Method', value: 'Aditivo__c'},
-                {text: 'Markets', value: ''},
-                {text: 'Viscosidad', value: 'Dureza_Shore__c'},
-                {text: 'Description', value: 'Detalles_producto_web__c'},
-            ],
-            headersMaster: [
-                {text: '', value: 'htecnica', sortable: false },
-                {text: 'Maker', value: 'Proveedor_Pweb__r.Name'},
-                {text: 'Code', value: 'Name'},
-                {text: 'Flow index', value: 'Indice_de_Fluidez_p__c'},
-                {text: 'Base Resin', value: ''},
-                {text: 'Color', value: 'Color__c'},
                 {text: 'Concentration', value: 'Concentraci_n__c'},
-                {text: 'Density', value: 'Densidad__c'},
+                {text: 'Manufacturing Process', value: 'Aditivo__c'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
+            headersCalcio:[
+                {text: '', value: 'htecnica', sortable: false },
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Carrier', value: 'Carrier__c'},
+                {text: 'Concentration', value: 'Concentraci_n__c'},
+                {text: 'Additive', value: 'Aditivo__c'},
+                {text: 'Manufacturing Process', value: 'Aditivo__c'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
+            ],
+            headersBioplasticos:[
+                {text: '', value: 'htecnica', sortable: false },
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Carrier', value: 'Carrier__c'},
+                {text: 'Concentration', value: 'Concentraci_n__c'},
+                {text: 'Melt Flow Index', value: 'Indice_de_Fluidez_p__c'},
+                {text: 'Density', value: 'Densidad__c'},
+                {text: 'Manufacturing Process', value: 'Aditivo__c'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
+            ],
+            headersHules:[
+                {text: '', value: 'htecnica', sortable: false },
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Particle Size', value: ''},
+                {text: 'Treatment ', value: 'Concentraci_n__c'},
+                {text: 'Manufacturing Process', value: 'Aditivo__c'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
+            ],
+            headersPolvo:[
+                {text: '', value: 'htecnica', sortable: false },
+                {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
+                {text: 'Product Name', value: 'Name'},
+                {text: 'Particle Size', value: ''},
+                {text: 'Manufacturing Process', value: 'Aditivo__c'},
+                {text: 'Markets', value: ''},
+                {text: 'Description', value: 'Detalles_producto_web__c'},
+            ],
+            
             search: ''
         }
     },
@@ -530,26 +858,36 @@ export default {
             'windowHeight',
             'windowSize',
             'pageSearchProducts',
+
             'tablePE',
             'tablePP',
-            'tableEstirenicos', 
-            'tablePVC', 
-            'tableCompuestosprecolor',
+            'tableEstirenicos',
             'tableRotomoldeo',
-            'tablePVC',
-            'tableIngenieria',
             'tableMasterbatch',
+            'tableIngenieria',
+            'tableCompuestosprecolor',
+            'tableCompuestoscargados',
+            'tableTermoplasticos',
+            'tablePVC',
+            'tableAditivos',
+            'tableCalcio',
+            'tableBioplasticos',
+            'tableHules',
+            'tablePolvoC',
+
             'valMercado',
             'valFabricante',
             'valProducto',
             'valMTransformacion',
             'showMsgProd'
-        ])
+        ]),
+        ...mapActions(['cleanTags'])
     },
     methods: {
         closeDialog(){
             this.$store.commit('StateAssign', {showMsgProd: false})
-        }
+        },
+
     }
 }
 </script>

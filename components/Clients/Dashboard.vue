@@ -10,12 +10,14 @@
                 <v-row justify="center" class="mb-10">
                     <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                         <v-card class="border-option">
-                            <div class="d-flex justify-start pa-2 mt-2">
-                                <img src="../../static/dashboard/perfil.png" height="27" />
-                                <p class=" ml-2 font-size-22 font-weight-bold">Perfil</p>
-                            </div>
-                            <v-divider class="mx-2"></v-divider>
-                            <p class="font-size-18 pa-2">Información general de la empresa, datos fiscales.</p>
+                            <nuxt-link to="/client/perfil" class="decoration-none">
+                                <div class="d-flex justify-start pa-2 mt-2">
+                                    <img src="../../static/dashboard/perfil.png" height="27" />
+                                    <p class=" ml-2 font-size-22 font-weight-bold">Perfil</p>
+                                </div>
+                                <v-divider class="mx-2"></v-divider>
+                                <p class="font-size-18 pa-2">Información general de la empresa, datos fiscales.</p>
+                            </nuxt-link>
                         </v-card>
                     </v-col>
                     <v-col cols="12" lg="4" md="4" sm="12" xs="12">

@@ -24,7 +24,7 @@
                                         :src="pageHome.linkVideo" v-if="windowSize < 1129">
                                     </iframe>-->
                                     <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" v-if="windowSize < 1129"
-                                        src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                                        src="https://www.youtube.com/embed/lrtRCCgqYOQ?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                                     </iframe>
 
                                     <p class="text-body-all my-5 text-left">
@@ -43,7 +43,7 @@
                                 <v-col md="6" sm="12" xs="5" class="" align="center" v-if="windowSize > 1129">
                                     <!--<v-img src="./video.png" contain max-height="350" max-width="350"></v-img>-->
                                     <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
-                                        src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                                        src="https://www.youtube.com/embed/lrtRCCgqYOQ?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                                     </iframe>
                                     <!--<iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
                                         :src="pageHome.linkVideo">
@@ -62,18 +62,90 @@
                 <h1 class="font-archivo font-size-40 font-weight-bold text-center my-10">{{ $t('home.titledestacados') }}</h1>
                 <!--<h1 class="font-archivo font-size-40 font-weight-bold text-center my-10">{{ pageHome.featured.title }}</h1>-->
                 <v-row>
-                    <v-col xl="3" md="3" sm="12" xs="12" class="des-1" v-if="windowSize > 1129">
+                    <!--des-1-->
+                    <v-col xl="3" md="3" sm="12" xs="12" v-if="windowSize > 1129" class="pa-0">
+                        <v-hover v-slot="{ hover }" class="des-1">
+                            <v-card class="shadow-out">
+                                <v-img src="" style="height:307px" alt="pruebas">
+                                    <v-expand-transition class="size-box" style="height:100%;">
+                                        
+                                        <div v-if="hover" class="transition-fast-in-fast-out bg-color-hover" style="height: 100%;">
+                                            <div class="bg-color-hover pa-5">
+                                                <h4 class="font-size-20 white--text text-img">Masterbatch</h4>
+                                                <p class="white--text mt-1">Productos que dan vida y personalidad a tus marcas.  Conoce nuestra amplia variedad de concentrados de color y efectos especiales.</p>
+                                                <!--<p class="white--text text-right">...Ver mas</p>-->
+                                            </div>
+                                        </div>
+                                    <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                    </v-expand-transition>
+                                </v-img>
+                            </v-card>
+                        </v-hover>
                     </v-col>
-                    <v-col xl="3" md="3" sm="12" xs="12" class="des-2" v-if="windowSize > 1129">
+                    <!--des-2-->
+                    <v-col xl="3" md="3" sm="12" xs="12" v-if="windowSize > 1129" class="pa-0">
+                        <v-hover v-slot="{ hover }" class="des-2">
+                            <v-card class="shadow-out">
+                                <v-img src="" style="height:307px" alt="pruebas">
+                                    <v-expand-transition class="size-box" style="height:100%;">
+                                        
+                                        <div v-if="hover" class="transition-fast-in-fast-out bg-color-hover size-box" style="height: 100%;">
+                                            <div class="bg-color-hover pa-5">
+                                                <h4 class="font-size-20 white--text text-img">Compuestos</h4>
+                                                <p class="white--text mt-1">Resinas personalizadas de alta calidad, y con excelentes propiedades mecánicas, químicas, eléctricas y térmicas</p>
+                                                <!--<p class="white--text text-right">...Ver mas</p>-->
+                                            </div>
+                                        </div>
+                                    <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                    </v-expand-transition>
+                                </v-img>
+                            </v-card>
+                        </v-hover>
                     </v-col>
-                    <v-col xl="3" md="3" sm="12" xs="12" class="des-3 px-10">
-                        <div class="" style="height: 100%;">
-                            <h4 class="font-size-20 white--text text-img ">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</h4>
-                            <p class="white--text mt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel accumsan...</p>
+                    <v-col xl="3" md="3" sm="12" xs="12" class="pa-0">
+                        <v-hover v-slot="{ hover }" class="des-3">
+                            <v-card class="shadow-out">
+                                <v-img src="" style="height:307px" alt="pruebas">
+                                    <v-expand-transition class="size-box" style="height:100%;">
+                                        
+                                        <div v-if="hover" class="transition-fast-in-fast-out bg-color-hover size-box" style="height: 100%;">
+                                            <div class="bg-color-hover pa-5">
+                                                <h4 class="font-size-20 white--text text-img">Bioplásticos</h4>
+                                                <p class="white--text mt-1">Resinas y compuestos biodegradables que te ofrecen innovación, calidad, eficiencia y protección del medio ambiente.</p>
+                                                <!--<p class="white--text text-right">...Ver mas</p>-->
+                                            </div>
+                                        </div>
+                                    <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                    </v-expand-transition>
+                                </v-img>
+                            </v-card>
+                        </v-hover>
+                        <!--<div class="" style="height: 100%;">
+                            <h4 class="font-size-20 white--text text-img ">Bioplásticos</h4>
+                            <p class="white--text mt-1"> Resinas y compuestos biodegradables que te ofrecen innovación, calidad, eficiencia y protección del medio ambiente.</p>
                             <p class="white--text text-right">...Ver mas</p>
-                        </div>
+                        </div>-->
                     </v-col>
-                    <v-col xl="3" md="3" sm="12" xs="12" class="des-4" v-if="windowSize > 1129">
+                    <v-col xl="3" md="3" sm="12" xs="12" v-if="windowSize > 1129" class="pa-0">
+                        <v-hover v-slot="{ hover }" class="des-4">
+                            <v-card class="shadow-out">
+                                <v-img src="" style="height:307px" alt="pruebas">
+                                    <v-expand-transition class="size-box" style="height:100%;">
+                                        
+                                        <div v-if="hover" class="transition-fast-in-fast-out bg-color-hover size-box" style="height: 100%;">
+                                            <div class="bg-color-hover pa-5">
+                                                <h4 class="font-size-20 white--text text-img">Polietileno </h4>
+                                                <p class="white--text mt-1">Distribuimos resinas de alta calidad y eficiencia.  Somos representantes de las mas grandes petroquímicas a nivel internacional</p>
+                                                <!--<nuxt-link to="/products/1" class="decoration-none">
+                                                    <p class="white--text text-right">...Ver mas</p>
+                                                </nuxt-link>-->
+                                            </div>
+                                        </div>
+                                    <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                    </v-expand-transition>
+                                </v-img>
+                            </v-card>
+                        </v-hover>
                     </v-col>
                 </v-row>
                 <div class="d-flex justify-center my-10">
@@ -235,7 +307,7 @@
                 <v-carousel :show-arrows="false" hide-delimiter-background class="my-10" height="600">
                     <h1 class="font-archivo font-size-40 font-weight-bold white--text text-center my-10">{{ $t('home.titletestimonials') }}</h1>
                     <!--<h1 class="font-archivo font-size-40 font-weight-bold white--text text-center my-10">{{ pageHome.txtTestimonials }}</h1>-->
-                    <v-carousel-item v-for="(item,i) in items" :key="i" >
+                    <v-carousel-item v-for="(item,i) in 1" :key="i" >
                         
                         <v-row justify="center" class="mx-5" v-if="windowSize > 1129">
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12" align="center" align-self="center">
@@ -511,12 +583,12 @@
                 <v-row justify="center">
                     <v-col cols="12" xl="9">
                         <v-row justify="center">
-                            <v-col cols="12" align="center">
+                            <v-col cols="12" md="5" lg="5" align="center">
                                 <v-sheet class="my-10 sections" max-width="1600" >
                                     <v-slide-group v-model="model" class="py-4 px-2 " center-active show-arrows>
                                         <v-slide-item v-for="(item, index) in blogs" :key="index">
                                             <!--max-width="325" max-height="390"-->
-                                            <nuxt-link :to="`/blogs/${index+1}`" class="decoration-none">
+                                            <nuxt-link :to="`/blogs/1`" class="decoration-none mx-auto">
                                                 <v-card class="card-blog shadow-out" :class="{'ma-5': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
                                                     <img :src="item.img" style="width: 100%" alt="pruebas"/>
                                                     <v-card-title>{{item.title}}</v-card-title>
@@ -536,7 +608,7 @@
 
                 <div class="d-flex justify-center mb-16">
                     <nuxt-link to="/blogs" class="decoration-none">
-                        <v-btn rounded class="rounded-lg subtitle-1 px-10 py-5 white--text text-none default-color">{{$t('home.btnblog')}}</v-btn>
+                        <v-btn rounded class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color">{{$t('home.btnblog')}}</v-btn>
                         <!--<v-btn rounded class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color">{{ pageHome.blog.txtBtn }}</v-btn>-->
                     </nuxt-link>
                 </div>
@@ -591,14 +663,14 @@ export default {
             model: null,
             blogs: [
                 {img: require('../../static/blog-productos.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
-                {img: require('../../static/blog-mercados.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
+                /*{img: require('../../static/blog-mercados.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-tendencias.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-polnac.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
 
                 {img: require('../../static/blog-productos.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-mercados.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-tendencias.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
-                {img: require('../../static/blog-polnac.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
+                {img: require('../../static/blog-polnac.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },*/
             ],
             productos: [
                 {img: require('../../static/plasticos.png'), imgH: require('../../static/h-plasticos.png')},
@@ -657,7 +729,7 @@ export default {
     width: 600px;
 }
 .des-3{
-    background-image: linear-gradient(rgba(119, 61, 189, 0.9), rgba(119, 61, 189, 0.90)), url('../../static/destacados-3.png');
+    background-image: url('../../static/destacados-3.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -740,5 +812,13 @@ export default {
 }
 .shadow-out{
     box-shadow: none !important;
+}
+.size-box{
+    height: 300px;
+    width: 100%;
+}
+
+.bg-color-hover{
+    background-color: rgba(119, 61, 189, 0.6);
 }
 </style>

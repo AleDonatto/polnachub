@@ -102,7 +102,7 @@
                                 <nuxt-link to="/laboratory" class="text-decoration-none">
                                     <v-btn class="rounded-lg text-none d-flex justify-space-between py-5" block outlined color="#19D3C5">
                                         <!--<span class="black--text">{{pageServices.txtBtnLaboratory}}</span>-->
-                                        <span class="black--text">test</span>
+                                        <span class="black--text">Ver pruebas de Laboratorio</span>
                                         <v-icon right class="black--text">
                                             mdi-chevron-right
                                         </v-icon>

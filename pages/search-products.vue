@@ -10,6 +10,9 @@ import { mapState } from 'vuex'
 
 export default {
     name: 'SearchProducts',
+    head: {
+
+    },
     data() {
         return {
 
@@ -21,12 +24,28 @@ export default {
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
-    },
-    created() {
-        if(this.credentials === null){
+
+        if(this.pageSearchProducts === null || this.lang !== 'esp'){
+            this.$store.dispatch('getPageSearchProducts')
+        }
+
+        setTimeout(() => {
             this.$store.dispatch('getCredentialsOther')
             this.$store.dispatch('getCredentials')
-        }
+        }, 5000);
+
+        /*if(this.credentials === null){
+            setTimeout(() => {
+                this.$store.dispatch('getCredentialsOther')
+                this.$store.dispatch('getCredentials')
+            }, 5000);
+        }*/
+    },
+    created() {
+        /*if(this.credentials === null){
+            this.$store.dispatch('getCredentialsOther')
+            this.$store.dispatch('getCredentials')
+        }*/
     },
     methods: {
         Resize(){
@@ -35,7 +54,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['credentials'])
+        ...mapState(['credentials', 'pageSearchProducts', 'lang'])
     }
 
 }

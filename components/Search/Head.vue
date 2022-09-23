@@ -50,29 +50,31 @@
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Tipo de resina" rounded solo v-model="producto"
-                        :items="pProducto.records" item-text="Name" item-value="Name" name="tResina" @change="consProducts(producto)"></v-select>
+                        :items="pProducto.records" item-text="Name" item-value="Name" name="tResina"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Fabricante" rounded solo v-model="fabricante"
-                        :items="pFabricante.records" item-text="Name" item-value="Name" @change="consFabricante(fabricante)"></v-select>
+                        :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <v-select placeholder="Mercado" rounded solo v-model="mercado"
-                        :items="pMercado.records" item-text="Name" item-value="Name" @change="consMercado(mercado)"></v-select>
+                        :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
-                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="mb-16">
+                    <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="">
                         <v-select placeholder="Método de Transformación" rounded solo v-model="mTransformacion"
-                        :items="pMetTransformacion.records" item-text="Name" item-value="Name" @change="consMTransformacion(mTransformacion)"></v-select>
+                        :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                 </v-row>
                 <v-row>
                     <v-col cols="6">
-                        <v-btn color='#19d3c5' outlined class="text-none text-none" block>
+                        <v-btn rounded color='#19d3c5' outlined class="text-none text-none" block @click="cleanFilters">
                             <span class="black--text">Cancelar</span>
                         </v-btn>
                     </v-col>
-                    <v-col cols="6" class="mb-16">
-                        <v-btn rounded color="#19d3c5" class="black--text text-none" block>Aplicar</v-btn>
+                    <v-col cols="6" class="">
+                        <v-btn rounded color="#19d3c5" class="black--text text-none" block @click="searchProducts({producto, fabricante, mercado, mTransformacion})">
+                            Aplicar
+                        </v-btn>
                     </v-col>
                 </v-row>
             </v-container>

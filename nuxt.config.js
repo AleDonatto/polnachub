@@ -81,11 +81,15 @@ export default {
       secure: false
     },
     "/information": {
-      target: 'https://polnac--bxt01.my.salesforce.com/',
+      target: 'https://polnac--bxt01.sandbox.my.salesforce.com/',
       pathRewrite: {'^/information': '/'},
       secure: false
     },
-    "/strapi" : 'http://localhost:1337',
+    "/strapi" : {
+      target: 'http://localhost:1337/',
+      pathRewrite: {'^/strapi': '/'},
+      secure: false 
+    } 
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -109,6 +113,10 @@ export default {
 
   markdownit: {
     rutime: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

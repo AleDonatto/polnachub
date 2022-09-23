@@ -158,8 +158,9 @@
                                     </div>
                                 </v-menu>
                             </v-tab>
-                            <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
-                            @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>
+                            <!--<v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
+                            @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>-->
+                            <v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>
                             <v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog">{{ $t('appbar.login') }}</v-btn>
                         </v-tabs>
                     </v-col>
@@ -224,19 +225,19 @@
                         <v-list-item-title class="text-none">Grupo Polnac</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/polnack-wiki">
+                <v-list-item link to="/polnac-wiki">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Polnac Wiki</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link >
+                <v-list-item link>
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Colaboradores</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link >
+                <v-list-item link to="/work-at-polnac">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Trabaja con nosotrso</v-list-item-title>  
+                        <v-list-item-title class="text-none">Trabaja con nosotros</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link to="/search-products">
@@ -279,7 +280,7 @@
                         <v-list-item-title class="text-none">Contenedores</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link >
+                <v-list-item link to="/innovation">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Innovación</v-list-item-title>  
                     </v-list-item-content>
@@ -289,42 +290,42 @@
                         <v-list-item-title class="text-none">Investigacion & Desarrollo</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link >
+                <v-list-item link to="/laboratory">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Laboratorio</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <v-list-item link to="/polnac-blue">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">POLNAC Blue</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link >
+                <v-list-item link to="/market">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Mercados</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link >
+                <v-list-item link to="/blogs">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Blog</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link >
+                <v-list-item link to="/contact">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Contacto</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <v-list-item link to="/frequently-questions">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Pregunas frecuentes</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <v-list-item link to="/branch-ofices">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Sucursales</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <v-list-item link to="/contact">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Contáctanos</v-list-item-title>  
                     </v-list-item-content>
@@ -340,8 +341,7 @@
                                     <!--<select title="lang" name="lang-mb" v-model="$i18n.locale" @change="() => {setLanguaje($i18n.locale)}"  class="lang-border px-5 py-2">
                                         <option class="ma-5 pa-5" v-for="lang in $i18n.locales" :key="lang.code" :value="lang.code">{{ lang.name }}</option>
                                     </select>-->
-                                    <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
-                                    @change="() => {setLanguaje($i18n.locale)}" dense class="select-mb text-none my-auto"></v-select>
+                                    <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="langModel" dense class="select-mb text-none my-auto"></v-select>
                                 </v-col>
                             </v-row>
                         </v-list-item-title>  
@@ -350,10 +350,10 @@
                 <v-list-item>
                     <v-list-item-content> 
                         <v-list-item-title>
-                            <div class="d-flex justify-space-between">
+                            <!--div class="d-flex justify-space-between">
                                 <v-btn rounded color="#19D3C5" class="text-none px-5">Acceder</v-btn>
                                 <v-btn rounded outlined color="#19D3C5" class="text-none px-5"><span class="black--text">Registro</span></v-btn>
-                            </div>
+                            </div>-->
                         </v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
@@ -429,6 +429,7 @@ export default {
                 {text: 'Colaborador', img: require('../static/login/colaborador.png')},
             ],
             selected: null,
+            langModel: 'ESP'
         }
     },
     computed: {

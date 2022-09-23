@@ -56,7 +56,7 @@
                     <v-col cols="12" class="my-15" align="center">
                         <!--<v-img src="/aboutus/video.png" contain max-height="550"></v-img>-->
                         <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '880': '395' " :height="windowSize > 1129 ? '480' : '220'" type="text/html" 
-                        src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                        src="https://www.youtube.com/embed/lrtRCCgqYOQ?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                         </iframe>
                         <!--<iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '880': '395' " :height="windowSize > 1129 ? '480' : '220'" type="text/html" 
                         :src="pageAboutUs.linkVideo">
@@ -333,7 +333,7 @@
                                     <!--<div class="white--text text-body-all" v-html="$md.render( pageAboutUs.work.description )"></div>-->
                                     <nuxt-link to="/work-at-polnac" class="decoration-none">
                                         <v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
-                                            Ver vacantes
+                                            Ver mas
                                         </v-btn>
                                         <!--<v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
                                             {{pageAboutUs.work.txtBtn}}

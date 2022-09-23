@@ -27,7 +27,7 @@ export default {
 
     async getCredentialsOther({commit, dispatch, state}){
 
-        const params = new URLSearchParams();
+        /*const params = new URLSearchParams();
         params.append('username', state.userSalesforce.username)
         params.append('password', state.userSalesforce.password)
         params.append('grant_type', state.userSalesforce.grant_type)
@@ -48,7 +48,7 @@ export default {
         })
         .catch( err => {
             console.log('getToken(): ' + err)
-        })
+        })*/
     }, 
 
     async getProducto({commit, state}){
@@ -118,6 +118,8 @@ export default {
         commit('StateAssign', {valMercado: data.mercado})
         commit('StateAssign', {valMTransformacion: data.mTransformacion})
         commit('StateAssign', {valFabricante: data.fabricante})
+
+        dispatch('cleanTables')
 
         if(data.producto !== '' && data.mercado === '' && data.mTransformacion === '' && data.fabricante === ''){
             dispatch('consProducts', data.producto)
@@ -622,7 +624,6 @@ export default {
 
     createtables({commit, dispatch, state}){
         const products = state.tablePruebas.records
-
         //console.log(products.length)
 
         products.map(item => {
@@ -630,84 +631,84 @@ export default {
             let exists = false
             
             //item.Familia_de_productos__r
-            if(item.Grupo__r !== null && item.Activo_en_web__c === true){
+            if(item.Grupos__r !== null && item.Activo_en_web__c === true){
                 //console.log(item)
-                switch (item.Grupo__r.Name) {
+                switch (item.Grupos__r.Name) {
                     case 'Polyethylene':
                         //console.log('PE')
-                        exists = state.tablePE.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tablePE.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tablePE, item)
                             commit('StateAssign', {tablePE: aux})
-                        }
+                        //}
                         break;
                     case 'Polypropylene': 
                         //console.log('PP')
-                        exists = state.tablePP.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tablePP.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tablePP,item)
                             commit('StateAssign', {tablePP: aux})
-                        }
+                        //}
                         break;
                     case 'Styrenics': 
                         //console.log('Estirénicos')
-                        exists = state.tableEstirenicos.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableEstirenicos.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...tableEstirenicos, item)
                             commit('StateAssign', {tableEstirenicos: aux})
-                        }
+                        //}
                         break;
                     case 'Natural Rotomolding Compounds' || 'Rotomolding compounds colors' || 'Black Rotomolding Compounds' || 'Specialty Rotomolding Compounds' || 'Rotomolding compounds pellets' || 'Rotomolding compounds SM' : 
                         //console.log('rotomoldeo')
-                        exists = state.tableRotomoldeo.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableRotomoldeo.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableRotomoldeo, item)
                             commit('StateAssign', {tableRotomoldeo: aux})
-                        }
+                        //}
                         break;
                     case 'MasterBatch' || 'Masterbatch Colors' || 'Masterbatch Colors SM' || 'Masterbatch Basic' || 'Masterbatch Basic SM' || 'Specialty Masterbatch': 
                         //console.log('masterbatch')
-                        exists = state.tableMasterbatch.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableMasterbatch.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableMasterbatch, item)
                             commit('StateAssign', {tableMasterbatch: aux})
-                        }
+                        //}
                         break;
                     case 'Engineering Plastics': 
                         //console.log('ingenieria')
-                        exists = state.tableIngenieria.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableIngenieria.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableIngenieria, item)
                             commit('StateAssign', {tableIngenieria: aux})
-                        }
+                        //}
                         break;
                     case 'Compuestos' || 'Precolor Poliolefins Compounds' ||
                     'Precolor additives Compounds' || 'Precolor Styrenics Compounds' 
                     || 'Precolor Specialties Compounds' || 'Precolor Poliolefins SM' 
-                    || 'Precolor Styrenics SM' || 'Precolor Specialties SM' : 
+                    || 'Precolor Styrenics SM' || 'Precolor Specialties SM': 
                         //console.log('Precolor Specialties')
-                        exists = state.tableCompuestosprecolor.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableCompuestosprecolor.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableCompuestosprecolor, item)
                             commit('StateAssign', {tableCompuestosprecolor: aux})
-                        }
+                        //}
                         break;
                     case 'Blends' || 'Filled Poliolefins Compounds' || 'Filled Styrenics Compounds' ||
                     'Filled Specialties Compounds' || 'Filled Poliolefins SM' || 'Filled Styrenics SM' || 'Filled Specialties SM': 
                         //console.log('cargados')
-                        exists = state.tableCompuestoscargados.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableCompuestoscargados.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableCompuestoscargados ,item)
                             commit('StateAssign', {tableCompuestoscargados: aux})
-                        }
+                        //}
                         break;
                     case 'Thermoset Elastomers':
                         //console.log('termoplasticos') 
-                        exists = state.tableTermoplasticos.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableTermoplasticos.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableTermoplasticos, item)
                             commit('StateAssign', {tableTermoplasticos: aux})
-                        }
+                        //}
                         break;
                     case 'PVC' || 'Rigid PVC' || 'Semi-Rigid PVC' || 'Flexible PVC': 
                         //console.log('pvc')
@@ -734,7 +735,7 @@ export default {
                         }
                         break;
                     case 'Bioplastics': 
-                        console.log('bioplasticos')
+                        //console.log('bioplasticos')
                         exists = state.tableBioplasticos.some(e => e.Name === item.Name)
                         if(!exists){
                             aux.push(...state.tableBioplasticos, item)
@@ -743,7 +744,7 @@ export default {
                         //state.tableBioplasticos.push(...state.tableBioplasticos, item)
                         break;
                     case 'Hules' || 'Thermoset Elastomers': 
-                        console.log('hules')
+                        //console.log('hules')
                         exists = state.tableHules.some(e => e.Name === item.Name)
                         if(!exists){
                             aux.push(...state.tableHules, item)
@@ -755,4 +756,30 @@ export default {
             }
         })
     },
+
+    cleanTables({commit, dispatch, state}){
+        commit('StateAssign', {tablePE: []})
+        commit('StateAssign', {tablePP: []})
+        commit('StateAssign', {tableEstirenicos: []})
+        commit('StateAssign', {tableRotomoldeo: []})
+        commit('StateAssign', {tableMasterbatch: []})
+        commit('StateAssign', {tableIngenieria: []})
+        commit('StateAssign', {tableCompuestosprecolor: []})
+        commit('StateAssign', {tableCompuestoscargados: []})
+        commit('StateAssign', {tableTermoplasticos: []})
+        commit('StateAssign', {tablePVC: []})
+        commit('StateAssign', {tableAditivos: []})
+        commit('StateAssign', {tableCalcio: []})
+        commit('StateAssign', {tableBioplasticos: []})
+        commit('StateAssign', {tableHules: []})
+        commit('StateAssign', {tablePolvoC: []})
+
+    },
+
+    cleanTags({commit, dispatch, state}){
+        commit('StateAssign', {valProducto: ''})
+        commit('StateAssign', {valFabricante: ''})
+        commit('StateAssign', {valMercado: ''})
+        commit('StateAssign', {valMTransformacion: ''})
+    }
 } 
