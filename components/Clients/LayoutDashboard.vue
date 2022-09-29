@@ -13,7 +13,7 @@
                         <v-tab class="text-none" to="/client/contacto">Contactos</v-tab>
                         <v-tab class="text-none" to="/client/credito">Crédito</v-tab>
                         <v-tab class="text-none" to="/client/destinatarios">Destinatarios</v-tab>
-                        <v-tab class="text-none" to="/client/cuenta">Estados de cuenta</v-tab>
+                        <v-tab class="text-none" to="/client/cuentas">Estados de cuenta</v-tab>
                         <v-tab class="text-none" to="/client/pedidos">Pedidos</v-tab>
                         <v-tab class="text-none" to="/client/casos">Casos</v-tab>
                         <v-tab disabled class="text-none">Servicio a cliente</v-tab>
@@ -24,7 +24,6 @@
                 </v-col>
             </v-row>
         </v-container>
-        
     </div>
 </template>
 

@@ -117,7 +117,7 @@ export default {
         ]),
     },
     methods: {
-        ...mapActions(['consProducts', 'consFabricante','consMercado','consMTransformacion','searchProducts']),
+        ...mapActions(['searchProducts']),
         cleanFilters(){
             this.producto = ''
             this.fabricante = ''

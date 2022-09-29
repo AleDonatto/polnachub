@@ -27,7 +27,7 @@ export default {
 
     async getCredentialsOther({commit, dispatch, state}){
 
-        /*const params = new URLSearchParams();
+        const params = new URLSearchParams();
         params.append('username', state.userSalesforce.username)
         params.append('password', state.userSalesforce.password)
         params.append('grant_type', state.userSalesforce.grant_type)
@@ -48,7 +48,7 @@ export default {
         })
         .catch( err => {
             console.log('getToken(): ' + err)
-        })*/
+        })
     }, 
 
     async getProducto({commit, state}){
@@ -221,9 +221,10 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
-                dispatch('createtables')
             }
+            /*else{
+                dispatch('createtables')
+            }*/
         })
         .catch(err => {
             console.log(err.response)
@@ -249,9 +250,10 @@ export default {
             console.log(res.data)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
-                dispatch('createtables')
             }
+            /*else{
+                dispatch('createtables')
+            }*/
         })  
     },
     async consMercado({commit, dispatch, state}, mercado){
@@ -278,9 +280,9 @@ export default {
             commit('StateAssign', {tablePruebas: res.data})
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -310,9 +312,9 @@ export default {
             commit('StateAssign', {tablePruebas: res.data})
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -337,9 +339,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -368,9 +370,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -400,9 +402,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
         })
         .catch(err => {
             console.log(err.response)
@@ -428,9 +430,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -460,9 +462,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -491,9 +493,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -520,9 +522,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -548,9 +550,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -580,9 +582,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -612,9 +614,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }else{
+            }/*else{
                 dispatch('createtables')
-            }
+            }*/
             //dispatch('createtables')
         })
         .catch(err => {
@@ -748,7 +750,7 @@ export default {
                         exists = state.tableHules.some(e => e.Name === item.Name)
                         if(!exists){
                             aux.push(...state.tableHules, item)
-                            state.tableHules.push(...state.tableCalcio, aux)
+                            state.tableHules.push(...state.tableHules, aux)
                         }
                         //state.tableHules.push(...state.tableHules,item)
                         break;
@@ -758,8 +760,9 @@ export default {
     },
 
     cleanTables({commit, dispatch, state}){
-        commit('StateAssign', {tablePE: []})
-        commit('StateAssign', {tablePP: []})
+        commit('StateAssign', {tablePruebas: []})
+        //
+        /*commit('StateAssign', {tablePP: []})
         commit('StateAssign', {tableEstirenicos: []})
         commit('StateAssign', {tableRotomoldeo: []})
         commit('StateAssign', {tableMasterbatch: []})
@@ -772,7 +775,7 @@ export default {
         commit('StateAssign', {tableCalcio: []})
         commit('StateAssign', {tableBioplasticos: []})
         commit('StateAssign', {tableHules: []})
-        commit('StateAssign', {tablePolvoC: []})
+        commit('StateAssign', {tablePolvoC: []})*/
 
     },
 
@@ -781,5 +784,13 @@ export default {
         commit('StateAssign', {valFabricante: ''})
         commit('StateAssign', {valMercado: ''})
         commit('StateAssign', {valMTransformacion: ''})
+    },
+
+    addListCard({commit, dispatch, state}, data){
+        let aux = []
+        aux.push(...state.card, data)
+        commit('StateAssign', {card: aux})
+
+        console.log(this.state.card)
     }
 } 

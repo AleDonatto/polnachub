@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <ClientsEstadoCuentas/>
     </div>
 </template>
 

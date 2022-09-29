@@ -8,7 +8,7 @@
                 <h1 class="font-size-24">500,000,000.00 USD</h1>
             </v-col>
             <v-col cols="12">
-                <v-slider v-model="lineaCredito" color="#19D3C5" track-color="#19D3C5" class=""></v-slider>
+                <v-progress-linear v-model="lineaCredito" color="#19D3C5" height="25"></v-progress-linear>
             </v-col>
         </v-row>
         <v-row justify="center" class="">
@@ -19,7 +19,7 @@
                 <h1 class="font-size-24">500,000,000.00 USD</h1>
             </v-col>
             <v-col cols="12">
-                <v-slider v-model="creditoUser" color="#773DBD" track-color="#773DBD" class=""></v-slider>
+                <v-progress-linear v-model="creditoUser" color="#773DBD" height="25"></v-progress-linear>
             </v-col>
         </v-row>
         <v-row justify="center" class="mb-16">

@@ -161,7 +161,29 @@
                             <!--<v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
                             @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>-->
                             <v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>
-                            <v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog">{{ $t('appbar.login') }}</v-btn>
+                            <v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>
+                            <v-menu min-width="200px" rounded offset-y v-if="this.$route.path.includes('client')">
+                                <template v-slot:activator="{ on }">
+                                    <v-btn icon x-large v-on="on">
+                                        <v-avatar color="#773DBD" size="40">
+                                            <v-icon dark color="white">mdi-account</v-icon>
+                                        </v-avatar>
+                                    </v-btn>
+                                </template>
+                                <v-card elevation="10" class="">
+                                    <v-list-item-content class="justify-center">
+                                        <div class="mx-auto text-center">
+                                            <v-btn depressed rounded text to="/client/dashboard">Dashboard</v-btn>
+                                            <v-divider class="my-3"></v-divider>
+                                            <v-btn depressed rounded text to="/client/card">Lista de Compras</v-btn>
+                                            <v-divider class="my-3"></v-divider>
+                                            <v-btn depressed rounded text to="/client/account">Mi Cuenta</v-btn>
+                                            <v-divider class="my-3"></v-divider>
+                                            <v-btn depressed rounded text to="/">Cerrar Sesion</v-btn>
+                                        </div>
+                                    </v-list-item-content>
+                                </v-card>
+                            </v-menu>
                         </v-tabs>
                     </v-col>
                 </v-row>

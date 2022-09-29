@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+        <ClientsPedidosComponent />
+    </div>
 </template>
 
 <script>

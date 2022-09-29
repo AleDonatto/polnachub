@@ -92,6 +92,15 @@
     background-color: #1EC2B6 !important;
 }
 
+.white-color{
+    background-color: white;
+    border-radius: 20px !important;
+    border: #1EC2B6 1px solid !important;
+}
+.white-color:hover{
+    background-color: #1EC2B6 !important;
+}
+
 .primary-color-2{
     background-color: rgba(25, 211, 197, 0.3) !important;
 }

@@ -7,7 +7,6 @@ Vue.use(Vuex)
 
 export default () => new Vuex.Store({
     state: () => ({
-        message: 'pruebas de vuex',
         windowSize:null,
         windowHeight:null,
         lang: null,
@@ -46,24 +45,9 @@ export default () => new Vuex.Store({
         //tables products
         tablePruebas: [],
         showMsgProd: false,
-        //
-        tablePE: [],
-        tablePP: [],
-        tableEstirenicos: [],
-        tableRotomoldeo: [],
-        tableMasterbatch: [],
-        tableIngenieria: [],
-        tableCompuestosprecolor: [],
-        tableCompuestoscargados: [],
-        tableTermoplasticos: [],
-        tablePVC: [],
-        tableAditivos: [],
-        tableCalcio: [],
-        tableBioplasticos: [],
-        tableHules: [],
-        tablePolvoC: [],
         //polnac wiki-blog
-        showbanners: true
+        showbanners: true,
+        card: []
     }),
     actions,
     getters,
