@@ -84,6 +84,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import jsforce from 'jsforce'
 
 export default {
     data(){
@@ -95,14 +96,15 @@ export default {
         }
     },
     mounted() {
-        setTimeout(() => {
+        /*setTimeout(() => {
              if(this.credentials !== null){
                 this.$store.dispatch('getFabricante')
                 this.$store.dispatch('getMercado')
                 this.$store.dispatch('getMetodoTransformacion')
                 this.$store.dispatch('getProducto')
             }
-        }, 6000);
+        }, 6000);*/
+        this.clientLogin()
     },
     computed: {
         ...mapState([
@@ -124,6 +126,37 @@ export default {
             this.mercado = ''
             this.mTransformacion = ''
         },
+        clientLogin(){
+            const username = process.env.SALESFORCE_USER
+            const password = process.env.SALESFORCE_PASSWORD
+
+            var conn = new jsforce.Connection({
+                //loginUrl : 'https://test.salesforce.com',
+                oauth2 : {
+                    // you can change loginUrl to connect to sandbox or prerelease env.
+                    //loginUrl : 'https://test.salesforce.com/services/oauth2/token',
+                    //loginUrl : 'https://test.salesforce.com',
+                    clientId : process.env.SALESFORCE_CLIENT_ID,
+                    clientSecret : process.env.SALESFORCE_CLIENT_SECRET,
+                    //redirectUri : 'https://test.salesforce.com/'
+                }
+            });
+            conn.login(username, password, function(err, userInfo) {
+                if (err) { return console.error(err); }
+                // Now you can get the access token and instance URL information.
+                // Save them to establish connection next time.
+                console.log(conn.accessToken);
+                console.log(conn.instanceUrl);
+                // logged in user property
+                console.log("User ID: " + userInfo.id);
+                console.log("Org ID: " + userInfo.organizationId);
+                // ...
+            });
+            //conn.login(username, password);
+
+            
+            console.log(conn)
+        }
     }
 }
 </script>
