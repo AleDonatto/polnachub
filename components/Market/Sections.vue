@@ -1,15 +1,15 @@
 <template>
-    <!--<div v-if="pageMarkets === null">
+    <div v-if="pageMarkets === null">
         <v-sheet class="pa-3">
             <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
         </v-sheet>
-    </div>-->
-    <div>
+    </div>
+    <div v-else>
         <section>
             <v-container>
                 <v-row justify="center" class="my-16">
                     <v-col cols="12" xl="9">
-                        <v-row>
+                        <!--<v-row>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12">
                                 <nuxt-link to="/market/type/1" class="text-none decoration-none black--text">
                                     <v-img src="/market/consumo.png" contain max-height="240"></v-img>
@@ -184,6 +184,26 @@
                                     </p>
                                 </nuxt-link>
                             </v-col>
+                        </v-row>-->
+
+                        <v-row v-if="this.markets !== null ">
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" v-for="(item, index) in this.markets" :key="index">
+                                <nuxt-link :to="`/market/type/${item.id}`" class="text-none decoration-none black--text">
+                                    <!--<v-img src="/market/consumo.png" contain max-height="240"></v-img>-->
+                                    <v-img :src="basePathApiUrl + item.attributes.imgMiniarure.data.attributes.url" contain max-height="240"></v-img>
+                                    <div class="d-flex justify-start mt-2" style="max-width: 25vh;">
+                                        <img src="../../static/market/lconsumo.png" height="27" />
+                                        <!--<p class="font-archivo font-size-18 font-weight-bold ml-2">Consumo</p>-->
+                                        <p class="font-archivo font-size-18 font-weight-bold ml-2">{{item.attributes.nameMarket}}</p>
+                                    </div>
+                                    <!--<p class="body-1 text-truncate">
+                                        Un mercado dinámico el cual ha enriquecido inmensurablemente el día a día de todos los seres humanos. 
+                                        Abarca un sinfín de productos para uso cotidiano, por ejemplo: artículos para el hogar, oficina y escuela, mobiliario, decorativo, recreativo, comercial, entre otros.  
+                                        POLNAC cuenta con una incomparable gama de productos. Cualquier que sea la aplicación y/o requerimientos POLNAC te respalda. 
+                                    </p>-->
+                                    <p class="body-1 text-truncate">{{item.attributes.descriptionMin}}</p>
+                                </nuxt-link>
+                            </v-col>
                         </v-row>
                     </v-col>
                     
@@ -226,10 +246,22 @@ import { mapState } from 'vuex'
 
 export default {
     data() {
-        return {}
+        return {
+            markets: []
+        }
+    },
+    mounted() {
+        this.getMercados()
     },
     computed: {
-        ...mapState(['windowSize','windowHeigth','pageMarkets'])
+        ...mapState(['windowSize','windowHeigth','pageMarkets', 'basePathApiUrl'])
+    },
+    methods: {
+        async getMercados(){
+            const response = await this.$store.dispatch('getAllMarkets')
+            this.markets = response.data.slice(0,4)
+            //console.log(this.markets)
+        }
     }
 }
 </script>
@@ -244,13 +276,13 @@ export default {
     height: 480px;
 }
 
-.text-truncate {
+/*.text-truncate {
     line-height: 1.5rem;
     height: 3rem;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     content: '...' !important;
-}
+}*/
 
 
 </style>

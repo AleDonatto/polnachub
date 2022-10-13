@@ -8,35 +8,35 @@
                     </v-col>
                 </v-row>
 
-                <v-form ref="formContact" class="mb-16">
+                <v-form ref="formContact" class="mb-16" @submit.prevent="sendForm">
                     <v-row justify="center">
 
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo label="Nombres" class="rounded-xl"></v-text-field>
+                            <v-text-field outlined solo label="Nombres" class="rounded-xl" v-model="form.name" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Apellidos"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" label="Apellidos" v-model="form.lastname" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Cargo"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" label="Cargo" v-model="form.position" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Empresa"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" label="Empresa" v-model="form.company" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Correo Electronico"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" label="Correo Electronico" v-model="form.email" :rules="[rules.required, rules.emailRules]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Telefono"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" label="Telefono" v-model="form.phone" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-select outlined solo class="rounded-xl" label="Ubicación"></v-select>
+                            <v-text-field outlined solo class="rounded-xl" label="Ubicación" v-model="form.ubication" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-select outlined solo class="rounded-xl" label="Servicio que te interesa"></v-select>
+                            <v-select outlined solo class="rounded-xl" :items="servicios" item-text="name" item-value="name" label="Servicio que te interesa" v-model="form.serviceInterest" :rules="[rules.required]"></v-select>
                         </v-col>
                         <v-col cols="12" class="margin-botton-0">
-                            <v-textarea outlined solo class="rounded-xl text-area" label="Cuéntanos qué información necesitas consultar con nosotros."></v-textarea>
+                            <v-textarea outlined solo class="rounded-xl text-area" label="Cuéntanos qué información necesitas consultar con nosotros." v-model="form.message"></v-textarea>
                         </v-col>
                         <v-col cols="12" class="">
                             <v-checkbox
@@ -47,7 +47,7 @@
                             ></v-checkbox>
                         </v-col>
                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="mb-16">
-                            <v-btn color="#19D3C5" class="rounded-lg text-none py-6" block @click="dialog = !dialog">Enviar</v-btn>
+                            <v-btn color="#19D3C5" type="submit" class="rounded-lg text-none py-6" block>Enviar</v-btn>
                         </v-col>
 
                     </v-row>
@@ -91,6 +91,51 @@ export default {
     data() {
         return {
             dialog: false,
+            form: {
+                name: '',
+                lastname: '',
+                position: '',
+                company: '',
+                email: '',
+                phone: '',
+                ubication: '',
+                serviceInterest: '',
+                message: '',
+                sendDate: '' 
+            },
+            servicios: [
+                {name: 'Terminal Ferroviaria'},
+                {name: 'Almacenaje'},
+                {name: 'Transvase'},
+                {name: 'Ensacado'},
+                {name: 'Distribución'},
+                {name: 'Contenedores'},
+            ],
+            rules: {
+                required: (value) => !!value || "Required.",
+                min: (v) => v.length >= 8 || "Min 8 characters",
+                emailRules: v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            },
+        }
+    },
+    methods: {
+        async sendForm(){
+            if(this.$refs.formContact.validate()){
+                let date = new Date();
+                this.form.sendDate = date.toISOString()
+                const formData = {
+                    data: this.form
+                }
+
+                this.$axios.post('http://localhost:1337/api/contacto-servicios', formData)
+                .then(res => {
+                    this.dialog = !this.dialog
+                    this.$refs.form.reset()
+                })
+                .catch(err => {
+                    console.log(err.response)
+                })
+            }
         }
     }
 }

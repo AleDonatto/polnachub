@@ -25,15 +25,19 @@ export default () => new Vuex.Store({
         pageContact: null,
         pagePolnacBlue: null,
         pageAlliances: null,
-        basePathApiUrl: 'http://localhost:1337',
+        pageLaboratory: null,
+        pagePolnacWiki: null,
+        pageQuestions: null,
+        pageWork: null,
+        basePathApiUrl: process.env.BASE_URI_STRAPI,
         //salesfoce connection
-        userSalesforce: {
+        /*userSalesforce: {
             username: 'desatimx@polnac.com.bxt01',
             password: 'H1u2g3o435',
             grant_type: 'password',
             client_id: '3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh',
             client_secret: 'C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F'
-        },
+        }*/
         pFabricante: [],
         pMercado: [],
         pProducto: [],
@@ -44,6 +48,22 @@ export default () => new Vuex.Store({
         valProducto: null,
         //tables products
         tablePruebas: [],
+        tablePE: [],
+        tablePP: [],
+        tableEstirenicos: [],
+        tableRotomoldeo: [],
+        tableMasterbatch: [],
+        tableIngenieria: [],
+        tableCompuestosprecolor: [],
+        tableCompuestoscargados: [],
+        tableTermoplasticos: [],
+        tablePVC: [],
+        tableAditivos: [],
+        tableCalcio: [],
+        tableBioplasticos: [],
+        tableHules: [],
+        tablePolvoC: [],
+        //
         showMsgProd: false,
         //polnac wiki-blog
         showbanners: true,

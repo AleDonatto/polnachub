@@ -1,7 +1,13 @@
 <template>
-    <div>
+    <div v-if="pageQuestions === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>
+    <div v-else>
         <section v-if="windowSize > 1129">
             <v-container>
+
                 <v-row class="my-16">
                     <v-col cols="12" lg="4" md="4">
                         <v-row>
@@ -12,7 +18,8 @@
                                             <v-icon left>mdi-alert-circle-outline</v-icon>
                                         </v-col>
                                         <v-col cols="9">
-                                            <p class="text-left">Crédito</p>
+                                            <!--<p class="text-left">Crédito</p>-->
+                                            <p class="text-left">{{pageQuestions.txtCredit}}</p>
                                         </v-col>
                                         <v-col cols="1">
                                             <v-icon right>mdi-chevron-right</v-icon>
@@ -27,7 +34,8 @@
                                             <v-icon left>mdi-alert-circle-outline</v-icon>
                                         </v-col>
                                         <v-col cols="9">
-                                            <p class="text-left">Pedidos y entregas</p>
+                                            <!--<p class="text-left">Pedidos y entregas</p>-->
+                                            <p class="text-left">{{pageQuestions.txtOrders}}</p>
                                         </v-col>
                                         <v-col cols="1">
                                             <v-icon right>mdi-chevron-right</v-icon>
@@ -42,7 +50,8 @@
                                             <v-icon left>mdi-alert-circle-outline</v-icon>
                                         </v-col>
                                         <v-col cols="9">
-                                            <p class="text-left">Facturación</p>
+                                            <!--<p class="text-left">Facturación</p>-->
+                                            <p class="text-left">{{pageQuestions.txtbilling}}</p>
                                         </v-col>
                                         <v-col cols="1">
                                             <v-icon right>mdi-chevron-right</v-icon>
@@ -57,7 +66,8 @@
                                             <v-icon left>mdi-alert-circle-outline</v-icon>
                                         </v-col>
                                         <v-col cols="9">
-                                            <p class="text-left">Muestras y desarrollos</p>
+                                            <!--<p class="text-left">Muestras y desarrollos</p>-->
+                                            <p class="text-left">{{pageQuestions.txtsamples}}</p>
                                         </v-col>
                                         <v-col cols="1">
                                             <v-icon right>mdi-chevron-right</v-icon>
@@ -72,7 +82,8 @@
                                             <v-icon left>mdi-alert-circle-outline</v-icon>
                                         </v-col>
                                         <v-col cols="9">
-                                            <p class="text-left">Productos</p>
+                                            <!--<p class="text-left">Productos</p>-->
+                                            <p class="text-left">{{pageQuestions.txtproducts}}</p>
                                         </v-col>
                                         <v-col cols="1">
                                             <v-icon right>mdi-chevron-right</v-icon>
@@ -87,7 +98,8 @@
                                             <v-icon left>mdi-alert-circle-outline</v-icon>
                                         </v-col>
                                         <v-col cols="9">
-                                            <p class="text-left">Otros</p>
+                                            <!--<p class="text-left">Otros</p>-->
+                                            <p class="text-left">{{pageQuestions.txtothers}}</p>
                                         </v-col>
                                         <v-col cols="1">
                                             <v-icon right>mdi-chevron-right</v-icon>
@@ -100,7 +112,16 @@
 
                     <v-col cols="12" lg="8" md="8">
                         <v-expansion-panels v-model="tabs" multiple v-if="showOptions === 0">
-                            <v-expansion-panel class="my-2 rounded-xl">
+                            <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in pageQuestions.optionsCredit" :key="index=item.id">
+                                <v-expansion-panel-header class="font-weight-bold panel-color" >
+                                    {{item.title}}
+                                </v-expansion-panel-header>
+                                <v-expansion-panel-content class="mt-5 shadow-none">
+                                    <div v-html="item.content"></div>
+                                </v-expansion-panel-content>
+                            </v-expansion-panel>
+                            
+                            <!--<v-expansion-panel class="my-2 rounded-xl">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
                                     ¿Cómo tramito una línea de crédito?
                                 </v-expansion-panel-header>
@@ -198,11 +219,20 @@
                                 <v-expansion-panel-content class="mt-5">
                                     Cada semana los días lunes y viernes se envían los estados de cuenta.
                                 </v-expansion-panel-content>
-                            </v-expansion-panel>
+                            </v-expansion-panel>-->
                         </v-expansion-panels>
 
                         <v-expansion-panels v-model="tabs" multiple v-if="showOptions === 1">
-                            <v-expansion-panel class="my-2 rounded-xl">
+                            <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in pageQuestions.orders" :key="index+item.id">
+                                <v-expansion-panel-header class="font-weight-bold panel-color" >
+                                    {{item.title}}
+                                </v-expansion-panel-header>
+                                <v-expansion-panel-content class="mt-5 shadow-none">
+                                    <div v-html="item.content"></div>
+                                </v-expansion-panel-content>
+                            </v-expansion-panel>
+                            
+                            <!--<v-expansion-panel class="my-2 rounded-xl">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
                                     ¿Cómo puedo rastrear mis pedidos?
                                 </v-expansion-panel-header>
@@ -276,7 +306,7 @@
                                 <v-expansion-panel-content class="mt-5">
                                     SÍ, cada sucursal cuenta con stock de material.
                                 </v-expansion-panel-content>
-                            </v-expansion-panel>
+                            </v-expansion-panel>-->
                         </v-expansion-panels>
 
                         <v-expansion-panels v-model="tabs" multiple v-if="showOptions === 2">
@@ -1286,13 +1316,16 @@
             <v-container v-if="showbanners">
                 <v-row justify="center" >
                     <v-col cols="12" align="center" class="mt-16">
-                        <h1 class="white--text font-archivo font-size-40 font-weight-bold">¿No resolvimos tus dudas?</h1>
+                        <!--<h1 class="white--text font-archivo font-size-40 font-weight-bold">¿No resolvimos tus dudas?</h1>-->
+                        <h1 class="white--text font-archivo font-size-40 font-weight-bold">{{pageQuestions.contact.title}}</h1>
                     </v-col>                    
                     <v-col cols="12" lg="7" md="7" sm="12" xs="12" align="center">
-                        <p class="white--text font-size-20">Puedes enviarnos un mensaje por nuestros diferentes canales de comunicación</p>
+                        <!--<p class="white--text font-size-20">Puedes enviarnos un mensaje por nuestros diferentes canales de comunicación</p>-->
+                        <p class="white--text font-size-20" v-html="pageQuestions.contact.description"></p>
                     </v-col>
                     <v-col cols="12" lg="7" md="7" sm="12" xs="12" align="center" class="mb-10">
-                        <v-btn class="font-size-20 black--text px-10 py-6 body-1 text-none rounded-lg" color="#19D3C5">Escríbenos</v-btn>
+                        <!--<v-btn class="font-size-20 black--text px-10 py-6 body-1 text-none rounded-lg" color="#19D3C5">Escríbenos</v-btn>-->
+                        <v-btn class="font-size-20 black--text px-10 py-6 body-1 text-none rounded-lg" color="#19D3C5">{{pageQuestions.contact.txtBtn}}</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -1314,7 +1347,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight', 'showbanners'])
+        ...mapState(['windowSize', 'windowHeight', 'showbanners', 'pageQuestions', 'basePathApiUrl'])
     },
     methods: {
         backQuestions(){

@@ -33,14 +33,17 @@
               <nuxt-link to="/work-at-polnac" class="decoration-none">
                 <p class="white--text body-1">{{$t('appbar.trabajo')}}</p>
               </nuxt-link>
-              <nuxt-link to="/polnac-group" class="decoration-none white--text">
+              <!--<nuxt-link to="/polnac-group" class="decoration-none white--text">
                 <p class="white--text body-1">{{$t('appbar.grupoPolnac')}}</p>
-              </nuxt-link>
+              </nuxt-link>-->
+              <!--<nuxt-link to="/search-products" class="decoration-none">
+                <p class="white--text body-1">{{ $t('appbar.products') }}</p>
+              </nuxt-link>-->
             </v-col>
             <v-col cols="2" class="mt-10" v-if="windowSize > 1129">
-              <nuxt-link to="/search-products" class="decoration-none">
+              <!--<nuxt-link to="/search-products" class="decoration-none">
                 <p class="white--text body-1">{{ $t('appbar.products') }}</p>
-              </nuxt-link>
+              </nuxt-link>-->
               <nuxt-link to="/innovation" class="decoration-none">
                 <p class="white--text body-1">{{$t('appbar.innovation')}}</p>
               </nuxt-link>

@@ -1,13 +1,13 @@
 <template>
-    <!--<div v-if="pageAlliances === null">
+    <div v-if="pageAlliances === null">
         <v-sheet class="pa-3">
             <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
         </v-sheet>
-    </div>-->
-    <div>
+    </div>
+    <div v-else>
         <section class="mt-16">
             <v-container>
-                <v-row justify="center" class="my-10">
+                <!--<v-row justify="center" class="my-10">
                     <v-col class="my-10" cols="12" xl="5" lg="6" md="6" sm="12" xs="12" align-self="center" align="center" v-if="windowSize > 1129">
                         <v-img src="/alliances/idesa.png" contain max-width="350"></v-img>
                     </v-col>
@@ -112,15 +112,15 @@
                             termoplásticos y caucho sintético. Sus principales operaciones se encuentran en Tainan, Zhenjiang y Zhangzhou.
                         </p>
                     </v-col>
-                </v-row>
+                </v-row>-->
                 
-                <!--<v-row justify="center" class="my-10">
+                <v-row justify="center" class="my-10">
                     <div v-for="(item, index) in pageAlliances.companies" :key="index">
                         <v-col v-if=" (index + 1) % 2 === 0">
                             <v-row justify="center">
                                 <v-col class="my-10" cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="center" align="center">
                                     <v-img :src="basePathApiUrl + item.image.data.attributes.url" contain max-width="350" class="mt-5 mb-5" v-if="windowSize < 1129"></v-img>
-                                    <div class="text-body-all text-left" v-html="$md.render( item.description)"></div>
+                                    <div class="text-body-all text-left" v-html="item.description"></div>
                                 </v-col>
                                 <v-col class="my-10" cols="12" xl="5" lg="6" md="6" sm="12" xs="12" align-self="center" align="center" v-if="windowSize > 1129">
                                     <v-img :src="basePathApiUrl + item.image.data.attributes.url" contain max-width="350"></v-img>
@@ -134,16 +134,33 @@
                                 </v-col>
                                 <v-col class="my-10" cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="center" align="center">
                                     <v-img :src="basePathApiUrl + item.image.data.attributes.url" contain max-width="350" class="mt-5 mb-5" v-if="windowSize < 1129"></v-img>
-                                    <div class="text-body-all text-left" v-html="$md.render( item.description)"></div>
+                                    <div class="text-body-all text-left" v-html="item.description"></div>
                                 </v-col>
                             </v-row>
                         </v-col>
                     </div>
-                </v-row>-->
+                </v-row>
             </v-container>
         </section>
 
-        <Productos />
+        <section class="mt-16 bg-alliance-end" >
+            <v-container>
+                <v-row justify="center" class="mb-10">
+                    <v-col cols="12" align="center" class="mt-16">
+                        <!--<h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">¿Necesitas más información?</h1>-->
+                        <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">{{pageAlliances.information.title}}</h1>
+                        <!--<p class="white--text text-h5">Revisa nuestro amplio catálogo de productos</p>-->
+                        <p class="white--text text-h5" v-html="pageAlliances.information.description"></p>
+                    </v-col>                    
+                    <v-col cols="6" lg="4" md="4" sm="6" xs="6" class="mb-16" align="center">
+                        <!--<v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">Ver productos</v-btn>-->
+                        <v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">{{pageAlliances.information.txtBtn}}</v-btn>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+        <!--<Productos />-->
     </div>
 </template>
 
@@ -167,5 +184,17 @@ export default {
 
 .bg-end{
     background-color: #655DC6;
+}
+
+.font-title{
+    font-family: 'Archivo' !important;
+}
+.bg-alliance-end{
+    background-color: #655DC6;
+    height: 480px;
+}
+.bg-polnac-end{
+    background-color: #3D7CC9;
+    height: 480px;
 }
 </style>

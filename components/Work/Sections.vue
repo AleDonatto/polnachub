@@ -1,23 +1,39 @@
 <template>
-    <div>
+    <div v-if="pageWork === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>
+    <div v-else>
         <section class="">
             <v-container>
                 <v-row class="my-16">
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="end">
-                        <p class="text-body-all">
+                        <!--<p class="text-body-all">
                             Es gracias a su conocimiento, creatividad, habilidades y trabajo en equipo 
                             el cual han hecho a <span class="font-weight-bold">POLNAC</span> líder en el mercado nacional e internacional. 
                             <br><br>
                             <span class="font-weight-bold font">POLNAC</span> es líder en el mercado nacional e internacional, gracias a sus colaboradores, 
                             a su conocimiento, creatividad, habilidades y trabajo en equipo.
-                        </p>
+                        </p>-->
+                        <p class="text-body-all" v-html="pageWork.lider.description"></p>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="end">
-                        <v-carousel class="carousel-black" cycle height="330" hide-delimiter-background show-arrows-on-hover>
+                        <!--<v-carousel class="carousel-black" cycle height="330" hide-delimiter-background show-arrows-on-hover>
                             <v-carousel-item v-for="(slide, i) in 4" :key="i">
                             <v-sheet height="100%">
                                 <v-row class="fill-height" align="center" justify="center">
                                     <v-img src="/work/carousel-work.png" contain max-height="280"></v-img>
+                                </v-row>
+                            </v-sheet>
+                            </v-carousel-item>
+                        </v-carousel>-->
+                        <v-carousel class="carousel-black" cycle height="330" hide-delimiter-background show-arrows-on-hover>
+                            <v-carousel-item v-for="(slide, i) in pageWork.lider.images.data" :key="i">
+                            <v-sheet height="100%">
+                                <v-row class="fill-height" align="center" justify="center">
+                                    <!--<v-img src="/work/carousel-work.png" contain max-height="280"></v-img>-->
+                                    <v-img :src="basePathApiUrl + slide.attributes.url" contain max-height="280"></v-img>
                                 </v-row>
                             </v-sheet>
                             </v-carousel-item>
@@ -31,7 +47,8 @@
             <v-container class="mb-10">
                 <v-row justify="center" class="mb-16">
                     <v-col cols="12" align="center">
-                        <h1 class="font-archivo font-weight-bold font-size-34">Únete a la familia POLNAC</h1>
+                        <!--<h1 class="font-archivo font-weight-bold font-size-34">Únete a la familia POLNAC</h1>-->
+                        <h1 class="font-archivo font-weight-bold font-size-34">{{pageWork.txtTitleForm}}</h1>
                     </v-col>
                     <v-col>
                         <v-form>
@@ -169,7 +186,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight'])
+        ...mapState(['windowSize', 'windowHeight', 'pageWork', 'basePathApiUrl'])
     },
     methods: {
         RemoveImage(ind) {

@@ -1,17 +1,18 @@
 <template>
-    <div>
+    <div v-if="this.producto !== null">
         <section>
             <v-container>
                 <v-row class="mt-10">
                     <v-col cols="12" align="center">
-                        <h1 class="font-archivo font-size-34 font-weight-bold">Polietileno</h1>
+                        <!--<h1 class="font-archivo font-size-34 font-weight-bold">Polietileno</h1>-->
+                        <h1 class="font-archivo font-size-34 font-weight-bold">{{this.producto.data.attributes.name}}</h1>
                     </v-col>
                 </v-row>
                 <v-row class="my-10" justify="center">
                     <v-col cols="12" xl="9">
                         <v-row>
                             <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                <v-carousel cycle :height="windowSize > 1129 ? '300' : '210'" hide-delimiter-background show-arrows-on-hover>
+                                <!--<v-carousel cycle :height="windowSize > 1129 ? '300' : '210'" hide-delimiter-background show-arrows-on-hover>
                                     <v-carousel-item v-for="(slide, i) in 3" :key="i">
                                         <v-sheet height="100%">
                                             <v-row class="fill-height" align="center" justify="center">
@@ -21,16 +22,29 @@
                                             </v-row>
                                         </v-sheet>
                                     </v-carousel-item>
+                                </v-carousel>-->
+                                <v-carousel cycle :height="windowSize > 1129 ? '300' : '210'" hide-delimiter-background show-arrows-on-hover>
+                                    <v-carousel-item v-for="(slide, i) in this.producto.data.attributes.imagesHead.data" :key="i">
+                                        <v-sheet height="100%">
+                                            <v-row class="fill-height" align="center" justify="center">
+                                                <div>
+                                                    <!--<v-img src="/products/testproducts.png" contain width="520"></v-img>-->
+                                                    <v-img :src="basePathApiUrl + slide.attributes.url" contain width="520"></v-img>
+                                                </div>
+                                            </v-row>
+                                        </v-sheet>
+                                    </v-carousel-item>
                                 </v-carousel>
                             </v-col>
                             <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                <p class="text-body-all">
+                                <!--<p class="text-body-all">
                                     Gracias a su amplia gama de propiedades, su bajo costo, y su facilidad de procesamiento se ha 
                                     convertido en uno de los plásticos más utilizados a nivel mundial. Miembro de la familia de las 
                                     poliolefinas y derivado de la polimerización del etileno.
                                     <br><br>
                                     POLNAC comercializa diferentes variedades de Polietileno para distintas aplicaciones: 
-                                </p>
+                                </p>-->
+                                <p class="text-body-all" v-html="this.producto.data.attributes.description"></p>
                             </v-col>
                         </v-row>
                     </v-col>
@@ -39,15 +53,15 @@
 
                 <v-row class="my-10" v-if="windowSize > 1129" justify="center">
                     <v-col cols="12" xl="9">
-                        <v-carousel class="carousel-black" dark cycle :height="windowSize > 1129 ? '280' : '210'" hide-delimiter-background show-arrows-on-hover>
+                        <!--<v-carousel class="carousel-black" dark cycle :height="windowSize > 1129 ? '280' : '210'" hide-delimiter-background show-arrows-on-hover>
                             <v-carousel-item v-for="(slide, i) in 3" :key="i">
                                 <v-sheet height="100%">
-                                    <!--<v-row class="fill-height" align="center" justify="center">
+                                    --<v-row class="fill-height" align="center" justify="center">
                                         <div>
                                             <v-img src="/products/testproducts.png" contain width="520" v-if="windowSize>1129"></v-img>
                                             <v-img src="/transpolimer/carousel-mb.png" contain width="320" v-else></v-img>
                                         </div>
-                                    </v-row>-->
+                                    </v-row>--
                                     <v-row class="fill-height" align="center" justify="center">
                                         <v-col cols="4">
                                             <v-img src="/group/baja.png" contain max-height="270"></v-img>
@@ -57,6 +71,19 @@
                                         </v-col>
                                         <v-col cols="4">
                                             <v-img src="/group/sillon.png" contain max-height="270"></v-img>
+                                        </v-col>
+                                    </v-row>
+                                </v-sheet>
+                            </v-carousel-item>
+                        </v-carousel>-->
+
+                        <v-carousel class="carousel-black" dark cycle :height="windowSize > 1129 ? '280' : '210'" hide-delimiter-background show-arrows-on-hover>
+                            <v-carousel-item v-for="(slide, i) in this.producto.data.attributes.imagesBody.data" :key="i">
+                                <v-sheet height="100%">
+                                    <v-row class="fill-height" align="center" justify="center">
+                                        <v-col cols="12">
+                                            <!--<v-img src="/group/baja.png" contain max-height="270"></v-img>-->
+                                            <v-img :src="basePathApiUrl + slide.attributes.url" contain max-height="270"></v-img>
                                         </v-col>
                                     </v-row>
                                 </v-sheet>
@@ -72,7 +99,69 @@
                 <v-row class="mb-5" justify="center">
                     <v-col cols="12" xl="9">
                         <v-expansion-panels v-model="tabs" multiple>
-                            <v-expansion-panel class="my-2 rounded-xl">
+
+                            <v-expansion-panel class="my-2 rounded-xl" v-for="(tipos , index) in this.producto.data.attributes.typeProduct" :key="index">
+                                <v-expansion-panel-header class="font-weight-bold panel-color" >
+                                    <!--Polietileno de Baja Densidad (LDPE):-->
+                                    {{tipos.name }}
+                                </v-expansion-panel-header>
+                                <v-expansion-panel-content class="mt-5 shadow-none">
+                                    <v-row>
+                                        <v-col cols="12" :lg="tipos.transformationMethods === '' && tipos.markets === '' ? 12 : 6" :md="tipos.transformationMethods === '' && tipos.markets === '' ? 12 : 6" sm="12" xs="12">
+                                            <!--<p class="text-body-all">
+                                                Es un material de fácil procesamiento y con una gran presencia en la industria 
+                                                de empaque y envase. Algunas de sus características más importantes son: 
+                                                su gran flexibilidad, brillo, buena transparencia y opacidad en comparación 
+                                                de otros materiales semi-cristalinos, de igual manera es un óptimo aislante eléctrico.
+                                            </p>-->
+                                            <p class="text-body-all" v-html="tipos.description"></p>
+                                        </v-col>
+                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" v-if="tipos.transformationMethods !== ''">
+                                            <v-row>
+                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                                    <p class="font-weight-bold font-size-20">Métodos de transformación:</p>
+                                                    <!--<div class="d-flex inline-block">
+                                                        <img src="../../static/group/check.png" height="17" alt="">
+                                                        <p class=" ml-3 text-body-all">Extrusión</p>
+                                                    </div>
+                                                    <div class="d-flex inline-block">
+                                                        <img src="../../static/group/check.png" height="17" alt="">
+                                                        <p class=" ml-3 text-body-all">Soplado</p>
+                                                    </div>
+                                                    <div class="d-flex inline-block">
+                                                        <img src="../../static/group/check.png" height="17" alt="">
+                                                        <p class=" ml-3 text-body-all">Inyección</p>
+                                                    </div>-->
+                                                    <div class="text-body-all" v-html="tipos.transformationMethods"></div>
+                                                </v-col>
+                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12" v-if="tipos.markets !== ''">
+                                                    <p class="font-weight-bold font-size-20">Mercados:</p>
+                                                    <!--<div class="d-flex inline-block">
+                                                        <img src="../../static/market/lempaque.png" height="20" alt="">
+                                                        <img src="../../static/market/lrigido.png" height="20" alt="">
+                                                        <p class=" ml-3 text-body-all">Envase y Empaque</p>
+                                                    </div>
+                                                    <div class="d-flex inline-block">
+                                                        <img src="../../static/market/lelectrico.png" height="20" alt="">
+                                                        <p class=" ml-3 text-body-all">Eléctrico-Electrónico</p>
+                                                    </div>
+                                                    <div class="d-flex inline-block">
+                                                        <img src="../../static/market/lagricola.png" height="20" alt="">
+                                                        <p class=" ml-3 text-body-all">Agrícola</p>
+                                                    </div>
+                                                    <div class="d-flex inline-block">
+                                                        <img src="../../static/market/lconsumo.png" height="20" alt="">
+                                                        <p class=" ml-3 text-body-all">Consumo</p>
+                                                    </div>-->
+                                                    <div class="text-body-all" v-html="tipos.markets"></div>
+                                                </v-col>
+                                            </v-row>
+                                        </v-col>
+                                    </v-row>
+                                </v-expansion-panel-content>
+                            </v-expansion-panel>
+                            
+                            <!--<v-expansion-panel class="my-2 rounded-xl">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
                                     Polietileno de Baja Densidad (LDPE):
                                 </v-expansion-panel-header>
@@ -262,7 +351,7 @@
                                     no obstante, también se utiliza para un gran surtido de artículos como muebles, perreras, tarimas, tanques de combustibles, 
                                     kayaks, y un sin número más de productos. 
                                 </v-expansion-panel-content>
-                            </v-expansion-panel>
+                            </v-expansion-panel>-->
                         </v-expansion-panels>
                     </v-col>
                 </v-row>
@@ -295,13 +384,20 @@
                 </v-row>
                 <v-row justify="center" class="mb-16" v-if="windowSize > 1129">
                     <v-col cols="12" xl="9">
-                        <v-row>
-                            <v-col cols="3">
-                                <nuxt-link to="/products/1">
-                                    <v-img src="/contact/plasticos.png" contain max-height="270"></v-img>
+                        <v-row v-if="this.productos !== null">
+                            <v-col cols="3" v-for="(prod, index) in this.productos.data.slice(0,4)" :key="index">
+                                <nuxt-link :to="`/products/${prod.id}`">
+                                    <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="250" 
+                                    gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                        <v-row justify="center">
+                                            <v-col cols="12" align-self="center" align="center" class="mt-7">
+                                                <div class="font-archivo text-body-all font-weight-bold white--text margin-top">{{prod.attributes.name}}</div>
+                                            </v-col>
+                                        </v-row>
+                                    </v-img>
                                 </nuxt-link>
                             </v-col>
-                            <v-col cols="3">
+                            <!--v-col cols="3">
                                 <nuxt-link to="/products/3">
                                     <v-img src="/contact/masterbatch.png" contain max-height="270"></v-img>
                                 </nuxt-link>
@@ -315,17 +411,17 @@
                                 <nuxt-link to="/products/5">
                                     <v-img src="/contact/pvc.png" contain max-height="270"></v-img>
                                 </nuxt-link>
-                            </v-col>
+                            </v-col>-->
                         </v-row>
                     </v-col>
                 </v-row>
-                <v-row v-if="windowSize < 1129" class="mb-16">
+                <v-row v-if="windowSize < 1129 && this.productos !== null" class="mb-16">
                     <v-carousel class="carousel-black" :show-arrows="false" hide-delimiter-background show-arrows-on-hover height="270">
-                        <v-carousel-item v-for="(item,i) in itemsMercado" :key="i">
+                        <v-carousel-item v-for="(item,i) in productos.data" :key="i">
                             <v-row justify="center">
                                 <v-col cols="11">
-                                    <nuxt-link :to="`/market/type/${i}`">
-                                        <v-img :src="item.img" contain max-height="270"></v-img>
+                                    <nuxt-link :to="`/market/type/${item.id}`">
+                                        <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="270" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)"></v-img>
                                     </nuxt-link>
                                 </v-col>
                             </v-row>
@@ -354,11 +450,27 @@ export default {
                 {img : require('../../static/market/tostador.png')},
                 {img : require('../../static/market/refrigerador.png')},
             ],
-            tabs: [0]
+            tabs: [0],
+            producto: null, 
+            productos: null
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight'])
+        ...mapState(['windowSize', 'windowHeight', 'basePathApiUrl'])
+    },
+    mounted() {
+        this.getProductoId(this.$route.params.id)
+        this.getProductos()
+    },
+    methods: {
+        async getProductoId(id){
+            this.producto =  await this.$store.dispatch('getProductsById', id)
+            //console.log(this.producto)
+        },
+        async getProductos(){
+            this.productos = await this.$store.dispatch('getAllProducts')
+            console.log(this.productos)
+        }
     }
 }
 </script>
@@ -375,5 +487,9 @@ export default {
     border: 2px solid ;
     border-radius: 20px 20px 20px 20px;
     border-color: #19D3C5;
+}
+
+.margin-top{
+    margin-top: 9vh ;
 }
 </style>

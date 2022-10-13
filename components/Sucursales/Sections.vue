@@ -3,19 +3,19 @@
         <section>
             <v-container>
                 <v-row justify="center" class="mt-16">
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                        <v-select v-model="region" class="rounded-xl" outlined :items="regiones" item-text="sucursal" item-value="id" 
-                        label="Selecciona área geográfica" @change="getSucursal"></v-select>
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" v-if="this.regiones !== null">
+                        <v-select v-model="region" class="rounded-xl" outlined :items="regiones.data" item-text="attributes.name" item-value="id" 
+                        label="Selecciona área geográfica" @change="() => getSucursal(region)"></v-select>
                     </v-col>
-                    <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" v-if="this.sucursales !== null">
                         <v-select v-model="sucursal" label="Sucursales" class="rounded-xl" outlined :disabled="sucursalesDisabled"
-                        :items="sucursales" item-text="name" item-value="name" ref="sucursal" @change="getDataSucursal"></v-select>
+                        :items="sucursales" item-text="attributes.name" item-value="id" ref="sucursal" @change="getDataSucursal"></v-select>
                     </v-col>
                 </v-row>
-                <v-row justify="center">
-                    <v-col cols="12" align="center">
-                        <v-img :src="data.map" contain max-height="450" v-if="windowSize>1129"></v-img>
-                        <v-img :src="data.mapmb" contain max-width="380" v-else></v-img>
+                <v-row justify="center" v-if="dataRegion !== null">
+                    <v-col cols="12" align="center" v-for="(img , index) in this.dataRegion" :key="index">
+                        <v-img :src="basePathApiUrl + img.attributes.mapRegion.data.attributes.url" contain max-height="450" v-if="windowSize>1129"></v-img>
+                        <v-img :src="basePathApiUrl + img.attributes.mapRegion.data.attributes.url" contain max-width="380" v-else></v-img>
                     </v-col>
                 </v-row>
                 <!--<v-row justify="center">
@@ -33,34 +33,34 @@
                     </v-col>
                 </v-row>-->
 
-                <v-row class="mb-16">
-                    <v-col cols="12" lg="8" md="8" sm="12" xs="12" class="mb-10">
-                        <h1 class="black--text font-size-24 mb-5">{{data.title}}</h1>
+                <v-row class="mb-16" v-if="this.data !== null ">
+                    <v-col cols="12" lg="8" md="8" sm="12" xs="12" class="mb-10" v-for="(suc, index) in data" :key="index">
+                        <h1 class="black--text font-size-24 mb-5">{{suc.attributes.name}}</h1>
                         <v-row v-if="windowSize > 1129">
-                            <v-col cols="6" v-for="(item, index) in data.images" :key="index">
-                                <v-img :src="item.img" contain max-height="420"></v-img>
+                            <v-col cols="6" v-for="(item, index) in suc.attributes.imgOfices.data" :key="index">
+                                <v-img :src="basePathApiUrl + item.attributes.url" contain max-height="420"></v-img>
                             </v-col>
                         </v-row>
                         <v-row v-if="windowSize < 1129">
                             <v-carousel class="carousel-black" :show-arrows="false" dark height="270" cycle hide-delimiter-background show-arrows-on-hover>
-                                <v-carousel-item v-for="(item,i) in data.images" :key="i">
+                                <v-carousel-item v-for="(item,i) in suc.attributes.imgOfices.data" :key="i">
                                     <v-row justify="center">
                                         <v-col cols="11">
-                                            <v-img :src="item.img" contain max-height="270"></v-img>
+                                            <v-img :src="basePathApiUrl + item.attributes.url" contain max-height="270"></v-img>
                                         </v-col>
                                     </v-row>
                                 </v-carousel-item>
                             </v-carousel>
                         </v-row>
                     </v-col>
-                    <v-col cols="12" lg="4" md="4" sm="12" xs="12" align-self="center" class="mb-10">
+                    <v-col cols="12" lg="4" md="4" sm="12" xs="12" align-self="center" class="mb-10"  v-for="(suc, index) in data" :key="index+1">
                         <h1 class="black--text font-size-24 mb-5">Datos de contacto</h1>
 
-                        <p class="font-size-16" v-if="data.address !== ''"><span class="font-weight-bold">Dirección:</span> {{data.address}}</p>
-                        <div class="d-flex justify-space-between mt-2" v-if="data.tel !== ''">
+                        <p class="font-size-16" v-if="suc.attributes.address !== ''"><span class="font-weight-bold">Dirección:</span> {{suc.attributes.address}}</p>
+                        <div class="d-flex justify-space-between mt-2" v-if="suc.attributes.phone !== ''">
                             <div class="d-flex justify-start">
                                 <img src="../../static/sucursales/phone.png" height="27"/>
-                                <p class="ml-2 font-size-16">{{ data.tel }}</p>
+                                <p class="ml-2 font-size-16">{{ suc.attributes.phone }}</p>
                             </div>
                             <div class="">
                                 <v-btn class="text-none rounded-xl" outlined>Llamar</v-btn>
@@ -69,7 +69,7 @@
                         <v-divider class="mt-2"></v-divider>
                         <div class="d-flex justify-start mt-2">
                             <img src="../../static/sucursales/mail.png" height="27"/>
-                            <p class="ml-2 font-size-16">digital@polnac.com</p>
+                            <p class="ml-2 font-size-16">{{suc.attributes.email}}</p>
                         </div>
                         <v-divider class="mt-2"></v-divider>
                         <div class="d-flex justify-start mt-2">
@@ -89,26 +89,16 @@ import { mapState } from 'vuex';
 export default {
     data() {
         return{
-            region: '',
-            regiones: [
-                {id:0, sucursal: 'MEXICO'},
-                {id:1, sucursal: 'USA'},
-                {id:2, sucursal: 'LATAM'},
-                {id:3, sucursal: 'EUROPA'},
-            ],
+            region: 1,
+            regiones: null,
             sucursales: null,
-            dataSucursales: [
-                {title: 'POLNAC México', mapmb: require('../../static/sucursales/map-mobile.png') ,map: require('../../static/sucursales/sucursales-mexico.png'), images: [{img:require('../../static/sucursales/s-mexico.png')}, {img: require('../../static/sucursales/s-mexico2.png')}], address: 'Lázaro Cárdenas No. 49, San Jerónimo Tepetlacalco, Tlalnepantla, Estado de México, 54090 México', tel: '(55) 2585 2650' },
-                {title: 'POLNAC U.S.A.', mapmb: require('../../static/sucursales/mapusamb.png') ,map: require('../../static/sucursales/mapusa.png') ,images: [{img:require('../../static/sucursales/s-usa.png')},{img: require('../../static/sucursales/s-usa2.png')}], address: '4831 Underwood Rd. Pasadena, Texas 77505, U.S.A.', tel: '' },
-                {title: 'Colombia', mapmb: require('../../static/sucursales/map-mobile.png'), map: require('../../static/sucursales/sucursales-mexico.png') ,images:[{img:require('../../static/sucursales/s-colombia.png')},{img: require('../../static/sucursales/s-colombia1.png')}], address: '', tel: '52 55 4607 0841' },
-                {title: 'Europe - Amsterdam Netherlands', mapmb: require('../../static/sucursales/mapeuropamb.png'), map: require('../../static/sucursales/sucursales-mexico.png') ,images:[{img: require('../../static/sucursales/s-amsterdan.png')}, {img: require('../../static/sucursales/s-amsterdan2.png')}], address: '', tel: '52 55 4607 0841'},
-            ],
+            dataSucursales: null,
             center: {
                 lat:19.415290318763805,lng:-99.12714146567397
             },
-            markers:[
-            ],
-            data: {},
+            markers:[],
+            data: null,
+            dataRegion: null,
             sucursalesDisabled: true,
             infowindowOption: {
                 pixelOffset: {
@@ -119,11 +109,11 @@ export default {
             infowindowPosition: { lat: 0, lng: 0},
             infowindowOpened: false,
             selectedMarker:{},
-            sucursal: '',
+            sucursal: 0,
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight']),
+        ...mapState(['windowSize', 'windowHeight', 'basePathApiUrl']),
         /*infowindowPosition() {
             return {
                 lat: parseFloat(this.selectedMarker.latitude),
@@ -132,11 +122,18 @@ export default {
         },*/
     },
     mounted(){
-        this.data = this.dataSucursales[0]
+        this.getRegiones()
+        this.getSucursales()
     },
     methods: {
         getSucursal(){
-            if(this.region===0){
+            this.sucursales = this.dataSucursales.data.filter(item => item.attributes.region.data.id === this.region)
+            this.sucursalesDisabled = false
+            this.dataRegion = this.regiones.data.filter(item => item.id === this.region)
+            //console.log(this.sucursales)
+
+            //console.log(this.sucursales)
+            /*if(this.region===0){
                 const array = [
                     {id:0, name:'Estado de Mexico' },
                     {id:1, name:'Monterrey' },
@@ -190,7 +187,7 @@ export default {
                 this.sucursales = array
                 this.sucursalesDisabled = false
             }
-            this.data = this.dataSucursales[this.region]
+            this.data = this.dataSucursales[this.region]*/
         },
         handleMarker(item){
             this.infowindowOpened = true
@@ -202,7 +199,11 @@ export default {
             this.selectedMarker = {}
         },
         getDataSucursal(){
-            console.log(this.sucursal)
+
+            this.data = this.dataSucursales.data.filter(item => item.id === this.sucursal)
+            console.log(this.data)
+            
+            /*console.log(this.sucursal)
             let dataSucursal = {}
             switch(this.sucursal){
                 case 'Estado de Mexico': 
@@ -370,8 +371,18 @@ export default {
                     }
                     this.data = dataSucursal
                     break
-            }
-        }
+            }*/
+        },
+        async getRegiones(){
+            this.regiones = await this.$store.dispatch('getAllRegiones')
+            //console.log(this.regiones)
+            this.dataRegion = this.regiones.data.filter(item => item.id === 1)
+        },
+        async getSucursales(){
+            this.dataSucursales = await this.$store.dispatch('getSucursales')
+            this.sucursales = this.dataSucursales
+            //console.log(this.sucursales)
+        },
 
     },
 }

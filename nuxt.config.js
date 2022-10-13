@@ -55,7 +55,8 @@ export default {
         ],
         vueI18n: i18n
       }
-    ]
+    ],
+    '@nuxtjs/dotenv'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -86,7 +87,8 @@ export default {
       secure: false
     },
     "/strapi" : {
-      target: 'http://localhost:1337/',
+      //target: 'http://localhost:1337/',
+      target: process.env.BASE_URI_STRAPI,
       pathRewrite: {'^/strapi': '/'},
       secure: false 
     } 
@@ -122,5 +124,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     vendor: ['vue2-google-map']
+  },
+
+  dotenv: {
+    pruebas: 'test'
   }
 }

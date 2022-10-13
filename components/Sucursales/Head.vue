@@ -14,11 +14,20 @@ import { mapState } from 'vuex';
 export default {
     data() {
         return {
-
+            regiones: null,
+            sucursales: null,
         }
     },
     computed: {
         ...mapState(['windowSize', 'windowHeight'])
+    },
+    mounted(){
+
+    },
+    methods: {
+        async getRegion(){
+            this.regiones = await this.$store.dispatch('')
+        }
     }
 }
 </script>

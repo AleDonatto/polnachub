@@ -43,16 +43,18 @@
                 </v-col>
                 <v-col align="end" class="mb-16">
                     <div class="">
-                        <v-btn rounded outlined class="white-color text-none">
-                            Añadir más productos
-                        </v-btn>
+                        <nuxt-link to="/client/dashboard" class="decoration-none">
+                            <v-btn rounded outlined class="white-color text-none">
+                                Añadir más productos
+                            </v-btn>
+                        </nuxt-link>
                         <v-btn rounded outlined class="white-color text-none">
                             Actualizar pedido
                         </v-btn>
                     </div>
                 </v-col>
             </v-row>
-            <v-form>
+            <v-form >
                 <v-row justify="center">
                     <v-col cols="10"></v-col>
                     <v-col cols="5" class="my-0 py-0">
@@ -122,11 +124,72 @@
                         </v-radio-group>
                     </v-col>
                     <v-col cols="3" align="end" align-self="center" class="my-0 py-0">
-                        <v-btn type="submit" class="black--text primary-color text-none rounded-xl px-10">FInalizar Pedido</v-btn>
+                        <v-btn type="button" class="black--text primary-color text-none rounded-xl px-10" @click="solicitarPedido">FInalizar Pedido</v-btn>
                     </v-col>
                 </v-row>
             </v-form>
         </v-container>
+
+        <v-dialog v-model="showCredito" width="700" overlay-color="#2E2E65">
+            <v-card elevation="6">
+                <v-card-title>
+                    <v-row justify="end">
+                        <v-col cols="2">
+                            <v-btn outlined color="white"  @click="showCredito = !showCredito">
+                                <v-img src="/contact/line.png" contain max-width="25"></v-img>
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card-title>
+
+                <v-card-text>
+                    <v-row justify="center">
+                        <v-col cols="12">
+                            <h1 class="font-size-24 font-weight-bold text-center black--text">Validación de crédito</h1>
+                        </v-col>
+                    </v-row>
+                    <v-row justify="center" class="px-6 mb-10">
+                        <!--<v-col cols="6">
+                            <v-img src="/contact/dialog.png" contain max-height="120"></v-img>
+                        </v-col>-->
+                        
+                        <v-col cols="6">
+                            <h1 class="font-size-14">Línea de crédito</h1>
+                        </v-col>
+                        <v-col cols="6" align="end">
+                            <h1 class="font-size-14">500,000,000.00 USD</h1>
+                        </v-col>
+                        <v-col cols="12">
+                            <v-progress-linear color="#19D3C5" height="15" value="70"></v-progress-linear>
+                        </v-col>
+                        <v-col cols="6">
+                            <h1 class="font-size-14">Crédito disponible</h1>
+                        </v-col>
+                        <v-col cols="6" align="end">
+                            <h1 class="font-size-14">500,000,000.00 USD</h1>
+                        </v-col>
+                        <v-col cols="12">
+                            <v-progress-linear color="#773DBD" height="15" value="70"></v-progress-linear>
+                        </v-col>
+                        <v-col cols="12">
+                            <h1 class="font-size-14">Pedido en proceso</h1>
+                        </v-col>
+                        <v-col cols="12">
+                            <v-progress-linear value="40" color="#655DC6" height="15"></v-progress-linear>
+                        </v-col>
+                        <v-col cols="12" class="mt-5" align="end">
+                            <v-btn class="rounded-xl text-none py-6 px-10" color="#19D3C5" @click="showCredito = !showCredito">Aceptar pedido a credito</v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card-text>
+
+                <v-divider></v-divider>
+
+                <v-card-actions>
+                    <!--<v-btn color="primary" text @click="dialog = false">I accept</v-btn>-->
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -151,11 +214,20 @@ export default {
                 {id: 1, value: 'Ton'}
             ],
             tipo: 1,
-            canTon: 1
+            canTon: 1,
+            showCredito: false,
+            creditoUser: 70,
+            lineaCredito: 70,
+            lineaPedido: 40
         }
     },
     computed: {
         ...mapState(['card'])
+    },
+    methods: {
+        solicitarPedido(){
+            this.showCredito = true
+        }
     }
 }
 </script>

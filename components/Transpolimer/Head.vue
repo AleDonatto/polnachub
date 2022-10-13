@@ -1,18 +1,18 @@
 <template>
-    <div :class="{'bg-transpolimer': windowSize > 1129, 'bg-transpolimer-mb': windowSize < 1129 }">
+    <div :class="{'bg-transpolimer': windowSize > 1129, 'bg-transpolimer-mb': windowSize < 1129 }" v-if="pagetranspolimer !== null">
         <v-row justify="center">
             <v-col cols="12" class="mt-12" align="center">
-                <img src="../../static/transpolimer/logotranspolimer.png" alt="logo transpolimer">
-                <!--<img :src="basePathApiUrl + pagetranspolimer.head.image.data.attributes.url" alt="logo transpolimer" v-if="pagetranspolimer != null">-->
-                <!--<v-img :src="basePathApiUrl + pagetranspolimer.head.image.data.attributes.url" :alt="pagetranspolimer.head.image.data.attributes.name" v-if="pagetranspolimer != null" max-width="240"></v-img>-->
+                <!--<img src="../../static/transpolimer/logotranspolimer.png" alt="logo transpolimer">-->
+                <img :src="basePathApiUrl + pagetranspolimer.head.image.data[0].attributes.url" alt="logo transpolimer" >
+                <!--<v-img :src="basePathApiUrl + pagetranspolimer.head.image.data[0].attributes.url" :alt="pagetranspolimer.head.image.data[0].attributes.name" max-width="240"></v-img>-->
             </v-col>
             <v-col cols="10" class="mt-5 mb-10">
-                <p class="title text-center white--text">
+                <!--<p class="title text-center white--text">
                     {{ $t('transpolimer.head') }}
-                </p>
-                <!--<p class="title text-center white--text" v-if="pagetranspolimer != null">
-                    {{pagetranspolimer.head.title}}
                 </p>-->
+                <p class="title text-center white--text">
+                    {{pagetranspolimer.head.title}}
+                </p>
             </v-col>
         </v-row>
     </div>

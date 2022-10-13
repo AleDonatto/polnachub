@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div v-if="pageLaboratory === null"></div>
+    <div v-else>
         <section >
             <v-container>
                 <v-row justify="center">
@@ -8,12 +9,15 @@
                         src="https://www.youtube.com/embed/CJ9LyIMleDA?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                         </iframe>-->
 
-                        <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '1080' : '360'" :height="windowSize > 1129 ? '600' : '260'" type="text/html" 
+                        <!--<iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '1080' : '360'" :height="windowSize > 1129 ? '600' : '260'" type="text/html" 
                         src="https://tourmkr.com/F1KVqkjYDY/37164458p&241.89h&88.13t">
+                        </iframe>-->
+                        <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :width="windowSize > 1129 ? '1080' : '360'" :height="windowSize > 1129 ? '600' : '260'" type="text/html" 
+                        :src="pageLaboratory.linkVideo">
                         </iframe>
                     </v-col>
                     <v-col cols="12" xl="10" class="my-10">
-                        <p class="font-size-20">
+                        <!--<p class="font-size-20">
                             El equipo de trabajo <span class="font-weight-bold">POLNAC</span> opera bajo los estándares más elevados lo cual aseguran completa 
                             imparcialidad y confidencialidad en la elaboración de pruebas y emisión de resultados. 
                             <br><br>
@@ -22,7 +26,8 @@
                             generales para la competencia de los laboratorios de prueba y calibración. Esto, se traduce 
                             en procedimientos de operación normalizados, control de procesos de evaluación y de los equipos 
                             de medición utilizados, y una revisión periódica del personal y su forma de trabajo. 
-                        </p>
+                        </p>-->
+                        <div class="font-size-20" v-html="pageLaboratory.team"></div>
                     </v-col>
                 </v-row>
             </v-container>
@@ -33,7 +38,8 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="my-10">
-                        <h1 class="font-archivo font-size-30 font-weight-bold">Pruebas de Laboratorio</h1>
+                        <!--<h1 class="font-archivo font-size-30 font-weight-bold">Pruebas de Laboratorio</h1>-->
+                        <h1 class="font-archivo font-size-30 font-weight-bold">{{pageLaboratory.txtTitleTest}}</h1>
                     </v-col>
                 </v-row>
 
@@ -673,8 +679,46 @@
                     </v-expansion-panels>
                 </div>
 
-                <v-row justify="center" class="mt-10" v-if="windowSize > 1129">
-                    <v-col cols="12" lg="4" md="4" sm="12" xm="12">
+                <v-row justify="center" class="mt-10" v-if="windowSize > 1129 && this.pruebas !== null">
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-for="(prueb, index) in this.pruebas" :key="index">
+                        <div v-if="prueb.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio'">
+                            <div class="rounded-lg bg-pruebas px-5 py-1">
+                                <p class="font-size-18 font-weight-bold">{{prueb.attributes.name}}</p>
+                            </div>
+                            <div class="">
+                                <v-row v-if="prueb.attributes.astm !== null">
+                                    <v-col align-self="center" class="mt-2">
+                                        <p>ASTM</p>
+                                    </v-col>
+                                    <v-col align-self="center" class="mt-2">
+                                        <p>{{prueb.attributes.astm}}</p>
+                                    </v-col>
+                                </v-row>
+                                <v-divider></v-divider>
+                                <v-row v-if="prueb.attributes.iso !== null">
+                                    <v-col align-self="center" class="mt-2">
+                                        <p>ISO</p>
+                                    </v-col>
+                                    <v-col align-self="center" class="mt-2">
+                                        <p>{{prueb.attributes.iso}}</p>
+                                    </v-col>
+                                </v-row>
+                                <v-divider></v-divider>
+                                <v-row>
+                                    <v-col cols="9" class="mt-2">
+                                        <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                    </v-col>
+                                    <v-col cols="3" class="mt-2">
+                                        <nuxt-link :to="`/polnac-wiki?tag=laboratory&id=${index}`">
+                                            <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                        </nuxt-link>
+                                    </v-col>
+                                </v-row>
+                            </div>
+                        </div>
+                    </v-col>
+
+                    <!--<v-col cols="12" lg="4" md="4" sm="12" xm="12">
                         <div class="rounded-lg bg-pruebas px-5 py-1">
                             <p class="font-size-18 font-weight-bold">Índice de fluidez</p>
                         </div>
@@ -1183,12 +1227,12 @@
                                 </v-col>
                             </v-row>
                         </div>
-                    </v-col>
+                    </v-col>-->
                 </v-row>
 
                 <v-row justify="center">
-                    <v-col cols="12"  align="center" class="mb-5 mt-10">
-                        <v-btn outlined class="rounded-lg text-none px-10 py-5" color="#19D3C5" @click="showMore = !showMore">
+                    <v-col cols="12"  align="center" class="mb-5 mt-10"  v-if="this.pruebas !== null">
+                        <v-btn outlined class="rounded-lg text-none px-10 py-5" color="#19D3C5" @click="getMorePruebas" v-if="this.pruebas.lenght > 8">
                             <span class="black--text">{{ showMore === true ? 'Ocultar pruebas' : 'Mostrar más pruebas'}}</span>
                         </v-btn>
                     </v-col>
@@ -1200,10 +1244,11 @@
             <v-container>
                 <v-row justify="center" class="my-10"> 
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align-self="center" v-if="windowSize < 1129">
-                        <v-img src="/laboratory/pruebas-laboratory.png" contain max-height="360"></v-img>
+                        <!--<v-img src="/laboratory/pruebas-laboratory.png" contain max-height="360"></v-img>-->
+                        <v-img :src="basePathApiUrl + pageLaboratory.test.image.data.attributes.url" contain max-height="360"></v-img>
                     </v-col>
                     <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align="center" align-self="center" :class="{'mb-16': windowSize < 1129 }">
-                        <p class="font-size-20 text-left">Adicionalmente se realizan otras pruebas como:</p>
+                        <!--<p class="font-size-20 text-left">Adicionalmente se realizan otras pruebas como:</p>
                         <ul class="font-size-20 text-left">
                             <li>Determinación de humedad</li>
                             <li>Determinación de color con espectrofotómetro</li>
@@ -1213,10 +1258,12 @@
                             <li>Espectrofotómetro de IR (infrarrojo)</li>
                             <li>TGA análisis termogravimétrico</li>
                             <li>Microscopía Electrónica de Barrido</li>
-                        </ul>
+                        </ul>-->
+                        <div class="font-size-20 text-left" v-html="pageLaboratory.test.description"></div>
                     </v-col>
                     <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12" align-self="center" class="mb-16" v-if="windowSize > 1129">
-                        <v-img src="/laboratory/pruebas-laboratory.png" contain max-height="370"></v-img>
+                        <!--<v-img src="/laboratory/pruebas-laboratory.png" contain max-height="370"></v-img>-->
+                        <v-img :src="basePathApiUrl + pageLaboratory.test.image.data.attributes.url" contain max-height="370"></v-img>
                     </v-col>
                 </v-row>
             </v-container>
@@ -1233,10 +1280,30 @@ export default {
             panel: [0],
             readonly: false,
             showMore: false,
+            pruebas: null
         }
     },
+    mounted(){
+        this.getPruebas()
+    },
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize', 'pageLaboratory','basePathApiUrl'])
+    },
+    methods: {
+        async getPruebas(){
+            let aux = await this.$store.dispatch('getAllTipoPruebas')
+            this.pruebas = aux.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio') 
+
+            if(this.pruebas.lenght > 8){
+                this.pruebas = this.pruebas.slice(0,8)
+            }
+            //console.log(this.pruebas)
+        },
+        async getMorePruebas(){
+            let aux = await this.$store.dispatch('getAllTipoPruebas')
+            this.pruebas = aux.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio') 
+            this.showMore = true
+        }
     }
 
 }

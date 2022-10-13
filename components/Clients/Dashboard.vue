@@ -170,11 +170,13 @@
                                     <span class="font-weight-bold">Description:</span>  
                                     {{itemCard.Detalles_producto_web__c}}
                                 </p>
-                                <v-radio-group v-model="radioGroup">
+                                <!--<v-radio-group v-model="radioGroup">
                                     <v-radio label="Entrega a domicilio" value="domicilio" color="#19D3C5"></v-radio>
                                     <v-radio label="Recoge en sucursal POLNAC" value="sucursal" color="#19D3C5" ></v-radio>
-                                </v-radio-group>
-                                <v-btn class="rounded-xl primary-color text-none py-6" block @click="addProducto(itemCard)">
+                                </v-radio-group>-->
+                            </div>
+                            <div class="mt-16">
+                                <v-btn class="rounded-xl primary-color text-none py-6 mt-16" block @click="addProducto(itemCard)">
                                     Agregar a pedidos
                                 </v-btn>
                             </div>
@@ -215,6 +217,7 @@ export default {
         }
     },
     mounted(){
+        this.$store.dispatch('cleanTables')
         setTimeout(() => {
             if(this.credentials !== null){
                 this.$store.dispatch('getFabricante')
@@ -223,6 +226,7 @@ export default {
                 this.$store.dispatch('getProducto')
             }
         }, 6000);
+
     },
     computed: {
         ...mapState(['windowSize', 'windowHeight', 'pFabricante', 'pMercado', 'pMetTransformacion','pProducto', 'credentials', 

@@ -1,11 +1,11 @@
 <template>
     <!-- v-if="pageSearchProducts !== null" -->
-    <div >
-        <div :class="{'bg-search':windowSize > 1129, 'bg-search-mb': windowSize < 1129 }">
+    <div v-if="pageSearchProducts !== null">
+        <div :class="{'bg-search':windowSize > 1129, 'bg-search-mb': windowSize < 1129 }" :style="{ backgroundImage: `url(${basePathApiUrl + pageSearchProducts.banner.image.data[0].attributes.url })` }">
             <v-row justify="center" class="">
                 <v-col cols="12" class="mt-16 mb-10" align="center">
-                    <h1 class="mt-10 white--text font-archivo font-size-40 font-weight-bold">Buscador de productos</h1>
-                    <!--<h1 class="mt-10 white--text font-archivo font-size-40 font-weight-bold">{{pageSearchProducts.banner.title}}</h1>-->
+                    <!--<h1 class="mt-10 white--text font-archivo font-size-40 font-weight-bold">Buscador de productos</h1>-->
+                    <h1 class="mt-10 white--text font-archivo font-size-40 font-weight-bold" v-html="pageSearchProducts.banner.title"></h1>
                 </v-col>
             </v-row>
             <v-container v-if="windowSize > 1129">
@@ -31,7 +31,7 @@
                         :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
                     </v-col>
                 </v-row>
-                <v-row justify="center">
+                <v-row justify="center" v-if="windowSize>1129">
                     <v-col cols="4">
                         <v-btn color='gray' rounded class="text-none text-none" block @click="cleanFilters">
                             <span class="black--text">Cancelar</span>
@@ -98,13 +98,13 @@ export default {
     mounted() {
         /*setTimeout(() => {
              if(this.credentials !== null){
-                this.$store.dispatch('getFabricante')
-                this.$store.dispatch('getMercado')
-                this.$store.dispatch('getMetodoTransformacion')
-                this.$store.dispatch('getProducto')
+                //this.$store.dispatch('getFabricante')
+                //this.$store.dispatch('getMercado')
+                //this.$store.dispatch('getMetodoTransformacion')
+                //this.$store.dispatch('getProducto')
             }
         }, 6000);*/
-        this.clientLogin()
+        //this.clientLogin()
     },
     computed: {
         ...mapState([
@@ -116,6 +116,7 @@ export default {
             'pMetTransformacion',
             'pProducto', 
             'credentials',
+            'basePathApiUrl'
         ]),
     },
     methods: {
@@ -126,22 +127,28 @@ export default {
             this.mercado = ''
             this.mTransformacion = ''
         },
-        clientLogin(){
+        async clientLogin(){
             const username = process.env.SALESFORCE_USER
             const password = process.env.SALESFORCE_PASSWORD
 
-            var conn = new jsforce.Connection({
+            /*var conn = new jsforce.Connection({
                 //loginUrl : 'https://test.salesforce.com',
                 oauth2 : {
                     // you can change loginUrl to connect to sandbox or prerelease env.
                     //loginUrl : 'https://test.salesforce.com/services/oauth2/token',
-                    //loginUrl : 'https://test.salesforce.com',
+                    loginUrl : 'https://test.salesforce.com',
                     clientId : process.env.SALESFORCE_CLIENT_ID,
                     clientSecret : process.env.SALESFORCE_CLIENT_SECRET,
                     //redirectUri : 'https://test.salesforce.com/'
                 }
-            });
-            conn.login(username, password, function(err, userInfo) {
+            });*/
+
+            const connection = new jsforce.Connection({})
+            //console.log(connection)
+            await connection.login(username, password)
+
+
+            /*conn.login(username, password, function(err, userInfo) {
                 if (err) { return console.error(err); }
                 // Now you can get the access token and instance URL information.
                 // Save them to establish connection next time.
@@ -151,11 +158,11 @@ export default {
                 console.log("User ID: " + userInfo.id);
                 console.log("Org ID: " + userInfo.organizationId);
                 // ...
-            });
+            });*/
             //conn.login(username, password);
 
             
-            console.log(conn)
+            //console.log(conn)
         }
     }
 }
@@ -165,7 +172,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
 
 .bg-search{
-    background-image: url('../../static/search/bg-banner.png');
+    /*background-image: url('../../static/search/bg-banner.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -174,7 +181,7 @@ export default {
 }
 
 .bg-search-mb{
-    background-image: url('../../static/search/bg-bannermb.png');
+    /*background-image: url('../../static/search/bg-bannermb.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

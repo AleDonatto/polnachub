@@ -1,26 +1,6 @@
 <template>
     <div>
         <v-app-bar :clipped-left="clipped" fixed color="white" app elevation="2">
-            <!--<v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
-            <!--<v-btn
-                icon
-                @click.stop="miniVariant = !miniVariant"
-            >
-                <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-            </v-btn>
-            <v-btn
-                icon
-                @click.stop="clipped = !clipped"
-            >
-                <v-icon>mdi-application</v-icon>
-            </v-btn>
-            <v-btn
-                icon
-                @click.stop="fixed = !fixed"
-            >
-                <v-icon>mdi-minus</v-icon>
-            </v-btn>-->
-
             <!--<v-toolbar-title :class="{'ml-16': windowSize > 1129}" />-->
             <v-container fluid>
                 <v-row justify="center">
@@ -64,14 +44,65 @@
                                                     <v-card class="mx-4">
                                                         <v-list>
                                                             <v-list-item>
-                                                                <v-text-field solo rounded class="mt-4" placeholder="Buscar por producto" prepend-inner-icon="mdi-magnify" clearable></v-text-field>
+                                                                <v-text-field v-model="search" solo rounded class="mt-4" placeholder="Buscar por producto" prepend-inner-icon="mdi-magnify" 
+                                                                    clearable @click:clear="clean">
+                                                                </v-text-field>
+                                                                <v-btn class="rounded-xl mx-3 text-none secondary-color white--text" @click="searchPage">Buscar</v-btn>
                                                             </v-list-item>
                                                         </v-list>
 
                                                         <v-divider></v-divider>
 
                                                         <v-list>
-                                                            <v-row justify="center" class="mt-4">
+                                                            <v-row justify="center" class="mt-4" v-if="this.productos !== null && isSearch === false">
+                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" class="px-5" align="center" v-for="(prod, index) in this.productos.data" :key="index">
+                                                                    <!--<v-img src="/menu-search/plasticos.png" contain max-height="65"></v-img>-->
+                                                                    <nuxt-link :to="`/products/${prod.id}`" class="decoration-none">
+                                                                        <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="65"></v-img>
+                                                                        <p>{{prod.attributes.name}}</p>
+                                                                    </nuxt-link>
+                                                                </v-col>
+                                                            </v-row>
+
+                                                            <v-row v-if="isSearch === true" class="justify-center mx-5 px-2" >
+                                                                <v-col cols="12" v-if="sproductos.length>0">
+                                                                    <p class="font-weight-bold font-body-all">Productos</p>
+                                                                    <v-list>
+                                                                        <v-list-item v-for="(item, index) in sproductos" :key="index+item.id">
+                                                                            {{item.attributes.name}}
+                                                                        </v-list-item>
+                                                                    </v-list>
+                                                                </v-col>
+                                                                <v-col cols="12" v-if="smercados.length>0">
+                                                                    <p class="font-weight-bold font-body-all">Mercado</p>
+                                                                    <v-list>
+                                                                        <v-list-item v-for="(item, index) in smercados" :key="index+item.id">
+                                                                            {{item.attributes.nameMarket}}
+                                                                        </v-list-item>
+                                                                    </v-list>
+                                                                </v-col>
+                                                                <v-col cols="12" v-if="smarcas.length>0">
+                                                                    <p class="font-weight-bold font-body-all">Marcas</p>
+                                                                    <v-list>
+                                                                        <v-list-item v-for="(item, index) in smarcas" :key="index+item.id">
+                                                                            {{item.attributes.title}}
+                                                                        </v-list-item>
+                                                                    </v-list>
+                                                                </v-col>
+                                                                <v-col cols="12" v-if="spruebas.length>0">
+                                                                    <p class="font-weight-bold font-body-all">Pruebas</p>
+                                                                    <v-list>
+                                                                        <v-list-item v-for="(item, index) in spruebas" :key="index+item.id">
+                                                                            {{item.attributes.name}}
+                                                                        </v-list-item>
+                                                                    </v-list>
+                                                                </v-col>
+                                                                <v-col cols="12" align="center" v-if="spruebas.length===0 && smarcas.length===0 && smercados.length===0 && sproductos.length===0">
+                                                                    <p class="font-body-all">No se encontraron resultados</p>
+                                                                </v-col>
+                                                            </v-row>
+                                                            
+                                                            <!--<v-row justify="center" class="mt-4">
                                                                 <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
                                                                     <v-img src="/menu-search/plasticos.png" contain max-height="65"></v-img>
                                                                     <p class="">Plásticos de ingeniería</p>
@@ -130,7 +161,7 @@
                                                                     <v-img src="/menu-search/estirenicos.png" contain max-height="65"></v-img>
                                                                     <p class="">Estirénicos</p>
                                                                 </v-col>
-                                                            </v-row>
+                                                            </v-row>-->
                                                             <!--<v-list-item>
                                                                 <v-list-item-action>
                                                                     <v-switch v-model="message" color="purple"></v-switch>
@@ -158,9 +189,9 @@
                                     </div>
                                 </v-menu>
                             </v-tab>
-                            <!--<v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
-                            @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>-->
-                            <v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>
+                            <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
+                            @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>
+                            <!--<v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>-->
                             <v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>
                             <v-menu min-width="200px" rounded offset-y v-if="this.$route.path.includes('client')">
                                 <template v-slot:activator="{ on }">
@@ -451,11 +482,27 @@ export default {
                 {text: 'Colaborador', img: require('../static/login/colaborador.png')},
             ],
             selected: null,
-            langModel: 'ESP'
+            langModel: 'ESP',
+            productos: null,
+            marcas: null, 
+            mercados: null, 
+            pruebas: null,
+            blogs: null, 
+            smarcas: null,
+            smercados: null,
+            spruebas: null,
+            sblogs: null,
+            sproductos: null,
+            search: null,
+            isSearch: false
         }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize']),
+        ...mapState(['windowHeight','windowSize', 'basePathApiUrl']),
+    },
+    mounted() {
+        this.getAllProductos()
+        this.getDatos()
     },
     methods: {
         ...mapActions(['setLanguaje']),
@@ -470,7 +517,42 @@ export default {
         login(){
             this.dialog = false
             this.$router.push('/client/dashboard')
+        },
+        clean(){
+            this.isSearch = false
+            //this.getDatos()
+        },
+        async searchPage(){
+            //this.getDatos()
+            this.search === null ? this.isSearch = false : this.isSearch = true 
+            //console.log(this.sproductos)
+            this.sproductos = this.productos
+            this.smarcas = this.marcas 
+            this.smercados = this.mercados 
+            this.spruebas = this.pruebas 
+            this.sblogs = this.blogs
+
+            this.sproductos = this.sproductos.data.filter(item => item.attributes.name.toLowerCase().match(this.search.toLowerCase()) )
+            this.smarcas = this.smarcas.data.filter(item =>  item.attributes.title.toLowerCase().match(this.search.toLowerCase())  )
+            this.smercados = this.smercados.data.filter(item =>  item.attributes.nameMarket.toLowerCase().match(this.search.toLowerCase()))
+            this.spruebas = this.spruebas.data.filter(item => item.attributes.name.toLowerCase().match(this.search.toLowerCase())  )
+            this.sblogs = this.sblogs.data.filter(item => item.attributes.title.toLowerCase().match(this.search.toLowerCase()) )
+
+        },
+        async getAllProductos(){
+            this.productos = await this.$store.dispatch('getAllProducts')
+            //console.log(this.productos)
+        },
+        async getDatos(){
+            //this.productos = await this.$store.dispatch('getAllProducts')
+            this.mercados = await  this.$store.dispatch('getAllMarkets')
+            this.marcas = await  this.$store.dispatch('getAllMarcas')
+            this.blogs = await this.$store.dispatch('getAllBlogs')
+            this.pruebas = await this.$store.dispatch('getAllTipoPruebas')
+
+            console.log(this.blogs)
         }
+
     }
 
 }

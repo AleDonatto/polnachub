@@ -5,9 +5,19 @@
                 <v-row justify="center" class="my-10">
                     <v-col cols="3" v-if="windowSize>1129">
                         <h1 class="font-weight-bold font-size-24">Productos recomendados</h1>
-                        <v-img src="/contact/plasticos.png" contain max-height="210" class="my-2"></v-img>
+                        <div v-if="this.productos !== null">
+                            <div v-for="(prod, index) in this.productos.data.slice(0,3)" :key="index">
+                                <nuxt-link :to="`/products/${prod.id}`" class="decoration-none">
+                                    <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="210" class="my-2 py-4" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                        <p class="mt-4"></p>
+                                        <p class="font-weight-bold white--text text-body-all text-center mt-16">{{prod.attributes.name}}</p>
+                                    </v-img>
+                                </nuxt-link>
+                            </div>
+                        </div>
+                        <!--<v-img src="/contact/plasticos.png" contain max-height="210" class="my-2"></v-img>
                         <v-img src="/contact/compuestos.png" contain max-height="210" class="my-2"></v-img>
-                        <v-img src="/contact/masterbatch.png" contain max-height="210" class="my-2"></v-img>
+                        <v-img src="/contact/masterbatch.png" contain max-height="210" class="my-2"></v-img>-->
 
                         <h1 class="font-weight-bold font-size-24 mt-16">Te podría interesar</h1>
 
@@ -63,10 +73,13 @@
                             </v-card>
                         </nuxt-link>
                     </v-col>
-                    <v-col cols="12" lg="9" md="9" sm="12" xs="12">
+
+                    <v-col cols="12" lg="9" md="9" sm="12" xs="12" v-if="this.blog !== null">
                         <v-row justify="center" align="end">
+                            
                             <v-col cols="12" align="center">
-                                <v-img src="/blog/blog-individual.png" contain :max-height="windowSize<1129 ? '210': '450'"></v-img>
+                                <!--<v-img src="/blog/blog-individual.png" contain :max-height="windowSize<1129 ? '210': '450'"></v-img>-->
+                                <v-img :src="basePathApiUrl + this.blog.data.attributes.imgContent.data.attributes.url" contain :max-height="windowSize<1129 ? '210': '450'"></v-img>
                             </v-col>
                             <v-col cols="12" xl="7" lg="10" md="10" align="end" class="positions" >
                                 <v-fab-transition>
@@ -80,11 +93,11 @@
                                         <ShareNetwork
                                             class="white--text decoration-none"
                                             network="twitter"
-                                            url="https://idyllic-chaja-53a02e.netlify.app/blogs/1"
-                                            title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-                                            description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+                                            :url="baseURL + this.$route.path"
+                                            :title="this.blog.data.attributes.title"
+                                            :description="this.blog.data.attributes.description"
                                             quote="The hot reload is so fast it\'s near instant. - Evan You"
-                                            hashtags="vuejs,vite"
+                                            :hashtags="this.blog.data.attributes.tags"
                                         >
                                             <v-icon>mdi-twitter</v-icon>
                                         </ShareNetwork>
@@ -95,11 +108,11 @@
                                         <ShareNetwork
                                             class="white--text decoration-none"
                                             network="whatsapp"
-                                            url="https://idyllic-chaja-53a02e.netlify.app/blogs/1"
-                                            title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-                                            description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+                                            :url="baseURL + this.$route.path"
+                                            :title="this.blog.data.attributes.title"
+                                            :description="this.blog.data.attributes.description"
                                             quote="The hot reload is so fast it\'s near instant. - Evan You"
-                                            hashtags="vuejs,vite"
+                                            :hashtags="this.blog.data.attributes.tags"
                                         >
                                             <v-icon>mdi-whatsapp</v-icon>
                                         </ShareNetwork>
@@ -110,11 +123,11 @@
                                         <ShareNetwork
                                             class="white--text decoration-none"
                                             network="facebook"
-                                            url="https://idyllic-chaja-53a02e.netlify.app/blogs/1"
-                                            title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-                                            description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+                                            :url="baseURL + this.$route.path"
+                                            :title="this.blog.data.attributes.title"
+                                            :description="this.blog.data.attributes.description"
                                             quote="The hot reload is so fast it\'s near instant. - Evan You"
-                                            hashtags="vuejs,vite"
+                                            :hashtags="this.blog.data.attributes.tags"
                                         >
                                             <v-icon dark>mdi-facebook</v-icon>
                                         </ShareNetwork>
@@ -128,12 +141,12 @@
                         <v-row>
                             <v-col cols="12" class="mt-10">
                                 <p class="font-weight-bold font-size-18">
-                                    Autor: POLNAC <br>
-                                    Fecha: 00/00/000 12:30 hrs
+                                    Autor: {{this.blog.data.attributes.author}} <br>
+                                    Fecha: {{this.blog.data.attributes.createdAt.slice(0,19)}} hrs
                                 </p>
                             </v-col>
                             <v-col cols="12">
-                                <p class="font-size-20">
+                                <!--<p class="font-size-20">
                                     El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones 
                                     Unidas para el Medio Ambiente aprobó una resolución histórica para hacer 
                                     frente a la contaminación plástica. Se prevé que un acuerdo internacional 
@@ -179,17 +192,26 @@
                                     Por consiguiente, nos encontramos un paso adelante: ponemos a tu disposición 
                                     una nueva gama de materiales y compuestos biodegradables bajo nuestra marca 
                                     BioResin
-                                </p>
+                                </p>-->
+                                <p class="font-size-20" v-html="this.blog.data.attributes.content"></p>
                                 <v-divider></v-divider>
                             </v-col>
                         </v-row>
+
                         <v-row>
                             <v-col cols="12">
                                 <p class="font-weight-bold font-size-24">Conoce marcas relacionadas:</p>
                             </v-col>
                         </v-row>
-                        <v-row>
-                            <v-col cols="12" lg="4" md="4" sm="12" xs="12">
+                        <v-row v-if="this.marcas !== null">
+                            <v-col cols="12" lg="4" md="4" sm="12" xs="12" v-for="(mar, index) in this.marcas.data.slice(0,3)" :key="index">
+                                <!--<v-img src="/group/logo-bioresin.png" contain max-height="120"></v-img>-->
+                                <v-img :src="basePathApiUrl + mar.attributes.image.data.attributes.url " contain max-height="120"></v-img>
+                                <!--<p class="font-size-18 mt-2 text-truncate">Especialistas en la distribución y fabricación de resinas biodegradables.</p>-->
+                                <p class="font-size-18 mt-2 text-truncate">{{mar.attributes.subtitle}}</p>
+                            </v-col>
+
+                            <!--<v-col cols="12" lg="4" md="4" sm="12" xs="12">
                                 <v-img src="/group/logo-bioresin.png" contain max-height="120"></v-img>
                                 <p class="font-size-18 mt-2 text-truncate">Especialistas en la distribución y fabricación de resinas biodegradables.</p>
                             </v-col>
@@ -200,7 +222,7 @@
                             <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                                 <v-img src="/group/logo-flexlene.png" contain max-height="120"></v-img>
                                 <p class="font-size-18 mt-2 text-truncate">Expertos en el diseño, desarrollo y fabricación de Compuestos de Policloruro de Vinilo(PVC).</p>
-                            </v-col>
+                            </v-col>-->
                         </v-row>
 
                         <v-row v-if="windowSize>1129">
@@ -208,13 +230,23 @@
                                 <p class="font-weight-bold font-size-24">Mercados</p>
                             </v-col>
                             <v-col cols="4" align="right">
-                                <nuxt-link to="/blogs" class="color-decotarion">
+                                <nuxt-link to="/market" class="color-decotarion">
                                     <h1 class="purple-polnac">Ver todas</h1>
                                 </nuxt-link>
                             </v-col>
                         </v-row>
-                        <v-row v-if="windowSize>1129" class="mb-16">
-                            <v-col cols="4">
+                        <v-row v-if="windowSize>1129 && this.mercados !== null" class="mb-16" >
+                            
+                            <v-col cols="4" v-for="(mer, index) in this.mercados.data.slice(0,3)" :key="index" align-self="center">
+                                <!--<v-img src="/blog/mercados.png" contain max-height="220"></v-img>-->
+                                <v-img :src="basePathApiUrl + mer.attributes.imgMiniarure.data.attributes.url" contain max-height="220" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                    <div class="mt-7">
+                                        <p class="text-center font-archivo text-body-all white--text mt-16 font-weight-bold">{{mer.attributes.nameMarket}}</p>
+                                    </div>
+                                </v-img>
+                            </v-col>
+
+                            <!--<v-col cols="4">
                                 <v-img src="/blog/mercados.png" contain max-height="220"></v-img>
                             </v-col>
                             <v-col cols="4">
@@ -222,7 +254,7 @@
                             </v-col>
                             <v-col cols="4">
                                 <v-img src="/blog/mercados.png" contain max-height="220"></v-img>
-                            </v-col>
+                            </v-col>-->
                         </v-row>
 
                         <v-row v-if="windowSize<1129" class="mb-16">
@@ -266,11 +298,24 @@ export default {
                 {img: require('../../static/blog-mercados.png') },
                 {img: require('../../static/blog-polnac.png') },
             ],
-            showButttons: false
+            showButttons: false,
+            mercados: null,
+            marcas: null,
+            productos: null,
+            blog: null,
+            baseURL: ''
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight'])
+        ...mapState(['windowSize', 'windowHeight', 'basePathApiUrl'])
+    },
+    mounted() {
+        this.getMercados()
+        this.getMarcas()
+        this.getProductos()
+        this.getBlog(this.$route.params.id)
+
+        this.baseURL = process.env.BASE_URL_PAGE
     },
     methods: {
         shareFacebook(){
@@ -281,6 +326,22 @@ export default {
         },
         shareWhatsapp(){
             window.open('')
+        },
+        async getMercados(){
+            this.mercados = await this.$store.dispatch('getAllMarkets')
+            //console.log(this.mercados)
+        },
+        async getMarcas(){
+            this.marcas = await this.$store.dispatch('getAllMarcas')
+            //console.log(this.marcas)
+        },
+        async getProductos(){
+            this.productos = await this.$store.dispatch('getAllProducts')
+            //console.log(this.productos)
+        },
+        async getBlog(id){
+            this.blog = await this.$store.dispatch('getBlogById', id)
+            console.log(this.blog)
         }
     }
 }

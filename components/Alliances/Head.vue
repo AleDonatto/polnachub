@@ -1,14 +1,12 @@
 <template>
     <!-- v-if="pageAlliances !== null" -->
-    <div :class="{'bg-alliances': windowSize > 1129, 'bg-alliances-mb': windowSize < 1129 }" >
+    <div v-if="pageAlliances !== null" :class="{'bg-alliances': windowSize > 1129, 'bg-alliances-mb': windowSize < 1129 }" :style="{ backgroundImage: `url(${basePathApiUrl + pageAlliances.banner.image.data[0].attributes.url })` }">
         <v-row justify="center" align-content="center">
             <v-col class="mt-12" align="center">
-                <p class="font-title text-h3 mt-16 white--text font-weight-bold">
-                    Alianzas
-                </p>
                 <!--<p class="font-title text-h3 mt-16 white--text font-weight-bold">
-                    {{ pageAlliances.banner.title }}
+                    Alianzas
                 </p>-->
+                <p class="font-title text-h3 mt-16 white--text font-weight-bold" v-html="pageAlliances.banner.title"></p>
             </v-col>
         </v-row>
     </div>
@@ -24,7 +22,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize','pageAlliances'])
+        ...mapState(['windowHeight','windowSize','pageAlliances', 'basePathApiUrl'])
     }
 
 }
@@ -34,7 +32,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
 
 .bg-alliances{
-    background-image: url('../../static/alliances/bg-banner.png');
+    /*background-image: url('../../static/alliances/bg-banner.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -43,7 +41,7 @@ export default {
 }
 
 .bg-alliances-mb{
-    background-image:url('../../static/alliances/bg-bannermb.png');
+    /*background-image:url('../../static/alliances/bg-bannermb.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

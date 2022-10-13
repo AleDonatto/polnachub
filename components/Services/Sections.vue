@@ -1,15 +1,15 @@
 <template>
-    <!--<div v-if="pageServices === null">
+    <div v-if="pageServices === null">
         <v-sheet class="pa-3">
             <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
         </v-sheet>
-    </div>-->
-    <div>
+    </div>
+    <div v-else>
         <section>
             <v-container>
                 <v-row justify="center" class="mt-16">
                     <v-col cols="12" xl="9">
-                        <v-row justify="center">
+                        <!--<v-row justify="center">
                             <v-col cols="12" lg="4" mg="4" sm="12" xs="12">
                                 <h1 class="font-size-28 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">Terminal Ferroviaria</h1>
                                 <ul class="text-body-all mt-5 ml-4" :class="{'mx-6' : windowSize < 1129 }">
@@ -80,14 +80,14 @@
                                 </ul>
                                 <v-divider class="mt-5" v-if="windowSize < 1129"></v-divider>
                             </v-col>
-                        </v-row>
-                        <!--<v-row justify="center">
+                        </v-row>-->
+                        <v-row justify="center">
                             <v-col cols="12" lg="4" mg="4" sm="12" xs="12" v-for="(item, index) in pageServices.technologies" :key="index">
                                 <h1 class="font-size-28 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">{{ item.title }}</h1>
                                 <div class="text-body-all mt-5 ml-4" :class="{'mx-6' : windowSize < 1129 }" v-html="$md.render( item.description )"></div>
                                 <v-divider class="mt-5" v-if="windowSize < 1129"></v-divider>
                             </v-col>
-                        </v-row>-->
+                        </v-row>
                     </v-col>
                 </v-row>
 
@@ -95,14 +95,14 @@
                     <v-col cols="12" xl="9">
                         <v-row justify="center">
                             <v-col cols="12" class="mt-10">
-                                <p class="text-body-all">De igual manera, <span class="font-weight-bold">POLNAC</span> pone a tu disposición su moderno y acreditado laboratorio de pruebas. Equipo e instalaciones de vanguardia para el análisis y evaluación de materiales plásticas a tu alcance:</p>
-                                <!--<div class="text-body-all" :class="{'mx-6' : windowSize < 1129 }" v-html="$md.render( pageServices.textLaboratory )"></div>-->
+                                <!--<p class="text-body-all">De igual manera, <span class="font-weight-bold">POLNAC</span> pone a tu disposición su moderno y acreditado laboratorio de pruebas. Equipo e instalaciones de vanguardia para el análisis y evaluación de materiales plásticas a tu alcance:</p>-->
+                                <div class="text-body-all" :class="{'mx-6' : windowSize < 1129 }" v-html="pageServices.textLaboratory"></div>
                             </v-col>
                             <v-col cols="10" xl="4" lg="6" md="6" align="center" class="mb-16">
                                 <nuxt-link to="/laboratory" class="text-decoration-none">
                                     <v-btn class="rounded-lg text-none d-flex justify-space-between py-5" block outlined color="#19D3C5">
-                                        <!--<span class="black--text">{{pageServices.txtBtnLaboratory}}</span>-->
-                                        <span class="black--text">Ver pruebas de Laboratorio</span>
+                                        <span class="black--text">{{pageServices.txtBtnLaboratory}}</span>
+                                        <!--<span class="black--text">Ver pruebas de Laboratorio</span>-->
                                         <v-icon right class="black--text">
                                             mdi-chevron-right
                                         </v-icon>
@@ -119,15 +119,15 @@
             <v-container>
                 <v-row justify="center" class="mb-16">
                     <v-col cols="12" align="center" class="mt-16">
-                        <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">¿Te interesa un servicio?</h1>
-                        <!--<h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">{{ pageServices.information.title }}</h1>-->
+                        <!--<h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">¿Te interesa un servicio?</h1>-->
+                        <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">{{ pageServices.information.title }}</h1>
                         <nuxt-link to="/services/contact" class="text-decoration-none">
-                            <v-btn class="font-size-20 black--text px-10 my-5 py-6 body-1 text-none rounded-lg" color="#19D3C5">
-                                Solicitar información
-                            </v-btn>
                             <!--<v-btn class="font-size-20 black--text px-10 my-5 py-6 body-1 text-none rounded-lg" color="#19D3C5">
-                                {{ pageServices.information.txtBtn }}
+                                Solicitar información
                             </v-btn>-->
+                            <v-btn class="font-size-20 black--text px-10 my-5 py-6 body-1 text-none rounded-lg" color="#19D3C5">
+                                {{ pageServices.information.txtBtn }}
+                            </v-btn>
                         </nuxt-link>
                     </v-col>                    
                 </v-row>

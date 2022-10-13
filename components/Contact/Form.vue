@@ -1,190 +1,199 @@
 <template>
-    <!--<div v-if="pageContact === null">
+    <div v-if="pageContact === null">
         <v-sheet class="pa-3">
             <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
         </v-sheet>
-    </div>-->
-    <div>
+    </div>
+    <div v-else>
         <section>
             <v-container>
                 <v-row justify="center">
                     <v-col cols="10">
-                        <h1 class="font-archivo font-size-34 font-weight-bold text-center mt-16">Contáctanos con solo dos pasos</h1>
-                        <!--<h1 class="font-archivo font-size-34 font-weight-bold text-center mt-16">{{pageContact.title}}</h1>-->
+                        <!--<h1 class="font-archivo font-size-34 font-weight-bold text-center mt-16">Contáctanos con solo dos pasos</h1>-->
+                        <h1 class="font-archivo font-size-34 font-weight-bold text-center mt-16">{{pageContact.title}}</h1>
                     </v-col>
                 </v-row>
-                <v-row justify="center">
-                    <v-col cols="12" xl="9">
-                        <v-row>
-                            <v-col cols="12">
-                                <v-stepper v-model="e1" class="mt-10 mb-16 shadow-none">
-                                    <v-stepper-header>
-                                        <v-row>
-                                            <v-col cols="6">
-                                                <v-stepper-step :complete="e1 > 1" step="1" color="#19D3C5"></v-stepper-step>
-                                            </v-col>
-                                            <v-col cols="6">
-                                                <v-stepper-step :complete="e1 > 2" step="2" color="#19D3C5"></v-stepper-step>
-                                            </v-col>
-                                        </v-row>
-                                    </v-stepper-header>
-
-                                    <div>
-                                        <v-progress-linear :value="progress" color="#19D3C5"></v-progress-linear>
-                                    </div>
-
-                                    <v-stepper-items class="">
-                                        <v-stepper-content step="1" class="mb-2">
+                <v-form @submit.prevent="sendInformation" ref="formContact">
+                    <v-row justify="center">
+                        <v-col cols="12" xl="9">
+                            <v-row>
+                                <v-col cols="12">
+                                    <v-stepper v-model="e1" class="mt-10 mb-16 shadow-none">
+                                        <v-stepper-header>
                                             <v-row>
-                                                <v-col cols="12">
-                                                    <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>
-                                                    <!--<h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelMarket}}</h1>-->
-                                                    <v-sheet class="mx-auto">
-                                                        <v-slide-group v-model="model" class="pa-4" active-class="success" show-arrows-false multiple>
-                                                            <v-slide-item v-for="(item ,index) in mercado" :key="index" v-slot="{ active, toggle }">
-                                                                <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
-                                                                    <v-row class="fill-height" align="center" justify="center">
-                                                                        <v-img class="ma-4 text-right pa-2" :src="item.img" contain max-height="130" max-width="210" :class="{'z-index-lower': active }">
-                                                                            <v-btn icon dark>
-                                                                                <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
-                                                                            </v-btn>
-                                                                        </v-img>
-                                                                    </v-row>
-                                                                </v-card>
-                                                            </v-slide-item>
-                                                        </v-slide-group>
-                                                    </v-sheet>        
+                                                <v-col cols="6">
+                                                    <v-stepper-step :complete="e1 > 1" step="1" color="#19D3C5"></v-stepper-step>
+                                                </v-col>
+                                                <v-col cols="6">
+                                                    <v-stepper-step :complete="e1 > 2" step="2" color="#19D3C5"></v-stepper-step>
                                                 </v-col>
                                             </v-row>
+                                        </v-stepper-header>
 
-                                            <v-row>
-                                                <v-col cols="12">
-                                                    <h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un producto</h1>
-                                                    <!--<h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelProduct}}</h1>-->
-                                                    <v-sheet class="mx-auto">
-                                                        <v-slide-group v-model="model2" class="pa-4" active-class="success" show-arrows-false multiple>
-                                                            <v-slide-item v-for="(item, index) in productos" :key="index" v-slot="{ active, toggle }">
-                                                                <v-card class="ma-4" @click="toggle" height="130" width="210"  :color="active ? '' : 'white'">
-                                                                    <v-row class="fill-height" align="center" justify="center">
-                                                                        <v-img class="ma-4 text-right pa-2" :src="item.img" contain max-height="130" max-width="210" :class="{'z-index-lower': active }">
-                                                                            <v-btn icon dark>
-                                                                                <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
-                                                                            </v-btn>
-                                                                        </v-img>
-                                                                    </v-row>
-                                                                </v-card>
-                                                            </v-slide-item>
-                                                        </v-slide-group>
-                                                    </v-sheet>        
-                                                </v-col>
-                                            </v-row>
+                                        <div>
+                                            <v-progress-linear :value="progress" color="#19D3C5"></v-progress-linear>
+                                        </div>
 
-                                            <v-row justify="center">
-                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                                    <p class="font-archivo font-size-20 font-weight-bold">Resina de interés</p>
-                                                    <!--<p class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelResina}}</p>-->
-                                                    <v-select class="rounded-xl" outlined label="Selecciona tipo de resina"></v-select>
-                                                </v-col>
-                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                                    <p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>
-                                                    <!--<p class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelToneladas}}</p>-->
-                                                    <v-select class="rounded-xl" outlined label="Selecciona rango promedio"></v-select>
-                                                </v-col>
-                                            </v-row>
-
-                                            <v-row justify="end">
-                                                <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="right">
-                                                    <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="nextStep">
-                                                        <span class="text-left">Continuar</span>
-                                                        <v-icon right>mdi-chevron-right</v-icon>
-                                                    </v-btn>
-                                                </v-col>
-                                            </v-row>
-                                        </v-stepper-content>
-
-                                        <v-stepper-content step="2">
-                                            <v-form>
-                                                <p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>
-                                                <!--<p class="my-5 font-size-20 font-weight-bold">{{ pageContact.labelForm }}</p>-->
+                                        <v-stepper-items class="">
+                                            <v-stepper-content step="1" class="mb-2">
                                                 <v-row>
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-text-field label="Nombes" solo outlined class="rounded-xl"></v-text-field>
-                                                    </v-col>
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-text-field label="Apellidos" solo outlined class="rounded-xl"></v-text-field>
-                                                    </v-col>
-
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-text-field label="Empresa" solo outlined class="rounded-xl"></v-text-field>
-                                                    </v-col>
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value"></v-select>
-                                                    </v-col>
-
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value"></v-select>
-                                                    </v-col>
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-text-field label="Celular" solo outlined class="rounded-xl"></v-text-field>
-                                                    </v-col>
-
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl"></v-text-field>
-                                                    </v-col>
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-text-field label="Extensión" solo outlined class="rounded-xl"></v-text-field>
-                                                    </v-col>
-
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-text-field label="Código Postal" solo outlined class="rounded-xl"></v-text-field>
-                                                    </v-col>
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-select label="País" solo outlined class="rounded-xl"></v-select>
-                                                    </v-col>
-
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-select label="Estado" solo outlined class="rounded-xl"></v-select>
-                                                    </v-col>
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-select label="Ciudad" solo outlined class="rounded-xl"></v-select>
-                                                    </v-col>
-
-                                                    <v-col cols="12" class="margin-botton-0">
-                                                        <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl"></v-select>
-                                                    </v-col>
-                                                    <v-col cols="12" class="margin-botton-0">
-                                                        <v-textarea solo outlined class="rounded-xl" label="Cuéntanos brevemente qué deseas consultar con nosotros."></v-textarea>
-                                                    </v-col>
-
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-checkbox label="Soy cliente" color="#19D3C5" class="color-checkbox"></v-checkbox>
-                                                    </v-col>
-                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                        <v-checkbox label="Aceptar Aviso de Privacidad" color="#19D3C5"></v-checkbox>
+                                                    <v-col cols="12" >
+                                                        <!--<h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>-->
+                                                        <h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelMarket}}</h1>
+                                                        <v-sheet class="mx-auto" v-if="this.mercado !== null">
+                                                            <v-slide-group v-model="model" class="pa-2" active-class="success" show-arrows-false>
+                                                                <v-slide-item v-for="(item ,index) in this.mercado.data" :key="index" v-slot="{ active, toggle}">
+                                                                    <v-card class="ma-4" @click="() => { selectMarket(item.attributes.nameMarket) }" height="130" width="210"  :color="active ? '' : 'white'">
+                                                                        <v-row @click="toggle" class="fill-height" align="center" justify="center">
+                                                                            <v-img class="ma-4 text-right pa-2" :src="basePathApiUrl + item.attributes.imgMiniarure.data.attributes.url" contain max-height="130" max-width="210" :class="{'z-index-lower': active }"
+                                                                            gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                                                                <v-btn icon dark>
+                                                                                    <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
+                                                                                </v-btn>
+                                                                                <p class="font-weight-bold font-archive text-center white--text mt-4">{{item.attributes.nameMarket}}</p>
+                                                                            </v-img>
+                                                                        </v-row>
+                                                                    </v-card>
+                                                                </v-slide-item>
+                                                            </v-slide-group>
+                                                        </v-sheet>        
                                                     </v-col>
                                                 </v-row>
+
                                                 <v-row>
+                                                    <v-col cols="12">
+                                                        <!--<h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un producto</h1>-->
+                                                        <h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelProduct}}</h1>
+                                                        <v-sheet class="mx-auto" v-if="this.productos !== null">
+                                                            <v-slide-group v-model="model2" class="pa-2" active-class="success" show-arrows-false>
+                                                                <v-slide-item v-for="(item, index) in this.productos.data" :key="index" v-slot="{ active, toggle}">
+                                                                    <v-card class="ma-4" @click="() => {selectProduct(item.attributes.name)}" height="130" width="210"  :color="active ? '' : 'white'">
+                                                                        <v-row @click="toggle" class="fill-height" align="center" justify="center">
+                                                                            <v-img class="ma-4 text-right pa-2" :src="basePathApiUrl + item.attributes.imgMiniature.data.attributes.url" contain max-height="130" max-width="210" :class="{'z-index-lower': active }"
+                                                                            gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                                                                <v-btn icon dark class="mr-1">
+                                                                                    <v-icon> {{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
+                                                                                </v-btn>
+                                                                                <p class="font-weight-bold font-archive text-center white--text mt-4">{{item.attributes.name}}</p>
+                                                                            </v-img>
+                                                                        </v-row>
+                                                                    </v-card>
+                                                                </v-slide-item>
+                                                            </v-slide-group>
+                                                        </v-sheet>        
+                                                    </v-col>
+                                                </v-row>
+
+                                                <v-row justify="center">
                                                     <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                                        <v-btn block color="#19D3C5" outlined class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="previousStep">
-                                                            <v-icon left color="black">mdi-chevron-left</v-icon>
-                                                            <span class="text-left black--text">Regresar</span>
-                                                        </v-btn>
+                                                        <!--<p class="font-archivo font-size-20 font-weight-bold">Resina de interés</p>-->
+                                                        <p class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelResina}}</p>
+                                                        <v-text-field class="rounded-xl" outlined label="Tipo de resina" v-model="formValues.resina" :rules="[rules.required]"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                                        <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="dialog = !dialog">
-                                                            <span class="text-left">Enviar</span>
+                                                        <!--<p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>-->
+                                                        <p class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelToneladas}}</p>
+                                                        <v-text-field class="rounded-xl" outlined label="Toneladas" v-model="formValues.toneledas" :rules="[rules.required]"></v-text-field>
+                                                    </v-col>
+                                                </v-row>
+
+                                                <v-row justify="end">
+                                                    <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="right">
+                                                        <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="nextStep">
+                                                            <span class="text-left">Continuar</span>
                                                             <v-icon right>mdi-chevron-right</v-icon>
                                                         </v-btn>
                                                     </v-col>
                                                 </v-row>
-                                            </v-form>
-                                        </v-stepper-content>
-                                    </v-stepper-items>
-                                </v-stepper>
-                            </v-col>
-                        </v-row>
-                    </v-col>
-                </v-row>
+                                            </v-stepper-content>
+
+                                            <v-stepper-content step="2">
+                                                <!--<v-form @submit.prevent="sendInformation" ref="formContact">-->
+                                                    <!--<p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>-->
+                                                    <p class="my-5 font-size-20 font-weight-bold">{{ pageContact.labelForm }}</p>
+                                                    <v-row>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-text-field label="Nombes" solo outlined class="rounded-xl" v-model="formValues.name"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-text-field label="Apellidos" solo outlined class="rounded-xl" v-model="formValues.lastname"></v-text-field>
+                                                        </v-col>
+
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-text-field label="Empresa" solo outlined class="rounded-xl" v-model="formValues.company"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value" v-model="formValues.area"></v-select>
+                                                        </v-col>
+
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value" v-model="formValues.industry"></v-select>
+                                                        </v-col>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-text-field label="Email" type="email" solo outlined class="rounded-xl" v-model="formValues.email"></v-text-field>
+                                                        </v-col>
+
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl" v-model="formValues.phone"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-text-field label="Celular" solo outlined class="rounded-xl" v-model="formValues.phone"></v-text-field>
+                                                        </v-col>
+
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-text-field label="Código Postal" solo outlined class="rounded-xl" v-model="formValues.cp"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-autocomplete label="País" solo outlined class="rounded-xl" v-model="formValues.country" :items="countries" item-text="country_name" item-value="country_name"
+                                                            @change="getStates"></v-autocomplete>
+                                                        </v-col>
+
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-autocomplete label="Estado" solo outlined class="rounded-xl" v-model="formValues.state" :items="states" item-text="state_name" item-value="state_name"
+                                                            @change="getCities"></v-autocomplete>
+                                                        </v-col>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-autocomplete label="Ciudad" solo outlined class="rounded-xl" v-model="formValues.city" :items="citys" item-text="city_name" item-value="city_name">
+                                                            </v-autocomplete>
+                                                        </v-col>
+
+                                                        <v-col cols="12" class="margin-botton-0">
+                                                            <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl" v-model="formValues.howKnow"></v-select>
+                                                        </v-col>
+                                                        <v-col cols="12" class="margin-botton-0">
+                                                            <v-textarea solo outlined class="rounded-xl" label="Cuéntanos brevemente qué deseas consultar con nosotros." v-model="formValues.message"></v-textarea>
+                                                        </v-col>
+
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-checkbox label="Soy cliente" color="#19D3C5" class="color-checkbox"></v-checkbox>
+                                                        </v-col>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-checkbox label="Aceptar Aviso de Privacidad" color="#19D3C5"></v-checkbox>
+                                                        </v-col>
+                                                    </v-row>
+                                                    <v-row>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                                            <v-btn block color="#19D3C5" outlined class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="previousStep">
+                                                                <v-icon left color="black">mdi-chevron-left</v-icon>
+                                                                <span class="text-left black--text">Regresar</span>
+                                                            </v-btn>
+                                                        </v-col>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                                            <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="dialog = !dialog">
+                                                                <span class="text-left">Enviar</span>
+                                                                <v-icon right>mdi-chevron-right</v-icon>
+                                                            </v-btn>
+                                                        </v-col>
+                                                    </v-row>
+                                                <!--</v-form>-->
+                                            </v-stepper-content>
+                                        </v-stepper-items>
+                                    </v-stepper>
+                                </v-col>
+                            </v-row>
+                        </v-col>
+                    </v-row>
+                </v-form>
             </v-container>
         </section>
 
@@ -226,6 +235,12 @@
             </v-card>
         </v-dialog>
 
+        <v-snackbar v-model="snackbar"> 
+            Seleccione un producto y mercado
+            <template v-slot:action="{ attrs }">
+                <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">Close</v-btn>
+            </template>
+        </v-snackbar>
     </div>
 </template>
 
@@ -240,33 +255,8 @@ export default {
             model2: [],
             progress: 55,
             dialog: false,
-            mercado: [
-                {img: require('../../static/contact/consumo.png') },
-                {img: require('../../static/contact/flexible.png') },
-                {img: require('../../static/contact/rigido.png') },
-                {img: require('../../static/contact/agricola.png') },
-                {img: require('../../static/contact/personal.png') },
-                {img: require('../../static/contact/electrico.png') },
-                {img: require('../../static/contact/industrial.png') },
-                {img: require('../../static/contact/construccion.png') },
-                {img: require('../../static/contact/calzado.png') },
-                {img: require('../../static/contact/medico.png') },
-            ],
-            productos: [
-                {img: require('../../static/contact/plasticos.png') },
-                {img: require('../../static/contact/compuestos.png') },
-                {img: require('../../static/contact/masterbatch.png') },
-                {img: require('../../static/contact/aditivos.png') },
-                {img: require('../../static/contact/calcio.png') },
-                {img: require('../../static/contact/rotomoldeo.png') },
-                {img: require('../../static/contact/pvc.png') },
-                {img: require('../../static/contact/termoplasticos.png') },
-                {img: require('../../static/contact/biodegradables.png') },
-                {img: require('../../static/contact/hules.png') },
-                {img: require('../../static/contact/polietileno.png') },
-                {img: require('../../static/contact/polipropileno.png') },
-                {img: require('../../static/contact/estirenicos.png') },
-            ],
+            mercado: null,
+            productos: null,
             area: [
                 {value: 'Almacén'},
                 {value: 'Calidad'},
@@ -282,35 +272,155 @@ export default {
                 {value: 'Otra'},
             ],
             industria: [
-                {value: 'Consumo'},
-                {value: 'Empaque Flexible'},
-                {value: 'Empaque Rígico'},
-                {value: 'Agrícola'},
-                {value: 'Cuidado Personal'},
-                {value: 'Eléctrico-Electrónico'},
-                {value: 'Electrodomésticos'},
-                {value: 'Industrial'},
-                {value: 'Automotriz y Transportación'},
+                {value: 'Aeronáutico'},
+                {value: 'Agropecuaria'},
+                {value: 'Alimentos y Bebidas'},
+                {value: 'Automotriz'},
+                {value: 'Calzado'},
                 {value: 'Construcción'},
-                {value: 'Calzado y textil'},
-                {value: 'Médico y farmacéutico'},
+                {value: 'Consumo'},
+                {value: 'Cosmética y Cuidado Personal'},
+                {value: 'Eléctrico'},
+                {value: 'Electrónico'},
+                {value: 'Empaque / Envase'},
+                {value: 'Herramientas, Maquinaria y Equipo'},
+                {value: 'Industrial'},
+                {value: 'Maquila'},
+                {value: 'Médico y Farmacéutico'},
+                {value: 'Metalmecánica'},
+                {value: 'Película'},
+                {value: 'Química'},
+                {value: 'Tecnología y Electrodomésticos'},
+                {value: 'Textil'},
+                {value: 'Transporte'},
                 {value: 'Otra'},
             ],
-            selected: ''
+            selected: '',
+            rules: {
+                required: (value) => !!value || "Required.",
+                min: (v) => v.length >= 8 || "Min 8 characters",
+                email: v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            },
+            formValues: {
+                market: null,
+                product: null,
+                resina: null,
+                toneladas: null,
+                name: null,
+                lastname: '',
+                company: '',
+                area: '',
+                industry: '',
+                email: '',
+                phone: '',
+                celphone: '',
+                cp: '',
+                country: '',
+                state: '',
+                city: '',
+                howKnow: '',
+                comments: '',
+            },
+            snackbar: false,
+            token: '',
+            countries: null,
+            states: null,
+            citys: null
         } 
     },
+    computed: {
+        ...mapState(['pageContact', 'basePathApiUrl'])
+    },
+    mounted() {
+        this.getMercados()
+        this.getProductos()
+        setTimeout(() => {
+            this.getCountries()
+        }, 4000);
+    },
     methods: {
+        async getProductos(){
+            this.productos = await this.$store.dispatch('getAllProducts')
+            //console.log(this.productos)
+        },
+        async getMercados(){
+            this.mercado = await this.$store.dispatch('getAllMarkets') 
+            //console.log(this.mercado)
+        },
         nextStep(){
-            this.progress = 100
-            this.e1 = 2
+            if(this.$refs.formContact.validate()){
+                if( this.formValues.market === null || this.formValues.product === null){
+                    this.snackbar = true
+                }else{
+                    this.$refs.formContact.resetValidation()
+                    this.progress = 100
+                    this.e1 = 2
+                }
+            }
         },
         previousStep(){
             this.progress = 55
             this.e1 = 1
+        },  
+        sendInformation(){
+            if(this.$refs.formContact.validate()){
+                let date = new Date();
+                this.form.sendDate = date.toISOString()
+
+                const dataForm = {
+                    data: this.formValues
+                    
+                }
+
+                /api/contacto-polnacs
+                this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-polnacs`, dataForm)
+                .then(res => {
+                    this.dialog = !this.dialog
+                    this.$refs.form.reset()
+                })
+                .catch(err => {
+                    console.log(err.response)
+                })
+            }
         },
-    },
-    computed: {
-        ...mapState(['pageContact'])
+        selectProduct(toggle){
+            console.log(toggle)
+            this.formValues.product = toggle
+
+        },
+        selectMarket(toggle){
+            this.formValues.market = toggle
+            //console.log(this.formValues.market)
+        },
+        async getToken(){
+            this.$axios.setHeader('Accept','application/json')
+            this.$axios.setHeader('api-token',process.env.COUNTRY_API_TOKEN)
+            this.$axios.setHeader("user-email", "alej.donatto@gmail.com")
+            
+            const response  = await this.$axios.get('https://www.universal-tutorial.com/api/getaccesstoken')
+            return response.data.auth_token
+        },
+        async getCountries(){
+            this.token = await this.getToken()
+
+            this.$axios.setHeader('Authorization', `Bearer ${this.token}`)
+            this.$axios.setHeader("Accept", "application/json")
+            
+            const allCountries = await this.$axios.get('https://www.universal-tutorial.com/api/countries')
+            //console.log(allCountries)
+            this.countries = allCountries.data
+
+        },
+        async getStates(){
+            const response = await this.$axios.get(`https://www.universal-tutorial.com/api/states/${this.formValues.country}`)
+            this.states = response.data
+        },
+        async getCities(){
+            const response = await this.$axios.get(`https://www.universal-tutorial.com/api/cities/${this.formValues.state}`)
+            //console.log(response)
+            this.citys = response.data
+            
+        }
     }
 }
 </script>

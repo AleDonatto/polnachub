@@ -1,5 +1,32 @@
 <template>
-    <div>
+    <div v-if="pagePolnacWiki === null">
+        <v-sheet class="pa-3">
+            <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
+        </v-sheet>
+    </div>
+    <div v-else>
+        <div :class="{'bg-polnacwiki':windowSize > 1129, 'bg-polnacwiki-mb': windowSize < 1129 }" v-if="pagePolnacWiki !== null" :style="{ backgroundImage: `url(${basePathApiUrl + pagePolnacWiki.banner.image.data[0].attributes.url })` }">
+            <v-row justify="center">
+                <v-col cols="12" class="" align="center">
+                    <!--<h1 class="font-archivo mt-16 font-size-40 white--text font-weight-bold">POLNAC Wiki</h1>-->
+                    <h1 class="font-archivo mt-16 font-size-40 white--text font-weight-bold" v-html="pagePolnacWiki.banner.title"></h1>
+                </v-col>
+            </v-row>
+            <v-row class="" justify="center">
+                <v-col cols="8" v-if="this.pruebas !== null">
+                    <v-autocomplete solo rounded class="mt-4" placeholder="Buscar" prepend-inner-icon="mdi-magnify" :items="this.pruebas.data" item-text="attributes.name" return-object
+                    @change="gotoPrueba"></v-autocomplete>
+                </v-col>
+                <v-col cols="3" align="center" class="mt-3" v-if="windowSize < 1129">
+                    <v-btn class="mx-2" fab dark color="white">
+                        <v-icon color="black">
+                            mdi-filter-outline
+                        </v-icon>
+                    </v-btn>
+                </v-col>
+            </v-row>
+        </div>
+
         <section v-if="windowSize > 1129">
             <v-container>
                 <v-row justify="start" class="my-16">
@@ -46,10 +73,19 @@
                         </v-row>
 
                     </v-col>
-                    <v-col cols="8">
+                    <v-col cols="8" v-if="pruebas !== null">
 
                         <v-expansion-panels v-model="tabs" multiple v-if="Transf && !Lab ">
-                            <v-expansion-panel class="my-2 rounded-xl">
+                            <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in dataMet" :key="index" >
+                                <v-expansion-panel-header class="font-weight-bold panel-color">
+                                    {{ item.attributes.name }}
+                                </v-expansion-panel-header>
+                                <v-expansion-panel-content class="mt-5 shadow-none">
+                                    <div class="" v-html="item.attributes.description"></div>
+                                </v-expansion-panel-content>
+                            </v-expansion-panel>
+
+                            <!--<v-expansion-panel class="my-2 rounded-xl">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
                                     Extrusión
                                 </v-expansion-panel-header>
@@ -160,19 +196,18 @@
                                     ya que es necesario tomar en cuenta las diferencias en las características de flujo de los 
                                     distintos materiales. 
                                 </v-expansion-panel-content>
-                            </v-expansion-panel>
+                            </v-expansion-panel>-->
                         </v-expansion-panels>
 
-                        <v-expansion-panels v-model="tabsLab" multiple v-if="Lab && !Transf">
-                            <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in dataLab" :key="index">
+                        <v-expansion-panels v-model="tabsLab" multiple v-if="Lab && !Transf">    
+                            <v-expansion-panel class="my-2 rounded-xl max-heigh" v-for="(item, index) in dataLab" :key="index" @click="isSelected(item.id)">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                    {{ item.title  }}
+                                    {{ item.attributes.name }}
                                 </v-expansion-panel-header>
                                 <v-expansion-panel-content class="mt-5 shadow-none">
-                                    {{ item.des }}
+                                    <div class="" v-html="item.attributes.description"></div>
                                 </v-expansion-panel-content>
                             </v-expansion-panel>
-
                         </v-expansion-panels>
                     </v-col>
                 </v-row>
@@ -401,7 +436,25 @@
             <div class="mb-2"></div>
         </section>
 
-        <Productos class="mb-2" v-if="showbanners"/>
+
+        <section class="mt-16 bg-polnac-end" v-if="showbanners">
+            <v-container>
+                <v-row justify="center" class="mb-10">
+                    <v-col cols="12" align="center" class="mt-16">
+                        <!--<h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">¿Necesitas más información?</h1>-->
+                        <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold" v-html="pagePolnacWiki.information.title"></h1>
+                        <!--<p class="white--text text-h5">Revisa nuestro amplio catálogo de productos</p>-->
+                        <p class="white--text text-h5" v-html="pagePolnacWiki.information.description"></p>
+                    </v-col>                    
+                    <v-col cols="6" lg="4" md="4" sm="6" xs="6" class="mb-16" align="center">
+                        <!--<v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">Ver productos</v-btn>-->
+                        <v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">{{pagePolnacWiki.information.txtBtn}}</v-btn>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+        <!--<Productos class="mb-2" v-if="showbanners"/>-->
     </div>
 </template>
 
@@ -417,38 +470,18 @@ export default {
             ],
             tabs: [0],
             tabsLab: [0],
-            Transf: false,
-            Lab: true,
-            dataLab: [
-                { title: 'Índice de Fluidez', des: 'Cantidad de material plastificado en gramos que fluye a través del orificio de un dado de dimensiones fijas, sujeto a presión y temperaturas predeterminadas. Es también una medida indirecta del peso molecular.'},
-                { title: 'Densidad', des: 'Medida de cuánto material se encuentra en un espacio determinado. Ayuda a determinar la pureza de los polímeros antes de su procesamiento. Es vital para determinar la homogeneidad de las resinas. De igual manera sirve para precisar si existe algún material externo se ha mezclado con la materia prima.'},
-                { title: 'Determinación de Humedad', des: 'Utilizando un equipo denominado Mufla se calcina el material a través de la gasificación del polímero convirtiéndose en monóxido de carbono y dióxido de carbono, finalmente se calcula el contenido de cenizas de un polímero. '},
-                { title: 'Contenido de Cenizas', des: 'Medición de la resistencia al impacto por medio de la caída de un peso desde una altura determinada y controlada. Un impactómetro mide la energía absorbida por la probeta de prueba. Mientras más alta sean los valores de resistencia al impacto mayor será la resistencia del polímero.'},
-                { title: 'Impacto', des: 'La resistencia a la flexión es la propiedad que tienen los plásticos de soportar un esfuerzo sobre ellos antes de doblarse. Ayuda a determinar si el material es demasiado o muy poco flexible para la aplicación final.'},
-                { title: 'Tensión y Elongación', des: 'Mide el esfuerzo máximo para que el material se estire a su punto máximo y llegue a su punto de cedencia. La tensión se define como la capacidad que presentan los plásticos a oponerse a un esfuerzo de tensión aplicado en un área determinada. Se mide como la máxima carga de tensión por unidad de área que resiste antes de la ruptura del material. La elongación es la máxima extensión que alcanza una probeta hasta llegar al punto de ruptura después de someterla a un estiramiento.'},
-                { title: 'Dureza Shore A y D', des: 'Es la resistencia que presentan los plásticos al ser mellados o rayados sobre su superficie. El método consiste en colocar una muestra o probeta y dejar caer sobre ella un punzón. Con apoyo de un durómetro se calcula la dureza del plástico.'},
-                { title: 'Resistencia a la inflamabilidad', des: 'La tendencia de un termoplástico a extinguir o a propagar una llama cuando entra en combustión en un periodo específico Esta prueba indica la rapidez con que se propaga el fuego. Es una prueba vital para diversos sectores, tales como: automotriz, eléctrico-electrónico, construcción, consumo, textil y electrodomésticos. '},
-                { title: 'Temperatura de Deflexión Bajo Carga (HDT)', des: 'Es la temperatura a la cual ocurre la deformación de un polímero bajo una carga normalizada. En un baño de aceite a base de silicona el material es sometido a una carga constante y a temperaturas variables. Una vez que el material ceda se registra la temperatura. Es una prueba muy importante para materiales que estarán sometidos a altas temperaturas. '},
-                { title: 'Análisis Termogravimétrico (TGA)', des: 'Evaluación de las propiedades térmicas mediante la pérdida de peso de una muestra cuando se incrementa la temperatura a una velocidad uniforme. Indica la composición de la muestra, incluidos los volátiles y refuerzos inertes. Esta prueba ayuda a: identificar plásticos, contenido de humedad, materia volátil, procesos de degradación y oxidación, estabilidad térmica, composición química, entre otros.'},
-                { title: 'Calorimetría Diferencial de Barrido (DSC)', des: 'Mide los cambios de entalpía (el flujo de energía térmica en los procesos químicos efectuados a presión constante cuando el único trabajo es de presión-volumen) debido a modificaciones en las propiedades químicas y físicas de un material, en función del tiempo o temperatura. Es una prueba que proporciona información valiosa sobre las condiciones de procesamiento, aplicación, defectos de calidad, pureza, seguridad química, reactividad y estabilidad. '},
-                { title: 'Determinación de Color con Espectrofotómetro', des: 'Proporciona los valores y coordenadas de un color. El espectrofotómetro es un equipo diseñado para medir el espectro de transmitancia o reflectancia de un objeto. El objetivo es comparar la radiación para cada longitud de onda a la salida del objeto.'},
-                { title: 'Espectrofotómetro de Infrarrojo', des: 'Puede emplearse para la identificación cualitativa y cuantitativa de plásticos. La absorción de luz por molécula es única, por lo que cada espectro que ésta aporta también es único. Una de sus grandes ventajes es que solamente con la comparación con otros espectros previamente identificados es posible identificar muestras con diversos problemas. '},
-                { title: 'Determinación de Brillo', des: ' Una medida de cuán brillante o reflejante es un material que se encuentra en un ángulo especifico respecto al haz de luz incidente. El brillo depende considerablemente de la lisura y planicidad de la muestra. Por lo que esta prueba se ocupa cuando se desea comparar o medir de forma relativa estos atributos.'},
-                { title: 'Intemperismo (Envejecimiento)', des: 'En condiciones ambientales atmosféricas los plásticos de degradan debido a la acción del oxígeno, la radiación de luz UV, y la humedad. Esta prueba mide la resistencia a la intemperie de los plásticos. Ayuda a predecir el tiempo que resiste un material expuesto a condiciones ambientales reales.'},
-                { title: 'Reología Rotacional', des: 'Permite conocer el índice de fluidez con mayor complejidad, el peso molecular, y ayuda a determinar el método de transformación adecuado. De igual manera, permite conocer si la resina cuenta con material reciclado o si es material prime. Suele ser utilizada para aplicaciones de gran complejidad como por ejemplo en materiales para el mercado automotriz. '},
-            ],
+            Transf: true,
+            Lab: false,
+            dataLab: null,
+            dataMet: null,
             step: 1,
             window: 0,
+            pruebas: null
         }
     },
     mounted() {
-        if(this.$route.query.tag){
-            this.Lab = true 
-            this.Transf = false
-            const id = parseInt(this.$route.query.id - 1)
-
-            this.tabsLab = [id]
-        }
+        this.getPruebas()
+        this.selectMethods()
     },
     methods: {
         showTransf() {
@@ -470,15 +503,85 @@ export default {
         backQuestions(){
             this.step = 1
             this.$store.commit('StateAssign', {showbanners:true})
+        },
+        async getPruebas(){
+            this.pruebas = await this.$store.dispatch('getAllTipoPruebas')
+            //console.log(this.pruebas)
+            this.dataLab = this.pruebas.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio')
+            this.dataMet = this.pruebas.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Metodo de Transformacion')
+            
+            //console.log(this.dataLab)
+        },
+        isSelected(id){
+            console.log(id)
+            return true
+        },
+        gotoPrueba(item){
+
+            if(item.attributes.tipos_prueba.data.attributes.name === 'Metodo de Transformacion'){
+
+                const metodos= this.pruebas.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Metodo de Transformacion')
+                const index = metodos.findIndex(itm => itm.id === item.id)
+
+                this.Lab = false 
+                this.Transf = true
+                this.tabs = [index]
+
+                this.$router.push(`/polnac-wiki?tag=methods&id=${index}`)
+
+            }else if(item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio'){
+
+                const pruebas = this.pruebas.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio')
+                const index = pruebas.findIndex(itm => itm.id === item.id)
+
+                this.Lab = true 
+                this.Transf = false
+                this.tabsLab = [index]
+
+                this.$router.push(`/polnac-wiki?tag=laboratory&id=${index}`)
+            }
+            //this.selectMethods()
+        },
+        selectMethods(){
+            if(this.$route.query.tag){
+                if(this.$route.query.tag === 'laboratory'){
+                    this.Lab = true 
+                    this.Transf = false
+                    const id = parseInt(this.$route.query.id)
+                    this.tabsLab = [id]
+                }else if(this.$route.query.tag === 'methods'){
+                    this.Lab = false 
+                    this.Transf = true
+                    const id = parseInt(this.$route.query.id)
+                    this.tabs = [id]
+                }
+            }
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight', 'showbanners']),
+        ...mapState(['windowSize', 'windowHeight', 'showbanners', 'pagePolnacWiki', 'basePathApiUrl']),
     }
 }
 </script>
 
 <style scoped>
+.bg-polnacwiki{
+    /*background-image: url('../../static/polnacwiki/bg-banner.png');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%; 
+    height: 350px;
+}
+
+.bg-polnacwiki-mb{
+    /*background-image: url('../../static/polnacwiki/bg-bannermb.png');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%; 
+    height: 400px;
+}
 .shadow-none{
     z-index: unset !important;
 }
@@ -487,5 +590,20 @@ export default {
     border: 2px solid ;
     border-radius: 20px 20px 20px 20px;
     border-color: #19D3C5;
+}
+
+.font-title{
+    font-family: 'Archivo' !important;
+}
+.bg-alliance-end{
+    background-color: #655DC6;
+    height: 480px;
+}
+.bg-polnac-end{
+    background-color: #3D7CC9;
+    height: 480px;
+}
+.max-heigh{
+    height: 100% !important;
 }
 </style>

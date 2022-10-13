@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BlogHead/>
+        <!--<BlogHead/>-->
         <BlogSections />
     </div>
 </template>

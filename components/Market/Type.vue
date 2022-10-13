@@ -1,14 +1,16 @@
 <template>
-    <div>
+    <div v-if="this.mercado !== null">
         <div :class="{'bg-market': windowSize > 1129, 'bg-market-mb': windowSize < 1129 }">
             <v-row justify="center">
                 <v-col cols="12" align="center" class="mt-10">
-                    <h1 class="mt-16 font-archivo font-size-40 white--text">Electrodomésticos</h1>
+                    <!--<h1 class="mt-16 font-archivo font-size-40 white--text">Electrodomésticos</h1>-->
+                    <h1 class="mt-16 font-archivo font-size-40 white--text">{{this.mercado.data.attributes.nameMarket}}</h1>
                 </v-col>
             </v-row>
             <v-row justify="center">
                 <v-col cols="10" xl="6" lg="6" md="6" sm="10" xs="10" align="center">
-                    <p class="white--text font-size-24 mb-16">Optimizando tu vida</p>
+                    <!--<p class="white--text font-size-24 mb-16">Optimizando tu vida</p>-->
+                    <p class="white--text font-size-24 mb-16">{{this.mercado.data.attributes.subtitle}}</p>
                 </v-col>
             </v-row>
         </div>
@@ -17,17 +19,18 @@
             <v-container>
                 <v-row class="" justify="center">
                     <v-col cols="12" class="my-16">
-                        <p class="text-body-all">
+                        <!--<p class="text-body-all">
                             <span class="font-weight-bold">POLNAC</span> tiene a tu disposición un extenso abanico de productos listos 
                             para solventar cualquier reto; desde compuestos personalizados para 
                             línea blanca y refrigeración hasta materiales para enseres menores.  <br><br>
                             Nuestra pasión es contribuir al éxito de tu empresa. Sin importar la 
                             índole del desafio: técnico, estético o de desempeño, aquí encontrarás 
                             todas las soluciones. 
-                        </p>
+                        </p>-->
+                        <p class="text-body-all" v-html="this.mercado.data.attributes.description"></p>
                     </v-col>
                     <v-col cols="12" class="mb-10">
-                        <v-carousel class="carousel-black" :show-arrows="false" height="340" dark  cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize > 1129">
+                        <!--<v-carousel class="carousel-black" :show-arrows="false" height="340" dark cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize > 1129">
                             <v-carousel-item v-for="(item,i) in 4" :key="i">
                                 <v-sheet color="white" height="100%">
                                     <v-row>
@@ -39,6 +42,18 @@
                                         </v-col>
                                         <v-col cols="4">
                                             <v-img src="/market/refrigerador.png" contain max-height="270"></v-img>
+                                        </v-col>
+                                    </v-row>
+                                </v-sheet>
+                            </v-carousel-item>
+                        </v-carousel>-->
+
+                        <v-carousel class="carousel-black" :show-arrows="false" height="340" dark cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize > 1129">
+                            <v-carousel-item v-for="(imgCar,i) in this.mercado.data.attributes.imgCarousel.data" :key="i">
+                                <v-sheet color="white" height="100%">
+                                    <v-row>
+                                        <v-col cols="12" align="center">
+                                            <v-img :src="basePathApiUrl + imgCar.attributes.url" contain max-height="270"></v-img>
                                         </v-col>
                                     </v-row>
                                 </v-sheet>
@@ -129,11 +144,22 @@ export default {
                 {img : require('../../static/contact/plasticos.png')},
                 {img : require('../../static/contact/compuestos.png')},
                 {img : require('../../static/contact/masterbatch.png')},
-            ]
+            ],
+            mercado: null
         }
     },
+    mounted(){
+        //console.log(this.$route.params.id)
+        this.getMercadoId(this.$route.params.id)
+    },
     computed: {
-        ...mapState(['windowHeight','windowSize'])
+        ...mapState(['windowHeight','windowSize', 'basePathApiUrl'])
+    },
+    methods: {
+        async getMercadoId(id){
+            this.mercado = await this.$store.dispatch('getMarketById', id)
+            console.log(this.mercado)
+        }
     }
 }
 </script>

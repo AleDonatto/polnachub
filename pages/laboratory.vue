@@ -19,6 +19,8 @@ export default {
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
+
+        this.$store.dispatch('getPageLaboratory')
     },
     methods: {
         Resize(){

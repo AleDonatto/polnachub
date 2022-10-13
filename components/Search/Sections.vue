@@ -1,10 +1,10 @@
 <template>
-    <!--<div v-if="pageSearchProducts === null">
+    <div v-if="pageSearchProducts === null">
         <v-sheet class="pa-3">
             <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
         </v-sheet>
-    </div>-->
-    <div>
+    </div>
+    <div v-else>
         <section>
             <!--v-if="tablePE.length < 1 && tablePP.length < 1 && tableEstirenicos.length < 1 && tableRotomoldeo.length < 1
             && tableRotomoldeo.length < 1 && tableMasterbatch.length < 1 && tableIngenieria.length <1 && tableCompuestosprecolor.length < 1
@@ -16,8 +16,8 @@
             && tableCalcio.length < 1 && tableBioplasticos.length < 1 && tableHules.length < 1 && tablePolvoC.length < 1">
                 <v-row justify="center">
                     <v-col cols="12" align="center" class="mt-16">
-                        <h1 class="font-archivo font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>
-                        <!--<h1 class="font-archivo font-weight-bold">{{pageSearchProducts.titleSectionSearch}}</h1>-->
+                        <!--<h1 class="font-archivo font-weight-bold">Busca en nuestro amplio catálogo por filtros o categorías.</h1>-->
+                        <h1 class="font-archivo font-weight-bold">{{pageSearchProducts.titleSectionSearch}}</h1>
                         <!--<p>{{
                             tablePE.length +'-'+
                             tablePP.length +'-'+ 
@@ -34,7 +34,7 @@
                     </v-col>
                 </v-row>
 
-                <v-row justify="center" class="mt-10 mb-10">
+                <!--<v-row justify="center" class="mt-10 mb-10">
                     <v-col cols="2" align="center">
                         <nuxt-link to="/products/1" class="text-decoration-none">
                             <v-img src="/menu-search/plasticos.png" contain max-height="90"></v-img>
@@ -115,6 +115,15 @@
                             <p class="mt-2 black--text">Estirénicos</p>
                         </nuxt-link>
                     </v-col>
+                </v-row>-->
+                <v-row justify="center" class="mt-10 mb-10" v-if="this.productos !== null">
+                    <v-col cols="2" align="center" v-for="(prod, index) in this.productos.data" :key="index">
+                        <nuxt-link :to="`/products/${prod.id}`" class="text-decoration-none">
+                            <!--<v-img src="/menu-search/plasticos.png" contain max-height="90"></v-img>-->
+                            <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="90"></v-img>
+                            <p class="mt-2 black--text">{{prod.attributes.name}}</p>
+                        </nuxt-link>
+                    </v-col>
                 </v-row>
             </v-container>
 
@@ -122,20 +131,20 @@
             <v-container fluid class="mb-10 px-16" v-else>
                 <div class="text-center">
 
-                    <v-chip class="ma-2 pa-5 white--text" close color="#773DBD" @click:close="chip1 = false" v-if="valProducto!==''">
+                    <v-chip class="ma-2 pa-5 white--text" close color="#773DBD" @click:close="() =>  removeTagsTables('producto') " v-if="valProducto!==''">
                         {{this.valProducto}}
                     </v-chip>
-                    <v-chip class="ma-2 pa-5 white--text" close color="#773DBD" @click:close="chip1 = false" v-if="valFabricante!==''">
+                    <v-chip class="ma-2 pa-5 white--text" close color="#773DBD" @click:close="() =>  removeTagsTables('fabricante') " v-if="valFabricante!==''">
                         {{this.valFabricante}}
                     </v-chip>
-                    <v-chip class="ma-2 pa-5 white--text" close color="#773DBD" @click:close="chip1 = false" v-if="valMercado!==''">
+                    <v-chip class="ma-2 pa-5 white--text" close color="#773DBD" @click:close="() =>  removeTagsTables('mercado') " v-if="valMercado!==''">
                         {{this.valMercado}}
                     </v-chip>
-                    <v-chip class="ma-2 pa-5 white--text" close color="#773DBD" @click:close="chip1 = false" v-if="valMTransformacion!==''">
+                    <v-chip class="ma-2 pa-5 white--text" close color="#773DBD" @click:close="() =>  removeTagsTables('transformacion') " v-if="valMTransformacion!==''">
                         {{this.valMTransformacion}}
                     </v-chip>
 
-                    <v-chip class="ma-2 pa-5" close color="red" text-color="white" @click:close="cleanTags">
+                    <v-chip class="ma-2 pa-5" close color="red" text-color="white" @click:close="cleanTags" v-if="valProducto!=='' || valFabricante!=='' || valMercado!=='' || valMTransformacion!==''">
                         Remove
                     </v-chip>
                 </div>
@@ -659,8 +668,7 @@
                         <!--<v-btn color="primary" text @click="dialog = false">I accept</v-btn>-->
                     </v-card-actions>
                 </v-card>
-            </v-dialog>
-
+        </v-dialog>
     </div>
 </template>
 
@@ -849,22 +857,8 @@ export default {
                 {text: 'Markets', value: ''},
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
-            tablePE: [],
-            tablePP: [],
-            tableEstirenicos: [],
-            tableRotomoldeo: [],
-            tableMasterbatch: [],
-            tableIngenieria: [],
-            tableCompuestosprecolor: [],
-            tableCompuestoscargados: [],
-            tableTermoplasticos: [],
-            tablePVC: [],
-            tableAditivos: [],
-            tableCalcio: [],
-            tableBioplasticos: [],
-            tableHules: [],
-            tablePolvoC: [],
-            search: ''
+            search: '',
+            productos: null,
         }
     },
     computed: {
@@ -876,15 +870,62 @@ export default {
             'valFabricante',
             'valProducto',
             'valMTransformacion',
-            'showMsgProd'
+            'showMsgProd',
+            'tablePruebas',
+            'tablePE',
+            'tablePP',
+            'tableEstirenicos',
+            'tableRotomoldeo',
+            'tableMasterbatch',
+            'tableIngenieria',
+            'tableCompuestosprecolor',
+            'tableCompuestoscargados',
+            'tableTermoplasticos',
+            'tablePVC',
+            'tableAditivos',
+            'tableCalcio',
+            'tableBioplasticos',
+            'tableHules',
+            'tablePolvoC',
+            'basePathApiUrl',
         ]),
-        ...mapActions(['cleanTags'])
+    },
+    beforeMount(){
+        this.getProductos()
     },
     methods: {
         closeDialog(){
             this.$store.commit('StateAssign', {showMsgProd: false})
         },
-
+        ...mapActions(['cleanTags']),
+        removeTagsTables(tipo){
+            switch(tipo){
+                case 'producto':
+                    this.$store.commit('StateAssign', {valProducto: ''})
+                    break
+                case 'fabricante':
+                    this.$store.commit('StateAssign', {valFabricante: ''})
+                    break
+                case 'mercado': 
+                    this.$store.commit('StateAssign', {valMercado: ''})
+                    break
+                case 'transformacion': 
+                    this.$store.commit('StateAssign', {valMTransformacion: ''}) 
+                    break 
+            }
+            const filters = {
+                producto: this.valProducto,
+                mercado: this.valMercado,
+                mTransformacion: this.valMTransformacion,
+                fabricante: this.valFabricante,
+            }
+            console.log(filters)
+            this.$store.dispatch('searchProducts', filters)
+        },
+        async getProductos(){
+            this.productos = await this.$store.dispatch('getAllProducts')
+            //console.log(this.productos)
+        }
     }
 }
 </script>

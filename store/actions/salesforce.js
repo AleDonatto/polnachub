@@ -2,16 +2,21 @@ export default {
     async getCredentials({commit, dispatch, state}){
 
         const params = new URLSearchParams();
-        params.append('username', state.userSalesforce.username)
-        params.append('password', state.userSalesforce.password)
-        params.append('grant_type', state.userSalesforce.grant_type)
-        params.append('client_id', state.userSalesforce.client_id)
-        params.append('client_secret', state.userSalesforce.client_secret)
+        params.append('username', process.env.SALESFORCE_USER)
+        params.append('password', process.env.SALESFORCE_PASSWORD)
+        params.append('grant_type', process.env.SALESFORCE_GRANT_TYPE)
+        params.append('client_id', process.env.SALESFORCE_CLIENT_ID)
+        params.append('client_secret', process.env.SALESFORCE_CLIENT_SECRET)
+
+        //this.$axios.setHeader('Access-Control-Allow-Origin', '*')
+        //this.$axios.setHeader('Authorization', '*')
+        //this.$axios.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,PATCH,OPTIONS')
 
         //await this.$axios.post('https://test.salesforce.com/Token', params)
         await this.$axios.post('/salesforce/services/oauth2/token', params)
         .then(res => {
             let access_token = res.data.access_token
+            //let access_token = '00DR00000002gFl!AQcAQMO.J4uTITbz2byqYl3250qT7PcJMACPQdkCNLf1ehYVyIlsB0FUO3kSWUBHzB3Z1RthAvWUp8XEkEjFj4y06IMVeUfz'
             
             this.$axios.setToken(access_token, 'Bearer')
             //this.axios.defaults.headers.common = {'Authorization': `Bearer ${access_token}`}
@@ -28,13 +33,27 @@ export default {
     async getCredentialsOther({commit, dispatch, state}){
 
         const params = new URLSearchParams();
-        params.append('username', state.userSalesforce.username)
-        params.append('password', state.userSalesforce.password)
-        params.append('grant_type', state.userSalesforce.grant_type)
-        params.append('client_id', state.userSalesforce.client_id)
-        params.append('client_secret', state.userSalesforce.client_secret)
+        params.append('grant_type', process.env.SALESFORCE_GRANT_TYPE)
+        params.append('client_id', process.env.SALESFORCE_CLIENT_ID)
+        params.append('client_secret', process.env.SALESFORCE_CLIENT_SECRET)
+        params.append('username', process.env.SALESFORCE_USER)
+        params.append('password', process.env.SALESFORCE_PASSWORD)
+
+        /*const json_data= {
+            'grant_type': process.env.SALESFORCE_GRANT_TYPE,
+            'client_id': process.env.SALESFORCE_CLIENT_ID,
+            'client_secret': process.env.SALESFORCE_CLIENT_SECRET,
+            'username': process.env.SALESFORCE_USER,
+            'password': process.env.SALESFORCE_PASSWORD
+        }*/
+
+        //this.$axios.setHeader('Access-Control-Allow-Origin', '*')
+        //this.$axios.setHeader('Authorization', '*')
+        this.$axios.setHeader('Content-Type', 'application/json',)
+        //this.$axios.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,PATCH,OPTIONS')
 
         await this.$axios.post('https://test.salesforce.com/services/oauth2/token', params)
+        //await this.$axios.post('https://test.salesforce.com/services/oauth2/token?username=desatimx@polnac.com.bxt01&password=H1u2g3o435&grant_type=password&client_id=3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh&client_secret=C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F')
         //await this.$axios.post('/salesforce/services/oauth2/token', params)
         .then(res => {
             let access_token = res.data.access_token
@@ -250,10 +269,9 @@ export default {
             console.log(res.data)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }
-            /*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
         })  
     },
     async consMercado({commit, dispatch, state}, mercado){
@@ -280,9 +298,9 @@ export default {
             commit('StateAssign', {tablePruebas: res.data})
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -312,9 +330,9 @@ export default {
             commit('StateAssign', {tablePruebas: res.data})
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -339,9 +357,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -370,9 +388,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -402,9 +420,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
         })
         .catch(err => {
             console.log(err.response)
@@ -430,9 +448,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -462,9 +480,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -493,9 +511,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -517,14 +535,15 @@ export default {
 
         await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
         .then(res => {
-            //console.log(res)
+            //console.log('mercado y fabricante')
             commit('StateAssign', {tablePruebas: res.data})
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
+                //console.log('crando tabla ....')
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -550,9 +569,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -582,9 +601,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -614,9 +633,9 @@ export default {
             console.log(state.tablePruebas)
             if(res.data.records.length === 0){
                 commit('StateAssign', {showMsgProd: true})
-            }/*else{
+            }else{
                 dispatch('createtables')
-            }*/
+            }
             //dispatch('createtables')
         })
         .catch(err => {
@@ -656,19 +675,19 @@ export default {
                         //console.log('Estirénicos')
                         //exists = state.tableEstirenicos.some(e => e.Name === item.Name)
                         //if(!exists){
-                            aux.push(...tableEstirenicos, item)
+                            aux.push(...state.tableEstirenicos, item)
                             commit('StateAssign', {tableEstirenicos: aux})
                         //}
                         break;
-                    case 'Natural Rotomolding Compounds' || 'Rotomolding compounds colors' || 'Black Rotomolding Compounds' || 'Specialty Rotomolding Compounds' || 'Rotomolding compounds pellets' || 'Rotomolding compounds SM' : 
-                        //console.log('rotomoldeo')
+                    case 'Rotomolding compounds colors': case 'Natural Rotomolding Compounds': case 'Black Rotomolding Compounds': case 'Specialty Rotomolding Compounds': case 'Rotomolding compounds pellets': case 'Rotomolding compounds SM': 
+                        console.log('rotomoldeo')
                         //exists = state.tableRotomoldeo.some(e => e.Name === item.Name)
                         //if(!exists){
                             aux.push(...state.tableRotomoldeo, item)
                             commit('StateAssign', {tableRotomoldeo: aux})
                         //}
                         break;
-                    case 'MasterBatch' || 'Masterbatch Colors' || 'Masterbatch Colors SM' || 'Masterbatch Basic' || 'Masterbatch Basic SM' || 'Specialty Masterbatch': 
+                    case 'MasterBatch': case 'Masterbatch Colors':  case 'Masterbatch Colors SM': case 'Masterbatch Basic': case 'Masterbatch Basic SM': case 'Specialty Masterbatch': 
                         //console.log('masterbatch')
                         //exists = state.tableMasterbatch.some(e => e.Name === item.Name)
                         //if(!exists){
@@ -684,10 +703,10 @@ export default {
                             commit('StateAssign', {tableIngenieria: aux})
                         //}
                         break;
-                    case 'Compuestos' || 'Precolor Poliolefins Compounds' ||
-                    'Precolor additives Compounds' || 'Precolor Styrenics Compounds' 
-                    || 'Precolor Specialties Compounds' || 'Precolor Poliolefins SM' 
-                    || 'Precolor Styrenics SM' || 'Precolor Specialties SM': 
+                    case 'Compuestos': case 'Precolor Poliolefins Compounds': case 'Precolor additives':
+                    case 'Precolor additives Compounds': case 'Precolor Styrenics Compounds':
+                    case 'Precolor Specialties Compounds': case 'Precolor Poliolefins SM':
+                    case 'Precolor Styrenics SM': case 'Precolor Specialties SM': 
                         //console.log('Precolor Specialties')
                         //exists = state.tableCompuestosprecolor.some(e => e.Name === item.Name)
                         //if(!exists){
@@ -695,8 +714,8 @@ export default {
                             commit('StateAssign', {tableCompuestosprecolor: aux})
                         //}
                         break;
-                    case 'Blends' || 'Filled Poliolefins Compounds' || 'Filled Styrenics Compounds' ||
-                    'Filled Specialties Compounds' || 'Filled Poliolefins SM' || 'Filled Styrenics SM' || 'Filled Specialties SM': 
+                    case 'Blends': case 'Filled Poliolefins Compounds': case 'Filled Styrenics Compounds': 
+                    case  'Filled Specialties Compounds': case 'Filled Poliolefins SM': case 'Filled Styrenics SM': case 'Filled Specialties SM': 
                         //console.log('cargados')
                         //exists = state.tableCompuestoscargados.some(e => e.Name === item.Name)
                         //if(!exists){
@@ -712,49 +731,51 @@ export default {
                             commit('StateAssign', {tableTermoplasticos: aux})
                         //}
                         break;
-                    case 'PVC' || 'Rigid PVC' || 'Semi-Rigid PVC' || 'Flexible PVC': 
+                    case 'PVC': case 'Rigid PVC': case 'Semi-Rigid PVC': case 'Flexible PVC': 
                         //console.log('pvc')
-                        exists = state.tableTermoplasticos.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableTermoplasticos.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tablePVC, item)
                             commit('StateAssign', {tablePVC: aux})
-                        }
+                        //}
                         break;
-                    case 'Additive Concentrates' || 'Additive concentrates SM' || 'Process aids' || 'Process aids SM':
-                        //console.log('aditivos') 
-                        exists = state.tableAditivos.some(e => e.Name === item.Name)
-                        if(!exists){
+                    case 'Additive Concentrates': case 'Additive concentrates SM': case 'Process aids': case 'Process aids SM':
+                        console.log('aditivos') 
+                        //exists = state.tableAditivos.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableAditivos, item)
-                            state.tableAditivos.push(...state.tableAditivos, item)
-                        }
+                            commit('StateAssign', {tableAditivos: aux})
+                        //}
                         break;
-                    case 'Calcium Carbonate Concentrate' || 'Calcium Carbonate Concentrate SM':
+                    case 'Calcium Carbonate Concentrate': case 'Calcium Carbonate Concentrate SM':
                         //console.log('calcio') 
-                        exists = state.tableCalcio.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableCalcio.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableCalcio, item)
-                            state.tableCalcio.push(...state.tableCalcio, aux)
-                        }
+                            commit('StateAssign', {tableCalcio: aux})
+                        //}
                         break;
                     case 'Bioplastics': 
                         //console.log('bioplasticos')
-                        exists = state.tableBioplasticos.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableBioplasticos.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableBioplasticos, item)
-                            state.tableBioplasticos.push(...state.tableBioplasticos, aux)
-                        }
+                            commit('StateAssign', {tableBioplasticos: aux})
+                        //}
                         //state.tableBioplasticos.push(...state.tableBioplasticos, item)
                         break;
-                    case 'Hules' || 'Thermoset Elastomers': 
+                    case 'Hules': case 'Thermoset Elastomers': 
                         //console.log('hules')
-                        exists = state.tableHules.some(e => e.Name === item.Name)
-                        if(!exists){
+                        //exists = state.tableHules.some(e => e.Name === item.Name)
+                        //if(!exists){
                             aux.push(...state.tableHules, item)
-                            state.tableHules.push(...state.tableHules, aux)
-                        }
+                            commit('StateAssign', {tableHules: aux})
+                        //}
                         //state.tableHules.push(...state.tableHules,item)
                         break;
                 }
+            }else{
+                commit('StateAssign', {showMsgProd: true})
             }
         })
     },
@@ -762,7 +783,8 @@ export default {
     cleanTables({commit, dispatch, state}){
         commit('StateAssign', {tablePruebas: []})
         //
-        /*commit('StateAssign', {tablePP: []})
+        commit('StateAssign', {tablePE: []})
+        commit('StateAssign', {tablePP: []})
         commit('StateAssign', {tableEstirenicos: []})
         commit('StateAssign', {tableRotomoldeo: []})
         commit('StateAssign', {tableMasterbatch: []})
@@ -775,7 +797,7 @@ export default {
         commit('StateAssign', {tableCalcio: []})
         commit('StateAssign', {tableBioplasticos: []})
         commit('StateAssign', {tableHules: []})
-        commit('StateAssign', {tablePolvoC: []})*/
+        commit('StateAssign', {tablePolvoC: []})
 
     },
 
@@ -784,6 +806,8 @@ export default {
         commit('StateAssign', {valFabricante: ''})
         commit('StateAssign', {valMercado: ''})
         commit('StateAssign', {valMTransformacion: ''})
+
+        dispatch('cleanTables')
     },
 
     addListCard({commit, dispatch, state}, data){

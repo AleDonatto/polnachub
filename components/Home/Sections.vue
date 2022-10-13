@@ -1,10 +1,10 @@
 <template>
-    <!--<div v-if="pageHome === null">
+    <div v-if="pageHome === null">
         <v-sheet class="pa-3">
             <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
         </v-sheet>
-    </div>-->
-    <div>
+    </div>
+    <div v-else>
         <section>
             <v-container class="">
                 <div class="my-10 mx-10">
@@ -12,43 +12,44 @@
                         <v-col cols="12" xl="9" class="">
                             <v-row>
                                 <v-col md="6" sm="12" xs="12" align-self="center" align="center">
-                                    <h1 class="font-archivo font-title text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}">
+                                    <!--<h1 class="font-archivo font-title text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}">
                                         <span class="font-weigth-bold">{{ $t('home.secabout.polnac') }}</span> <br>
                                         <span class="text-teal">{{ $t('home.secabout.year') }}</span> 
-                                    </h1>
-                                    <!--<div class="font-archivo font-title text-left font-weigth-bold" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}" v-html="$md.render(pageHome.txtPolnac)"></div>-->
-
+                                    </h1>-->
+                                    <div class="font-archivo font-title text-left" :class="{'headline': windowSize < 1129, 'display-1': windowSize > 1129}" v-html="pageHome.txtPolnac"></div>
 
                                     <!--<v-img src="./video.png" contain max-height="350" max-width="350" v-if="windowSize < 1129"></v-img>-->
-                                    <!--<iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
+                                    <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
                                         :src="pageHome.linkVideo" v-if="windowSize < 1129">
-                                    </iframe>-->
-                                    <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" v-if="windowSize < 1129"
-                                        src="https://www.youtube.com/embed/lrtRCCgqYOQ?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                                     </iframe>
+                                    <!--<iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" v-if="windowSize < 1129"
+                                        src="https://www.youtube.com/embed/lrtRCCgqYOQ?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
+                                    </iframe>-->
 
-                                    <p class="text-body-all my-5 text-left">
+                                    <!--<p class="text-body-all my-5 text-left">
                                         Desde 1984 <span class="font-weight-bold">POLNAC</span> ha construido una historia basada en innovación, compromiso y mejora continua. <span class="font-weight-bold">POLNAC</span> siempre a la vanguardia. 
-                                    </p>
+                                    </p>-->
                                     <!--<div class="text-body-all my-5 text-left" v-html="$md.render(pageHome.txtDesPolnac)"></div>-->
+                                    <div class="text-body-all my-5 text-left">
+                                        <p v-html="pageHome.txtDesPolnac"></p>
+                                    </div>
 
                                     <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start': windowSize > 1129}">
-                                        <nuxt-link to="/polnac-group" class="decoration-none">
-                                            <v-btn class="rounded-xl px-10 body-1 py-5 white--text text-none secondary-color">{{ $t('home.btnabout') }}</v-btn>
-                                            <!--<v-btn class="rounded-xl px-10 body-1 py-5 white--text text-none secondary-color">{{ pageHome.txtbtnPolnac }}</v-btn>-->
+                                        <nuxt-link to="/aboutus" class="decoration-none">
+                                            <!--<v-btn class="rounded-xl px-10 body-1 py-5 white--text text-none secondary-color">{{ $t('home.btnabout') }}</v-btn>-->
+                                            <v-btn class="rounded-xl px-10 body-1 py-5 white--text text-none secondary-color">{{ pageHome.txtbtnPolnac }}</v-btn>
                                         </nuxt-link>
                                     </div>
 
                                 </v-col>
                                 <v-col md="6" sm="12" xs="5" class="" align="center" v-if="windowSize > 1129">
                                     <!--<v-img src="./video.png" contain max-height="350" max-width="350"></v-img>-->
-                                    <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
-                                        src="https://www.youtube.com/embed/lrtRCCgqYOQ?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
-                                    </iframe>
                                     <!--<iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
-                                        :src="pageHome.linkVideo">
+                                        src="https://www.youtube.com/embed/lrtRCCgqYOQ?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com">
                                     </iframe>-->
-
+                                    <iframe class="rounded-lg" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="310" type="text/html" 
+                                        :src="pageHome.linkVideo">
+                                    </iframe>
                                 </v-col>
                             </v-row>
                         </v-col>
@@ -61,9 +62,29 @@
             <div class="my-10">
                 <h1 class="font-archivo font-size-40 font-weight-bold text-center my-10">{{ $t('home.titledestacados') }}</h1>
                 <!--<h1 class="font-archivo font-size-40 font-weight-bold text-center my-10">{{ pageHome.featured.title }}</h1>-->
-                <v-row>
+                <v-row  v-if="windowSize > 1129 && this.productos !== null">
+                    <v-col xl="3" md="3" sm="12" xs="12" class="pa-0" v-for="(item, index) in productos.data.slice(0,4)" :key="index">
+                        <v-hover v-slot="{ hover }" class="des-1" :style="{ backgroundImage: `linear-gradient(rgba(46, 46, 101, 0.8), rgba(119, 61, 189, 0.8)),url(${basePathApiUrl + item.attributes.imgMiniature.data.attributes.url })` }">
+                            <v-card class="shadow-out">
+                                <v-img src="" style="height:307px" alt="pruebas">
+                                    <v-expand-transition class="size-box" style="height:100%;">
+                                        
+                                        <div v-if="hover" class="transition-fast-in-fast-out bg-color-hover" style="height: 100%;">
+                                            <div class="bg-color-hover pa-5">
+                                                <h4 class="font-size-20 white--text text-img">{{item.attributes.name}}</h4>
+                                                <div class="white--text mt-1" v-html="item.attributes.subtitle"></div>
+                                                <!--<p class="white--text mt-1">Productos que dan vida y personalidad a tus marcas.  Conoce nuestra amplia variedad de concentrados de color y efectos especiales.</p>-->
+                                                <!--<p class="white--text text-right">...Ver mas</p>-->
+                                            </div>
+                                        </div>
+                                    <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                    </v-expand-transition>
+                                </v-img>
+                            </v-card>
+                        </v-hover>
+                    </v-col>
                     <!--des-1-->
-                    <v-col xl="3" md="3" sm="12" xs="12" v-if="windowSize > 1129" class="pa-0">
+                    <!--<v-col xl="3" md="3" sm="12" xs="12" v-if="windowSize > 1129" class="pa-0">
                         <v-hover v-slot="{ hover }" class="des-1">
                             <v-card class="shadow-out">
                                 <v-img src="" style="height:307px" alt="pruebas">
@@ -73,17 +94,17 @@
                                             <div class="bg-color-hover pa-5">
                                                 <h4 class="font-size-20 white--text text-img">Masterbatch</h4>
                                                 <p class="white--text mt-1">Productos que dan vida y personalidad a tus marcas.  Conoce nuestra amplia variedad de concentrados de color y efectos especiales.</p>
-                                                <!--<p class="white--text text-right">...Ver mas</p>-->
+                                                --<p class="white--text text-right">...Ver mas</p>-
                                             </div>
                                         </div>
-                                    <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                    --<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>--
                                     </v-expand-transition>
                                 </v-img>
                             </v-card>
                         </v-hover>
-                    </v-col>
+                    </v-col>-->
                     <!--des-2-->
-                    <v-col xl="3" md="3" sm="12" xs="12" v-if="windowSize > 1129" class="pa-0">
+                    <!--<v-col xl="3" md="3" sm="12" xs="12" v-if="windowSize > 1129" class="pa-0">
                         <v-hover v-slot="{ hover }" class="des-2">
                             <v-card class="shadow-out">
                                 <v-img src="" style="height:307px" alt="pruebas">
@@ -93,16 +114,16 @@
                                             <div class="bg-color-hover pa-5">
                                                 <h4 class="font-size-20 white--text text-img">Compuestos</h4>
                                                 <p class="white--text mt-1">Resinas personalizadas de alta calidad, y con excelentes propiedades mecánicas, químicas, eléctricas y térmicas</p>
-                                                <!--<p class="white--text text-right">...Ver mas</p>-->
+                                                --<p class="white--text text-right">...Ver mas</p>--
                                             </div>
                                         </div>
-                                    <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                    --<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>--
                                     </v-expand-transition>
                                 </v-img>
                             </v-card>
                         </v-hover>
-                    </v-col>
-                    <v-col xl="3" md="3" sm="12" xs="12" class="pa-0">
+                    </v-col>-->
+                    <!--<v-col xl="3" md="3" sm="12" xs="12" class="pa-0">
                         <v-hover v-slot="{ hover }" class="des-3">
                             <v-card class="shadow-out">
                                 <v-img src="" style="height:307px" alt="pruebas">
@@ -112,21 +133,21 @@
                                             <div class="bg-color-hover pa-5">
                                                 <h4 class="font-size-20 white--text text-img">Bioplásticos</h4>
                                                 <p class="white--text mt-1">Resinas y compuestos biodegradables que te ofrecen innovación, calidad, eficiencia y protección del medio ambiente.</p>
-                                                <!--<p class="white--text text-right">...Ver mas</p>-->
+                                                --<p class="white--text text-right">...Ver mas</p>--
                                             </div>
                                         </div>
-                                    <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                    --<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>--
                                     </v-expand-transition>
                                 </v-img>
                             </v-card>
                         </v-hover>
-                        <!--<div class="" style="height: 100%;">
+                        --<div class="" style="height: 100%;">
                             <h4 class="font-size-20 white--text text-img ">Bioplásticos</h4>
                             <p class="white--text mt-1"> Resinas y compuestos biodegradables que te ofrecen innovación, calidad, eficiencia y protección del medio ambiente.</p>
                             <p class="white--text text-right">...Ver mas</p>
-                        </div>-->
-                    </v-col>
-                    <v-col xl="3" md="3" sm="12" xs="12" v-if="windowSize > 1129" class="pa-0">
+                        </div>--
+                    </v-col>-->
+                    <!--<v-col xl="3" md="3" sm="12" xs="12" v-if="windowSize > 1129" class="pa-0">
                         <v-hover v-slot="{ hover }" class="des-4">
                             <v-card class="shadow-out">
                                 <v-img src="" style="height:307px" alt="pruebas">
@@ -136,20 +157,22 @@
                                             <div class="bg-color-hover pa-5">
                                                 <h4 class="font-size-20 white--text text-img">Polietileno </h4>
                                                 <p class="white--text mt-1">Distribuimos resinas de alta calidad y eficiencia.  Somos representantes de las mas grandes petroquímicas a nivel internacional</p>
-                                                <!--<nuxt-link to="/products/1" class="decoration-none">
+                                                --<nuxt-link to="/products/1" class="decoration-none">
                                                     <p class="white--text text-right">...Ver mas</p>
-                                                </nuxt-link>-->
+                                                </nuxt-link>--
                                             </div>
                                         </div>
-                                    <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                    --<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>--
                                     </v-expand-transition>
                                 </v-img>
                             </v-card>
                         </v-hover>
-                    </v-col>
+                    </v-col>-->
                 </v-row>
                 <div class="d-flex justify-center my-10">
-                    <v-btn class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ $t('home.btnproducts') }}</v-btn>
+                    <nuxt-link to="/search-products" class="decoration-none">
+                        <v-btn class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ $t('home.btnproducts') }}</v-btn>
+                    </nuxt-link>
                     <!--<v-btn class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ pageHome.txtbtnProducts }}</v-btn>-->
                 </div>
             </div>
@@ -157,21 +180,21 @@
 
         <section>
             <v-container>
-                <h1 class="font-archivo font-size-40 font-weight-bold black--text text-center my-10">{{ $t('home.catproducts') }}</h1>
-                <!--<h1 class="font-archivo font-size-40 font-weight-bold black--text text-center my-10">{{ pageHome.txtCatProducts }}</h1>-->
+                <!--<h1 class="font-archivo font-size-40 font-weight-bold black--text text-center my-10">{{ $t('home.catproducts') }}</h1>-->
+                <h1 class="font-archivo font-size-40 font-weight-bold black--text text-center my-10">{{ pageHome.txtCatProducts }}</h1>
 
-                <v-row justify="center" v-if="windowSize < 1129">
-                    <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
+                <v-row justify="center" v-if="windowSize < 1129 && this.productos !== null">
+                    <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center" v-for="(item, index) in productos.data" :key="index">
                         <v-hover v-slot="{ hover }">
-                            <v-img class="plasticos" src="/plasticos-mb.png" contain max-width="250">
+                            <v-img class="plasticos" :src="basePathApiUrl + item.attributes.imgMiniature.data.attributes.url" contain max-width="250" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                                 <v-expand-transition>
-                                    <v-img src="/h-plasticos.png" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
+                                    <v-img :src="basePathApiUrl + item.attributes.imgMiniature.data.attributes.url" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;"></v-img>
                                 </v-expand-transition>
                             </v-img>
                         </v-hover>
-                        <p class="text-left mt-2">Plástico de Ingeniería</p>
+                        <p class="text-left mt-2">{{item.attributes.name}}</p>
                     </v-col>
-                    <v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
+                    <!--<v-col cols="6" xl="3" md="3" sm="6" xs="6" align="center">
                         <v-hover v-slot="{ hover }">
                             <v-img class="plasticos" src="/compuestos-mb.png" contain max-width="250">
                                 <v-expand-transition>
@@ -220,29 +243,31 @@
                             </v-img>
                         </v-hover>
                         <p class="text-left mt-2">Rotomoldeo</p>
-                    </v-col>
+                    </v-col>-->
                 </v-row>
             </v-container>
-            <v-container v-if="windowSize > 1129">
+            <v-container v-if="windowSize > 1129 && this.productos !== null">
                 <v-sheet class="mx-auto" height="250">
                     <v-slide-group v-model="model" class="px-4 py-5" show-arrows>
-                        <v-slide-item v-for="(item, index) in productos" :key="index" >
-                            <nuxt-link :to="`/products/${index}`">
+
+                        <v-slide-item v-for="(item, index) in productos.data" :key="index" >
+                            <nuxt-link :to="`/products/${item.id}`" class="decoration-none">
                                 <v-card height="200" class="shadow-out">
                                     <v-hover v-slot="{ hover }">
                                         <v-card class="mx-5 my-5 card-blog shadow-out" width="220" height="250">
-                                            <v-img :src="item.img" style="width: 100%" alt="pruebas">
+                                            <v-img :src="basePathApiUrl + item.attributes.imgMiniature.data.attributes.url" style="width: 100%" alt="pruebas" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                                                 <v-expand-transition>
-                                                    
-                                                <!--<div v-if="hover" class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal text-h2 white--text" style="height: 100%;"></div>-->
-                                                <v-img :src="item.imgH" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>
+                                                    <!--<div v-if="hover" class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal text-h2 white--text" style="height: 100%;"></div>-->
+                                                    <v-img :src="basePathApiUrl + item.attributes.imgMiniature.data.attributes.url" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>
                                                 </v-expand-transition>
                                             </v-img>
+                                            <p class="font-weight-bold font-archivo text-body-all text-center">{{item.attributes.name}}</p>
                                         </v-card>
                                     </v-hover>
                                 </v-card>
                             </nuxt-link>
                         </v-slide-item>
+
                     </v-slide-group>
                 </v-sheet>
                 <!--<v-hover v-slot="{ hover }">
@@ -258,7 +283,9 @@
             </v-container>
             <v-container>
                 <div class="d-flex justify-center mb-10">
-                    <v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none secondary-color" rounded>{{ $t('home.btncategories') }}</v-btn>
+                    <nuxt-link to="/search-products" class="decoration-none">
+                        <v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none secondary-color" rounded>{{ $t('home.btncategories') }}</v-btn>
+                    </nuxt-link>
                     <!--<v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none secondary-color" rounded>{{ pageHome.txtbtnCatProducts }}</v-btn>-->
                 </div>
             </v-container>
@@ -430,45 +457,44 @@
                     <v-col cols="12" xl="9" lg="12" md="12">
                         <v-row justify="center" class="mt-10 mx-2">
                             <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
-                                <h1 class="display-2 text-left">Empresa <span class="font-weight-bold text-map">100% mexicana </span> de <span class="text-teal font-weight-bold">alcance mundial</span></h1>
-                                <!--<div class="display-2 text-left" v-html="$md.render( pageHome.txtCompany)"></div>-->
+                                <!--<h1 class="display-2 text-left">Empresa <span class="font-weight-bold text-map">100% mexicana </span> de <span class="text-teal font-weight-bold">alcance mundial</span></h1>-->
+                                <div class="display-2 text-left" v-html="pageHome.txtCompany"></div>
 
-                                <p class="text-body-all mt-2 text-justify">
+                                <!--<p class="text-body-all mt-2 text-justify">
                                     <span class="font-weight-bold">POLNAC</span> brinda un servicio integral, eficiente y confiable a través de una atención personalizada enfocada en las necesidades y especificaciones de cada cliente.
-                                </p>
-                                <!--<div class="text-body-all mt-2 text-justify" v-html="$md.render( pageHome.txtDesCompany)"></div>-->
-                                
+                                </p>-->
+                                <div class="text-body-all mt-2 text-justify" v-html="pageHome.txtDesCompany"></div>
                             </v-col>
                             <v-col lg="6" md="6" sm="12" xs="12" align="center">
-                                <v-img src="/map.png" contain max-height="450" max-width="450" alt="sucursales"></v-img >
-                                <!--<v-img :src="basePathApiUrl + pageHome.imgOffices.data.attributes.url" contain max-height="450" max-width="450" alt="sucursales"></v-img >-->
+                                <!--<v-img src="/map.png" contain max-height="450" max-width="450" alt="sucursales"></v-img >-->
+                                <v-img :src="basePathApiUrl + pageHome.imgOffices.data.attributes.url" contain max-height="450" max-width="450" alt="sucursales"></v-img>
                             </v-col>
                             <v-col v-if="windowSize < 1129">
-                                <p class="text-body-all text-justify">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
-                                <!--<div class="text-body-all text-justify" v-html="$md.render( pageHome.txtOffices)"></div>-->
+                                <!--<p class="text-body-all text-justify">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>-->
+                                <div class="text-body-all text-justify" v-html="$md.render( pageHome.txtOffices)"></div>
                             </v-col>
                         </v-row>
                         <v-row :class="{'max-5': windowSize>1129 }">
-                            <v-col cols="12" lg="3" md="3" sm="12" xs="12">
+                            <!--<v-col cols="12" lg="3" md="3" sm="12" xs="12">
                                 <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h4': windowSize < 1129}">+300,000 m<sup>2</sup></h1>
                                 <p class="text-body-all text-center">de <span class="font-weight-bold">infraestructura</span> para la fabricación de productos</p>
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12">
                                 <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h4': windowSize < 1129}">+90,000 ton</h1>
                                 <p class="text-body-all text-center">de <span class="font-weight-bold">capacidad de producción</span> anual</p>
-                            </v-col>
-                            <!--<v-col cols="12" lg="3" md="3" sm="12" xs="12" v-for="(item, index) in pageHome.tecOffices.slice(0,2)" :key="index">                                
-                                --<div class="text-map font-weight-bold text-center" v-html="$md.render(item.title)"></div>--
-                                <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h4': windowSize < 1129}">{{item.title}}</h1>
-                                <div class="text-body-all text-center" v-html="$md.render(item.description)"></div>
                             </v-col>-->
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" v-for="(item, index) in pageHome.tecOffices.slice(0,2)" :key="index">                                
+                                <!--<div class="text-map font-weight-bold text-center" v-html="item.title"></div>-->
+                                <h1 class="text-map font-weight-bold text-center" :class="{'display-1': windowSize>1129, 'text-h4': windowSize < 1129}">{{item.title}}</h1>
+                                <div class="text-body-all text-center" v-html="item.description"></div>
+                            </v-col>
                             <v-col lg="6" md="6" sm="12" xs="12" v-if="windowSize > 1129">
-                                <p class="text-body-all text-left">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>
-                                <!--<div class="text-body-all text-left" v-html="$md.render( pageHome.txtOffices)"></div>-->
+                                <!--<p class="text-body-all text-left">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>-->
+                                <div class="text-body-all text-left" v-html="pageHome.txtOffices"></div>
                             </v-col>
                         </v-row>
 
-                        <v-row justify="center" class="mx-5">
+                        <!--<v-row justify="center" class="mx-5">
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                                 <v-img src="/plantas.png" contain max-height="70"></v-img>
                                 <p class="text-body-all text-center mt-2">Tres avanzadas <span class="font-weight-bold">plantas de fabricación</span> en México y Estados Unidos</p>
@@ -485,15 +511,15 @@
                                 <v-img src="/ferrocarril.png" contain max-height="70"></v-img>
                                 <p class=" text-body-all text-center mt-2"><span class="font-weight-bold">Terminal ferroviaria</span> con más de 5 km de vías</p>
                             </v-col>
-                        </v-row>
-                        <!--<v-row justify="center" class="mx-5">
+                        </v-row>-->
+                        <v-row justify="center" class="mx-5">
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" v-for="(item, index) in pageHome.tecOffices.slice(2, 8)" :key="index">
                                 <v-img :src="basePathApiUrl + item.image.data.attributes.url " contain max-height="70"></v-img>
-                                --<p class="text-body-all text-center mt-2"></p>--
-                                <div class="text-body-all text-center mt-2" v-html="$md.render(item.description)"></div>
+                                <!--<p class="text-body-all text-center mt-2"></p>-->
+                                <div class="text-body-all text-center mt-2" v-html="item.description"></div>
                             </v-col>
-                        </v-row>-->
-                        <v-row justify="center" class="mb-10">
+                        </v-row>
+                        <!--<v-row justify="center" class="mb-10">
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                                 <v-img src="/laboratorio.png" contain max-height="70"></v-img>
                                 <p class="text-body-all text-center mt-2"><span class="font-weight-bold">Moderno laboratorio</span> de Innovación & Desarrollo</p>
@@ -502,7 +528,7 @@
                                 <v-img src="/estandares.png" contain max-height="70"></v-img>
                                 <p class="text-body-all text-center mt-2">Procesos alineados y certificados bajo <span class="font-weight-bold">estándares internacionales</span>.</p>
                             </v-col>
-                        </v-row>
+                        </v-row>-->
                     </v-col>
                 </v-row>
                 
@@ -512,14 +538,14 @@
         <section>
             <div class="bg-alianzas">
                 <v-container>
-                    <h1 class="font-archivo font-size-40 text-center white--text font-weight-bold my-10">{{ $t('home.titlealliances') }}</h1>
-                    <!--<h1 class="font-archivo font-size-40 text-center white--text font-weight-bold my-10">{{ pageHome.alliances.title }}</h1>-->
-                    <p class="text-body-all white--text text-center px-15">
+                    <!--<h1 class="font-archivo font-size-40 text-center white--text font-weight-bold my-10">{{ $t('home.titlealliances') }}</h1>-->
+                    <h1 class="font-archivo font-size-40 text-center white--text font-weight-bold my-10" v-html="pageHome.alliances.title"></h1>
+                    <!--<p class="text-body-all white--text text-center px-15">
                         <span class="text-uppercase font-weight-bold letters">POLNAC</span>  ha forjado <span class="font-weight-bold letters">alianzas estratégicas</span> con los principales productores de
                         materia prima a <span class="font-weight-bold letters">nivel mundial</span>, siempre buscando poner a disposición de sus clientes
                         los mejores materiales a precios competitivos. 
-                    </p>
-                    <!--<div class="text-body-all white--text text-center px-15" v-html="$md.render(pageHome.alliances.description )"></div>-->
+                    </p>-->
+                    <div class="text-body-all white--text text-center px-15" v-html="pageHome.alliances.description"></div>
                     <div class="d-flex justify-center">
                         <nuxt-link to="/alliances" class="decoration-none">
                             <v-btn class="rounded-lg my-10 px-10 py-5 body-1 black--text text-none primary-color" rounded>{{$t('home.btnalliances') }}</v-btn>
@@ -582,17 +608,19 @@
                 </div>-->
                 <v-row justify="center">
                     <v-col cols="12" xl="9">
-                        <v-row justify="center">
+                        <v-row justify="center" v-if="this.blogs !== null">
                             <v-col cols="12" md="5" lg="5" align="center">
                                 <v-sheet class="my-10 sections" max-width="1600" >
                                     <v-slide-group v-model="model" class="py-4 px-2 " center-active show-arrows>
-                                        <v-slide-item v-for="(item, index) in blogs" :key="index">
+                                        <v-slide-item v-for="(item, index) in this.blogs.data" :key="index">
                                             <!--max-width="325" max-height="390"-->
-                                            <nuxt-link :to="`/blogs/1`" class="decoration-none mx-auto">
+                                            <nuxt-link :to="`/blogs/${item.id}`" class="decoration-none mx-auto">
                                                 <v-card class="card-blog shadow-out" :class="{'ma-5': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
-                                                    <img :src="item.img" style="width: 100%" alt="pruebas"/>
-                                                    <v-card-title>{{item.title}}</v-card-title>
-                                                    <v-card-subtitle class="text-left">{{item.description}}</v-card-subtitle>
+                                                    <img :src="basePathApiUrl + item.attributes.imgContent.data.attributes.url" style="width: 100%" :alt="item.attributes.title"/>
+                                                    <v-card-title>{{item.attributes.title}}</v-card-title>
+                                                    <v-card-subtitle class="text-left">
+                                                        <p class="" v-html="item.attributes.description"></p>
+                                                    </v-card-subtitle>
                                                     <v-card-actions>
                                                         <v-spacer></v-spacer>
                                                     </v-card-actions>
@@ -626,21 +654,19 @@
                         <v-row justify="center">
                             <v-col cols="10">
                                 <div class="py-10 mb-16">
-                                    <h1 class="text-h4 font-weight-bold my-10 white--text">{{ $t('home.titleappointment') }}</h1>
-                                    <!--<h1 class="text-h4 font-weight-bold my-10 white--text">{{ pageHome.appointment.title }}</h1>-->
-                                    <p class="white--text text-body-all">
-                                        {{ $t('home.subappointment') }}
-                                    </p>
+                                    <!--<h1 class="text-h4 font-weight-bold my-10 white--text">{{ $t('home.titleappointment') }}</h1>-->
+                                    <h1 class="text-h4 font-weight-bold my-10 white--text" v-html="pageHome.appointment.title"></h1>
                                     <!--<p class="white--text text-body-all">
-                                        {{ pageHome.appointment.description }}
+                                        {{ $t('home.subappointment') }}
                                     </p>-->
+                                    <p class="white--text text-body-all" v-html="pageHome.appointment.description"></p>
                                     <nuxt-link to="/schedule-an-appointment" class="decoration-none">
-                                        <v-btn class="rounded-lg px-10 py-5 subtitle-1 black--text text-none primary-color">
-                                            {{ $t('home.btnappointment') }}
-                                        </v-btn>
                                         <!--<v-btn class="rounded-lg px-10 py-5 subtitle-1 black--text text-none primary-color">
-                                            {{ pageHome.appointment.txtBtn }}
+                                            {{ $t('home.btnappointment') }}
                                         </v-btn>-->
+                                        <v-btn class="rounded-lg px-10 py-5 subtitle-1 black--text text-none primary-color">
+                                            {{ pageHome.appointment.txtBtn }}
+                                        </v-btn>
                                     </nuxt-link>
                                 </div>
                             </v-col>
@@ -661,18 +687,18 @@ export default {
     data(){
         return {
             model: null,
-            blogs: [
+            /*blogs: [
                 {img: require('../../static/blog-productos.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
-                /*{img: require('../../static/blog-mercados.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
+                {img: require('../../static/blog-mercados.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-tendencias.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-polnac.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
 
                 {img: require('../../static/blog-productos.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-mercados.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
                 {img: require('../../static/blog-tendencias.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
-                {img: require('../../static/blog-polnac.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },*/
-            ],
-            productos: [
+                {img: require('../../static/blog-polnac.png'), title: 'Nuevos horizontes', description: 'El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...' },
+            ],*/
+            /*productos: [
                 {img: require('../../static/plasticos.png'), imgH: require('../../static/h-plasticos.png')},
                 {img: require('../../static/compuestos.png'),imgH: require('../../static/h-compuestos.png') },
                 {img: require('../../static/masterbatch.png'),imgH: require('../../static/h-masterbatch.png') },
@@ -686,7 +712,9 @@ export default {
                 {img: require('../../static/polietileno.png'), imgH: require('../../static/h-polietileno.png') },
                 {img: require('../../static/polipropileno.png'), imgH: require('../../static/h-polipropileno.png') },
                 {img: require('../../static/estirenicos.png'), imgH: require('../../static/h-estirenicos.png') },
-            ],
+            ]*/
+            productos: null,
+            blogs: null, 
             items: [
                 {
                     src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
@@ -703,8 +731,22 @@ export default {
             ],
         }
     },
+    mounted() {
+        this.getAllProducts()
+        this.getAllBlogs()
+    },
     computed:{
         ...mapState(['windowHeight','windowSize','pageHome','basePathApiUrl'])
+    },
+    methods: {
+        async getAllProducts(){
+            this.productos = await this.$store.dispatch('getAllProducts')
+            console.log(this.productos)
+        },
+        async getAllBlogs(){
+            this.blogs = await this.$store.dispatch('getAllBlogs')
+            //console.log(this.blogs)
+        }
     }
 }
 </script>
@@ -713,7 +755,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300&display=swap');
 
 .des-1{
-    background-image: url('../../static/destacados-1.png');
+    /*background-image: url('../../static/destacados-1.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -745,7 +787,7 @@ export default {
     width: 600px;
 }
 .text-img{
-    margin-top: 10vh;
+    margin-top: 5vh;
 }
 .bg-testimonios{
     background-image: linear-gradient(rgba(61, 124, 201, 0.7), rgba(101, 93, 198,0.7)), url('../../static/testimonios.png');
