@@ -1,4 +1,4 @@
-const url = 'http://ec2-18-219-149-41.us-east-2.compute.amazonaws.com'
+const url = '//ec2-18-219-149-41.us-east-2.compute.amazonaws.com'
 export default {
     
     async getPageHome({commit, state}){
