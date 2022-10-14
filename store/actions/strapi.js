@@ -313,9 +313,9 @@ export default {
 
         let pageData 
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/products?populate[imgBanner][populate]=%2A&populate[imgMiniature][populate]=%2A&populate[imagesHead][populate]=%2A&populate[imgCarousel][populate]=%2A&populate[imagesBody][populate]=%2A&populate[typeProduct][populate]=%2A&lang=en`)
+            pageData = await this.$axios.get(`/strapi/api/products?populate[imgBanner][populate]=%2A&populate[imgMiniature][populate]=%2A&populate[imagesHead][populate]=%2A&populate[imgCarousel][populate]=%2A&populate[imagesBody][populate]=%2A&populate[typeProduct][populate]=%2A&lang=en`)
         else 
-            pageData = await this.$axios.get(`${url}/api/products?populate[imgBanner][populate]=%2A&populate[imgMiniature][populate]=%2A&populate[imagesHead][populate]=%2A&populate[imgCarousel][populate]=%2A&populate[imagesBody][populate]=%2A&populate[typeProduct][populate]=%2A&lang=es-MX`)
+            pageData = await this.$axios.get(`/strapi/api/products?populate[imgBanner][populate]=%2A&populate[imgMiniature][populate]=%2A&populate[imagesHead][populate]=%2A&populate[imgCarousel][populate]=%2A&populate[imagesBody][populate]=%2A&populate[typeProduct][populate]=%2A&lang=es-MX`)
         
         //commit('StateAssign', {pageWork: pageData.data.data.attributes})
         return pageData.data
@@ -330,9 +330,9 @@ export default {
 
         let pageData 
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/products/${id}/?populate[imgBanner][populate]=%2A&populate[imgMiniature][populate]=%2A&populate[imagesHead][populate]=%2A&populate[imgCarousel][populate]=%2A&populate[imagesBody][populate]=%2A&populate[typeProduct][populate]=%2A&lang=en`)
+            pageData = await this.$axios.get(`/strapi/api/products/${id}/?populate[imgBanner][populate]=%2A&populate[imgMiniature][populate]=%2A&populate[imagesHead][populate]=%2A&populate[imgCarousel][populate]=%2A&populate[imagesBody][populate]=%2A&populate[typeProduct][populate]=%2A&lang=en`)
         else 
-            pageData = await this.$axios.get(`${url}/api/products/${id}/?populate[imgBanner][populate]=%2A&populate[imgMiniature][populate]=%2A&populate[imagesHead][populate]=%2A&populate[imgCarousel][populate]=%2A&populate[imagesBody][populate]=%2A&populate[typeProduct][populate]=%2A&lang=es-MX`)
+            pageData = await this.$axios.get(`/strapi/api/products/${id}/?populate[imgBanner][populate]=%2A&populate[imgMiniature][populate]=%2A&populate[imagesHead][populate]=%2A&populate[imgCarousel][populate]=%2A&populate[imagesBody][populate]=%2A&populate[typeProduct][populate]=%2A&lang=es-MX`)
         
         //commit('StateAssign', {pageWork: pageData.data.data.attributes})
         return pageData.data
@@ -347,9 +347,9 @@ export default {
 
         let pageData 
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/marcas/?populate[image][populate]=%2A&populate[imagesCarousel][populate]=%2A&lang=en`)
+            pageData = await this.$axios.get(`/strapi/api/marcas/?populate[image][populate]=%2A&populate[imagesCarousel][populate]=%2A&lang=en`)
         else 
-            pageData = await this.$axios.get(`${url}/api/marcas/?populate[image][populate]=%2A&populate[imagesCarousel][populate]=%2A&lang=es-MX`)
+            pageData = await this.$axios.get(`/strapi/api/marcas/?populate[image][populate]=%2A&populate[imagesCarousel][populate]=%2A&lang=es-MX`)
         
         return pageData.data
     },
@@ -363,9 +363,9 @@ export default {
 
         let pageData 
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/marcas/${id}/?populate[image][populate]=%2A&populate[imagesCarousel][populate]=%2A&lang=en`)
+            pageData = await this.$axios.get(`/strapi/api/marcas/${id}/?populate[image][populate]=%2A&populate[imagesCarousel][populate]=%2A&lang=en`)
         else 
-            pageData = await this.$axios.get(`${url}/api/marcas/${id}/?populate[image][populate]=%2A&populate[imagesCarousel][populate]=%2A&lang=es-MX`)
+            pageData = await this.$axios.get(`/strapi/api/marcas/${id}/?populate[image][populate]=%2A&populate[imagesCarousel][populate]=%2A&lang=es-MX`)
         
         return pageData.data
     },
@@ -379,9 +379,9 @@ export default {
 
         let pageData 
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/blogs/?populate[imgContent][populate]=%2A&lang=en`)
+            pageData = await this.$axios.get(`/strapi/api/blogs/?populate[imgContent][populate]=%2A&lang=en`)
         else 
-            pageData = await this.$axios.get(`${url}/api/blogs/?populate[imgContent][populate]=%2A&lang=es-MX`)
+            pageData = await this.$axios.get(`/strapi/api/blogs/?populate[imgContent][populate]=%2A&lang=es-MX`)
         
         return pageData.data
     },
@@ -395,9 +395,9 @@ export default {
 
         let pageData 
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/blogs/${id}/?populate[imgContent][populate]=%2A&lang=en`)
+            pageData = await this.$axios.get(`/strapi/api/blogs/${id}/?populate[imgContent][populate]=%2A&lang=en`)
         else 
-            pageData = await this.$axios.get(`${url}/api/blogs/${id}/?populate[imgContent][populate]=%2A&lang=es-MX`)
+            pageData = await this.$axios.get(`/strapi/api/blogs/${id}/?populate[imgContent][populate]=%2A&lang=es-MX`)
         
         return pageData.data
     },
@@ -411,9 +411,9 @@ export default {
 
         let pageData 
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/lab-pruebas?populate[tipos_prueba][populate]=%2A`)
+            pageData = await this.$axios.get(`/strapi/api/lab-pruebas?populate[tipos_prueba][populate]=%2A`)
         else 
-            pageData = await this.$axios.get(`${url}/api/lab-pruebas?populate[tipos_prueba][populate]=%2A`)
+            pageData = await this.$axios.get(`/strapi/api/lab-pruebas?populate[tipos_prueba][populate]=%2A`)
         
         return pageData.data
     },
@@ -426,9 +426,9 @@ export default {
 
         let pageData 
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/regions?populate[mapRegion][populate]=%2A`)
+            pageData = await this.$axios.get(`/strapi/api/regions?populate[mapRegion][populate]=%2A`)
         else 
-            pageData = await this.$axios.get(`${url}/api/regions?populate[mapRegion][populate]=%2A`)
+            pageData = await this.$axios.get(`/strapi/api/regions?populate[mapRegion][populate]=%2A`)
         
         return pageData.data
     },
@@ -441,9 +441,9 @@ export default {
 
         let pageData 
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/sucursales?populate[imgOfices][populate]=%2A&populate[region][populate]=%2A`)
+            pageData = await this.$axios.get(`/strapi/api/sucursales?populate[imgOfices][populate]=%2A&populate[region][populate]=%2A`)
         else 
-            pageData = await this.$axios.get(`${url}/api/sucursales?populate[imgOfices][populate]=%2A&populate[region][populate]=%2A`)
+            pageData = await this.$axios.get(`/strapi/api/sucursales?populate[imgOfices][populate]=%2A&populate[region][populate]=%2A`)
         
         return pageData.data
     }
