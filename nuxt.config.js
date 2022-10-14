@@ -56,7 +56,8 @@ export default {
         vueI18n: i18n
       }
     ],
-    '@nuxtjs/dotenv'
+    //dotenv
+    ['@nuxtjs/dotenv', {path: './'}],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
