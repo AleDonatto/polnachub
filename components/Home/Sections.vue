@@ -741,7 +741,7 @@ export default {
     methods: {
         async getAllProducts(){
             this.productos = await this.$store.dispatch('getAllProducts')
-            console.log(this.productos)
+            //console.log(this.productos)
         },
         async getAllBlogs(){
             this.blogs = await this.$store.dispatch('getAllBlogs')
