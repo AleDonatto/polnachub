@@ -11,9 +11,9 @@ export default {
         let pageData
         if(state.lang === 'eng')
             //pageData = await this.$axios.get('http://ec2-18-219-149-41.us-east-2.compute.amazonaws.com/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=en')
-            pageData = await this.$axios.get(`${url}/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=en`)
+            pageData = await this.$axios.get(`//ec2-18-219-149-41.us-east-2.compute.amazonaws.com/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=en`)
         else
-            pageData = await this.$axios.get(`${url}/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`//ec2-18-219-149-41.us-east-2.compute.amazonaws.com/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=es-MX`)
         
         commit('StateAssign', {pageHome: pageData.data.data.attributes})
     },
@@ -27,9 +27,9 @@ export default {
         let pageData
         
         if(state.lang === 'eng'){
-            pageData = await this.$axios.$get(`${url}/api/pagetranspolimer?populate[head][populate]=%2A&populate[process][populate]=%2A&populate[section][populate]=%2A&populate[technologies][populate]=%2A&locale=en`) 
+            pageData = await this.$axios.get(`${url}/api/pagetranspolimer?populate[head][populate]=%2A&populate[process][populate]=%2A&populate[section][populate]=%2A&populate[technologies][populate]=%2A&locale=en`) 
         }else
-            pageData = await this.$axios.$get(`${url}/api/pagetranspolimer?populate[head][populate]=%2A&populate[process][populate]=%2A&populate[section][populate]=%2A&populate[technologies][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`${url}/api/pagetranspolimer?populate[head][populate]=%2A&populate[process][populate]=%2A&populate[section][populate]=%2A&populate[technologies][populate]=%2A&locale=es-MX`)
 
         console.log(pageData)
         commit('StateAssign', { pagetranspolimer: pageData.data.attributes})
@@ -43,9 +43,9 @@ export default {
 
         let pageData
         if(state.lang === 'eng'){
-            pageData = await this.$axios.$get(`${url}/api/poliresin?populate[head][populate]=%2A&populate[subhead][populate]=%2A&populate[infraestructura][populate]=%2A&populate[process][populate]=%2A&populate[buy][populate]=%2A&populate[services][populate]=%2A&populate[sales][populate]=%2A&locale=en`)
+            pageData = await this.$axios.get(`${url}/api/poliresin?populate[head][populate]=%2A&populate[subhead][populate]=%2A&populate[infraestructura][populate]=%2A&populate[process][populate]=%2A&populate[buy][populate]=%2A&populate[services][populate]=%2A&populate[sales][populate]=%2A&locale=en`)
         }else
-            pageData = await this.$axios.$get(`${url}/api/poliresin?populate[head][populate]=%2A&populate[subhead][populate]=%2A&populate[infraestructura][populate]=%2A&populate[process][populate]=%2A&populate[buy][populate]=%2A&populate[services][populate]=%2A&populate[sales][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`${url}/api/poliresin?populate[head][populate]=%2A&populate[subhead][populate]=%2A&populate[infraestructura][populate]=%2A&populate[process][populate]=%2A&populate[buy][populate]=%2A&populate[services][populate]=%2A&populate[sales][populate]=%2A&locale=es-MX`)
         
         commit('StateAssign', {pagepoliresin: pageData.data.attributes})
     },
@@ -58,9 +58,9 @@ export default {
 
         let pageData
         if(state.lang === 'eng')
-            pageData = await this.$axios.$get(`${url}/api/innovation-des?populate[banner][populate]=%2A&populate[normas][populate]=%2A&populate[equipos][populate]=%2A&locale=en`)
+            pageData = await this.$axios.get(`${url}/api/innovation-des?populate[banner][populate]=%2A&populate[normas][populate]=%2A&populate[equipos][populate]=%2A&locale=en`)
         else
-            pageData = await this.$axios.$get(`${url}/api/innovation-des?populate[banner][populate]=%2A&populate[normas][populate]=%2A&populate[equipos][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`${url}/api/innovation-des?populate[banner][populate]=%2A&populate[normas][populate]=%2A&populate[equipos][populate]=%2A&locale=es-MX`)
         
         console.log(pageData)
         commit('StateAssign', {pageInnovation: pageData.data.attributes})
@@ -75,10 +75,10 @@ export default {
 
         let pageData
         if(state.lang === 'eng')
-            pageData = await this.$axios.$get(`${url}/api/about-us?populate[head][populate]=%2A&populate[mision][populate]=%2A&populate[vision][populate]=%2A&populate[businesValues][populate]=%2A&populate[quality][populate]=%2A&populate[work][populate]=%2A&populate[imgWork][populate]=%2A&populate[ImgPurple][populate]=%2A&populate[timeline][populate]=%2A&populate[imgMapMexico][populate]=%2A&populate[imgMaterial][populate]=%2A&populate[imgMapUsa][populate]=%2A&populate[imgmapEurope][populate]=%2A&populate[imgMapLatam][populate]=%2A&populate[imgADN][populate]=%2A&locale=en`)
+            pageData = await this.$axios.get(`${url}/api/about-us?populate[head][populate]=%2A&populate[mision][populate]=%2A&populate[vision][populate]=%2A&populate[businesValues][populate]=%2A&populate[quality][populate]=%2A&populate[work][populate]=%2A&populate[imgWork][populate]=%2A&populate[ImgPurple][populate]=%2A&populate[timeline][populate]=%2A&populate[imgMapMexico][populate]=%2A&populate[imgMaterial][populate]=%2A&populate[imgMapUsa][populate]=%2A&populate[imgmapEurope][populate]=%2A&populate[imgMapLatam][populate]=%2A&populate[imgADN][populate]=%2A&locale=en`)
         else
             //pageData = await this.$axios.$get('http://ec2-18-219-149-41.us-east-2.compute.amazonaws.com/api/about-us?populate[head][populate]=%2A&populate[mision][populate]=%2A&populate[vision][populate]=%2A&populate[businesValues][populate]=%2A&populate[quality][populate]=%2A&locale=es-MX')
-            pageData = await this.$axios.$get(`${url}/api/about-us?populate[head][populate]=%2A&populate[mision][populate]=%2A&populate[vision][populate]=%2A&populate[businesValues][populate]=%2A&populate[quality][populate]=%2A&populate[work][populate]=%2A&populate[imgWork][populate]=%2A&populate[ImgPurple][populate]=%2A&populate[timeline][populate]=%2A&populate[imgMapMexico][populate]=%2A&populate[imgMaterial][populate]=%2A&populate[imgMapUsa][populate]=%2A&populate[imgmapEurope][populate]=%2A&populate[imgMapLatam][populate]=%2A&populate[imgADN][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`${url}/api/about-us?populate[head][populate]=%2A&populate[mision][populate]=%2A&populate[vision][populate]=%2A&populate[businesValues][populate]=%2A&populate[quality][populate]=%2A&populate[work][populate]=%2A&populate[imgWork][populate]=%2A&populate[ImgPurple][populate]=%2A&populate[timeline][populate]=%2A&populate[imgMapMexico][populate]=%2A&populate[imgMaterial][populate]=%2A&populate[imgMapUsa][populate]=%2A&populate[imgmapEurope][populate]=%2A&populate[imgMapLatam][populate]=%2A&populate[imgADN][populate]=%2A&locale=es-MX`)
         
         console.log(pageData)
         commit('StateAssign', {pageAboutUs: pageData.data.attributes})
@@ -93,9 +93,9 @@ export default {
 
         let pageData
         if(state.lang === 'eng')
-            pageData = await this.$axios.$get(`${url}/api/search-product?populate[banner][populate]=%2A&locale=en`)
+            pageData = await this.$axios.get(`${url}/api/search-product?populate[banner][populate]=%2A&locale=en`)
         else
-            pageData = await this.$axios.$get(`${url}/api/search-product?populate[banner][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`${url}/api/search-product?populate[banner][populate]=%2A&locale=es-MX`)
         
         //console.log(pageData)
         commit('StateAssign', {pageSearchProducts: pageData.data.attributes})
@@ -109,9 +109,9 @@ export default {
 
         let pageData
         if(state.lang === 'eng')
-            pageData = await this.$axios.$get(`${url}/api/service?populate[banner][populate]=%2A&populate[technologies][populate]=%2A&populate[information][populate]=%2A&locale=en`)
+            pageData = await this.$axios.get(`${url}/api/service?populate[banner][populate]=%2A&populate[technologies][populate]=%2A&populate[information][populate]=%2A&locale=en`)
         else
-            pageData = await this.$axios.$get(`${url}/api/service?populate[banner][populate]=%2A&populate[technologies][populate]=%2A&populate[information][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`${url}/api/service?populate[banner][populate]=%2A&populate[technologies][populate]=%2A&populate[information][populate]=%2A&locale=es-MX`)
         
         //console.log(pageData)
         commit('StateAssign', {pageServices: pageData.data.attributes})
@@ -125,9 +125,9 @@ export default {
 
         let pageData
         if(state.lang === 'eng')
-            pageData = await this.$axios.$get(`${url}/api/market?populate[banner][populate]=%2A&populate[information][populate]=%2A&locale=en`)
+            pageData = await this.$axios.get(`${url}/api/market?populate[banner][populate]=%2A&populate[information][populate]=%2A&locale=en`)
         else
-            pageData = await this.$axios.$get(`${url}/api/market?populate[banner][populate]=%2A&populate[information][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`${url}/api/market?populate[banner][populate]=%2A&populate[information][populate]=%2A&locale=es-MX`)
         
         //console.log(pageData)
         commit('StateAssign', {pageMarkets: pageData.data.attributes})
@@ -141,9 +141,9 @@ export default {
 
         let pageData
         if(state.lang === 'eng')
-            pageData = await this.$axios.$get(`${url}/api/page-blog?populate[banner][populate]=%2A&locale=en`)
+            pageData = await this.$axios.get(`${url}/api/page-blog?populate[banner][populate]=%2A&locale=en`)
         else
-            pageData = await this.$axios.$get(`${url}/api/page-blog?populate[banner][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`${url}/api/page-blog?populate[banner][populate]=%2A&locale=es-MX`)
         
         //console.log(pageData)
         commit('StateAssign', {pageBlog: pageData.data.attributes})
