@@ -29,7 +29,7 @@ export default () => new Vuex.Store({
         pagePolnacWiki: null,
         pageQuestions: null,
         pageWork: null,
-        basePathApiUrl: 'http://ec2-18-219-149-41.us-east-2.compute.amazonaws.com',
+        basePathApiUrl: '//ec2-18-219-149-41.us-east-2.compute.amazonaws.com',
         //salesfoce connection
         /*userSalesforce: {
             username: 'desatimx@polnac.com.bxt01',
