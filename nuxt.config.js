@@ -89,7 +89,7 @@ export default {
     },
     "/strapi" : {
       //target: 'http://localhost:1337/',
-      target: process.env.BASE_URI_STRAPI,
+      target: 'http://ec2-18-219-149-41.us-east-2.compute.amazonaws.com',
       pathRewrite: {'^/strapi': '/'},
       secure: false 
     } 
