@@ -11,9 +11,9 @@ export default {
         let pageData
         if(state.lang === 'eng')
             //pageData = await this.$axios.get('http://ec2-18-219-149-41.us-east-2.compute.amazonaws.com/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=en')
-            pageData = await this.$axios.get(`//ec2-18-219-149-41.us-east-2.compute.amazonaws.com/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=en`)
+            pageData = await this.$axios.get(`${url}/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=en`)
         else
-            pageData = await this.$axios.get(`//ec2-18-219-149-41.us-east-2.compute.amazonaws.com/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=es-MX`)
+            pageData = await this.$axios.get(`${url}/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=es-MX`)
         
         commit('StateAssign', {pageHome: pageData.data.data.attributes})
     },
