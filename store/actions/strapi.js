@@ -16,6 +16,7 @@ export default {
             pageData = await this.$axios.get(`/strapi/api/home?populate[banner][populate]=%2A&populate[featured][populate]=%2A&populate[tecOffices][populate]=%2A&populate[alliances][populate]=%2A&populate[blog][populate]=%2A&populate[appointment][populate]=%2A&populate[imgOffices][populate]=%2A&locale=es-MX`)
         
         commit('StateAssign', {pageHome: pageData.data.data.attributes})
+        console.log(pageData)
     },
     async getPageTranspolimer({commit, state}){
         this.$axios.setToken(false)
@@ -280,9 +281,9 @@ export default {
 
         let pageData
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/single-markets/?populate[imgLogo][populate]=%2A&populate[imgMiniarure][populate]=%2A&populate[imgBanner][populate]=%2A&populate[imgCarousel][populate]=%2A&lang=en`)
+            pageData = await this.$axios.get(`/strapi/api/single-markets/?populate[imgLogo][populate]=%2A&populate[imgMiniarure][populate]=%2A&populate[imgBanner][populate]=%2A&populate[imgCarousel][populate]=%2A&lang=en`)
         else 
-            pageData = await this.$axios.get(`${url}/api/single-markets/?populate[imgLogo][populate]=%2A&populate[imgMiniarure][populate]=%2A&populate[imgBanner][populate]=%2A&populate[imgCarousel][populate]=%2A&lang=es-MX`)
+            pageData = await this.$axios.get(`/strapi/api/single-markets/?populate[imgLogo][populate]=%2A&populate[imgMiniarure][populate]=%2A&populate[imgBanner][populate]=%2A&populate[imgCarousel][populate]=%2A&lang=es-MX`)
         
         //commit('StateAssign', {pageWork: pageData.data.data.attributes})
         return pageData.data
@@ -296,9 +297,9 @@ export default {
 
         let pageData
         if(state.lang === 'eng')
-            pageData = await this.$axios.get(`${url}/api/single-markets/${id}/?populate[imgLogo][populate]=%2A&populate[imgMiniarure][populate]=%2A&populate[imgBanner][populate]=%2A&populate[imgCarousel][populate]=%2A&lang=en`)
+            pageData = await this.$axios.get(`/strapi/api/single-markets/${id}/?populate[imgLogo][populate]=%2A&populate[imgMiniarure][populate]=%2A&populate[imgBanner][populate]=%2A&populate[imgCarousel][populate]=%2A&lang=en`)
         else 
-            pageData = await this.$axios.get(`${url}/api/single-markets/${id}/?populate[imgLogo][populate]=%2A&populate[imgMiniarure][populate]=%2A&populate[imgBanner][populate]=%2A&populate[imgCarousel][populate]=%2A&lang=es-MX`)
+            pageData = await this.$axios.get(`/strapi/api/single-markets/${id}/?populate[imgLogo][populate]=%2A&populate[imgMiniarure][populate]=%2A&populate[imgBanner][populate]=%2A&populate[imgCarousel][populate]=%2A&lang=es-MX`)
         
         //commit('StateAssign', {pageWork: pageData.data.data.attributes})
         return pageData.data
