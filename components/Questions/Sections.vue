@@ -310,16 +310,16 @@
                         </v-expansion-panels>
 
                         <v-expansion-panels v-model="tabs" multiple v-if="showOptions === 2">
-                            <v-expansion-panel class="my-2 rounded-xl">
+                            <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in pageQuestions.billings " :key="index+item.id">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                    ¿Cómo puedo rastrear mis pedidos?
+                                    {{item.title}}
                                 </v-expansion-panel-header>
                                 <v-expansion-panel-content class="mt-5 shadow-none">
-                                    A través del comercial asignado se inicia la solicitud de trámite.
+                                    <div class="" v-html="item.content"></div>
                                 </v-expansion-panel-content>
                             </v-expansion-panel>
 
-                            <v-expansion-panel class="my-2 rounded-xl">
+                            <!--<v-expansion-panel class="my-2 rounded-xl">
                                 <v-expansion-panel-header class="font-weight-bold panel-color">
                                     ¿Cuáles son los horarios de entrega de material?
                                 </v-expansion-panel-header>
@@ -384,241 +384,42 @@
                                 <v-expansion-panel-content class="mt-5">
                                     SÍ, cada sucursal cuenta con stock de material.
                                 </v-expansion-panel-content>
-                            </v-expansion-panel>
+                            </v-expansion-panel>-->
                         </v-expansion-panels>
 
                         <v-expansion-panels v-model="tabs" multiple v-if="showOptions === 3">
-                            <v-expansion-panel class="my-2 rounded-xl">
+                            <v-expansion-panel class="my-2 rounded-xl" v-for="(item,index) in pageQuestions.samples" :key="item.id+index">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                    ¿Cómo puedo rastrear mis pedidos?
+                                    {{item.title}}
                                 </v-expansion-panel-header>
                                 <v-expansion-panel-content class="mt-5 shadow-none">
-                                    A través del comercial asignado se inicia la solicitud de trámite.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Cuáles son los horarios de entrega de material?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Pueden ser beneficiarios de crédito tanto personas físicas como morales, mexicanos o extranjeros.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Se puede recoger el material en sus instalaciones?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Sí, los horarios de entrega son de Lunes a Viernes de 12:00 pm a 4:00 pm
-                                    <br><br>
-                                    Es importante recalcar, que antes de la recolección el cliente deberá enviar 
-                                    su comprobante de pago y validarlo con su vendedor o con nuestro departamento de 
-                                    Cuentas por Cobrar; de esta forma se liberará el material.
-                                    <br><br>
-                                    Si el cliente necesita hacer la recolección en un horario diferente, 
-                                    deberá hacer la cita a través del Comercial con mínimo 24 horas de 
-                                    anterioridad.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Qué tiempos de entrega tienen?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    El material se libera una vez ingrese el pago o el área de crédito valide; una vez confirmado este paso los tiempos de entrega son:
-                                    <ul>
-                                        <li>Entregas locales:  24 horas </li>
-                                        <li>Entregas Foráneas: 48 horas</li>
-                                    </ul>
-                                    <br><br>
-                                    IMPORTANTE:  Las confirmaciones deben realizarse:
-                                    <ul>
-                                        <li>Entregas locales antes de las 4:00 pm</li>
-                                        <li>Entregas foráneas antes de las 12:00 pm.</li>
-                                    </ul>
-                                    <br><br>
-                                    Si la confirmación de pago se realiza después de este horario, ingresaría al siguiente día hábil.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Cómo es el procedimiento para no conformidades?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    A través del comercial asignado deberá comunicarse con detalles, 
-                                    todos los datos e imágenes sobre la no conformidad, de esa forma 
-                                    se podrá crear la incidencia para su respectivo proceso.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Tienen stock de producto en sus sucursales?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    SÍ, cada sucursal cuenta con stock de material.
+                                    <div v-html="item.content"></div>
                                 </v-expansion-panel-content>
                             </v-expansion-panel>
                         </v-expansion-panels>
 
                         <v-expansion-panels v-model="tabs" multiple v-if="showOptions === 4">
-                            <v-expansion-panel class="my-2 rounded-xl">
+                            <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in pageQuestions.products" :key="item.id+index">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                    ¿Cómo puedo rastrear mis pedidos?
+                                    {{item.title}}
                                 </v-expansion-panel-header>
                                 <v-expansion-panel-content class="mt-5 shadow-none">
-                                    A través del comercial asignado se inicia la solicitud de trámite.
+                                    <div v-html="item.content"></div>
                                 </v-expansion-panel-content>
                             </v-expansion-panel>
 
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Cuáles son los horarios de entrega de material?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Pueden ser beneficiarios de crédito tanto personas físicas como morales, mexicanos o extranjeros.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Se puede recoger el material en sus instalaciones?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Sí, los horarios de entrega son de Lunes a Viernes de 12:00 pm a 4:00 pm
-                                    <br><br>
-                                    Es importante recalcar, que antes de la recolección el cliente deberá enviar 
-                                    su comprobante de pago y validarlo con su vendedor o con nuestro departamento de 
-                                    Cuentas por Cobrar; de esta forma se liberará el material.
-                                    <br><br>
-                                    Si el cliente necesita hacer la recolección en un horario diferente, 
-                                    deberá hacer la cita a través del Comercial con mínimo 24 horas de 
-                                    anterioridad.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Qué tiempos de entrega tienen?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    El material se libera una vez ingrese el pago o el área de crédito valide; una vez confirmado este paso los tiempos de entrega son:
-                                    <ul>
-                                        <li>Entregas locales:  24 horas </li>
-                                        <li>Entregas Foráneas: 48 horas</li>
-                                    </ul>
-                                    <br><br>
-                                    IMPORTANTE:  Las confirmaciones deben realizarse:
-                                    <ul>
-                                        <li>Entregas locales antes de las 4:00 pm</li>
-                                        <li>Entregas foráneas antes de las 12:00 pm.</li>
-                                    </ul>
-                                    <br><br>
-                                    Si la confirmación de pago se realiza después de este horario, ingresaría al siguiente día hábil.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Cómo es el procedimiento para no conformidades?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    A través del comercial asignado deberá comunicarse con detalles, 
-                                    todos los datos e imágenes sobre la no conformidad, de esa forma 
-                                    se podrá crear la incidencia para su respectivo proceso.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Tienen stock de producto en sus sucursales?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    SÍ, cada sucursal cuenta con stock de material.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
                         </v-expansion-panels>
 
                         <v-expansion-panels v-model="tabs" multiple v-if="showOptions === 5">
-                            <v-expansion-panel class="my-2 rounded-xl">
+                            <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in pageQuestions.others" :key="item.id+index">
                                 <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                    ¿Cómo puedo rastrear mis pedidos?
+                                    {{item.title}}
                                 </v-expansion-panel-header>
                                 <v-expansion-panel-content class="mt-5 shadow-none">
-                                    A través del comercial asignado se inicia la solicitud de trámite.
+                                    <div v-html="item.content"></div>
                                 </v-expansion-panel-content>
                             </v-expansion-panel>
 
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Cuáles son los horarios de entrega de material?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Pueden ser beneficiarios de crédito tanto personas físicas como morales, mexicanos o extranjeros.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Se puede recoger el material en sus instalaciones?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    Sí, los horarios de entrega son de Lunes a Viernes de 12:00 pm a 4:00 pm
-                                    <br><br>
-                                    Es importante recalcar, que antes de la recolección el cliente deberá enviar 
-                                    su comprobante de pago y validarlo con su vendedor o con nuestro departamento de 
-                                    Cuentas por Cobrar; de esta forma se liberará el material.
-                                    <br><br>
-                                    Si el cliente necesita hacer la recolección en un horario diferente, 
-                                    deberá hacer la cita a través del Comercial con mínimo 24 horas de 
-                                    anterioridad.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Qué tiempos de entrega tienen?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    El material se libera una vez ingrese el pago o el área de crédito valide; una vez confirmado este paso los tiempos de entrega son:
-                                    <ul>
-                                        <li>Entregas locales:  24 horas </li>
-                                        <li>Entregas Foráneas: 48 horas</li>
-                                    </ul>
-                                    <br><br>
-                                    IMPORTANTE:  Las confirmaciones deben realizarse:
-                                    <ul>
-                                        <li>Entregas locales antes de las 4:00 pm</li>
-                                        <li>Entregas foráneas antes de las 12:00 pm.</li>
-                                    </ul>
-                                    <br><br>
-                                    Si la confirmación de pago se realiza después de este horario, ingresaría al siguiente día hábil.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Cómo es el procedimiento para no conformidades?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    A través del comercial asignado deberá comunicarse con detalles, 
-                                    todos los datos e imágenes sobre la no conformidad, de esa forma 
-                                    se podrá crear la incidencia para su respectivo proceso.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
-
-                            <v-expansion-panel class="my-2 rounded-xl">
-                                <v-expansion-panel-header class="font-weight-bold panel-color">
-                                    ¿Tienen stock de producto en sus sucursales?
-                                </v-expansion-panel-header>
-                                <v-expansion-panel-content class="mt-5">
-                                    SÍ, cada sucursal cuenta con stock de material.
-                                </v-expansion-panel-content>
-                            </v-expansion-panel>
                         </v-expansion-panels>
                     </v-col>
                 </v-row>
@@ -644,7 +445,7 @@
                                                     <v-icon left>mdi-alert-circle-outline</v-icon>
                                                 </v-col>
                                                 <v-col cols="9">
-                                                    <p class="text-left">Crédito</p>
+                                                    <p class="text-left">{{pageQuestions.txtCredit}}</p>
                                                 </v-col>
                                                 <v-col cols="1">
                                                     <v-icon right>mdi-chevron-right</v-icon>
@@ -659,7 +460,7 @@
                                                     <v-icon left>mdi-alert-circle-outline</v-icon>
                                                 </v-col>
                                                 <v-col cols="9">
-                                                    <p class="text-left">Pedidos y entregas</p>
+                                                    <p class="text-left">{{pageQuestions.txtOrders}}</p>
                                                 </v-col>
                                                 <v-col cols="1">
                                                     <v-icon right>mdi-chevron-right</v-icon>
@@ -674,7 +475,7 @@
                                                     <v-icon left>mdi-alert-circle-outline</v-icon>
                                                 </v-col>
                                                 <v-col cols="9">
-                                                    <p class="text-left">Facturación</p>
+                                                    <p class="text-left">{{pageQuestions.txtbilling}}</p>
                                                 </v-col>
                                                 <v-col cols="1">
                                                     <v-icon right>mdi-chevron-right</v-icon>
@@ -689,7 +490,7 @@
                                                     <v-icon left>mdi-alert-circle-outline</v-icon>
                                                 </v-col>
                                                 <v-col cols="9">
-                                                    <p class="text-left">Muestras y desarrollos</p>
+                                                    <p class="text-left">{{pageQuestions.txtsamples}}</p>
                                                 </v-col>
                                                 <v-col cols="1">
                                                     <v-icon right>mdi-chevron-right</v-icon>
@@ -704,7 +505,7 @@
                                                     <v-icon left>mdi-alert-circle-outline</v-icon>
                                                 </v-col>
                                                 <v-col cols="9">
-                                                    <p class="text-left">Productos</p>
+                                                    <p class="text-left">{{pageQuestions.txtproducts}}</p>
                                                 </v-col>
                                                 <v-col cols="1">
                                                     <v-icon right>mdi-chevron-right</v-icon>
@@ -719,7 +520,7 @@
                                                     <v-icon left>mdi-alert-circle-outline</v-icon>
                                                 </v-col>
                                                 <v-col cols="9">
-                                                    <p class="text-left">Otros</p>
+                                                    <p class="text-left">{{pageQuestions.txtothers}}</p>
                                                 </v-col>
                                                 <v-col cols="1">
                                                     <v-icon right>mdi-chevron-right</v-icon>
@@ -739,110 +540,19 @@
                                             <v-icon left color="#773DBD">mdi-chevron-left</v-icon>
                                         </v-col>
                                         <v-col>
-                                            <p class="text-left text-purple font-size-16">Preguntas</p>
+                                            <p class="text-left text-purple font-size-16">{{$t('question')}}</p>
                                         </v-col>
                                     </v-row>
                                 </v-btn>
                                 <v-expansion-panels v-model="tabs" multiple>
-                                    <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel class="my-2 rounded-xl" v-for="(item,index) in pageQuestions.optionsCredit" :key="item.id+index">
                                         <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                            ¿Cómo tramito una línea de crédito?
+                                            {{item.title}}
                                         </v-expansion-panel-header>
                                         <v-expansion-panel-content class="mt-5 shadow-none">
-                                            A través del comercial asignado se inicia la solicitud de trámite.
+                                            <div v-html="item.content"></div>
                                         </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Quiénes pueden tramitar una solicitud de crédito?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Pueden ser beneficiarios de crédito tanto personas físicas como morales, mexicanos o extranjeros.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cuánto tiempo tarda una aprobación de crédito?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Una vez se ingresen los documentos y estén completos y vigentes, tarda entre 10 y 15 días hábiles.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Puedo tramitar crédito siendo una empresa fuera de México?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Si, cualquier empresa o persona física/natural puede tramitar un crédito. 
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Qué formas de pago manejan? 
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Dentro de México recibimos pagos a través de:
-                                            <ul>
-                                                <li>Transferencia</li>
-                                                <li>Cheque nominativo</li>
-                                                <li>Tarjeta de crédito</li>
-                                                <li>Depósito en efectivo directamente en el banco. </li>
-                                            </ul>
-                                            <br><br>
-                                            Para empresas del extranjero únicamente tenemos pagos en transferencia.
-                                            <br><br>
-                                            Por políticas de la empresa NO RECIBIMOS PAGOS EN EFECTIVO.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Qué documentos piden para tramitar un crédito? 
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Persona moral:
-                                            <ul>
-                                                <li>Declaración anual de impuestos</li>
-                                                <li>Estados financieros firmados por el Representante legal</li>
-                                                <li>Acta constitutiva</li>
-                                                <li>Constancia de situación fiscal</li>
-                                                <li>Comprobante de domicilio</li>
-                                                <li>Identificación oficial del Representante legal</li>
-                                            </ul>
-                                            <br><br>
-                                            Persona física:
-                                            <ul>
-                                                <li>Última declaración anual</li>
-                                                <li>Información financiera actualizada</li>
-                                                <li>RFC</li>
-                                                <li>Comprobante de situación fiscal</li>
-                                                <li>Comprobante de domicilio</li>
-                                                <li>Identificación oficial</li>
-                                            </ul>
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Qué plazos de pago manejan?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Manejamos plazos entre 30 y 60 días.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cómo puedo acceder a mi estado de cuenta?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Cada semana los días lunes y viernes se envían los estados de cuenta.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
+                                    </v-expansion-panel>                  
                                 </v-expansion-panels>
                             </v-container>
                         </v-window-item>
@@ -855,84 +565,17 @@
                                             <v-icon left color="#773DBD">mdi-chevron-left</v-icon>
                                         </v-col>
                                         <v-col>
-                                            <p class="text-left text-purple font-size-16">Preguntas</p>
+                                            <p class="text-left text-purple font-size-16">{{$t('question')}}</p>
                                         </v-col>
                                     </v-row>
                                 </v-btn>
                                 <v-expansion-panels v-model="tabs" multiple>
-                                    <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel class="my-2 rounded-xl" v-for="(item,index) in pageQuestions.orders" :key="item.id+index">
                                         <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                            ¿Cómo puedo rastrear mis pedidos?
+                                            {{item.title}}
                                         </v-expansion-panel-header>
                                         <v-expansion-panel-content class="mt-5 shadow-none">
-                                            A través del comercial asignado se inicia la solicitud de trámite.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cuáles son los horarios de entrega de material?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Pueden ser beneficiarios de crédito tanto personas físicas como morales, mexicanos o extranjeros.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Se puede recoger el material en sus instalaciones?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Sí, los horarios de entrega son de Lunes a Viernes de 12:00 pm a 4:00 pm
-                                            <br><br>
-                                            Es importante recalcar, que antes de la recolección el cliente deberá enviar 
-                                            su comprobante de pago y validarlo con su vendedor o con nuestro departamento de 
-                                            Cuentas por Cobrar; de esta forma se liberará el material.
-                                            <br><br>
-                                            Si el cliente necesita hacer la recolección en un horario diferente, 
-                                            deberá hacer la cita a través del Comercial con mínimo 24 horas de 
-                                            anterioridad.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Qué tiempos de entrega tienen?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            El material se libera una vez ingrese el pago o el área de crédito valide; una vez confirmado este paso los tiempos de entrega son:
-                                            <ul>
-                                                <li>Entregas locales:  24 horas </li>
-                                                <li>Entregas Foráneas: 48 horas</li>
-                                            </ul>
-                                            <br><br>
-                                            IMPORTANTE:  Las confirmaciones deben realizarse:
-                                            <ul>
-                                                <li>Entregas locales antes de las 4:00 pm</li>
-                                                <li>Entregas foráneas antes de las 12:00 pm.</li>
-                                            </ul>
-                                            <br><br>
-                                            Si la confirmación de pago se realiza después de este horario, ingresaría al siguiente día hábil.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cómo es el procedimiento para no conformidades?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            A través del comercial asignado deberá comunicarse con detalles, 
-                                            todos los datos e imágenes sobre la no conformidad, de esa forma 
-                                            se podrá crear la incidencia para su respectivo proceso.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Tienen stock de producto en sus sucursales?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            SÍ, cada sucursal cuenta con stock de material.
+                                            <div v-html="item.content"></div>
                                         </v-expansion-panel-content>
                                     </v-expansion-panel>
                                 </v-expansion-panels>
@@ -947,86 +590,20 @@
                                             <v-icon left color="#773DBD">mdi-chevron-left</v-icon>
                                         </v-col>
                                         <v-col>
-                                            <p class="text-left text-purple font-size-16">Preguntas</p>
+                                            <p class="text-left text-purple font-size-16">{{$t('question')}}</p>
                                         </v-col>
                                     </v-row>
                                 </v-btn>
                                 <v-expansion-panels v-model="tabs" multiple>
-                                    <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in pageQuestions.billings" :key="item.id+index">
                                         <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                            ¿Cómo puedo rastrear mis pedidos?
+                                            {{item.title}}
                                         </v-expansion-panel-header>
                                         <v-expansion-panel-content class="mt-5 shadow-none">
-                                            A través del comercial asignado se inicia la solicitud de trámite.
+                                            <div v-html="item.content"></div>
                                         </v-expansion-panel-content>
                                     </v-expansion-panel>
 
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cuáles son los horarios de entrega de material?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Pueden ser beneficiarios de crédito tanto personas físicas como morales, mexicanos o extranjeros.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Se puede recoger el material en sus instalaciones?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Sí, los horarios de entrega son de Lunes a Viernes de 12:00 pm a 4:00 pm
-                                            <br><br>
-                                            Es importante recalcar, que antes de la recolección el cliente deberá enviar 
-                                            su comprobante de pago y validarlo con su vendedor o con nuestro departamento de 
-                                            Cuentas por Cobrar; de esta forma se liberará el material.
-                                            <br><br>
-                                            Si el cliente necesita hacer la recolección en un horario diferente, 
-                                            deberá hacer la cita a través del Comercial con mínimo 24 horas de 
-                                            anterioridad.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Qué tiempos de entrega tienen?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            El material se libera una vez ingrese el pago o el área de crédito valide; una vez confirmado este paso los tiempos de entrega son:
-                                            <ul>
-                                                <li>Entregas locales:  24 horas </li>
-                                                <li>Entregas Foráneas: 48 horas</li>
-                                            </ul>
-                                            <br><br>
-                                            IMPORTANTE:  Las confirmaciones deben realizarse:
-                                            <ul>
-                                                <li>Entregas locales antes de las 4:00 pm</li>
-                                                <li>Entregas foráneas antes de las 12:00 pm.</li>
-                                            </ul>
-                                            <br><br>
-                                            Si la confirmación de pago se realiza después de este horario, ingresaría al siguiente día hábil.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cómo es el procedimiento para no conformidades?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            A través del comercial asignado deberá comunicarse con detalles, 
-                                            todos los datos e imágenes sobre la no conformidad, de esa forma 
-                                            se podrá crear la incidencia para su respectivo proceso.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Tienen stock de producto en sus sucursales?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            SÍ, cada sucursal cuenta con stock de material.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
                                 </v-expansion-panels>
                             </v-container>
                         </v-window-item>
@@ -1039,86 +616,20 @@
                                             <v-icon left color="#773DBD">mdi-chevron-left</v-icon>
                                         </v-col>
                                         <v-col>
-                                            <p class="text-left text-purple font-size-16">Preguntas</p>
+                                            <p class="text-left text-purple font-size-16">{{$t('question')}}</p>
                                         </v-col>
                                     </v-row>
                                 </v-btn>
                                 <v-expansion-panels v-model="tabs" multiple>
-                                    <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel class="my-2 rounded-xl" v-for="(item,index) in pageQuestions.samples" :key="item.id+index">
                                         <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                            ¿Cómo puedo rastrear mis pedidos?
+                                            {{item.title}}
                                         </v-expansion-panel-header>
                                         <v-expansion-panel-content class="mt-5 shadow-none">
-                                            A través del comercial asignado se inicia la solicitud de trámite.
+                                            {{item.content}}
                                         </v-expansion-panel-content>
                                     </v-expansion-panel>
 
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cuáles son los horarios de entrega de material?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Pueden ser beneficiarios de crédito tanto personas físicas como morales, mexicanos o extranjeros.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Se puede recoger el material en sus instalaciones?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Sí, los horarios de entrega son de Lunes a Viernes de 12:00 pm a 4:00 pm
-                                            <br><br>
-                                            Es importante recalcar, que antes de la recolección el cliente deberá enviar 
-                                            su comprobante de pago y validarlo con su vendedor o con nuestro departamento de 
-                                            Cuentas por Cobrar; de esta forma se liberará el material.
-                                            <br><br>
-                                            Si el cliente necesita hacer la recolección en un horario diferente, 
-                                            deberá hacer la cita a través del Comercial con mínimo 24 horas de 
-                                            anterioridad.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Qué tiempos de entrega tienen?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            El material se libera una vez ingrese el pago o el área de crédito valide; una vez confirmado este paso los tiempos de entrega son:
-                                            <ul>
-                                                <li>Entregas locales:  24 horas </li>
-                                                <li>Entregas Foráneas: 48 horas</li>
-                                            </ul>
-                                            <br><br>
-                                            IMPORTANTE:  Las confirmaciones deben realizarse:
-                                            <ul>
-                                                <li>Entregas locales antes de las 4:00 pm</li>
-                                                <li>Entregas foráneas antes de las 12:00 pm.</li>
-                                            </ul>
-                                            <br><br>
-                                            Si la confirmación de pago se realiza después de este horario, ingresaría al siguiente día hábil.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cómo es el procedimiento para no conformidades?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            A través del comercial asignado deberá comunicarse con detalles, 
-                                            todos los datos e imágenes sobre la no conformidad, de esa forma 
-                                            se podrá crear la incidencia para su respectivo proceso.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Tienen stock de producto en sus sucursales?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            SÍ, cada sucursal cuenta con stock de material.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
                                 </v-expansion-panels>
                             </v-container>
                         </v-window-item>
@@ -1131,84 +642,17 @@
                                             <v-icon left color="#773DBD">mdi-chevron-left</v-icon>
                                         </v-col>
                                         <v-col>
-                                            <p class="text-left text-purple font-size-16">Preguntas</p>
+                                            <p class="text-left text-purple font-size-16">{{$t('question')}}</p>
                                         </v-col>
                                     </v-row>
                                 </v-btn>
                                 <v-expansion-panels v-model="tabs" multiple>
-                                    <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel class="my-2 rounded-xl" v-for="(item, index) in pageQuestions.products" :key="item.id+index">
                                         <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                            ¿Cómo puedo rastrear mis pedidos?
+                                            {{item.title}}
                                         </v-expansion-panel-header>
                                         <v-expansion-panel-content class="mt-5 shadow-none">
-                                            A través del comercial asignado se inicia la solicitud de trámite.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cuáles son los horarios de entrega de material?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Pueden ser beneficiarios de crédito tanto personas físicas como morales, mexicanos o extranjeros.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Se puede recoger el material en sus instalaciones?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Sí, los horarios de entrega son de Lunes a Viernes de 12:00 pm a 4:00 pm
-                                            <br><br>
-                                            Es importante recalcar, que antes de la recolección el cliente deberá enviar 
-                                            su comprobante de pago y validarlo con su vendedor o con nuestro departamento de 
-                                            Cuentas por Cobrar; de esta forma se liberará el material.
-                                            <br><br>
-                                            Si el cliente necesita hacer la recolección en un horario diferente, 
-                                            deberá hacer la cita a través del Comercial con mínimo 24 horas de 
-                                            anterioridad.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Qué tiempos de entrega tienen?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            El material se libera una vez ingrese el pago o el área de crédito valide; una vez confirmado este paso los tiempos de entrega son:
-                                            <ul>
-                                                <li>Entregas locales:  24 horas </li>
-                                                <li>Entregas Foráneas: 48 horas</li>
-                                            </ul>
-                                            <br><br>
-                                            IMPORTANTE:  Las confirmaciones deben realizarse:
-                                            <ul>
-                                                <li>Entregas locales antes de las 4:00 pm</li>
-                                                <li>Entregas foráneas antes de las 12:00 pm.</li>
-                                            </ul>
-                                            <br><br>
-                                            Si la confirmación de pago se realiza después de este horario, ingresaría al siguiente día hábil.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cómo es el procedimiento para no conformidades?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            A través del comercial asignado deberá comunicarse con detalles, 
-                                            todos los datos e imágenes sobre la no conformidad, de esa forma 
-                                            se podrá crear la incidencia para su respectivo proceso.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Tienen stock de producto en sus sucursales?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            SÍ, cada sucursal cuenta con stock de material.
+                                            <div v-html="item.content"></div>
                                         </v-expansion-panel-content>
                                     </v-expansion-panel>
                                 </v-expansion-panels>
@@ -1223,84 +667,17 @@
                                             <v-icon left color="#773DBD">mdi-chevron-left</v-icon>
                                         </v-col>
                                         <v-col>
-                                            <p class="text-left text-purple font-size-16">Preguntas</p>
+                                            <p class="text-left text-purple font-size-16">{{$t('question')}}</p>
                                         </v-col>
                                     </v-row>
                                 </v-btn>
                                 <v-expansion-panels v-model="tabs" multiple>
-                                    <v-expansion-panel class="my-2 rounded-xl">
+                                    <v-expansion-panel class="my-2 rounded-xl" v-for="(item,index) in pageQuestions.others" :key="index">
                                         <v-expansion-panel-header class="font-weight-bold panel-color" >
-                                            ¿Cómo puedo rastrear mis pedidos?
+                                            {{item.title}}
                                         </v-expansion-panel-header>
                                         <v-expansion-panel-content class="mt-5 shadow-none">
-                                            A través del comercial asignado se inicia la solicitud de trámite.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cuáles son los horarios de entrega de material?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Pueden ser beneficiarios de crédito tanto personas físicas como morales, mexicanos o extranjeros.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Se puede recoger el material en sus instalaciones?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            Sí, los horarios de entrega son de Lunes a Viernes de 12:00 pm a 4:00 pm
-                                            <br><br>
-                                            Es importante recalcar, que antes de la recolección el cliente deberá enviar 
-                                            su comprobante de pago y validarlo con su vendedor o con nuestro departamento de 
-                                            Cuentas por Cobrar; de esta forma se liberará el material.
-                                            <br><br>
-                                            Si el cliente necesita hacer la recolección en un horario diferente, 
-                                            deberá hacer la cita a través del Comercial con mínimo 24 horas de 
-                                            anterioridad.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Qué tiempos de entrega tienen?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            El material se libera una vez ingrese el pago o el área de crédito valide; una vez confirmado este paso los tiempos de entrega son:
-                                            <ul>
-                                                <li>Entregas locales:  24 horas </li>
-                                                <li>Entregas Foráneas: 48 horas</li>
-                                            </ul>
-                                            <br><br>
-                                            IMPORTANTE:  Las confirmaciones deben realizarse:
-                                            <ul>
-                                                <li>Entregas locales antes de las 4:00 pm</li>
-                                                <li>Entregas foráneas antes de las 12:00 pm.</li>
-                                            </ul>
-                                            <br><br>
-                                            Si la confirmación de pago se realiza después de este horario, ingresaría al siguiente día hábil.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Cómo es el procedimiento para no conformidades?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            A través del comercial asignado deberá comunicarse con detalles, 
-                                            todos los datos e imágenes sobre la no conformidad, de esa forma 
-                                            se podrá crear la incidencia para su respectivo proceso.
-                                        </v-expansion-panel-content>
-                                    </v-expansion-panel>
-
-                                    <v-expansion-panel class="my-2 rounded-xl">
-                                        <v-expansion-panel-header class="font-weight-bold panel-color">
-                                            ¿Tienen stock de producto en sus sucursales?
-                                        </v-expansion-panel-header>
-                                        <v-expansion-panel-content class="mt-5">
-                                            SÍ, cada sucursal cuenta con stock de material.
+                                            <div v-html="item.content"></div>
                                         </v-expansion-panel-content>
                                     </v-expansion-panel>
                                 </v-expansion-panels>

@@ -84,7 +84,7 @@
                         <v-row justify="center">
                             <v-col cols="12" lg="4" mg="4" sm="12" xs="12" v-for="(item, index) in pageServices.technologies" :key="index">
                                 <h1 class="font-size-28 font-weight-bold" :class="{'mx-5' : windowSize < 1129 }">{{ item.title }}</h1>
-                                <div class="text-body-all mt-5 ml-4" :class="{'mx-6' : windowSize < 1129 }" v-html="$md.render( item.description )"></div>
+                                <div class="text-body-all mt-5 ml-4" :class="{'mx-6' : windowSize < 1129 }" v-html="item.description"></div>
                                 <v-divider class="mt-5" v-if="windowSize < 1129"></v-divider>
                             </v-col>
                         </v-row>

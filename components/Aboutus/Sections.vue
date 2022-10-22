@@ -163,9 +163,10 @@
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" v-for="(item, index) in pageAboutUs.businesValues" :key="index">
                         <v-img :src="basePathApiUrl+item.image.data.attributes.url" contain max-height="90"></v-img>
                         <p class="text-h5 mt-2 font-weight-medium">{{item.title}}</p>
-                        <p class="text-body-all">
+                        <div class="text-body-all" v-html="item.description"></div>
+                        <!--<p class="text-body-all">
                             {{item.description}}
-                        </p>
+                        </p>-->
                     </v-col>
                 </v-row>
             </v-container>

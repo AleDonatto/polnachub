@@ -9,7 +9,7 @@
         </v-row>
         <v-row justify="center">
             <v-col cols="10" xl="6" lg="6" md="6" sm="10" xs="10">
-                <v-select v-model="market" label="Tipo de Mercado" solo outlined class="mb-16 rounded-xl" :items="markets.data" item-text="attributes.nameMarket" item-value="id"
+                <v-select v-model="market" :label="lang === 'es' ?'Tipo de Mercado' : 'Markey Type' " solo outlined class="mb-16 rounded-xl" :items="markets.data" item-text="attributes.nameMarket" item-value="id"
                 @change="gotoMarket"></v-select>
             </v-col>
         </v-row>
@@ -35,6 +35,7 @@ export default {
     methods: {
         async getMercados(){
             this.markets = await this.$store.dispatch('getAllMarkets')
+            //this.listmarkets = this.markets
             //console.log(this.markets)
         },
         gotoMarket(){

@@ -15,7 +15,7 @@
                             <v-tabs-slider color></v-tabs-slider>
                             <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
                             <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/innovation">{{ $t('appbar.innovation') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/search-products">{{ $t('appbar.products') }}</v-tab>
+                            <!--<v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/search-products">{{ $t('appbar.products') }}</v-tab>-->
                             <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/services">{{ $t('appbar.services') }}</v-tab>
                             <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/market">{{ $t('appbar.market') }}</v-tab>
                             <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/blogs">Blog</v-tab>
@@ -47,7 +47,7 @@
                                                                 <v-text-field v-model="search" solo rounded class="mt-4" placeholder="Buscar por producto" prepend-inner-icon="mdi-magnify" 
                                                                     clearable @click:clear="clean">
                                                                 </v-text-field>
-                                                                <v-btn class="rounded-xl mx-3 text-none secondary-color white--text" @click="searchPage">Buscar</v-btn>
+                                                                <v-btn class="rounded-xl mx-3 text-none secondary-color white--text" @click="searchPage">{{$t('blog.btnSearch')}}</v-btn>
                                                             </v-list-item>
                                                         </v-list>
 
@@ -192,7 +192,7 @@
                             <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
                             @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>
                             <!--<v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>-->
-                            <v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>
+                            <!--<v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>-->
                             <v-menu min-width="200px" rounded offset-y v-if="this.$route.path.includes('client')">
                                 <template v-slot:activator="{ on }">
                                     <v-btn icon x-large v-on="on">
@@ -293,11 +293,11 @@
                         <v-list-item-title class="text-none">Trabaja con nosotros</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/search-products">
+                <!--<v-list-item link to="/search-products">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">{{ $t('appbar.products') }}</v-list-item-title>  
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item>-->
                 <v-list-item link to="/services">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">{{ $t('appbar.services') }}</v-list-item-title>  
@@ -308,7 +308,7 @@
                         <v-list-item-title class="text-none">Pruebas de Laboratorio</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <!--<v-list-item link>
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Almacenaje</v-list-item-title>  
                     </v-list-item-content>
@@ -332,27 +332,27 @@
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Contenedores</v-list-item-title>  
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item>-->
                 <v-list-item link to="/innovation">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Innovación</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link >
+                <!--<v-list-item link >
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Investigacion & Desarrollo</v-list-item-title>  
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item>-->
                 <v-list-item link to="/laboratory">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Laboratorio</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/polnac-blue">
+                <!--<v-list-item link to="/polnac-blue">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">POLNAC Blue</v-list-item-title>  
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item>-->
                 <v-list-item link to="/market">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Mercados</v-list-item-title>  
@@ -550,7 +550,7 @@ export default {
             this.blogs = await this.$store.dispatch('getAllBlogs')
             this.pruebas = await this.$store.dispatch('getAllTipoPruebas')
 
-            console.log(this.blogs)
+            //console.log(this.blogs)
         }
 
     }

@@ -11,19 +11,19 @@
                 <v-col cols="8">
                     <v-tabs fixed-tabs background-color="transparent">
                         <v-tabs-slider color="yellow"></v-tabs-slider>
-                        <v-tab class="white--text" @click="() => getTypesBlogs('All')">Todos</v-tab>
-                        <v-tab class="white--text" @click="() => getTypesBlogs('Tendencias')">Tendencias</v-tab>
-                        <v-tab class="white--text" @click="() => getTypesBlogs('Productos')">Productos</v-tab>
-                        <v-tab class="white--text" @click="() => getTypesBlogs('Mercados')">Mercados</v-tab>
-                        <v-tab class="white--text" @click="() => getTypesBlogs('Polnac Blue')">POLNAC Blue</v-tab>
-                        <v-tab class="white--text" @click="() => getTypesBlogs('Eventos')">Eventos</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('All')">{{ $t('blog.opcTodos') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Tendencias')">{{ $t('blog.opcTendencias') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Productos')">{{ $t('blog.opcProductos') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Mercados')">{{ $t('blog.opcMercados') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Polnac Blue')">{{ $t('blog.opcPolnacBlue') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Eventos')">{{ $t('blog.opcEventos') }}</v-tab>
                     </v-tabs>
                 </v-col>
             </v-row>
             <v-row justify="center">
                 <v-col cols="8" class="mb-16">
                     <v-text-field v-model="search" solo rounded class="mt-4" placeholder="Buscar" prepend-inner-icon="mdi-magnify" clearable></v-text-field>
-                    <v-btn class="secondary-color text-none white--text" @click="() => getTypesBlogs('search')">Buscar</v-btn>
+                    <v-btn class="secondary-color text-none white--text" @click="() => getTypesBlogs('search')">{{$t('blog.btnSearch')}}</v-btn>
                 </v-col>
                 <v-col cols="3" align="center" class="mt-4" v-if="windowSize < 1129">
                     <v-menu offset-y>
@@ -36,22 +36,22 @@
                         </template>
                         <v-list>
                             <v-list-item @click="() => getTypesBlogs('All')">
-                                <v-list-item-title>Todos</v-list-item-title>
+                                <v-list-item-title>{{ $t('blog.opcTodos') }}</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="() => getTypesBlogs('Tendencias')">
-                                <v-list-item-title>Tendencias</v-list-item-title>
+                                <v-list-item-title>{{ $t('blog.opcTendencias') }}</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="() => getTypesBlogs('Productos')">
-                                <v-list-item-title>Productos</v-list-item-title>
+                                <v-list-item-title>{{ $t('blog.opcProductos') }}</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="() => getTypesBlogs('Mercados')">
-                                <v-list-item-title>Mercados</v-list-item-title>
+                                <v-list-item-title>{{ $t('blog.opcMercados') }}</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="() => getTypesBlogs('Polnac Blue')">
-                                <v-list-item-title>Polnac Blue</v-list-item-title>
+                                <v-list-item-title>{{ $t('blog.opcPolnacBlue') }}</v-list-item-title>
                             </v-list-item>
                             <v-list-item @click="() => getTypesBlogs('Eventos')">
-                                <v-list-item-title>Eventos</v-list-item-title>
+                                <v-list-item-title>{{ $t('blog.opcEventos') }}</v-list-item-title>
                             </v-list-item>
                         </v-list>
                     </v-menu>
@@ -78,7 +78,7 @@
                         <p class="text-body-all" v-html="blog.attributes.description"></p>
                         <nuxt-link :to="`/blogs/${blog.id}`" class="">
                             <p class="text-right text-purple font-weight-bold">
-                                Seguir leyendo
+                                {{ $t('blog.btnContinue') }}
                             </p>
                         </nuxt-link>
                     </v-col>
@@ -533,7 +533,7 @@ export default {
         },
         async getBlogs(){
             this.blogs = await this.$store.dispatch('getAllBlogs')
-            console.log(this.blogs)
+            //console.log(this.blogs)
         },
         getTypesBlogs(type){
             const auxBlog = this.blogs

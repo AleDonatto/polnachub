@@ -80,7 +80,7 @@
 
                 <v-row justify="center" class="mb-10" :class="{'mx-2': windowSize<1129 }">
                     <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12">
-                        <div class="" :class="{'font-size-20': windowSize>1129, 'text-body-all': windowSize<1129 }" v-html="this.marca.data.attributes.productos"></div>
+                        <div class="ck-content" :class="{'font-size-20': windowSize>1129, 'text-body-all': windowSize<1129 }" v-html="this.marca.data.attributes.productos"></div>
 
                         <!--<p class="font-weight-bold" :class="{'font-size-20': windowSize>1129, 'text-body-all': windowSize<1129 }">Dentro de toda la gama de productos Rototech encontrarás: </p>
                         <div class="d-flex inline-block">
@@ -127,7 +127,7 @@
                         </div>-->
                     </v-col>
                     <v-col cols="12" xl="4" lg="6" md="6" sm="12" xs="12">
-                        <div class="" :class="{'font-size-20': windowSize>1129, 'text-body-all': windowSize<1129 }" v-html="this.marca.data.attributes.mercados"></div>
+                        <div class="ck-content" :class="{'font-size-20': windowSize>1129, 'text-body-all': windowSize<1129 }" v-html="this.marca.data.attributes.mercados"></div>
                         <!--<p class="font-weight-bold" :class="{'font-size-20': windowSize>1129, 'text-body-all': windowSize<1129 }">Mercados:</p>
                         <div class="d-flex inline-block">
                             <img src="../../static/group/lconstruccion.png" height="22" alt="">
@@ -244,7 +244,7 @@ import { mapState } from 'vuex'
 export default {
     data() {
         return {
-            items: [
+            /*items: [
                 {img: require('../../static/group/baja.png')},
                 {img: require('../../static/group/cono.png')},
                 {img: require('../../static/group/sillon.png')},
@@ -254,7 +254,7 @@ export default {
                 {img: require('../../static/group/logo-flexlene.png'), text: 'Expertos en el diseño, desarrollo y fabricación de Compuestos de Policloruro de Vinilo (PVC).'},
                 {img: require('../../static/group/logo-politene.png'), text: 'Las mejores resinas a tu disposición. Los productos más destacados de los fabricantes'},
                 {img: require('../../static/group/logo-adilene.png'), text: 'Aditivos para solventar cualquier reto. En Adilene encontrarás un amplio abanico de aditivos para todo tipo de aplicaciones.'},
-            ],
+            ],*/
             marca: null,
             marcas: null,
         }
@@ -264,7 +264,7 @@ export default {
         this.getMarcas()
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight','basePathApiUrl'])
+        ...mapState(['windowSize', 'windowHeight','baPseathApiUrl'])
     },
     methods: {
         async getMarca(id){

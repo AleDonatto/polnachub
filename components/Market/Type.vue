@@ -1,6 +1,6 @@
 <template>
     <div v-if="this.mercado !== null">
-        <div :class="{'bg-market': windowSize > 1129, 'bg-market-mb': windowSize < 1129 }">
+        <div :class="{'bg-market': windowSize > 1129, 'bg-market-mb': windowSize < 1129 }" :style="{ backgroundImage: `url(${basePathApiUrl + mercado.data.attributes.imgBanner.data.attributes.url })` }">
             <v-row justify="center">
                 <v-col cols="12" align="center" class="mt-10">
                     <!--<h1 class="mt-16 font-archivo font-size-40 white--text">Electrodomésticos</h1>-->
@@ -27,7 +27,7 @@
                             índole del desafio: técnico, estético o de desempeño, aquí encontrarás 
                             todas las soluciones. 
                         </p>-->
-                        <p class="text-body-all" v-html="this.mercado.data.attributes.description"></p>
+                        <p class="text-body-all ck-content" v-html="this.mercado.data.attributes.description"></p>
                     </v-col>
                     <v-col cols="12" class="mb-10">
                         <!--<v-carousel class="carousel-black" :show-arrows="false" height="340" dark cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize > 1129">
@@ -48,7 +48,7 @@
                             </v-carousel-item>
                         </v-carousel>-->
 
-                        <v-carousel class="carousel-black" :show-arrows="false" height="340" dark cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize > 1129">
+                        <v-carousel class="carousel-black" :show-arrows="false" height="340" dark cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize > 1129 && this.mercado !== null">
                             <v-carousel-item v-for="(imgCar,i) in this.mercado.data.attributes.imgCarousel.data" :key="i">
                                 <v-sheet color="white" height="100%">
                                     <v-row>
@@ -61,11 +61,11 @@
                         </v-carousel>
 
                         <v-carousel :show-arrows="false"  cycle hide-delimiter-background show-arrows-on-hover height="340" dark v-if="windowSize < 1129">
-                            <v-carousel-item v-for="(item,i) in items" :key="i" class="carousel-black">
+                            <v-carousel-item v-for="(item,i) in this.mercado.data.attributes.imgCarousel.data" :key="item.id+i" class="carousel-black">
                                 <v-sheet color="white" height="100%">
                                     <v-row>
                                         <v-col cols="12">
-                                            <v-img :src="item.img" contain max-height="270"></v-img>
+                                            <v-img :src="basePathApiUrl + item.attributes.url" contain max-height="270"></v-img>
                                         </v-col>
                                     </v-row>
                                 </v-sheet>
@@ -88,13 +88,15 @@
                         </nuxt-link>
                     </v-col>
                 </v-row>
-                <v-row justify="center" class="mb-16" v-if="windowSize > 1129">
-                    <v-col cols="3">
-                        <nuxt-link to="/market/type/2">
-                            <v-img src="/contact/plasticos.png" contain max-height="270"></v-img>
+                <v-row justify="center" class="mb-16" v-if="windowSize > 1129 && this.productos !== null">
+                    <v-col cols="3" v-for="(item, index) in this.productos.data.slice(0,4)" :key="item.id+index">
+                        <nuxt-link :to="`/market/type/${item.id}`" class="decoration-none">
+                            <v-img :src="basePathApiUrl +  item.attributes.imgMiniature.data.attributes.url" contain max-height="270" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                <p class="white--text font-weight-bold text-center text-body-all mt-15">{{item.attributes.name}}</p>
+                            </v-img>
                         </nuxt-link>
                     </v-col>
-                    <v-col cols="3">
+                    <!--<v-col cols="3">
                         <nuxt-link to="/market/type/3">
                             <v-img src="/contact/compuestos.png" contain max-height="270"></v-img>
                         </nuxt-link>
@@ -108,15 +110,17 @@
                         <nuxt-link to="/market/type/5">
                             <v-img src="/contact/aditivos.png" contain max-height="270"></v-img>
                         </nuxt-link>
-                    </v-col>
+                    </v-col>-->
                 </v-row>
-                <v-row v-if="windowSize < 1129" class="mb-16">
+                <v-row v-if="windowSize < 1129 && this.productos !== null" class="mb-16">
                     <v-carousel class="carousel-black" :show-arrows="false" dark height="270" cycle hide-delimiter-background show-arrows-on-hover>
-                        <v-carousel-item v-for="(item,i) in itemsMercado" :key="i">
+                        <v-carousel-item v-for="(item,i) in this.productos.data.slice(0,4)" :key="item.id+i">
                             <v-row justify="center">
                                 <v-col cols="11">
-                                    <nuxt-link :to="`/market/type/${i}`">
-                                        <v-img :src="item.img" contain max-height="270"></v-img>
+                                    <nuxt-link :to="`/market/type/${item.id}`">
+                                        <v-img :src="basePathApiUrl +  item.attributes.imgMiniature.data.attributes.url" contain max-height="270" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                            <p class="white--text font-weight-bold text-center text-body-all margin-top">{{item.attributes.name}}</p>
+                                        </v-img>
                                     </nuxt-link>
                                 </v-col>
                             </v-row>
@@ -134,7 +138,7 @@ import { mapState } from 'vuex'
 export default {
      data() {
         return {
-            itemsMercado: [
+            /*itemsMercado: [
                 {img : require('../../static/contact/plasticos.png')},
                 {img : require('../../static/contact/compuestos.png')},
                 {img : require('../../static/contact/masterbatch.png')},
@@ -144,13 +148,15 @@ export default {
                 {img : require('../../static/contact/plasticos.png')},
                 {img : require('../../static/contact/compuestos.png')},
                 {img : require('../../static/contact/masterbatch.png')},
-            ],
-            mercado: null
+            ],*/
+            mercado: null,
+            productos: null,
         }
     },
     mounted(){
         //console.log(this.$route.params.id)
         this.getMercadoId(this.$route.params.id)
+        this.getProductos()
     },
     computed: {
         ...mapState(['windowHeight','windowSize', 'basePathApiUrl'])
@@ -158,7 +164,11 @@ export default {
     methods: {
         async getMercadoId(id){
             this.mercado = await this.$store.dispatch('getMarketById', id)
-            console.log(this.mercado)
+            //console.log(this.mercado)
+        },
+        async getProductos(){
+            this.productos = await this.$store.dispatch('getAllProducts')
+            //console.log(this.productos)
         }
     }
 }
@@ -166,7 +176,7 @@ export default {
 
 <style scoped>
 .bg-market{
-    background-image: url('../../static/market/bg-typemarket.png');
+    /*background-image: url('../../static/market/bg-typemarket.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -174,7 +184,7 @@ export default {
     height: 350px;
 }
 .bg-market-mb{
-    background-image: url('../../static/market/bg-typemarket.png');
+    /*background-image: url('../../static/market/bg-typemarket.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -189,5 +199,9 @@ export default {
 
 .theme--dark.v-btn.v-btn--icon {
     color: black !important;
+}
+
+.margin-top{
+    margin-top: 10vh !important;
 }
 </style>

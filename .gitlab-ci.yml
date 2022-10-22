@@ -1,31 +1,30 @@
-image: node:10.15.3
-
-cache:
-  untracked: true
-  paths:
-    - node_modules/
-
 stages:
-  - build
-  - deploy
-
+   - build
+   - deploy
 build:
-  stage: build
-  script:
-    - npm run generate
-  artifacts:
-    paths:
-      - dist/
-  only:
-    - master
-
-deploy:
-  stage: deploy
-  script:
-    - npm i -g netlify-cli
-    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
-  dependencies:
-    - build
-  only:
-    - master
-    
+   before_script:
+      - chmod +x ./setup_env.sh
+      - ./setup_env.sh
+   image: node:14
+   stage: build
+   only:
+      - main
+   script:
+      - npm install
+      - npm run generate
+   artifacts:
+      paths:
+         - dist/
+      expire_in: 1 hour
+production:
+   stage: deploy
+   before_script:
+      - 'which ssh-agent || ( apt-get install -qq openssh-client )'
+      - eval $(ssh-agent -s)
+      - ssh-add <(echo "${SSH_PRIVATE_KEY}")
+      - mkdir -p ~/.ssh
+      - ssh-keyscan -t rsa 18.219.149.41 >> ~/.ssh/known_hosts
+   script:
+      - scp -r dist/* ubuntu@18.219.149.41:/var/www/web
+   only:
+      - main

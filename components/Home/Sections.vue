@@ -170,9 +170,9 @@
                     </v-col>-->
                 </v-row>
                 <div class="d-flex justify-center my-10">
-                    <nuxt-link to="/search-products" class="decoration-none">
+                    <!--<nuxt-link to="/search-products" class="decoration-none">
                         <v-btn class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ $t('home.btnproducts') }}</v-btn>
-                    </nuxt-link>
+                    </nuxt-link>-->
                     <!--<v-btn class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color" >{{ pageHome.txtbtnProducts }}</v-btn>-->
                 </div>
             </div>
@@ -283,9 +283,9 @@
             </v-container>
             <v-container>
                 <div class="d-flex justify-center mb-10">
-                    <nuxt-link to="/search-products" class="decoration-none">
+                    <!--<nuxt-link to="/search-products" class="decoration-none">
                         <v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none secondary-color" rounded>{{ $t('home.btncategories') }}</v-btn>
-                    </nuxt-link>
+                    </nuxt-link>-->
                     <!--<v-btn class="rounded-lg white--text body-1 px-10 py-4 text-none secondary-color" rounded>{{ pageHome.txtbtnCatProducts }}</v-btn>-->
                 </div>
             </v-container>
@@ -593,7 +593,7 @@
                     </v-col>
                     <v-col cols="3" v-if="windowSize > 1129">
                         <v-card class="mx-auto" max-width="344">
-                            <img src="../../static/blog-polnac.png" alt="blog polnac" style="width: 100%"/>
+                            <img src="../../static/home/blog-polnac.png" alt="blog polnac" style="width: 100%"/>
                             <v-card-title>Nuevos horizontes</v-card-title>
                             <v-card-subtitle>El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...</v-card-subtitle>
                             <v-card-actions>
@@ -609,7 +609,7 @@
                 <v-row justify="center">
                     <v-col cols="12" xl="9">
                         <v-row justify="center" v-if="this.blogs !== null">
-                            <v-col cols="12" md="5" lg="5" align="center">
+                            <v-col cols="12" md="10" lg="10" align="center">
                                 <v-sheet class="my-10 sections" max-width="1600" >
                                     <v-slide-group v-model="model" class="py-4 px-2 " center-active show-arrows>
                                         <v-slide-item v-for="(item, index) in this.blogs.data" :key="index">
@@ -763,7 +763,7 @@ export default {
     width: 600px;
 }
 .des-2{
-    background-image: url('../../static/destacados-2.png');
+    background-image: url('../../static/home/destacados-2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -771,7 +771,7 @@ export default {
     width: 600px;
 }
 .des-3{
-    background-image: url('../../static/destacados-3.png');
+    background-image: url('../../static/home/destacados-3.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -779,7 +779,7 @@ export default {
     width: 600px;
 }
 .des-4{
-    background-image: url('../../static/destacados-4.png');
+    background-image: url('../../static/home/destacados-4.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -800,7 +800,7 @@ export default {
     background-image: linear-gradient(rgba(61, 124, 201, 0.7), rgba(101, 93, 198,0.7)), url('../../static/testimonios.png') !important;
 }
 .bg-alianzas{
-    background-image: linear-gradient(rgba(46, 46, 101, 0.7), rgba(46, 46, 101, 0.7)), url('../../static/bg-home-alliances.png');
+    background-image: linear-gradient(rgba(46, 46, 101, 0.7), rgba(46, 46, 101, 0.7)), url('../../static/home/bg-home-alliances.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

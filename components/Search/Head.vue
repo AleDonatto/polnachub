@@ -84,7 +84,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import jsforce from 'jsforce'
+import jsforce, {QueryResult } from 'jsforce'
 
 export default {
     data(){
@@ -104,7 +104,7 @@ export default {
                 //this.$store.dispatch('getProducto')
             }
         }, 6000);*/
-        //this.clientLogin()
+        this.clientLogin()
     },
     computed: {
         ...mapState([
@@ -131,7 +131,10 @@ export default {
             const username = process.env.SALESFORCE_USER
             const password = process.env.SALESFORCE_PASSWORD
 
-            /*var conn = new jsforce.Connection({
+            //console.log(username)
+            //console.log(password)
+
+            const connection = new jsforce.Connection({
                 //loginUrl : 'https://test.salesforce.com',
                 oauth2 : {
                     // you can change loginUrl to connect to sandbox or prerelease env.
@@ -139,13 +142,25 @@ export default {
                     loginUrl : 'https://test.salesforce.com',
                     clientId : process.env.SALESFORCE_CLIENT_ID,
                     clientSecret : process.env.SALESFORCE_CLIENT_SECRET,
-                    //redirectUri : 'https://test.salesforce.com/'
+                    redirectUri : 'http://localhost:3000/'
                 }
-            });*/
+            });
 
-            const connection = new jsforce.Connection({})
+            //const connection = new jsforce.Connection({})
             //console.log(connection)
             await connection.login(username, password)
+
+            const familyProducts = new Promise(() => {
+                connection.query('SELECT+Name+FROM+Familia_de_productos__c', 
+                    {autoFetch: true,maxFetch: 10000},
+                    (error, result) => { 
+                        if (error) reject(error) 
+                        else resolve(result)
+                    }
+                )
+            })
+
+            console.log(familyProducts)
 
 
             /*conn.login(username, password, function(err, userInfo) {

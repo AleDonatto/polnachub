@@ -6,9 +6,9 @@
                     <v-col cols="3" v-if="windowSize>1129">
                         <h1 class="font-weight-bold font-size-24">Productos recomendados</h1>
                         <div v-if="this.productos !== null">
-                            <div v-for="(prod, index) in this.productos.data.slice(0,3)" :key="index">
+                            <div v-for="(prod, index) in this.productos.data.slice(0,3)" :key="'prod'+index">
                                 <nuxt-link :to="`/products/${prod.id}`" class="decoration-none">
-                                    <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="210" class="my-2 py-4" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                    <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" max-height="170" class="my-2 py-4" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                                         <p class="mt-4"></p>
                                         <p class="font-weight-bold white--text text-body-all text-center mt-16">{{prod.attributes.name}}</p>
                                     </v-img>
@@ -21,7 +21,22 @@
 
                         <h1 class="font-weight-bold font-size-24 mt-16">Te podría interesar</h1>
 
-                        <nuxt-link to="/blogs/1" class="decoration-none">
+                        <div v-for="(item, index) in this.othersBlogs" :key="item.id+index">
+                            <nuxt-link :to="`/blogs/${item.id}`" class="decoration-none">
+                                <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
+                                    <img :src="basePathApiUrl + item.attributes.imgContent.data.attributes.url" style="width: 100%" :alt="item.description"/>
+                                    <v-card-title class="text-body-all">{{item.attributes.title}}</v-card-title>
+                                    <v-card-subtitle class="text-left">
+                                        <div v-html="item.attributes.description"></div>
+                                    </v-card-subtitle>
+                                    <v-card-actions>
+                                        <v-spacer></v-spacer>
+                                    </v-card-actions>
+                                </v-card>
+                            </nuxt-link>
+                        </div>
+
+                        <!--<nuxt-link to="/blogs/1" class="decoration-none">
                             <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
                                 <img src="/blog-productos.png" style="width: 100%" alt="pruebas"/>
                                 <v-card-title>Nuevos horizontes</v-card-title>
@@ -71,7 +86,7 @@
                                     <v-spacer></v-spacer>
                                 </v-card-actions>
                             </v-card>
-                        </nuxt-link>
+                        </nuxt-link>-->
                     </v-col>
 
                     <v-col cols="12" lg="9" md="9" sm="12" xs="12" v-if="this.blog !== null">
@@ -193,7 +208,7 @@
                                     una nueva gama de materiales y compuestos biodegradables bajo nuestra marca 
                                     BioResin
                                 </p>-->
-                                <p class="font-size-20" v-html="this.blog.data.attributes.content"></p>
+                                <p class="font-size-20 ck-content" v-html="this.blog.data.attributes.content"></p>
                                 <v-divider></v-divider>
                             </v-col>
                         </v-row>
@@ -204,11 +219,14 @@
                             </v-col>
                         </v-row>
                         <v-row v-if="this.marcas !== null">
-                            <v-col cols="12" lg="4" md="4" sm="12" xs="12" v-for="(mar, index) in this.marcas.data.slice(0,3)" :key="index">
+                            <v-col cols="12" lg="4" md="4" sm="12" xs="12" v-for="(mar, index) in this.marcas.data.slice(0,3)" :key="'mar'+index">
                                 <!--<v-img src="/group/logo-bioresin.png" contain max-height="120"></v-img>-->
-                                <v-img :src="basePathApiUrl + mar.attributes.image.data.attributes.url " contain max-height="120"></v-img>
-                                <!--<p class="font-size-18 mt-2 text-truncate">Especialistas en la distribución y fabricación de resinas biodegradables.</p>-->
-                                <p class="font-size-18 mt-2 text-truncate">{{mar.attributes.subtitle}}</p>
+                                <nuxt-link :to="`/marcas/${mar.id}`" class="decoration-none">
+                                    <v-img :src="basePathApiUrl + mar.attributes.image.data.attributes.url " contain max-height="120"></v-img>
+                                    <!--<p class="font-size-18 mt-2 text-truncate">Especialistas en la distribución y fabricación de resinas biodegradables.</p>-->
+                                    <p class="font-size-18 mt-2 text-truncate">{{mar.attributes.subtitle}}</p>
+                                </nuxt-link>
+                                
                             </v-col>
 
                             <!--<v-col cols="12" lg="4" md="4" sm="12" xs="12">
@@ -237,13 +255,15 @@
                         </v-row>
                         <v-row v-if="windowSize>1129 && this.mercados !== null" class="mb-16" >
                             
-                            <v-col cols="4" v-for="(mer, index) in this.mercados.data.slice(0,3)" :key="index" align-self="center">
+                            <v-col cols="4" v-for="(mer, index) in this.mercados.data.slice(0,3)" :key="'mer'+index" align-self="center">
                                 <!--<v-img src="/blog/mercados.png" contain max-height="220"></v-img>-->
-                                <v-img :src="basePathApiUrl + mer.attributes.imgMiniarure.data.attributes.url" contain max-height="220" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
-                                    <div class="mt-7">
-                                        <p class="text-center font-archivo text-body-all white--text mt-16 font-weight-bold">{{mer.attributes.nameMarket}}</p>
-                                    </div>
-                                </v-img>
+                                <nuxt-link :to="`/market/${mer.id}`" class="decoration-none">
+                                    <v-img :src="basePathApiUrl + mer.attributes.imgMiniarure.data.attributes.url" contain max-height="170" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                        <div class="mt-7">
+                                            <p class="text-center font-archivo text-body-all white--text mt-16 font-weight-bold">{{mer.attributes.nameMarket}}</p>
+                                        </div>
+                                    </v-img>
+                                </nuxt-link>
                             </v-col>
 
                             <!--<v-col cols="4">
@@ -257,17 +277,17 @@
                             </v-col>-->
                         </v-row>
 
-                        <v-row v-if="windowSize<1129" class="mb-16">
+                        <v-row v-if="windowSize<1129 && othersBlogs !== null" class="mb-16">
                             <v-carousel class="carousel-black" cycle height="400" hide-delimiter-background show-arrows-on-hover>
-                                <v-carousel-item v-for="(slide, i) in itemsBlogs" :key="i">
+                                <v-carousel-item v-for="(slide, i) in this.othersBlogs" :key="'bg' + i">
                                     <v-sheet color=""  height="100%">
                                         <v-row class="fill-height" align="center" justify="center">
-                                            <nuxt-link :to="`/blogs/${i+1}`" class="decoration-none">
+                                            <nuxt-link :to="`/blogs/${slide.id}`" class="decoration-none">
                                                 <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
-                                                    <img :src="slide.img" style="width: 100%" alt="pruebas"/>
-                                                    <v-card-title>Nuevos horizontes</v-card-title>
+                                                    <img :src="basePathApiUrl + slide.attributes.imgContent.data.attributes.url" style="width: 100%" alt="pruebas"/>
+                                                    <v-card-title>{{slide.title}}</v-card-title>
                                                     <v-card-subtitle class="text-left">
-                                                        El pasado mes marzo en Nairobi, capital de Kenia, la Asamblea de las Naciones Unidas para el Medio Ambiente...
+                                                        <div v-html="slide.attributes.description"></div>
                                                     </v-card-subtitle>
                                                     <v-card-actions>
                                                         <v-spacer></v-spacer>
@@ -292,18 +312,14 @@ import { mapState } from 'vuex'
 export default {
     data() {
         return {
-            itemsBlogs: [
-                {img: require('../../static/blog-tendencias.png') },
-                {img: require('../../static/blog-productos.png') },
-                {img: require('../../static/blog-mercados.png') },
-                {img: require('../../static/blog-polnac.png') },
-            ],
+            itemsBlogs: null,
             showButttons: false,
             mercados: null,
             marcas: null,
             productos: null,
             blog: null,
-            baseURL: ''
+            baseURL: '',
+            othersBlogs: null
         }
     },
     computed: {
@@ -314,11 +330,12 @@ export default {
         this.getMarcas()
         this.getProductos()
         this.getBlog(this.$route.params.id)
+        this.getBlogs(this.$route.params.id)
 
         this.baseURL = process.env.BASE_URL_PAGE
     },
     methods: {
-        shareFacebook(){
+        /*shareFacebook(){
             window.open('http://facebook.com/sharer.php?u=https://idyllic-chaja-53a02e.netlify.app/blogs/1')
         },
         shareTwitter() {
@@ -326,7 +343,7 @@ export default {
         },
         shareWhatsapp(){
             window.open('')
-        },
+        },*/
         async getMercados(){
             this.mercados = await this.$store.dispatch('getAllMarkets')
             //console.log(this.mercados)
@@ -341,13 +358,26 @@ export default {
         },
         async getBlog(id){
             this.blog = await this.$store.dispatch('getBlogById', id)
-            console.log(this.blog)
+            //console.log(this.blog)
+        },
+        async getBlogs(idBlog){
+            const blogs = await this.$store.dispatch('getAllBlogs')
+            this.itemsBlogs = blogs
+            if(blogs.data.lenght > 1){
+                blogs.data.slice(0,2)
+                this.othersBlogs = blogs.filter(item => item.id != idBlog)
+
+            }else{
+                this.othersBlogs = blogs.data.filter(item => item.id != idBlog)
+            }
+            //console.log(this.othersBlogs)
         }
     }
 }
 </script>
 
 <style scoped>
+
 .position-btn{
     position: relative !important;
 }

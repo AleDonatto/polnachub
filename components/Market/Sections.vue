@@ -192,7 +192,8 @@
                                     <!--<v-img src="/market/consumo.png" contain max-height="240"></v-img>-->
                                     <v-img :src="basePathApiUrl + item.attributes.imgMiniarure.data.attributes.url" contain max-height="240"></v-img>
                                     <div class="d-flex justify-start mt-2" style="max-width: 25vh;">
-                                        <img src="../../static/market/lconsumo.png" height="27" />
+                                        <img :src="basePathApiUrl + item.attributes.imgLogo.data.attributes.url" height="27" />
+                                        <!--<img src="../../static/market/lconsumo.png" height="27" />-->
                                         <!--<p class="font-archivo font-size-18 font-weight-bold ml-2">Consumo</p>-->
                                         <p class="font-archivo font-size-18 font-weight-bold ml-2">{{item.attributes.nameMarket}}</p>
                                     </div>
@@ -220,17 +221,20 @@
 
         <section class="bg-servicio mt-16">
             <v-container>
-                <v-row justify="center" class="mb-10">
+                <v-row justify="center" class="mb-10" v-if="this.pageMarkets !== null">
+                    <!--<pre>{{pageMarkets}}</pre>-->
                     <v-col cols="12" align="center" class="mt-16">
-                        <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">¿Necesitas más información?</h1>
-                        <!--<h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">{{ pageMarkets.information.title }}</h1>-->
-                        <p class="white--text text-h5">Revisa nuestro amplio catálogo de productos</p>
+                        <!--<h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">{{pageMarkets.information.title}}</h1>-->
+                        <h1 class="white--text font-archivo font-size-40 my-10 font-weight-bold">{{ pageMarkets.information.title }}</h1>
+                        <!--<p class="white--text text-h5">Revisa nuestro amplio catálogo de productos</p>-->
+                        <div class="white--text text-h5" v-html="pageMarkets.information.description"></div>
                         <!--<p class="white--text text-h5">{{ pageMarkets.information.description }}</p>-->
                     </v-col>                    
                     <v-col cols="6" lg="4" md="4" sm="6" xs="6" class="mb-16" align="center">
-                        <nuxt-link to="/search-products" class="decoration-none">
-                            <v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">Ver productos</v-btn>
-                            <!--<v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">{{ pageMarkets.information.txtBtn }}</v-btn>-->
+                        <!--/search-products-->
+                        <nuxt-link to="/contact" class="decoration-none">
+                            <!--<v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">Ver productos</v-btn>-->
+                            <v-btn class="black--text mb-5 py-6 body-1 text-none rounded-lg mb-10" color="#19D3C5">{{ pageMarkets.information.txtBtn }}</v-btn>
                         </nuxt-link>
                     </v-col>
                 </v-row>
@@ -259,7 +263,7 @@ export default {
     methods: {
         async getMercados(){
             const response = await this.$store.dispatch('getAllMarkets')
-            this.markets = response.data.slice(0,4)
+            this.markets = response
             //console.log(this.markets)
         }
     }

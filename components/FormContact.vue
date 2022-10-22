@@ -120,7 +120,7 @@ export default {
                     data: this.form
                 }
 
-                this.$axios.post('http://localhost:1337/api/contacto-filiales', formData)
+                this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-filiales`, formData)
                 .then(res => {
                     this.dialog = !this.dialog
                     this.$refs.form.reset()
@@ -136,14 +136,14 @@ export default {
 
 <style scoped>
 .bg-poliresin{
-    background-image: url('../static/bg-formcontact-poliresin.png');
+    background-image: url('../static/home/bg-formcontact-poliresin.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
 }
 .bg-transpolimer{
-    background-image: url('../static/bg-formcontact-transpolimer.png');
+    background-image: url('../static/home/bg-formcontact-transpolimer.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

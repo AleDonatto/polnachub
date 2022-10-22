@@ -2,6 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 import i18n from './languajes/i18n'
 
 export default {
+  target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s | Polímeros Nacionales',
@@ -13,7 +14,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -23,6 +24,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/global.css',
+    '~/assets/content-styles.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -56,8 +58,7 @@ export default {
         vueI18n: i18n
       }
     ],
-    //dotenv
-    ['@nuxtjs/dotenv', {path: './'}],
+    '@nuxtjs/dotenv'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -89,7 +90,7 @@ export default {
     },
     "/strapi" : {
       //target: 'http://localhost:1337/',
-      target: 'http://ec2-18-219-149-41.us-east-2.compute.amazonaws.com',
+      target: process.env.BASE_URI_STRAPI,
       pathRewrite: {'^/strapi': '/'},
       secure: false 
     } 

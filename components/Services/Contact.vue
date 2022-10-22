@@ -12,28 +12,35 @@
                     <v-row justify="center">
 
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo label="Nombres" class="rounded-xl" v-model="form.name" :rules="[rules.required]"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl"  :label="lang === 'es' ? 'Nombres': 'Name'" 
+                            v-model="form.name" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Apellidos" v-model="form.lastname" :rules="[rules.required]"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" :label="lang=== 'es'? 'Apellidos' : 'Lastname' " 
+                            v-model="form.lastname" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Cargo" v-model="form.position" :rules="[rules.required]"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" :label="lang === 'es' ? 'Cargo' : 'Employment' " 
+                            v-model="form.position" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Empresa" v-model="form.company" :rules="[rules.required]"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" :label="lang === 'es' ? 'Empresa' : 'Company'" 
+                            v-model="form.company" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Correo Electronico" v-model="form.email" :rules="[rules.required, rules.emailRules]"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" label="Email" 
+                            v-model="form.email" :rules="[rules.required, rules.emailRules]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Telefono" v-model="form.phone" :rules="[rules.required]"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" :label="lang=== 'es' ? 'Teléfono' : 'Phone'" 
+                            v-model="form.phone" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-text-field outlined solo class="rounded-xl" label="Ubicación" v-model="form.ubication" :rules="[rules.required]"></v-text-field>
+                            <v-text-field outlined solo class="rounded-xl" :label="lang=== 'es' ? 'Ubicación' : 'Ubication'" v-model="form.ubication" :rules="[rules.required]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                            <v-select outlined solo class="rounded-xl" :items="servicios" item-text="name" item-value="name" label="Servicio que te interesa" v-model="form.serviceInterest" :rules="[rules.required]"></v-select>
+                            <v-select outlined solo class="rounded-xl" :items="servicios" item-text="name" item-value="name" 
+                            :label="lang === 'es' ? 'Servicio que te interesa' : 'Service are you interested' " v-model="form.serviceInterest" :rules="[rules.required]"></v-select>
                         </v-col>
                         <v-col cols="12" class="margin-botton-0">
                             <v-textarea outlined solo class="rounded-xl text-area" label="Cuéntanos qué información necesitas consultar con nosotros." v-model="form.message"></v-textarea>
@@ -87,6 +94,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
     data() {
         return {
@@ -137,6 +146,9 @@ export default {
                 })
             }
         }
+    },
+    computed: {
+        ...mapState(['lang'])
     }
 }
 </script>

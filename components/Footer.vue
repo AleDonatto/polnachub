@@ -27,8 +27,8 @@
               <nuxt-link to="/aboutus" class="decoration-none">
                 <p class="white--text body-1">{{$t('appbar.quien')}}</p>
               </nuxt-link>
-              <nuxt-link to="/alliances" class="decoration-none">
-                <p class="white--text body-1">{{$t('appbar.colaboradores')}}</p>
+              <nuxt-link to="/laboratory" class="decoration-none">
+                <p class="white--text body-1">{{$t('appbar.laboratorio')}}</p>
               </nuxt-link>
               <nuxt-link to="/work-at-polnac" class="decoration-none">
                 <p class="white--text body-1">{{$t('appbar.trabajo')}}</p>
@@ -69,27 +69,27 @@
               <v-row justify="">
                 <v-col cols="2">
                   <a href="https://www.linkedin.com/company/polnac/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
-                    <v-img src="/linkedin.png" contain max-height="28"></v-img>
+                    <v-img src="/footer/Linkedin.png" contain max-height="28"></v-img>
                   </a>
                 </v-col>
                 <v-col cols="2">
                   <a href="https://www.facebook.com/Polnac.Oficial" target="_blank" rel="noopener noreferrer">
-                    <v-img src="/Facebook.png" contain max-height="28"></v-img>
+                    <v-img src="/footer/Facebook.png" contain max-height="28"></v-img>
                   </a>
                 </v-col>
                 <v-col cols="2">
                   <a href="https://www.instagram.com/polnac.oficial/" target="_blank" rel="noopener noreferrer">
-                    <v-img src="/Instagram.png" contain max-height="28"></v-img>
+                    <v-img src="/footer/Instagram.png" contain max-height="28"></v-img>
                   </a>
                 </v-col>
                 <v-col cols="2">
                   <a href="https://twitter.com/PolnacOficial" target="_blank" rel="noopener noreferrer">
-                    <v-img src="/Twitter.png" contain max-height="28"></v-img>
+                    <v-img src="/footer/Twitter.png" contain max-height="28"></v-img>
                   </a>
                 </v-col>
                 <v-col cols="2">
                   <a href="https://www.youtube.com/channel/UCNvsE4YYBZjCoxGXmpXGdkQ" target="_blank" rel="noopener noreferrer">
-                    <v-img src="/youtube.png" contain max-height="28"></v-img>
+                    <v-img src="/footer/Youtube.png" contain max-height="28"></v-img>
                   </a>
                 </v-col>
               </v-row>

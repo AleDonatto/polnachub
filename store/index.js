@@ -9,7 +9,7 @@ export default () => new Vuex.Store({
     state: () => ({
         windowSize:null,
         windowHeight:null,
-        lang: null,
+        lang: 'es',
         credentials: null,
         //pages from strapi
         pageHome: null,
@@ -29,7 +29,7 @@ export default () => new Vuex.Store({
         pagePolnacWiki: null,
         pageQuestions: null,
         pageWork: null,
-        basePathApiUrl: '//ec2-18-219-149-41.us-east-2.compute.amazonaws.com',
+        basePathApiUrl: process.env.BASE_URI_STRAPI,
         //salesfoce connection
         /*userSalesforce: {
             username: 'desatimx@polnac.com.bxt01',

@@ -12,8 +12,20 @@
         "trabajo": "Trabaja con nosotros",
         "grupoPolnac": "Grupo Polnac",
         "sucursales": "Sucursales",
-        "colaborador": "¿Eres colaborador?"
+        "colaborador": "¿Eres colaborador?",
+        "laboratorio": "Laboratorio"
     },
+    "blog": {
+        "opcTodos": "Todos",
+        "opcTendencias": "Tendencias",
+        "opcProductos": "Productos",
+        "opcMercados": "Mercados",
+        "opcPolnacBlue": "Polnac Blue",
+        "opcEventos": "Eventos",
+        "btnSearch": "Buscar",
+        "btnContinue": "Seguir Leyendo"
+    },
+    "question": "Preguntas",
     "home": {
         "portafolio": "Descubre el portafolio más completo de la industria plástica.",
         "subportafolio": "<span>{{polnac}}<span> se especializa en la fabircacion de compuestos, concentrados de color, y la comercializacion de resinas plasticas, logrando ser el lider en el escenario mundial de la insdustria.",

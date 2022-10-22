@@ -13,7 +13,7 @@ export default {
         //this.$axios.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,PATCH,OPTIONS')
 
         //await this.$axios.post('https://test.salesforce.com/Token', params)
-        await this.$axios.post('/salesforce/services/oauth2/token', params)
+        await this.$axios.$post('/salesforce/services/oauth2/token', params)
         .then(res => {
             let access_token = res.data.access_token
             //let access_token = '00DR00000002gFl!AQcAQMO.J4uTITbz2byqYl3250qT7PcJMACPQdkCNLf1ehYVyIlsB0FUO3kSWUBHzB3Z1RthAvWUp8XEkEjFj4y06IMVeUfz'
@@ -47,12 +47,13 @@ export default {
             'password': process.env.SALESFORCE_PASSWORD
         }*/
 
-        //this.$axios.setHeader('Access-Control-Allow-Origin', '*')
+        this.$axios.setHeader('Access-Control-Allow-Methods','POST')
+        this.$axios.setHeader('Access-Control-Allow-Origin', '*')
         //this.$axios.setHeader('Authorization', '*')
-        this.$axios.setHeader('Content-Type', 'application/json',)
+        //this.$axios.setHeader('Content-Type', 'application/json',)
         //this.$axios.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,PATCH,OPTIONS')
 
-        await this.$axios.post('https://test.salesforce.com/services/oauth2/token', params)
+        await this.$axios.$post('https://test.salesforce.com/services/oauth2/token', params)
         //await this.$axios.post('https://test.salesforce.com/services/oauth2/token?username=desatimx@polnac.com.bxt01&password=H1u2g3o435&grant_type=password&client_id=3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh&client_secret=C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F')
         //await this.$axios.post('/salesforce/services/oauth2/token', params)
         .then(res => {

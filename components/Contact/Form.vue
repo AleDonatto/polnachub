@@ -41,7 +41,7 @@
                                                         <!--<h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>-->
                                                         <h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelMarket}}</h1>
                                                         <v-sheet class="mx-auto" v-if="this.mercado !== null">
-                                                            <v-slide-group v-model="model" class="pa-2" active-class="success" show-arrows-false>
+                                                            <v-slide-group v-model="model" class="pa-2" active-class="success" show-arrows-false multiple>
                                                                 <v-slide-item v-for="(item ,index) in this.mercado.data" :key="index" v-slot="{ active, toggle}">
                                                                     <v-card class="ma-4" @click="() => { selectMarket(item.attributes.nameMarket) }" height="130" width="210"  :color="active ? '' : 'white'">
                                                                         <v-row @click="toggle" class="fill-height" align="center" justify="center">
@@ -113,7 +113,7 @@
                                                     <p class="my-5 font-size-20 font-weight-bold">{{ pageContact.labelForm }}</p>
                                                     <v-row>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Nombes" solo outlined class="rounded-xl" v-model="formValues.name"></v-text-field>
+                                                            <v-text-field label="Nombres" solo outlined class="rounded-xl" v-model="formValues.name"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-text-field label="Apellidos" solo outlined class="rounded-xl" v-model="formValues.lastname"></v-text-field>
@@ -302,8 +302,8 @@ export default {
                 email: v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
             },
             formValues: {
-                market: null,
-                product: null,
+                market: [],
+                product: [],
                 resina: null,
                 toneladas: null,
                 name: null,
@@ -384,12 +384,14 @@ export default {
             }
         },
         selectProduct(toggle){
-            console.log(toggle)
-            this.formValues.product = toggle
+            //console.log(toggle)
+            //this.formValues.product = toggle
+            this.formValues.product.push(toggle)
+
 
         },
         selectMarket(toggle){
-            this.formValues.market = toggle
+            this.formValues.market.push(toggle)
             //console.log(this.formValues.market)
         },
         async getToken(){

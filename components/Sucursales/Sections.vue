@@ -78,6 +78,7 @@
                         </div>
                     </v-col>
                 </v-row>
+                <v-row v-else class="mt-16 mb-9"></v-row>
             </v-container>
         </section>
     </div>
@@ -89,7 +90,7 @@ import { mapState } from 'vuex';
 export default {
     data() {
         return{
-            region: 1,
+            region: 3,
             regiones: null,
             sucursales: null,
             dataSucursales: null,
@@ -201,7 +202,7 @@ export default {
         getDataSucursal(){
 
             this.data = this.dataSucursales.data.filter(item => item.id === this.sucursal)
-            console.log(this.data)
+            //console.log(this.data)
             
             /*console.log(this.sucursal)
             let dataSucursal = {}
@@ -376,7 +377,7 @@ export default {
         async getRegiones(){
             this.regiones = await this.$store.dispatch('getAllRegiones')
             //console.log(this.regiones)
-            this.dataRegion = this.regiones.data.filter(item => item.id === 1)
+            this.dataRegion = this.regiones.data.filter(item => item.id === 3)
         },
         async getSucursales(){
             this.dataSucursales = await this.$store.dispatch('getSucursales')

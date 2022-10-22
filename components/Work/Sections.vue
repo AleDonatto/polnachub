@@ -54,24 +54,29 @@
                         <v-form>
                             <v-row>
                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <v-text-field label="Nombres" outlined class="rounded-xl"></v-text-field>
+                                    <v-text-field v-model="form.name" outlined class="rounded-xl"
+                                    :label="lang === 'es' ? 'Nombres' : 'Name'" ></v-text-field>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <v-text-field label="Apeliidos" outlined class="rounded-xl"></v-text-field>
-                                </v-col>
-
-                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <v-text-field label="Correo electronico" outlined class="rounded-xl"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <v-text-field label="Celular" outlined class="rounded-xl"></v-text-field>
+                                    <v-text-field v-model="form.lastname" outlined class="rounded-xl"
+                                    :label="lang === 'es' ? 'Apellidos' : 'Lastname'" ></v-text-field>
                                 </v-col>
 
                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <v-select label="Área de interés" outlined class="rounded-xl" :items="areas" item-text="value" item-value="value"></v-select>
+                                    <v-text-field v-model="form.email" outlined class="rounded-xl"
+                                    label="Email"></v-text-field>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <v-select label="Estado" outlined class="rounded-xl" :items="areas" item-text="value" item-value="value"></v-select>
+                                    <v-text-field v-model="form.celphone" outlined class="rounded-xl"
+                                    :label="lang === 'es' ? 'Celular' : 'Celphone'"></v-text-field>
+                                </v-col>
+
+                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-select v-model="form.area" label="Área de interés" outlined class="rounded-xl" :items="areas" item-text="value" item-value="value"></v-select>
+                                </v-col>
+                                <v-col cols="12" lg="6" md="6" sm="12" xs="12">
+                                    <v-select v-model="form.estado" outlined class="rounded-xl" :items="areas" item-text="value" item-value="value"
+                                    :label="lang === 'es' ? 'Estado' : 'Country' "></v-select>
                                 </v-col>
 
                                 <v-col cols="12" align="center">
@@ -183,10 +188,23 @@ export default {
             dialog:false,
             images: [],
             imageUrls: [],
+            rules: {
+                required: (value) => !!value || "Required.",
+                min: (v) => v.length >= 8 || "Min 8 characters",
+                emailRules: v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+            },
+            form: {
+                name: '',
+                lastname: '',
+                email: '',
+                celphone: '',
+                area: '',
+                estado: ''
+            }
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight', 'pageWork', 'basePathApiUrl'])
+        ...mapState(['windowSize', 'windowHeight', 'pageWork', 'basePathApiUrl', 'lang'])
     },
     methods: {
         RemoveImage(ind) {
