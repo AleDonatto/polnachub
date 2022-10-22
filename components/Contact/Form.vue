@@ -13,7 +13,6 @@
                         <h1 class="font-archivo font-size-34 font-weight-bold text-center mt-16">{{pageContact.title}}</h1>
                     </v-col>
                 </v-row>
-                <v-form @submit.prevent="sendInformation" ref="formContact">
                     <v-row justify="center">
                         <v-col cols="12" xl="9">
                             <v-row>
@@ -35,14 +34,15 @@
                                         </div>
 
                                         <v-stepper-items class="">
-                                            <v-stepper-content step="1" class="mb-2">
+                                            <v-stepper-content step="1" class="mb-2">    
+                                            <v-form @submit.prevent="" ref="formContact">
                                                 <v-row>
                                                     <v-col cols="12" >
                                                         <!--<h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>-->
                                                         <h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelMarket}}</h1>
                                                         <v-sheet class="mx-auto" v-if="this.mercado !== null">
                                                             <v-slide-group v-model="model" class="pa-2" active-class="success" show-arrows-false multiple>
-                                                                <v-slide-item v-for="(item ,index) in this.mercado.data" :key="index" v-slot="{ active, toggle}">
+                                                                <v-slide-item v-for="(item ,index) in this.mercado" :key="index" v-slot="{ active, toggle}">
                                                                     <v-card class="ma-4" @click="() => { selectMarket(item.attributes.nameMarket) }" height="130" width="210"  :color="active ? '' : 'white'">
                                                                         <v-row @click="toggle" class="fill-height" align="center" justify="center">
                                                                             <v-img class="ma-4 text-right pa-2" :src="basePathApiUrl + item.attributes.imgMiniarure.data.attributes.url" contain max-height="130" max-width="210" :class="{'z-index-lower': active }"
@@ -105,39 +105,41 @@
                                                         </v-btn>
                                                     </v-col>
                                                 </v-row>
+                                                
+                                            </v-form>
                                             </v-stepper-content>
 
                                             <v-stepper-content step="2">
-                                                <!--<v-form @submit.prevent="sendInformation" ref="formContact">-->
+                                                <v-form @submit.prevent="sendInformation" ref="formContact2">
                                                     <!--<p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>-->
                                                     <p class="my-5 font-size-20 font-weight-bold">{{ pageContact.labelForm }}</p>
                                                     <v-row>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Nombres" solo outlined class="rounded-xl" v-model="formValues.name"></v-text-field>
+                                                            <v-text-field label="Nombres" solo outlined class="rounded-xl" v-model="formValues.name" :rules="[rules.required]"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Apellidos" solo outlined class="rounded-xl" v-model="formValues.lastname"></v-text-field>
-                                                        </v-col>
-
-                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Empresa" solo outlined class="rounded-xl" v-model="formValues.company"></v-text-field>
-                                                        </v-col>
-                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value" v-model="formValues.area"></v-select>
+                                                            <v-text-field label="Apellidos" solo outlined class="rounded-xl" v-model="formValues.lastname" :rules="[rules.required]"></v-text-field>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value" v-model="formValues.industry"></v-select>
+                                                            <v-text-field label="Empresa" solo outlined class="rounded-xl" v-model="formValues.company" :rules="[rules.required]"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Email" type="email" solo outlined class="rounded-xl" v-model="formValues.email"></v-text-field>
+                                                            <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value" v-model="formValues.area" :rules="[rules.required]"></v-select>
+                                                        </v-col>
+
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value" v-model="formValues.industry" :rules="[rules.required]"></v-select>
+                                                        </v-col>
+                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                            <v-text-field label="Email" type="email" solo outlined class="rounded-xl" v-model="formValues.email" :rules="[rules.required]"></v-text-field>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl" v-model="formValues.phone"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Celular" solo outlined class="rounded-xl" v-model="formValues.phone"></v-text-field>
+                                                            <v-text-field label="Celular" solo outlined class="rounded-xl" v-model="formValues.celphone"></v-text-field>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
@@ -145,16 +147,16 @@
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-autocomplete label="País" solo outlined class="rounded-xl" v-model="formValues.country" :items="countries" item-text="country_name" item-value="country_name"
-                                                            @change="getStates"></v-autocomplete>
+                                                            @change="getStates" :rules="[rules.required]"></v-autocomplete>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-autocomplete label="Estado" solo outlined class="rounded-xl" v-model="formValues.state" :items="states" item-text="state_name" item-value="state_name"
-                                                            @change="getCities"></v-autocomplete>
+                                                            @change="getCities" :rules="[rules.required]"></v-autocomplete>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-autocomplete label="Ciudad" solo outlined class="rounded-xl" v-model="formValues.city" :items="citys" item-text="city_name" item-value="city_name">
-                                                            </v-autocomplete>
+                                                            <v-autocomplete label="Ciudad" solo outlined class="rounded-xl" v-model="formValues.city" :items="citys" item-text="city_name" item-value="city_name"
+                                                            :rules="[rules.required]"></v-autocomplete>
                                                         </v-col>
 
                                                         <v-col cols="12" class="margin-botton-0">
@@ -179,13 +181,13 @@
                                                             </v-btn>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                                            <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="dialog = !dialog">
+                                                            <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="sendInformation">
                                                                 <span class="text-left">Enviar</span>
                                                                 <v-icon right>mdi-chevron-right</v-icon>
                                                             </v-btn>
                                                         </v-col>
                                                     </v-row>
-                                                <!--</v-form>-->
+                                                </v-form>
                                             </v-stepper-content>
                                         </v-stepper-items>
                                     </v-stepper>
@@ -193,7 +195,6 @@
                             </v-row>
                         </v-col>
                     </v-row>
-                </v-form>
             </v-container>
         </section>
 
@@ -304,9 +305,9 @@ export default {
             formValues: {
                 market: [],
                 product: [],
-                resina: null,
-                toneladas: null,
-                name: null,
+                resina: '',
+                toneladas: '',
+                name: '',
                 lastname: '',
                 company: '',
                 area: '',
@@ -349,9 +350,11 @@ export default {
         },
         nextStep(){
             if(this.$refs.formContact.validate()){
-                if( this.formValues.market === null || this.formValues.product === null){
+                if( this.formValues.market === '' || this.formValues.product === ''){
+                    console.log('no pasa')
                     this.snackbar = true
                 }else{
+                    console.log('pasa')
                     this.$refs.formContact.resetValidation()
                     this.progress = 100
                     this.e1 = 2
@@ -363,24 +366,24 @@ export default {
             this.e1 = 1
         },  
         sendInformation(){
+            console.log(this.$refs.formContact2.validate())
             if(this.$refs.formContact.validate()){
                 let date = new Date();
-                this.form.sendDate = date.toISOString()
+                this.formValues.sendDate = date.toISOString()
 
                 const dataForm = {
                     data: this.formValues
-                    
                 }
 
-                /api/contacto-polnacs
-                this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-polnacs`, dataForm)
+                // /api/contacto-polnacs
+                /*this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-polnacs`, dataForm)
                 .then(res => {
                     this.dialog = !this.dialog
                     this.$refs.form.reset()
                 })
                 .catch(err => {
                     console.log(err.response)
-                })
+                })*/
             }
         },
         selectProduct(toggle){
