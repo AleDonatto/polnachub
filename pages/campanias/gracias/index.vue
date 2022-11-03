@@ -1,26 +1,19 @@
 <template>
-    <div>
-        <QuestionsHead/>
-        <QuestionsSections/>
-    </div>
+    <CampaniasGracias/>
 </template>
 
 <script>
-import { mapState } from 'vuex'
 
 export default {
-    data() {
+    name: 'graciasLand',
+    head: {},
+    data(){
         return {}
     },
     mounted() {
-        this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
-
-        if(this.pageQuestions === null || this.lang !== 'esp'){
-            this.$store.dispatch('getPageQuestions')
-        }
     },
     methods: {
         Resize(){
@@ -28,12 +21,10 @@ export default {
             this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         }
     },
-    computed: {
-        ...mapState(['pageQuestions', 'lang'])
-    }
+
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

@@ -12,6 +12,7 @@ export default {
     data(){
         return {}
     },
+    head: {},
     mounted() {
         this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})

@@ -11,6 +11,12 @@ import { mapState } from 'vuex'
 export default {
     name: 'alliances',
     head: {},
+    nuxtI18n: {
+        paths: {
+            es: '/alianzas',
+            eng:'/alliances',
+        }
+    },
     data() {
         return {} 
     },

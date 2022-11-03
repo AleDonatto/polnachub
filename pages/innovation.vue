@@ -11,6 +11,12 @@ import { mapState } from 'vuex'
 export default {
     name: 'page-Innavation',
     head: {},
+    nuxtI18n: {
+        paths: {
+            es: '/innovacion',
+            eng:'/innovation',
+        }
+    },
     data() {
         return {
 

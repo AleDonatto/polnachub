@@ -6,6 +6,13 @@
 
 <script>
 export default {
+    head: {},
+    nuxtI18n: {
+        paths: {
+            es: '/marcas/:id',
+            eng:'/brands/:id',
+        }
+    },
     data() {
         return {}
     },

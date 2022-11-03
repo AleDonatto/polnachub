@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-app-bar :clipped-left="clipped" fixed color="white" app elevation="2">
+        <v-app-bar :clipped-left="clipped" fixed color="white" app elevation="2" v-if="this.url !== '/campanias'" >
             <!--<v-toolbar-title :class="{'ml-16': windowSize > 1129}" />-->
             <v-container fluid>
                 <v-row justify="center">
@@ -13,13 +13,13 @@
                     <v-col cols="9" xl="7" lg="8" md="8">
                         <v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129" class="d-flex align-end flex-column">
                             <v-tabs-slider color></v-tabs-slider>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/aboutus">{{ $t('appbar.aboutus') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/innovation">{{ $t('appbar.innovation') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('aboutus', this.lang)">{{ $t('appbar.aboutus') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('innovation', this.lang)">{{ $t('appbar.innovation') }}</v-tab>
                             <!--<v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/search-products">{{ $t('appbar.products') }}</v-tab>-->
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/services">{{ $t('appbar.services') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/market">{{ $t('appbar.market') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/blogs">Blog</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/contact">{{ $t('appbar.contact') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('services', this.lang)">{{ $t('appbar.services') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('market', this.lang)">{{ $t('appbar.market') }}</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/blogs" v-if="this.lang === 'es'">Blog</v-tab>
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('contact', this.lang)">{{ $t('appbar.contact') }}</v-tab>
                             
                             <v-tab class="mx-0 px-0">
                                 <v-menu
@@ -244,6 +244,37 @@
             <!--options mobile-->
         </v-app-bar>
 
+        <v-app-bar :clipped-left="clipped" fixed color="white" app elevation="2" v-if="this.url.includes('campanias')" >
+            <!--<v-toolbar-title :class="{'ml-16': windowSize > 1129}" />-->
+            <v-container fluid>
+                <v-row justify="center">
+                    <v-col cols="3" md="2" sm="3" xs="3">
+                        <nuxt-link to="/campanias">
+                            <img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-3" :height="windowSize<1129 ? '20' : ''"/>
+                            <!--<v-img src="/Logo-polnac.png" contain max-width="180" class="mt-2"></v-img>-->
+                        </nuxt-link>
+                    </v-col>
+                    <v-col cols="9" xl="7" lg="8" md="8">
+                        <!--<v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129" class="d-flex align-end flex-column">
+                            <v-tabs-slider color></v-tabs-slider>
+                            
+                            <v-tab class="black--text text-none mx-0 px-0 font-size-14 decoration-none" >
+                                <p class="mt-3">(55) 2585 2650</p>
+                                <v-img src="/home/WhatsApp.png" contain max-height="24" class="ml-3"></v-img>
+                            </v-tab>
+                            
+                        </v-tabs>-->
+                        <div class="d-flex align-end flex-column">
+                            <div class="d-flex black--text text-none mx-0 px-0 font-size-14 decoration-none">
+                                <p class="mt-4">(55) 2585 2650</p>
+                                <v-img src="/home/WhatsApp.png" contain max-height="24" class="ml-3 mt-3"></v-img>
+                            </div>
+                        </div>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </v-app-bar>
+
         <v-navigation-drawer color="white" v-if="windowSize < 1129" app v-model="drawer" >
             <!--<v-list-item>
                 <v-list-item-content>
@@ -260,7 +291,7 @@
             <v-list dense nav  class="mt-2">
                 <v-list-item link to="/">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Inicio</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.inicio') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link>
@@ -268,14 +299,14 @@
                         <v-list-item-title class="text-none">Polnac</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/aboutus">
+                <v-list-item link :to="localePath('aboutus', this.lang)">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">{{ $t('appbar.aboutus') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/polnac-group">
+                <v-list-item link :to="localePath('polnacGroup', this.lang)">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Grupo Polnac</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{$t('appbar.grupoPolnac')}}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item link to="/polnac-wiki">
@@ -283,14 +314,14 @@
                         <v-list-item-title class="text-none">Polnac Wiki</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link>
+                <!--<v-list-item link>
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Colaboradores</v-list-item-title>  
                     </v-list-item-content>
-                </v-list-item>
-                <v-list-item link to="/work-at-polnac">
+                </v-list-item>-->
+                <v-list-item link :to="localePath('workAtPolnac', this.lang)">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Trabaja con nosotros</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{$t('appbar.trabajo')}}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <!--<v-list-item link to="/search-products">
@@ -298,16 +329,16 @@
                         <v-list-item-title class="text-none">{{ $t('appbar.products') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>-->
-                <v-list-item link to="/services">
+                <v-list-item link :to="localePath('services', this.lang)">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">{{ $t('appbar.services') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/laboratory">
+                <!--<v-list-item link to="/laboratory">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Pruebas de Laboratorio</v-list-item-title>  
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item>-->
                 <!--<v-list-item link>
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Almacenaje</v-list-item-title>  
@@ -333,9 +364,9 @@
                         <v-list-item-title class="text-none">Contenedores</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>-->
-                <v-list-item link to="/innovation">
+                <v-list-item link :to="localePath('innovation', this.lang)">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Innovación</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.innovation') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <!--<v-list-item link >
@@ -343,9 +374,9 @@
                         <v-list-item-title class="text-none">Investigacion & Desarrollo</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>-->
-                <v-list-item link to="/laboratory">
+                <v-list-item link :to="localePath('laboratory', this.lang)">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Laboratorio</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{$t('appbar.laboratorio')}}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <!--<v-list-item link to="/polnac-blue">
@@ -353,48 +384,44 @@
                         <v-list-item-title class="text-none">POLNAC Blue</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>-->
-                <v-list-item link to="/market">
+                <v-list-item link :to="localePath('market', this.lang)">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Mercados</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.market') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/blogs">
+                <v-list-item link to="/blogs" v-if="lang=== 'es'">
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">Blog</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/contact">
+                <v-list-item link :to="localePath('contact', this.lang)">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Contacto</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.contact') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/frequently-questions">
+                <v-list-item link :to="localePath('frequentlyQuestions', this.lang)">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Pregunas frecuentes</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{ $t('appbar.preguntas') }}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item link to="/branch-ofices">
+                <v-list-item link :to="localePath('branchOffices', this.lang)">
                     <v-list-item-content> 
-                        <v-list-item-title class="text-none">Sucursales</v-list-item-title>  
-                    </v-list-item-content>
-                </v-list-item>
-                <v-list-item link to="/contact">
-                    <v-list-item-content> 
-                        <v-list-item-title class="text-none">Contáctanos</v-list-item-title>  
+                        <v-list-item-title class="text-none">{{$t('appbar.sucursales')}}</v-list-item-title>  
                     </v-list-item-content>
                 </v-list-item>
                 <v-list-item>
                     <v-list-item-content> 
                         <v-list-item-title class="text-none">
+                            {{ $t('appbar.idioma') }}
                             <v-row>
                                 <v-col cols="6" align-self="center" align="center">
-                                    <p>Cambiar Idioma</p>
+                                    
                                 </v-col>
-                                <v-col cols="6" align-self="center" align="center">
-                                    <!--<select title="lang" name="lang-mb" v-model="$i18n.locale" @change="() => {setLanguaje($i18n.locale)}"  class="lang-border px-5 py-2">
-                                        <option class="ma-5 pa-5" v-for="lang in $i18n.locales" :key="lang.code" :value="lang.code">{{ lang.name }}</option>
-                                    </select>-->
-                                    <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="langModel" dense class="select-mb text-none my-auto"></v-select>
+                                <v-col cols="12" align-self="center" align="center">
+                                    <!--<v-select title="lang" name="lang-mb" v-model="$i18n.locale" @change="() => {setLanguaje($i18n.locale)}"  class="lang-border px-5 py-2"
+                                    :items="$i18n.locales"></v-select>-->
+                                    <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
+                                    @change="() => {setLanguaje($i18n.locale)}" dense class="mt-1 text-none"></v-select>
                                 </v-col>
                             </v-row>
                         </v-list-item-title>  
@@ -420,29 +447,54 @@
                     <v-row justify="center">
                         <v-col cols="5" class="bg-login"></v-col>
                         <v-col cols="7">
-                            <p class="black--text font-size-20 text-center mt-10">Selecciona tu perfil</p>
+                            <p class="black--text font-size-20 text-center mt-10">{{ showLogin === true ? 'Ingrese sus credenciales' : 'Selecciona tu perfil'}}</p>
                             <v-card class="shadow-out">
                                 <v-container class="pa-1">
                                     <v-item-group v-model="selected">
-                                        <v-row>
+                                        <v-row v-if="!showLogin">
                                             <v-col v-for="(item, i) in options" :key="i" cols="12" align="end">
-                                                <v-item v-slot="{ active, toggle }">
-                                                    <div @click="toggle" :class="{'border-login': active, 'border-login-out': !active }">
-                                                        <v-btn icon color="#773DBD" class="mx-4">
-                                                            <v-icon right v-if="active">{{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
-                                                        </v-btn>
-                                                        <v-img :src="item.img" contain max-height="40"></v-img>
-                                                        <p class="font-size-20 text-center black--text mt-2 mb-4">{{ item.text }}</p>
+                                                <v-item v-slot="{ active, toggle }" >
+                                                    <div @click="() => testMethod(i)">
+                                                        <div @click="toggle" :class="{'border-login': active, 'border-login-out': !active }">
+                                                            <v-btn icon color="#773DBD" class="mx-4" >
+                                                                <v-icon right v-if="active">{{ active ? 'mdi-check-circle' : 'mdi-check-circle-outline' }}</v-icon>
+                                                            </v-btn>
+                                                            <v-img :src="item.img" contain max-height="40"></v-img>
+                                                            <p class="font-size-20 text-center black--text mt-2 mb-4">{{ item.text }}</p>
+                                                        </div>
                                                     </div>
                                                 </v-item>
+                                            </v-col>
+                                        </v-row>
+                                        <v-row v-if="showLogin">
+                                            <v-col cols="12">
+                                                <v-form @submit.prevent="login">
+                                                    <v-row>
+                                                        <v-col cols="12">
+                                                            <v-text-field label="User Name" solo outlined rounded :rules="[rules.required]"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12">
+                                                            <v-text-field label="Password" type="password" solo outlined rounded :rules="[rules.required]"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12">
+                                                            <v-text-field label="Client ID" solo outlined rounded :rules="[rules.required]"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12">
+                                                            <v-text-field label="Client Secret" solo outlined rounded :rules="[rules.required]"></v-text-field>
+                                                        </v-col>
+                                                        <v-col cols="12">
+                                                            <v-btn type="submit" color="#19D3C5" class="text-none px-16 rounded-lg">Log In </v-btn>
+                                                        </v-col>
+                                                    </v-row>
+                                                </v-form>
                                             </v-col>
                                         </v-row>
                                     </v-item-group>
                                 </v-container>
                             </v-card>
                             <div class="d-flex flex-column justify-center">
-                                <div class="d-flex justify-center">
-                                    <v-btn class="text-none px-16 rounded-lg mt-2" color="#19D3C5" @click="login">
+                                <div class="d-flex justify-center" v-if="!showLogin">
+                                    <v-btn class="text-none px-16 rounded-lg mt-2" color="#19D3C5" @click="redirection">
                                         Entrar
                                     </v-btn>
                                 </div>
@@ -474,7 +526,7 @@ export default {
             right: true,
             rightDrawer: false,
             title: 'Vuetify.js',
-            lang: ['ESP', 'ENG'],
+            langL: ['ESP', 'ENG'],
             menu: false,
             dialog: false,
             options: [
@@ -483,7 +535,7 @@ export default {
             ],
             selected: null,
             langModel: 'ESP',
-            productos: null,
+            //productos: null,
             marcas: null, 
             mercados: null, 
             pruebas: null,
@@ -494,23 +546,32 @@ export default {
             sblogs: null,
             sproductos: null,
             search: null,
-            isSearch: false
+            isSearch: false,
+            showLogin: false,
+            optionLogin: 0,
+            rules: {
+                required: (value) => !!value || "Required.",
+                min: (v) => v.length >= 8 || "Min 8 characters",
+            },
+            url : ''
         }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize', 'basePathApiUrl']),
+        ...mapState(['windowHeight','windowSize', 'basePathApiUrl', 'productos', 'lang']),
     },
     mounted() {
         this.getAllProductos()
         this.getDatos()
+        this.url = this.$route.path
+        //console.log(this.url)
     },
     methods: {
         ...mapActions(['setLanguaje']),
-        translate(lang){
-            if(lang === 'ESP'){
+        translate(langL){
+            if(langL === 'ESP'){
                 this.$i18n.locale = 'es'
             }
-            if(lang === 'ENG'){
+            if(langL === 'ENG'){
                 this.$i18n.locale = 'eng'
             }
         },
@@ -540,7 +601,7 @@ export default {
 
         },
         async getAllProductos(){
-            this.productos = await this.$store.dispatch('getAllProducts')
+            //this.productos = await this.$store.dispatch('getAllProducts')
             //console.log(this.productos)
         },
         async getDatos(){
@@ -551,6 +612,17 @@ export default {
             this.pruebas = await this.$store.dispatch('getAllTipoPruebas')
 
             //console.log(this.blogs)
+        },
+        testMethod(toggle){
+            this.optionLogin = toggle
+        },
+        redirection(){
+            if(this.optionLogin === 0){
+                this.showLogin = true
+            } 
+        },
+        chatWhatsapp(){
+            window.open('https://wa.me/525525852650')
         }
 
     }

@@ -41,7 +41,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
-    [
+    /*[
       'nuxt-i18n',{
         vueI18nLoader: true,
         defaultLocale: 'es',
@@ -57,7 +57,7 @@ export default {
         ],
         vueI18n: i18n
       }
-    ],
+    ],*/
     '@nuxtjs/dotenv'
   ],
 
@@ -68,7 +68,25 @@ export default {
     '@nuxtjs/markdownit',
     '@nuxtjs/proxy',
     'vue-social-sharing/nuxt',
+    '@nuxtjs/i18n',
   ],
+
+  i18n: {
+    /* module options */
+    vueI18nLoader: true,
+    defaultLocale: 'es',
+    locales: [
+      {
+        code: 'eng',
+        name: 'ENG'
+      },
+      {
+        code: 'es',
+        name: 'ESP'
+      }
+    ],
+    vueI18n: i18n
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

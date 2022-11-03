@@ -35,36 +35,36 @@
             </v-container>
         </section>
 
-        <section>
+        <!-- <section>
             <v-container>
                 <v-row class="" justify="center">
                     <v-col align="center">
-                        <!--<h1 class="font-archivo font-size-40 font-weight-bold my-10">Empresas filiales</h1>-->
+                        <! --<h1 class="font-archivo font-size-40 font-weight-bold my-10">Empresas filiales</h1>-- >
                         <h1 class="font-archivo font-size-40 font-weight-bold my-10">{{pagePolnacGroup.txtTitlesubsidiaries}}</h1>
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="my-16">
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
-                        <!--<v-img src="/group/logo-poliresin.png" contain max-height="150"></v-img>-->
+                        <! --<v-img src="/group/logo-poliresin.png" contain max-height="150"></v-img>-- >
                         <v-img :src="basePathApiUrl + pagePolnacGroup.imgLogoPoliresin.data.attributes.url" contain max-height="150"></v-img>
                         <v-btn rounded outlined color="#19D3C5" class="mt-4 px-10 py-6 text-none">
                             <nuxt-link to="/poliresin" class="text-decoration-none black--text">
                                 {{pagePolnacGroup.txtBtnMore}}
-                                <!--Ver mas--> 
+                                <! -- Ver mas-- > 
                             </nuxt-link>
                         </v-btn>
                     </v-col>
                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="center">
-                        <!--<v-img src="/group/logo-transpolimer.png" contain max-height="150"></v-img>-->
+                        <! --<v-img src="/group/logo-transpolimer.png" contain max-height="150"></v-img>-- >
                         <v-img :src="basePathApiUrl + pagePolnacGroup.imgLogoTranspolimer.data.attributes.url" contain max-height="150"></v-img>
                         <v-btn rounded outlined color="#19D3C5" class="mt-4 px-10 py-6 text-none">
-                            <!--<nuxt-link to="/transpolimer" class="text-decoration-none black--text">Saber más</nuxt-link>-->
+                            <! --<nuxt-link to="/transpolimer" class="text-decoration-none black--text">Saber más</nuxt-link>-- >
                             <nuxt-link to="/transpolimer" class="text-decoration-none black--text">{{pagePolnacGroup.txtBtnMore}}</nuxt-link>
                         </v-btn>
                     </v-col>
                 </v-row>
             </v-container>
-        </section>
+        </section>-->
 
         <section>
             <v-container>
@@ -81,7 +81,7 @@
                                 <nuxt-link :to="`/marcas/${mar.id}`" class="decoration-none text-none">
                                     <!--<v-img src="/group/logo-colorforte.png" contain max-height="90"></v-img>-->
                                     <v-img :src="basePathApiUrl + mar.attributes.image.data.attributes.url" contain max-height="90"></v-img>
-                                    <p class="font-size-18 text-left mt-5 black--text">{{mar.attributes.subtitle}}</p>
+                                    <p class="font-size-18 text-left mt-5 black--text truncate-lines">{{mar.attributes.subtitle}}</p>
                                 </nuxt-link>
                             </v-col>
                             

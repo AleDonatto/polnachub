@@ -51,7 +51,7 @@
                     
                 </v-row>
 
-                <v-row class="my-10" v-if="windowSize > 1129" justify="center">
+                <v-row class="my-10" justify="center">
                     <v-col cols="12" xl="9">
                         <!--<v-carousel class="carousel-black" dark cycle :height="windowSize > 1129 ? '280' : '210'" hide-delimiter-background show-arrows-on-hover>
                             <v-carousel-item v-for="(slide, i) in 3" :key="i">
@@ -77,7 +77,7 @@
                             </v-carousel-item>
                         </v-carousel>-->
 
-                        <v-carousel class="carousel-black" dark cycle :height="windowSize > 1129 ? '280' : '210'" hide-delimiter-background show-arrows-on-hover>
+                        <v-carousel class="carousel-black" dark cycle :height="windowSize > 1129 ? '280' : '280'" hide-delimiter-background show-arrows-on-hover>
                             <v-carousel-item v-for="(slide, i) in this.producto.data.attributes.imagesBody.data" :key="i">
                                 <v-sheet height="100%">
                                     <v-row class="fill-height" align="center" justify="center">
@@ -119,7 +119,7 @@
                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" v-if="tipos.transformationMethods !== ''">
                                             <v-row>
                                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                                    <p class="font-weight-bold font-size-20">Métodos de transformación:</p>
+                                                    <p class="font-weight-bold font-size-20">{{lang==='es' ? 'Métodos de transformación' : 'Transformation Methods'}}:</p>
                                                     <!--<div class="d-flex inline-block">
                                                         <img src="../../static/group/check.png" height="17" alt="">
                                                         <p class=" ml-3 text-body-all">Extrusión</p>
@@ -135,7 +135,7 @@
                                                     <div class="text-body-all" v-html="tipos.transformationMethods"></div>
                                                 </v-col>
                                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12" v-if="tipos.markets !== ''">
-                                                    <p class="font-weight-bold font-size-20">Mercados:</p>
+                                                    <p class="font-weight-bold font-size-20">{{lang === 'es' ? 'Mercados' : 'Markets'}}:</p>
                                                     <!--<div class="d-flex inline-block">
                                                         <img src="../../static/market/lempaque.png" height="20" alt="">
                                                         <img src="../../static/market/lrigido.png" height="20" alt="">
@@ -355,7 +355,7 @@
                         </v-expansion-panels>
                     </v-col>
                 </v-row>
-                <v-row justify="center" v-if="windowSize < 1129">
+                <!--<v-row justify="center" v-if="windowSize < 1129">
                     <v-col cols="12" align="center">
                         <v-btn block outlined color="#19D3C5" class="rounded-xl text-none">
                             <span class="black--text">Me interesa este producto</span>
@@ -366,7 +366,7 @@
                             <span class="black--text">Ver más productos</span>
                         </v-btn>
                     </v-col>
-                </v-row>
+                </v-row>-->
             </v-container>
         </section>
 
@@ -374,12 +374,12 @@
             <v-container class="mb-16">
                 <v-row justify="center">
                     <v-col cols="8" xl="5">
-                        <h1 class="font-size-30 font-weight-bold">Otros productos</h1>
+                        <h1 class="font-size-30 font-weight-bold">{{lang === 'es' ? 'Otros productos' : 'Others Products'}}</h1>
                     </v-col>
                     <v-col cols="4" align="right">
-                        <nuxt-link to="/search-products" class="color-decotarion">
+                        <!--<nuxt-link to="/search-products" class="color-decotarion">
                             <h1 class="purple-polnac">Ver todos</h1>
-                        </nuxt-link>
+                        </nuxt-link>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="mb-16" v-if="windowSize > 1129">
@@ -390,7 +390,7 @@
                                     <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="250" 
                                     gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                                         <v-row justify="center">
-                                            <v-col cols="12" align-self="center" align="center" class="mt-7">
+                                            <v-col cols="12" align-self="center" align="center">
                                                 <div class="font-archivo text-body-all font-weight-bold white--text margin-top">{{prod.attributes.name}}</div>
                                             </v-col>
                                         </v-row>
@@ -416,12 +416,18 @@
                     </v-col>
                 </v-row>
                 <v-row v-if="windowSize < 1129 && this.productos !== null" class="mb-16">
-                    <v-carousel class="carousel-black" :show-arrows="false" hide-delimiter-background show-arrows-on-hover height="270">
+                    <v-carousel class="carousel-black"  hide-delimiters height="220">
                         <v-carousel-item v-for="(item,i) in productos.data" :key="i">
                             <v-row justify="center">
                                 <v-col cols="11">
-                                    <nuxt-link :to="`/market/type/${item.id}`">
-                                        <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="270" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)"></v-img>
+                                    <nuxt-link :to="`/products/${item.id}`">
+                                        <v-img :src="basePathApiUrl + item.attributes.imgMiniature.data.attributes.url" contain max-height="270" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
+                                            <v-row justify="center">
+                                                <v-col cols="12" align-self="center" align="center">
+                                                    <div class="font-archivo text-body-all font-weight-bold white--text margin-top-mb">{{item.attributes.name}}</div>
+                                                </v-col>
+                                            </v-row>
+                                        </v-img>
                                     </nuxt-link>
                                 </v-col>
                             </v-row>
@@ -456,7 +462,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight', 'basePathApiUrl'])
+        ...mapState(['windowSize', 'windowHeight', 'basePathApiUrl', 'lang'])
     },
     mounted() {
         this.getProductoId(this.$route.params.id)
@@ -490,6 +496,10 @@ export default {
 }
 
 .margin-top{
-    margin-top: 9vh ;
+    margin-top: 7vh ;
+}
+
+.margin-top-mb{
+    margin-top: 10vh;
 }
 </style>

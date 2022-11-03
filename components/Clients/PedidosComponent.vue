@@ -86,6 +86,15 @@ export default {
             ],
             expanded: [],
             singleExpand: false,
+            pedidos: []
+        }
+    },
+    mounted() {
+        this.getPeidos()
+    },
+    methods: {
+        async getPeidos(){
+            this.pedidos = await this.$store.dispatch('getOrdersClient')
         }
     }
 

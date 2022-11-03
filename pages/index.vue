@@ -11,6 +11,12 @@ import { mapState } from 'vuex'
 export default {
   name: 'IndexPage',
   head: {},
+  /*nuxtI18n: {
+    paths: {
+      es: '/inicio',
+      eng:'/home',
+    }
+  },*/
   data(){
     return {
     }
@@ -23,6 +29,7 @@ export default {
 
     if(this.pageHome === null || this.lang !== 'esp'){
       this.$store.dispatch('getPageHome')
+      this.$store.dispatch('getAllProducts')
     }
   },
   methods: {

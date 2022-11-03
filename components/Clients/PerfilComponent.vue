@@ -41,10 +41,12 @@
             <v-col cols="12" class="">
                 <p class="font-size-20 my-5">Selecciona y guarda el/los productos de tu interés:</p>
 
-                <v-row justify="center" class="bg-interes rounded-lg">
-                    <v-col>
-
+                <v-row justify="center" class="bg-interes rounded-lg" v-if="this.productos !== null">
+                    <v-col cols="3" v-for="(item, index) in this.productos" :key="index+item.id">
+                        <v-img></v-img>
+                        <p>{{item.atrribut}}</p>
                     </v-col>
+                    <pre>{{productos}}</pre>
                 </v-row>
             </v-col>
             <v-col cols="12" align="center" class="my-3">
@@ -57,14 +59,25 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import LayoutDashboard from './LayoutDashboard.vue'
 export default {
     components: { LayoutDashboard },
     data() {
         return {
-
+            products: [],
         }
+    },
+    computed: {
+        ...mapState(['productos'])
+    },
+    mounted(){
+        this.$store.dispatch('getAllProducts')
+    },
+    methods: {
+
     }
+    
 }
 </script>
 

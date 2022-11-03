@@ -117,7 +117,7 @@
                     </v-col>
                 </v-row>-->
                 <v-row justify="center" class="mt-10 mb-10" v-if="this.productos !== null">
-                    <v-col cols="2" align="center" v-for="(prod, index) in this.productos.data" :key="index">
+                    <v-col cols="6" lg="2" md="2" align="center" v-for="(prod, index) in this.productos.data" :key="index">
                         <nuxt-link :to="`/products/${prod.id}`" class="text-decoration-none">
                             <!--<v-img src="/menu-search/plasticos.png" contain max-height="90"></v-img>-->
                             <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="90"></v-img>
@@ -125,6 +125,7 @@
                         </nuxt-link>
                     </v-col>
                 </v-row>
+                <pre>{{tableRotomoldeo}}</pre>
             </v-container>
 
             <!--v-else -->
@@ -144,7 +145,7 @@
                         {{this.valMTransformacion}}
                     </v-chip>
 
-                    <v-chip class="ma-2 pa-5" close color="red" text-color="white" @click:close="cleanTags" v-if="valProducto!=='' || valFabricante!=='' || valMercado!=='' || valMTransformacion!==''">
+                    <v-chip class="ma-2 pa-5" close color="red" text-color="white" @click:close="cleanTags" v-if="valProducto!=='' && valFabricante!=='' && valMercado!=='' && valMTransformacion!==''">
                         Remove
                     </v-chip>
                 </div>

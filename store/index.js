@@ -29,7 +29,8 @@ export default () => new Vuex.Store({
         pagePolnacWiki: null,
         pageQuestions: null,
         pageWork: null,
-        basePathApiUrl: process.env.BASE_URI_STRAPI,
+        pageCamping: null,
+        basePathApiUrl: 'https://crm.polnac.com',
         //salesfoce connection
         /*userSalesforce: {
             username: 'desatimx@polnac.com.bxt01',
@@ -67,7 +68,12 @@ export default () => new Vuex.Store({
         showMsgProd: false,
         //polnac wiki-blog
         showbanners: true,
-        card: []
+        card: [],
+        //single
+        productos: null,
+        mercados: null, 
+        marcas: null,
+        pruebasLab: null
     }),
     actions,
     getters,

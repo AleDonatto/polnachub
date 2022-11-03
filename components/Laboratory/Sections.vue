@@ -679,9 +679,9 @@
                     </v-expansion-panels>
                 </div>
 
-                <v-row justify="center" class="mt-10" v-if="windowSize > 1129 && this.pruebas !== null">
-                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-for="(prueb, index) in this.pruebas" :key="index">
-                        <div v-if="prueb.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio'">
+                <v-row justify="center" class="mt-10" v-if="windowSize > 1129 && this.tiposPrueba !== null">
+                    <v-col cols="12" lg="4" md="4" sm="12" xm="12" v-for="(prueb, index) in this.tiposPrueba" :key="index">
+                        <div>
                             <div class="rounded-lg bg-pruebas px-5 py-1">
                                 <p class="font-size-18 font-weight-bold">{{prueb.attributes.name}}</p>
                             </div>
@@ -705,12 +705,12 @@
                                 </v-row>
                                 <v-divider></v-divider>
                                 <v-row>
-                                    <v-col cols="9" class="mt-2">
-                                        <p class="font-size-18 font-weight-bold">Conoce más sobre el proceso</p>
+                                    <v-col cols="8" class="mt-2">
+                                        <p class="font-size-18 font-weight-bold">{{ $t('laboratory.learn') }}</p>
                                     </v-col>
-                                    <v-col cols="3" class="mt-2">
+                                    <v-col cols="4" class="mt-2">
                                         <nuxt-link :to="`/polnac-wiki?tag=laboratory&id=${index}`">
-                                            <p class="font-size-18 more font-weight-bold">Leer más</p>
+                                            <p class="font-size-18 more font-weight-bold">{{ $t('laboratory.more') }}</p>
                                         </nuxt-link>
                                     </v-col>
                                 </v-row>
@@ -1284,15 +1284,30 @@ export default {
         }
     },
     mounted(){
-        this.getPruebas()
+        /*setTimeout(() => {
+            this.getPruebas()
+        }, 2000);*/
     },
     computed: {
-        ...mapState(['windowHeight','windowSize', 'pageLaboratory','basePathApiUrl'])
+        ...mapState(['windowHeight','windowSize', 'pageLaboratory','basePathApiUrl', 'pruebasLab']),
+        tiposPrueba(){
+            if(this.pruebasLab !== null){
+                let aux = this.pruebasLab
+                let pruebas = aux.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio' ||  item.attributes.tipos_prueba.data.attributes.name === 'Lab tests') 
+
+                if(pruebas.lenght > 8){
+                    return pruebas = pruebas.slice(0,8)
+                }
+                return pruebas
+            }
+            return []
+            
+        }
     },
     methods: {
         async getPruebas(){
-            let aux = await this.$store.dispatch('getAllTipoPruebas')
-            this.pruebas = aux.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio') 
+            let aux = this.pruebasLab
+            this.pruebas = aux.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio' ||  item.attributes.tipos_prueba.data.attributes.name === 'Lab tests') 
 
             if(this.pruebas.lenght > 8){
                 this.pruebas = this.pruebas.slice(0,8)
@@ -1300,9 +1315,10 @@ export default {
             //console.log(this.pruebas)
         },
         async getMorePruebas(){
-            let aux = await this.$store.dispatch('getAllTipoPruebas')
-            this.pruebas = aux.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio') 
+            let aux = this.pruebasLab
+            this.pruebas = aux.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio' || item.attributes.tipos_prueba.data.attributes.name === 'Lab tests') 
             this.showMore = true
+            this.tiposPrueba = this.pruebas
         }
     }
 

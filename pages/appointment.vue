@@ -1,15 +1,21 @@
 <template>
     <div>
-        <ServicesContact/>
+        <AppointmentCalendary/>
     </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-
+    name: 'shedule-an-appointment',
+    head: '',
+    nuxtI18n: {
+        paths: {
+            es: '/agenda-una-cita',
+            eng:'/shedule-an-appointment',
         }
+    },
+    data() {
+        return {}
     },
     mounted() {
         this.$store.dispatch('defaultLanguaje')

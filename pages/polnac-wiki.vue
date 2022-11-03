@@ -22,6 +22,7 @@ export default {
 
         if(this.pagePolnacWiki === null || this.lang !== 'esp'){
             this.$store.dispatch('getPagePolnacWiki')
+            this.$store.dispatch('getAllTipoPruebas')
         }
     },
     methods: {

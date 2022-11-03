@@ -35,9 +35,18 @@ export default {
                 {factura: 'factura', etapa: 'Pagada', montoRestante: '99.0', fecha: Date.now(), pedido: 'P-12312900', monto: '59.00', comentarios: 'comentarios'},
                 {factura: 'factura', etapa: 'Pagada', montoRestante: '99.0', fecha: Date.now(), pedido: 'P-12312900', monto: '59.00', comentarios: 'comentarios'},
                 {factura: 'factura', etapa: 'Pagada', montoRestante: '99.0', fecha: Date.now(), pedido: 'P-12312900', monto: '59.00', comentarios: 'comentarios'},
-            ]
+            ],
+            estadoCuentas: []
         }
     },
+    mounted() {
+        this.getEstadoCuentas()
+    },
+    methods: {
+        async getEstadoCuentas(){
+            this.estadoCuentas = await this.$store.dispatch('getInvoiceClient')
+        }
+    }
 
 }
 </script>

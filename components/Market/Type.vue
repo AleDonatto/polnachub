@@ -2,7 +2,7 @@
     <div v-if="this.mercado !== null">
         <div :class="{'bg-market': windowSize > 1129, 'bg-market-mb': windowSize < 1129 }" :style="{ backgroundImage: `url(${basePathApiUrl + mercado.data.attributes.imgBanner.data.attributes.url })` }">
             <v-row justify="center">
-                <v-col cols="12" align="center" class="mt-10">
+                <v-col cols="12" align="center" class="mt-15">
                     <!--<h1 class="mt-16 font-archivo font-size-40 white--text">Electrodomésticos</h1>-->
                     <h1 class="mt-16 font-archivo font-size-40 white--text">{{this.mercado.data.attributes.nameMarket}}</h1>
                 </v-col>
@@ -49,7 +49,7 @@
                         </v-carousel>-->
 
                         <v-carousel class="carousel-black" :show-arrows="false" height="340" dark cycle hide-delimiter-background show-arrows-on-hover v-if="windowSize > 1129 && this.mercado !== null">
-                            <v-carousel-item v-for="(imgCar,i) in this.mercado.data.attributes.imgCarousel.data" :key="i">
+                            <v-carousel-item v-for="(imgCar,i) in this.mercado.data.attributes.imgCarousel.data" :key="'mer'+i">
                                 <v-sheet color="white" height="100%">
                                     <v-row>
                                         <v-col cols="12" align="center">
@@ -80,17 +80,17 @@
             <v-container>
                 <v-row>
                     <v-col cols="8">
-                        <h1 class="font-size-30 font-weight-bold">Productos recomendados</h1>
+                        <h1 class="font-size-30 font-weight-bold">{{lang === 'es' ? 'Productos recomendados' : 'Recommended products' }}</h1>
                     </v-col>
                     <v-col cols="4" align="right">
-                        <nuxt-link to="/market" class="color-decotarion">
+                        <!--<nuxt-link to="/market" class="color-decotarion">
                             <h1 class="purple-polnac">Ver todas</h1>
-                        </nuxt-link>
+                        </nuxt-link>-->
                     </v-col>
                 </v-row>
                 <v-row justify="center" class="mb-16" v-if="windowSize > 1129 && this.productos !== null">
-                    <v-col cols="3" v-for="(item, index) in this.productos.data.slice(0,4)" :key="item.id+index">
-                        <nuxt-link :to="`/market/type/${item.id}`" class="decoration-none">
+                    <v-col cols="3" v-for="(item, index) in this.productos.data.slice(0,4)" :key="'prod' + item.id+index">
+                        <nuxt-link :to="`/products/${item.id}`" class="decoration-none">
                             <v-img :src="basePathApiUrl +  item.attributes.imgMiniature.data.attributes.url" contain max-height="270" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                                 <p class="white--text font-weight-bold text-center text-body-all mt-15">{{item.attributes.name}}</p>
                             </v-img>
@@ -159,7 +159,7 @@ export default {
         this.getProductos()
     },
     computed: {
-        ...mapState(['windowHeight','windowSize', 'basePathApiUrl'])
+        ...mapState(['windowHeight','windowSize', 'basePathApiUrl', 'lang'])
     },
     methods: {
         async getMercadoId(id){
@@ -181,7 +181,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
-    height: 350px;
+    height: 420px;
 }
 .bg-market-mb{
     /*background-image: url('../../static/market/bg-typemarket.png');*/
@@ -189,6 +189,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+    height: 420px;
 }
 .purple-polnac{
     color: #773DBD;

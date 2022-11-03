@@ -35,7 +35,7 @@
                                     </div>
 
                                     <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start': windowSize > 1129}">
-                                        <nuxt-link to="/aboutus" class="decoration-none">
+                                        <nuxt-link :to="localePath('aboutus', this.lang)" class="decoration-none">
                                             <!--<v-btn class="rounded-xl px-10 body-1 py-5 white--text text-none secondary-color">{{ $t('home.btnabout') }}</v-btn>-->
                                             <v-btn class="rounded-xl px-10 body-1 py-5 white--text text-none secondary-color">{{ pageHome.txtbtnPolnac }}</v-btn>
                                         </nuxt-link>
@@ -62,8 +62,8 @@
             <div class="my-10">
                 <h1 class="font-archivo font-size-40 font-weight-bold text-center my-10">{{ $t('home.titledestacados') }}</h1>
                 <!--<h1 class="font-archivo font-size-40 font-weight-bold text-center my-10">{{ pageHome.featured.title }}</h1>-->
-                <v-row  v-if="windowSize > 1129 && this.productos !== null">
-                    <v-col xl="3" md="3" sm="12" xs="12" class="pa-0" v-for="(item, index) in productos.data.slice(0,4)" :key="index">
+                <v-row  v-if="windowSize > 1129 && this.destacados !== null">
+                    <v-col xl="3" md="3" sm="12" xs="12" class="pa-0" v-for="(item, index) in destacados.slice(0,4)" :key="index">
                         <v-hover v-slot="{ hover }" class="des-1" :style="{ backgroundImage: `linear-gradient(rgba(46, 46, 101, 0.8), rgba(119, 61, 189, 0.8)),url(${basePathApiUrl + item.attributes.imgMiniature.data.attributes.url })` }">
                             <v-card class="shadow-out">
                                 <v-img src="" style="height:307px" alt="pruebas">
@@ -168,6 +168,34 @@
                             </v-card>
                         </v-hover>
                     </v-col>-->
+                </v-row>
+                <v-row v-else-if="windowSize < 1129 && this.destacados !== null">
+                    <v-col cols="12">
+                        <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
+                            <v-carousel-item v-for="(item, index) in destacados.slice(0,4)" :key="'d' + item.id + index">
+                                <v-sheet height="100%">
+                                    <v-hover v-slot="{ hover }" class="des-1" :style="{ backgroundImage: `linear-gradient(rgba(46, 46, 101, 0.8), rgba(119, 61, 189, 0.8)),url(${basePathApiUrl + item.attributes.imgMiniature.data.attributes.url })` }">
+                                        <v-card class="shadow-out">
+                                            <v-img src="" style="height:307px" alt="pruebas">
+                                                <v-expand-transition class="size-box" style="height:100%;">
+                                                    
+                                                    <div v-if="hover" class="transition-fast-in-fast-out bg-color-hover" style="height: 100%;">
+                                                        <div class="bg-color-hover pa-5">
+                                                            <h4 class="font-size-20 white--text text-img">{{item.attributes.name}}</h4>
+                                                            <div class="white--text mt-1" v-html="item.attributes.subtitle"></div>
+                                                            <!--<p class="white--text mt-1">Productos que dan vida y personalidad a tus marcas.  Conoce nuestra amplia variedad de concentrados de color y efectos especiales.</p>-->
+                                                            <!--<p class="white--text text-right">...Ver mas</p>-->
+                                                        </div>
+                                                    </div>
+                                                <!--<v-img :src="" v-if="hover" class="d-flex transition-fast-in-fast-out v-card--reveal text-h2 white--text" style="height: 100%;" alt="pruebas"></v-img>-->
+                                                </v-expand-transition>
+                                            </v-img>
+                                        </v-card>
+                                    </v-hover>
+                                </v-sheet>
+                            </v-carousel-item>
+                        </v-carousel>
+                    </v-col>
                 </v-row>
                 <div class="d-flex justify-center my-10">
                     <!--<nuxt-link to="/search-products" class="decoration-none">
@@ -471,7 +499,7 @@
                             </v-col>
                             <v-col v-if="windowSize < 1129">
                                 <!--<p class="text-body-all text-justify">Sucursales nacionales <span class="font-weight-bold">estratégicamente</span> ubicadas en: Monterrey, Guadalajara, Estado de México, San Luis Potosí, León, Mérida, Puebla, Querétaro.</p>-->
-                                <div class="text-body-all text-justify" v-html="$md.render( pageHome.txtOffices)"></div>
+                                <div class="text-body-all text-justify" v-html="pageHome.txtOffices"></div>
                             </v-col>
                         </v-row>
                         <v-row :class="{'max-5': windowSize>1129 }">
@@ -547,7 +575,7 @@
                     </p>-->
                     <div class="text-body-all white--text text-center px-15" v-html="pageHome.alliances.description"></div>
                     <div class="d-flex justify-center">
-                        <nuxt-link to="/alliances" class="decoration-none">
+                        <nuxt-link :to="localePath('alliances', this.lang)" class="decoration-none">
                             <v-btn class="rounded-lg my-10 px-10 py-5 body-1 black--text text-none primary-color" rounded>{{$t('home.btnalliances') }}</v-btn>
                             <!--<v-btn class="rounded-lg my-10 px-10 py-5 body-1 black--text text-none primary-color" rounded>{{ pageHome.alliances.txtBtn }}</v-btn>-->
                         </nuxt-link>
@@ -619,7 +647,7 @@
                                                     <img :src="basePathApiUrl + item.attributes.imgContent.data.attributes.url" style="width: 100%" :alt="item.attributes.title"/>
                                                     <v-card-title>{{item.attributes.title}}</v-card-title>
                                                     <v-card-subtitle class="text-left">
-                                                        <p class="" v-html="item.attributes.description"></p>
+                                                        <p class="truncate-lines" v-html="item.attributes.description"></p>
                                                     </v-card-subtitle>
                                                     <v-card-actions>
                                                         <v-spacer></v-spacer>
@@ -636,7 +664,7 @@
 
                 <div class="d-flex justify-center mb-16">
                     <nuxt-link to="/blogs" class="decoration-none">
-                        <v-btn rounded class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color">{{$t('home.btnblog')}}</v-btn>
+                        <v-btn rounded class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color">{{pageHome.blog.txtBtn}}</v-btn>
                         <!--<v-btn rounded class="rounded-lg text-body-all body-1 px-10 py-4 text-none default-color">{{ pageHome.blog.txtBtn }}</v-btn>-->
                     </nuxt-link>
                 </div>
@@ -660,7 +688,7 @@
                                         {{ $t('home.subappointment') }}
                                     </p>-->
                                     <p class="white--text text-body-all" v-html="pageHome.appointment.description"></p>
-                                    <nuxt-link to="/schedule-an-appointment" class="decoration-none">
+                                    <nuxt-link :to="localePath('appointment', this.lang)" class="decoration-none">
                                         <!--<v-btn class="rounded-lg px-10 py-5 subtitle-1 black--text text-none primary-color">
                                             {{ $t('home.btnappointment') }}
                                         </v-btn>-->
@@ -713,39 +741,36 @@ export default {
                 {img: require('../../static/polipropileno.png'), imgH: require('../../static/h-polipropileno.png') },
                 {img: require('../../static/estirenicos.png'), imgH: require('../../static/h-estirenicos.png') },
             ]*/
-            productos: null,
+            //productos: null,
             blogs: null, 
-            items: [
-                {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-                },
-                {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-                },
-                {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-                },
-                {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-                },
-            ],
+            destacados: []
         }
     },
     mounted() {
         this.getAllProducts()
         this.getAllBlogs()
+        this.getDestacados()
+    },
+    updated(){
+        //this.getAllProducts()
+        //this.getAllBlogs()
     },
     computed:{
-        ...mapState(['windowHeight','windowSize','pageHome','basePathApiUrl'])
+        ...mapState(['windowHeight','windowSize','pageHome','basePathApiUrl', 'productos', 'lang']),
     },
     methods: {
         async getAllProducts(){
-            this.productos = await this.$store.dispatch('getAllProducts')
+            //this.productos = await this.$store.dispatch('getAllProducts')
             //console.log(this.productos)
         },
         async getAllBlogs(){
             this.blogs = await this.$store.dispatch('getAllBlogs')
             //console.log(this.blogs)
+        },
+        async getDestacados(){
+            const auxDes = await this.$store.dispatch('getAllProducts')
+            this.destacados = auxDes.data.filter( item => item.attributes.subtitle !== "" && item.attributes.subtitle !== null)
+            //console.log(this.destacados)
         }
     }
 }

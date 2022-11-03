@@ -1,5 +1,66 @@
 <template>
     <div>
+        <div v-if="pageBlog!==null" class="" :class="{'bg-blog': windowSize > 1129, 'bg-blog-mb': windowSize < 1129 }" :style="{ backgroundImage: `url(${basePathApiUrl + pageBlog.banner.image.data[0].attributes.url })` }">
+            <v-row justify="center">
+                <v-col cols="12" align="center" class="mt-16">
+                    <!--<h1 class="font-archivo font-size-40 font-weight-bold white--text">Blog</h1>-->
+                    <h1 class="font-archivo font-size-40 font-weight-bold white--text" v-html="pageBlog.banner.title"></h1>
+                </v-col>
+            </v-row>
+            <v-row justify="center" class="mt-4" v-if="windowSize > 1129">
+                <v-col cols="10">
+                    <v-tabs fixed-tabs background-color="transparent">
+                        <v-tabs-slider color="yellow"></v-tabs-slider>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('All')">{{ $t('blog.opcTodos') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Tendencias')">{{ $t('blog.opcTendencias') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Productos')">{{ $t('blog.opcProductos') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Mercados')">{{ $t('blog.opcMercados') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Polnac Blue')">{{ $t('blog.opcPolnacBlue') }}</v-tab>
+                        <v-tab class="white--text" @click="() => getTypesBlogs('Eventos')">{{ $t('blog.opcEventos') }}</v-tab>
+                    </v-tabs>
+                </v-col>
+            </v-row>
+            <v-row justify="center">
+                <v-col cols="9" class="mb-16">
+                    <div class="d-flex">
+                        <v-text-field v-model="search" solo rounded class="mt-4" placeholder="Buscar" prepend-inner-icon="mdi-magnify" clearable></v-text-field>
+                        <v-btn class="ml-2 mt-5 secondary-color text-none white--text" @click="() => getTypesBlogs('search')">{{$t('blog.btnSearch')}}</v-btn>
+                    </div>
+                </v-col>
+                <v-col cols="3" align="center" class="mt-4" v-if="windowSize < 1129">
+                    <v-menu offset-y>
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-btn class="mx-2" fab dark color="white" v-bind="attrs" v-on="on">
+                                <v-icon color="black">
+                                    mdi-filter-outline
+                                </v-icon>
+                            </v-btn>
+                        </template>
+                        <v-list>
+                            <v-list-item @click="() => getTypesBlogs('All')">
+                                <v-list-item-title>{{ $t('blog.opcTodos') }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item @click="() => getTypesBlogs('Tendencias')">
+                                <v-list-item-title>{{ $t('blog.opcTendencias') }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item @click="() => getTypesBlogs('Productos')">
+                                <v-list-item-title>{{ $t('blog.opcProductos') }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item @click="() => getTypesBlogs('Mercados')">
+                                <v-list-item-title>{{ $t('blog.opcMercados') }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item @click="() => getTypesBlogs('Polnac Blue')">
+                                <v-list-item-title>{{ $t('blog.opcPolnacBlue') }}</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item @click="() => getTypesBlogs('Eventos')">
+                                <v-list-item-title>{{ $t('blog.opcEventos') }}</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
+                </v-col>
+            </v-row>
+        </div>
+
         <section>
             <v-container>
                 <v-row justify="center" class="my-10">
@@ -27,7 +88,7 @@
                                     <img :src="basePathApiUrl + item.attributes.imgContent.data.attributes.url" style="width: 100%" :alt="item.description"/>
                                     <v-card-title class="text-body-all">{{item.attributes.title}}</v-card-title>
                                     <v-card-subtitle class="text-left">
-                                        <div v-html="item.attributes.description"></div>
+                                        <div class="truncate-lines" v-html="item.attributes.description"></div>
                                     </v-card-subtitle>
                                     <v-card-actions>
                                         <v-spacer></v-spacer>
@@ -219,12 +280,12 @@
                             </v-col>
                         </v-row>
                         <v-row v-if="this.marcas !== null">
-                            <v-col cols="12" lg="4" md="4" sm="12" xs="12" v-for="(mar, index) in this.marcas.data.slice(0,3)" :key="'mar'+index">
+                            <v-col cols="12" lg="4" md="4" sm="12" xs="12" v-for="(mar, index) in this.marcas.slice(0,3)" :key="'mar'+index">
                                 <!--<v-img src="/group/logo-bioresin.png" contain max-height="120"></v-img>-->
                                 <nuxt-link :to="`/marcas/${mar.id}`" class="decoration-none">
                                     <v-img :src="basePathApiUrl + mar.attributes.image.data.attributes.url " contain max-height="120"></v-img>
                                     <!--<p class="font-size-18 mt-2 text-truncate">Especialistas en la distribución y fabricación de resinas biodegradables.</p>-->
-                                    <p class="font-size-18 mt-2 text-truncate">{{mar.attributes.subtitle}}</p>
+                                    <p class="font-size-18 mt-2 truncate-lines">{{mar.attributes.subtitle}}</p>
                                 </nuxt-link>
                                 
                             </v-col>
@@ -255,7 +316,7 @@
                         </v-row>
                         <v-row v-if="windowSize>1129 && this.mercados !== null" class="mb-16" >
                             
-                            <v-col cols="4" v-for="(mer, index) in this.mercados.data.slice(0,3)" :key="'mer'+index" align-self="center">
+                            <v-col cols="4" v-for="(mer, index) in this.mercados.slice(0,3)" :key="'mer'+index" align-self="center">
                                 <!--<v-img src="/blog/mercados.png" contain max-height="220"></v-img>-->
                                 <nuxt-link :to="`/market/${mer.id}`" class="decoration-none">
                                     <v-img :src="basePathApiUrl + mer.attributes.imgMiniarure.data.attributes.url" contain max-height="170" gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
@@ -319,11 +380,13 @@ export default {
             productos: null,
             blog: null,
             baseURL: '',
-            othersBlogs: null
+            othersBlogs: null,
+            search: '',
+            typesBlogs: null,
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight', 'basePathApiUrl'])
+        ...mapState(['windowSize', 'windowHeight', 'basePathApiUrl','pageBlog'])
     },
     mounted() {
         this.getMercados()
@@ -349,8 +412,9 @@ export default {
             //console.log(this.mercados)
         },
         async getMarcas(){
-            this.marcas = await this.$store.dispatch('getAllMarcas')
-            //console.log(this.marcas)
+            let auxMarcas = await this.$store.dispatch('getAllMarcas')
+            this.marcas = auxMarcas.data
+
         },
         async getProductos(){
             this.productos = await this.$store.dispatch('getAllProducts')
@@ -359,18 +423,100 @@ export default {
         async getBlog(id){
             this.blog = await this.$store.dispatch('getBlogById', id)
             //console.log(this.blog)
+            
+            if(this.blog.data.attributes.relatedBrand !== null || this.blog.data.attributes.relatedMarkets !== null){
+                let auxMarcas
+                let auxMercados
+
+
+                let relatedBands = this.blog.data.attributes.relatedBrand
+                relatedBands = relatedBands.split(",")
+
+                /*let relatedMarkets = this.blog.data.attributes.relatedMarkets
+                relatedMarkets = relatedMarkets.split(",")*/
+
+                const brands = await this.$store.dispatch('getAllMarcas')
+                const markets = this.mercados
+
+                auxMarcas = relatedBands.map(item => {
+                    if(brands.data.find(bran => bran.attributes.title.toLowerCase() === item.trim().toLowerCase() )){
+                        return brands.data.find(bran => bran.attributes.title.toLowerCase() === item.trim().toLowerCase())
+                    }
+                })
+
+                /*auxMercados = relatedMarkets.map(item => {
+                    if(markets.find(mark => mark.attributes.nameMarket.toLowerCase().match(item.toLowerCase()))){
+                        return markets.find(mark => mark.attributes.nameMarket.toLowerCase().match(item.toLowerCase()) )
+                    }
+                })*/
+
+                //console.log(relatedMarkets)
+                //console.log(auxMercados)
+
+                this.marcas = auxMarcas
+                //this.mercados = auxMercados
+            }
+
+            
         },
         async getBlogs(idBlog){
             const blogs = await this.$store.dispatch('getAllBlogs')
             this.itemsBlogs = blogs
             if(blogs.data.lenght > 1){
-                blogs.data.slice(0,2)
-                this.othersBlogs = blogs.filter(item => item.id != idBlog)
+                //blogs.data.slice(0,2)
+                this.othersBlogs = blogs.data.filter(item => item.id != idBlog)
 
             }else{
                 this.othersBlogs = blogs.data.filter(item => item.id != idBlog)
             }
             //console.log(this.othersBlogs)
+        },
+
+        async getProductos(){
+            this.productos = await this.$store.dispatch('getAllProducts')
+            //console.log(this.productos)
+        },
+        async getBlogsById(){
+            this.blogs = await this.$store.dispatch('getAllBlogs')
+            //console.log(this.blogs)
+        },
+        getTypesBlogs(type){
+            const auxBlog = this.othersBlogs
+            
+            switch(type){
+                case 'All': 
+                    if(this.$route.params.id){
+                        this.$router.push('/blogs')
+                    }else{
+                        this.typesBlogs = auxBlog
+                    }
+                    break
+                case 'Tendencias': 
+                    this.typesBlogs = auxBlog.filter(item=> item.attributes.tags === type) 
+                    break
+                case 'Productos':
+                    this.typesBlogs = auxBlog.filter(item=> item.attributes.tags === type) 
+                    break
+                case 'Mercados':
+                    this.typesBlogs = auxBlog.filter(item=> item.attributes.tags === type) 
+                    break
+                case 'Polnac Blue':
+                    this.typesBlogs = auxBlog.filter(item=> item.attributes.tags === type) 
+                    break
+                case 'Eventos': 
+                    this.typesBlogs = auxBlog.filter(item=> item.attributes.tags === type) 
+                    break
+                case 'search': 
+                    if(this.search !== ''){
+                        this.typesBlogs = auxBlog.data.filter(item => item.attributes.title.toLowerCase().match(this.search.toLowerCase()) 
+                        || item.attributes.description.toLowerCase().match(this.search.toLowerCase())
+                        || item.attributes.author.toLowerCase().match(this.search.toLowerCase()) )
+                    }
+                    //this.typesBlogs = auxBlog.data.filter(item => item.attributes.title.toLowerCase().match(this.search.toLowerCase()) ||  )
+                    break
+            }
+
+            //this.typesBlogs = auxBlog.data.filter(item => item.attributes.tags === type)
         }
     }
 }
@@ -389,5 +535,22 @@ export default {
 }
 .purple-polnac{
     color: #773DBD;
+}
+
+.bg-blog{
+    /*background-image: url('../../static/blog/bg-blog.png');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 420px;
+}
+.bg-blog-mb{
+    /*background-image: url('../../static/blog/bg-blog-mb.png');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 420px;
 }
 </style>

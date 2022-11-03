@@ -1,7 +1,7 @@
 <template>
     <div>
-        <WorkHead/>
-        <WorkSections/>
+        <SucursalesHead/>
+        <SucursalesSections/>
     </div>
 </template>
 
@@ -9,24 +9,24 @@
 import { mapState } from 'vuex'
 
 export default {
-    name:'Work-at-polnac',
+    name: 'branchOfices',
     head: {
-
+        
     },
-    data(){
-        return {
-
+    nuxtI18n: {
+        paths: {
+            es: '/sucursales',
+            eng:'/branch-offices',
         }
+    },
+    data() {
+        return {}
     },
     mounted() {
         this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
-
-        if(this.pageWork === null || this.lang !== 'esp'){
-            this.$store.dispatch('getPageWork')
-        }
     },
     methods: {
         Resize(){
@@ -34,9 +34,6 @@ export default {
             this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         }
     },
-    computed: {
-        ...mapState(['pageWork', 'lang'])
-    }
 }
 </script>
 

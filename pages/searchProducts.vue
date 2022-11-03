@@ -13,6 +13,12 @@ export default {
     head: {
 
     },
+    nuxtI18n: {
+        paths: {
+            es: '/buscador-de-productos',
+            eng:'/search-products',
+        }
+    },
     data() {
         return {
 
@@ -29,10 +35,10 @@ export default {
             this.$store.dispatch('getPageSearchProducts')
         }
 
-        /*setTimeout(() => {
-            //this.$store.dispatch('getCredentialsOther')
+        setTimeout(() => {
+            this.$store.dispatch('getCredentialsOther')
             //this.$store.dispatch('getCredentials')
-        }, 5000);*/
+        }, 5000);
 
         /*if(this.credentials === null){
             setTimeout(() => {

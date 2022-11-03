@@ -1,26 +1,34 @@
 <template>
     <div>
-        <SucursalesHead/>
-        <SucursalesSections/>
+        <GrupoHead/>
+        <GrupoSections />
     </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'vuex';
 
 export default {
-    name: 'branchOfices',
-    head: {
-        
+    name: "GrupoPolnac",
+    head: {},
+    nuxtI18n: {
+        paths: {
+            es: '/grupo-polnac',
+            eng:'/polnac-group',
+        }
     },
     data() {
-        return {}
+        return {};
     },
     mounted() {
         this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
+
+        if(this.pagePolnacGroup === null || this.lang !== 'esp'){
+            this.$store.dispatch('getPagePolnacGroup')
+        }
     },
     methods: {
         Resize(){
@@ -28,6 +36,9 @@ export default {
             this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         }
     },
+    computed: {
+        ...mapState(['pagePolnacGroup', 'lang'])
+    }
 }
 </script>
 

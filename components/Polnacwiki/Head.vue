@@ -7,8 +7,8 @@
             </v-col>
         </v-row>
         <v-row class="" justify="center">
-            <v-col cols="8" v-if="this.pruebas !== null">
-                <v-autocomplete solo rounded class="mt-4" placeholder="Buscar" prepend-inner-icon="mdi-magnify" clearable :items="this.pruebas.data" item-text="attributes.name" return-object
+            <v-col cols="8" v-if="this.pruebasLab !== null">
+                <v-autocomplete solo rounded class="mt-4" placeholder="Buscar" prepend-inner-icon="mdi-magnify" clearable :items="this.pruebasLab.data" item-text="attributes.name" return-object
                 @change="gotoPrueba"></v-autocomplete>
             </v-col>
             <v-col cols="3" align="center" class="mt-3" v-if="windowSize < 1129">
@@ -19,6 +19,7 @@
                 </v-btn>
             </v-col>
         </v-row>
+        <!-- esta seccion esta en el componente sections-->
     </div>
 </template>
 
@@ -32,10 +33,10 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowHeight','windowSize', 'showbanners', 'pagePolnacWiki','basePathApiUrl'])
+        ...mapState(['windowHeight','windowSize', 'showbanners', 'pagePolnacWiki','basePathApiUrl', 'pruebasLab'])
     },
     mounted(){
-        this.getPruebas()
+        //this.getPruebas()
     },
     methods: {
         async getPruebas(){
@@ -47,15 +48,15 @@ export default {
             //console.log(this.dataLab)
         },
         gotoPrueba(item){
-            console.log(item)
+            //console.log(item)
 
-            if(item.attributes.tipos_prueba.data.attributes.name === 'Metodo de Transformacion'){
-                const metodos= this.pruebas.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Metodo de Transformacion')
+            if(item.attributes.tipos_prueba.data.attributes.name === 'Metodo de Transformacion' || item.attributes.tipos_prueba.data.attributes.name === 'Transformation Method'){
+                const metodos= this.pruebas.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Metodo de Transformacion'  ||  item.attributes.tipos_prueba.data.attributes.name === 'Transformation Method')
                 const index = metodos.findIndex(itm => itm.id === item.id)
                 this.$router.push(`/polnac-wiki?tag=methods&id=${index}`)
                 this.$router.go(`/polnac-wiki?tag=methods&id=${index}`)
-            }else if(item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio'){
-                const pruebas = this.pruebas.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio')
+            }else if(item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio' || item.attributes.tipos_prueba.data.attributes.name === 'Lab tests'){
+                const pruebas = this.pruebas.data.filter(item => item.attributes.tipos_prueba.data.attributes.name === 'Pruebas de Laboratorio'  ||  item.attributes.tipos_prueba.data.attributes.name === 'Lab tests')
                 const index = pruebas.findIndex(itm => itm.id === item.id)
                 this.$router.push(`/polnac-wiki?tag=laboratory&id=${index}`)
                 this.$router.go(`/polnac-wiki?tag=laboratory&id=${index}`)
@@ -71,8 +72,8 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 100%; 
-    height: 350px;
+    width: 100%;
+    height: 420px;
 }
 
 .bg-polnacwiki-mb{
@@ -80,7 +81,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 100%; 
-    height: 400px;
+    width: 100%;
+    height: 420px;
 }
 </style>

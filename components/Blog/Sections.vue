@@ -2,13 +2,13 @@
     <div>
         <div v-if="pageBlog!==null" class="" :class="{'bg-blog': windowSize > 1129, 'bg-blog-mb': windowSize < 1129 }" :style="{ backgroundImage: `url(${basePathApiUrl + pageBlog.banner.image.data[0].attributes.url })` }">
             <v-row justify="center">
-                <v-col cols="10" align="center" class="mt-16">
+                <v-col cols="12" align="center" class="mt-16">
                     <!--<h1 class="font-archivo font-size-40 font-weight-bold white--text">Blog</h1>-->
                     <h1 class="font-archivo font-size-40 font-weight-bold white--text" v-html="pageBlog.banner.title"></h1>
                 </v-col>
             </v-row>
             <v-row justify="center" class="mt-4" v-if="windowSize > 1129">
-                <v-col cols="8">
+                <v-col cols="10">
                     <v-tabs fixed-tabs background-color="transparent">
                         <v-tabs-slider color="yellow"></v-tabs-slider>
                         <v-tab class="white--text" @click="() => getTypesBlogs('All')">{{ $t('blog.opcTodos') }}</v-tab>
@@ -21,9 +21,11 @@
                 </v-col>
             </v-row>
             <v-row justify="center">
-                <v-col cols="8" class="mb-16">
-                    <v-text-field v-model="search" solo rounded class="mt-4" placeholder="Buscar" prepend-inner-icon="mdi-magnify" clearable></v-text-field>
-                    <v-btn class="secondary-color text-none white--text" @click="() => getTypesBlogs('search')">{{$t('blog.btnSearch')}}</v-btn>
+                <v-col cols="9" class="mb-16">
+                    <div class="d-flex">
+                        <v-text-field v-model="search" solo rounded class="mt-4" placeholder="Buscar" prepend-inner-icon="mdi-magnify" clearable></v-text-field>
+                        <v-btn class="ml-2 mt-5 secondary-color text-none white--text" @click="() => getTypesBlogs('search')">{{$t('blog.btnSearch')}}</v-btn>
+                    </div>
                 </v-col>
                 <v-col cols="3" align="center" class="mt-4" v-if="windowSize < 1129">
                     <v-menu offset-y>
@@ -97,7 +99,7 @@
                                         <img :src="basePathApiUrl + blog.attributes.imgContent.data.attributes.url" style="width: 100%" alt="pruebas"/>
                                         <v-card-title>{{blog.attributes.title}}</v-card-title>
                                         <v-card-subtitle class="text-left">
-                                            <div v-html="blog.attributes.description"></div>
+                                            <div class="truncate-lines" v-html="blog.attributes.description"></div>
                                         </v-card-subtitle>
                                         <v-card-actions>
                                             <v-spacer></v-spacer>
@@ -381,7 +383,7 @@
                                         <img :src="basePathApiUrl + blog.attributes.imgContent.data.attributes.url" style="width: 100%" alt="pruebas"/>
                                         <v-card-title>{{blog.attributes.title}}</v-card-title>
                                         <v-card-subtitle class="text-left">
-                                            <div v-html="blog.attributes.description"></div>
+                                            <div class="truncate-lines" v-html="blog.attributes.description"></div>
                                         </v-card-subtitle>
                                         <v-card-actions>
                                             <v-spacer></v-spacer>
@@ -520,7 +522,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight', 'basePathApiUrl', 'pageBlog','basePathApiUrl'])
+        ...mapState(['windowSize', 'windowHeight', 'basePathApiUrl', 'pageBlog'])
     },
     mounted() {
         this.getProductos()
@@ -540,7 +542,11 @@ export default {
             
             switch(type){
                 case 'All': 
-                    this.typesBlogs = auxBlog.data
+                    if(this.$route.params.id){
+                        this.$router.push('/blogs')
+                    }else{
+                        this.typesBlogs = auxBlog.data
+                    }
                     break
                 case 'Tendencias': 
                     this.typesBlogs = auxBlog.data.filter(item=> item.attributes.tags === type) 
@@ -581,17 +587,19 @@ export default {
     box-shadow: none !important;
 }
 .bg-blog{
-    background-image: url('../../static/blog/bg-blog.png');
+    /*background-image: url('../../static/blog/bg-blog.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+    height: 420px;
 }
 .bg-blog-mb{
-    background-image: url('../../static/blog/bg-blog-mb.png');
+    /*background-image: url('../../static/blog/bg-blog-mb.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+    height: 420px;
 }
 </style>

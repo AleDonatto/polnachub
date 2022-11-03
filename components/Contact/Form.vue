@@ -40,9 +40,9 @@
                                                     <v-col cols="12" >
                                                         <!--<h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>-->
                                                         <h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelMarket}}</h1>
-                                                        <v-sheet class="mx-auto" v-if="this.mercado !== null">
+                                                        <v-sheet class="mx-auto" v-if="this.mercados !== null">
                                                             <v-slide-group v-model="model" class="pa-2" active-class="success" show-arrows-false multiple>
-                                                                <v-slide-item v-for="(item ,index) in this.mercado" :key="index" v-slot="{ active, toggle}">
+                                                                <v-slide-item v-for="(item ,index) in this.mercados" :key="index" v-slot="{ active, toggle}">
                                                                     <v-card class="ma-4" @click="() => { selectMarket(item.attributes.nameMarket) }" height="130" width="210"  :color="active ? '' : 'white'">
                                                                         <v-row @click="toggle" class="fill-height" align="center" justify="center">
                                                                             <v-img class="ma-4 text-right pa-2" :src="basePathApiUrl + item.attributes.imgMiniarure.data.attributes.url" contain max-height="130" max-width="210" :class="{'z-index-lower': active }"
@@ -65,7 +65,7 @@
                                                         <!--<h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un producto</h1>-->
                                                         <h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelProduct}}</h1>
                                                         <v-sheet class="mx-auto" v-if="this.productos !== null">
-                                                            <v-slide-group v-model="model2" class="pa-2" active-class="success" show-arrows-false>
+                                                            <v-slide-group v-model="model2" class="pa-2" active-class="success" show-arrows-false multiple>
                                                                 <v-slide-item v-for="(item, index) in this.productos.data" :key="index" v-slot="{ active, toggle}">
                                                                     <v-card class="ma-4" @click="() => {selectProduct(item.attributes.name)}" height="130" width="210"  :color="active ? '' : 'white'">
                                                                         <v-row @click="toggle" class="fill-height" align="center" justify="center">
@@ -100,7 +100,7 @@
                                                 <v-row justify="end">
                                                     <v-col cols="12" lg="6" md="6" sm="12" xs="12" align="right">
                                                         <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="nextStep">
-                                                            <span class="text-left">Continuar</span>
+                                                            <span class="text-left">{{ $t('form.next') }}</span>
                                                             <v-icon right>mdi-chevron-right</v-icon>
                                                         </v-btn>
                                                     </v-col>
@@ -132,21 +132,21 @@
                                                             <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value" v-model="formValues.industry" :rules="[rules.required]"></v-select>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Email" type="email" solo outlined class="rounded-xl" v-model="formValues.email" :rules="[rules.required]"></v-text-field>
+                                                            <v-text-field label="Email" type="email" solo outlined class="rounded-xl" v-model="formValues.email" :rules="[rules.required, rules.email]"></v-text-field>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl" v-model="formValues.phone"></v-text-field>
+                                                            <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl" v-model="formValues.phone" @keypress="filterKey" ></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Celular" solo outlined class="rounded-xl" v-model="formValues.celphone"></v-text-field>
+                                                            <v-text-field label="Celular" solo outlined class="rounded-xl" v-model="formValues.celphone" @keypress="filterKey"  ></v-text-field>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Código Postal" solo outlined class="rounded-xl" v-model="formValues.cp"></v-text-field>
+                                                            <v-text-field label="Código Postal" solo outlined class="rounded-xl" v-model="formValues.cp" @keypress="filterKey"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-autocomplete label="País" solo outlined class="rounded-xl" v-model="formValues.country" :items="countries" item-text="country_name" item-value="country_name"
+                                                            <v-autocomplete label="País" solo outlined class="rounded-xl" v-model="formValues.country" :items="countries" item-text="name.common" item-value="name.common"
                                                             @change="getStates" :rules="[rules.required]"></v-autocomplete>
                                                         </v-col>
 
@@ -160,7 +160,7 @@
                                                         </v-col>
 
                                                         <v-col cols="12" class="margin-botton-0">
-                                                            <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl" v-model="formValues.howKnow"></v-select>
+                                                            <v-text-field label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl" v-model="formValues.howKnow"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" class="margin-botton-0">
                                                             <v-textarea solo outlined class="rounded-xl" label="Cuéntanos brevemente qué deseas consultar con nosotros." v-model="formValues.message"></v-textarea>
@@ -170,19 +170,22 @@
                                                             <v-checkbox label="Soy cliente" color="#19D3C5" class="color-checkbox"></v-checkbox>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-checkbox label="Aceptar Aviso de Privacidad" color="#19D3C5"></v-checkbox>
+                                                            <div class="d-flex justify-center">
+                                                                <v-checkbox label="Aceptar" color="#19D3C5" :rules="[rules.required]"></v-checkbox>
+                                                                <a href="/terms/Aviso_de_Privacidad_POLNAC_abril_2022.pdf" target="_blank" class="pl-1 mt-5">{{ lang === 'es' ? "Aviso de Privacidad" : "Notice of Privacy" }}</a>
+                                                            </div>
                                                         </v-col>
                                                     </v-row>
                                                     <v-row>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                             <v-btn block color="#19D3C5" outlined class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="previousStep">
                                                                 <v-icon left color="black">mdi-chevron-left</v-icon>
-                                                                <span class="text-left black--text">Regresar</span>
+                                                                <span class="text-left black--text">{{ $t('form.back') }}</span>
                                                             </v-btn>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                             <v-btn block color="#19D3C5" class="py-6 px-4 rounded-xl text-none d-flex justify-space-between" @click="sendInformation">
-                                                                <span class="text-left">Enviar</span>
+                                                                <span class="text-left">{{$t('form.send')}}</span>
                                                                 <v-icon right>mdi-chevron-right</v-icon>
                                                             </v-btn>
                                                         </v-col>
@@ -217,13 +220,17 @@
                             <v-img src="/contact/dialog.png" contain max-height="120"></v-img>
                         </v-col>
                         <v-col cols="12">
-                            <h1 class="font-size-24 font-weight-bold text-center black--text">¡Tu mensaje ha sido enviado!</h1>
+                            <h1 class="font-size-24 font-weight-bold text-center black--text">
+                                {{ lang === 'es' ? "¡Tu mensaje ha sido enviado!" : "Your message has been sent!" }}
+                            </h1>
                         </v-col>
                         <v-col cols="8">
-                            <p class="text-body-all text-center text-center black--text">Gracias por tu mensaje. Te responderemos lo antes posible en tu correo.</p>
+                            <p class="text-body-all text-center text-center black--text">
+                                {{ lang === 'es' ? "Gracias por tu mensaje. Te responderemos lo antes posible en tu correo." : "Thank you for your message. We will reply to your email as soon as possible." }}
+                            </p>
                         </v-col>
                         <v-col cols="7" class="mt-5">
-                            <v-btn block class="rounded-xl text-none py-6" color="#19D3C5" @click="dialog = false">Entendido</v-btn>
+                            <v-btn block class="rounded-xl text-none py-6" color="#19D3C5" @click="dialog = false">{{ $t('form.ok') }}</v-btn>
                         </v-col>
                     </v-row>
                 </v-card-text>
@@ -237,15 +244,16 @@
         </v-dialog>
 
         <v-snackbar v-model="snackbar"> 
-            Seleccione un producto y mercado
+            {{ lang === 'es' ? "Seleccione un producto y mercado" : "Select a product and market"}}
             <template v-slot:action="{ attrs }">
-                <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">Close</v-btn>
+                <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">{{ $t('form.close') }}</v-btn>
             </template>
         </v-snackbar>
     </div>
 </template>
 
 <script>
+import { isDeclareModule } from '@babel/types';
 import { mapState } from 'vuex'
 
 export default {
@@ -256,8 +264,8 @@ export default {
             model2: [],
             progress: 55,
             dialog: false,
-            mercado: null,
-            productos: null,
+            //mercado: null,
+            //productos: null,
             area: [
                 {value: 'Almacén'},
                 {value: 'Calidad'},
@@ -330,11 +338,12 @@ export default {
         } 
     },
     computed: {
-        ...mapState(['pageContact', 'basePathApiUrl'])
+        ...mapState(['pageContact', 'basePathApiUrl', 'lang', 'productos', 'mercados'])
     },
     mounted() {
-        this.getMercados()
-        this.getProductos()
+        //this.getMercados()
+        //this.getProductos()
+        //this.testPaises()
         setTimeout(() => {
             this.getCountries()
         }, 4000);
@@ -351,10 +360,8 @@ export default {
         nextStep(){
             if(this.$refs.formContact.validate()){
                 if( this.formValues.market === '' || this.formValues.product === ''){
-                    console.log('no pasa')
                     this.snackbar = true
                 }else{
-                    console.log('pasa')
                     this.$refs.formContact.resetValidation()
                     this.progress = 100
                     this.e1 = 2
@@ -366,24 +373,39 @@ export default {
             this.e1 = 1
         },  
         sendInformation(){
-            console.log(this.$refs.formContact2.validate())
-            if(this.$refs.formContact.validate()){
+            if(this.$refs.formContact2.validate()){
                 let date = new Date();
                 this.formValues.sendDate = date.toISOString()
+                
+                const products = this.formValues.product.join(',')
+                const markets = this.formValues.market.join(',')
+                this.formValues.product = products
+                this.formValues.market = markets
 
                 const dataForm = {
                     data: this.formValues
                 }
 
+                this.$axios.setToken(false)
+                //this.$axios.setHeader(false)
+                this.$axios.setHeader('Accept',false)
+                this.$axios.setHeader('api-token',false)
+                this.$axios.setHeader("user-email", false)
+
                 // /api/contacto-polnacs
-                /*this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-polnacs`, dataForm)
+                this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-polnacs`, dataForm)
                 .then(res => {
                     this.dialog = !this.dialog
-                    this.$refs.form.reset()
+                    this.$refs.formContact.reset()
+                    this.$refs.formContact2.reset()
+
+                    setTimeout(() => {
+                        this.getCountries()
+                    }, 4000);
                 })
                 .catch(err => {
                     console.log(err.response)
-                })*/
+                })
             }
         },
         selectProduct(toggle){
@@ -406,6 +428,18 @@ export default {
             return response.data.auth_token
         },
         async getCountries(){
+            /*const america = await this.$axios.get('https://restcountries.com/v3.1/region/ame')
+            const auxeuropa = await this.$axios.get('https://restcountries.com/v3.1/region/europe')
+            const europa = auxeuropa.data.filter(item => item.name.common === 'Poland' || item.name.common === 'Spain' || item.name.common === 'Sweden' 
+            || item.name.common === 'Belgium' || item.name.common === 'Italy' || item.name.common === 'Germany' || item.name.common === 'France' || item.name.common === 'Netherlands')
+
+            const auxafrica = await this.$axios.get('https://restcountries.com/v3.1/region/africa')
+            const africa = auxafrica.data.filter(item => item.name.common === 'South Africa')
+
+            this.countries = america.data
+            this.countries = this.countries.concat(europa)
+            this.countries = this.countries.concat(africa)*/
+
             this.token = await this.getToken()
 
             this.$axios.setHeader('Authorization', `Bearer ${this.token}`)
@@ -425,6 +459,24 @@ export default {
             //console.log(response)
             this.citys = response.data
             
+        },
+        filterKey(e) {
+            // Si el código es menor que 48 (0) o mayor que 57 (9)
+            if(e.keyCode < 48 || e.keyCode > 57) {
+                // No se agrega
+                e.preventDefault();
+            }
+        },
+        async testPaises(){
+            this.token = await this.getToken()
+
+            this.$axios.setHeader('Authorization', `Bearer ${this.token}`)
+            this.$axios.setHeader("Accept", "application/json")
+            
+            const allCountries = await this.$axios.get('https://www.universal-tutorial.com/api/countries')
+            console.log(allCountries.data)
+            //this.countries = allCountries.data
+            //console.log(africa)
         }
     }
 }

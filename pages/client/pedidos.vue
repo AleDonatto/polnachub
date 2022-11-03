@@ -7,10 +7,11 @@
 <script>
 export default {
     name: 'PedidosUser',
-    data(){
-        return {
+    head: {
 
-        }
+    },
+    data(){
+        return {}
     },
     mounted() {
         this.$store.dispatch('defaultLanguaje')

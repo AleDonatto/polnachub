@@ -1,37 +1,29 @@
 <template>
     <div>
-        <GrupoHead/>
-        <GrupoSections />
+        <ServicesContact/>
     </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
-    name: "GrupoPolnac",
     head: {},
     data() {
-        return {};
+        return {
+
+        }
     },
+    
     mounted() {
         this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
-
-        if(this.pagePolnacGroup === null || this.lang !== 'esp'){
-            this.$store.dispatch('getPagePolnacGroup')
-        }
     },
     methods: {
         Resize(){
             this.$store.commit('StateAssign', {windowSize:window.innerWidth})
             this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         }
-    },
-    computed: {
-        ...mapState(['pagePolnacGroup', 'lang'])
     }
 }
 </script>

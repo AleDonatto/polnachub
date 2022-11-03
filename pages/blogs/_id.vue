@@ -1,6 +1,5 @@
 <template>
     <div>
-        <BlogHead/>
         <BlogSectionIndividualBlog/>
     </div>
 </template>

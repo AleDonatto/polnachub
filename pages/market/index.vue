@@ -11,6 +11,12 @@ import { mapState } from 'vuex'
 export default {
     name: 'PageMarket',
     head: {},
+    nuxtI18n: {
+        paths: {
+            es: '/mercados',
+            eng:'/markets',
+        }
+    },
     data(){
         return {
 
@@ -24,6 +30,7 @@ export default {
 
         if(this.pageMarkets === null || this.lang !== 'esp'){
             this.$store.dispatch('getPageMarkets')
+            this.$store.dispatch('getAllMarkets')
         }
     },
     methods: {

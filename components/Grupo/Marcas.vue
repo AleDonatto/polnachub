@@ -154,11 +154,11 @@
 
                 <v-row class="mt-5" justify="center">
                     <v-col cols="12" xl="9" class="bg-catalogo rounded-lg mb-10" align="center">
-                        <h1 class="font-archivo white--text font-weight-bold font-size-34 mt-10">¿Deseas consultar nuestro catálogo?</h1>
+                        <h1 class="font-archivo white--text font-weight-bold font-size-34 mt-10">{{ lang === 'es' ? "¿Deseas consultar nuestro catálogo?" : "Do you want to consult our catalogue?"}}</h1>
 
                         <nuxt-link to="/search-products" class="decoration-none">
                             <v-btn class="rounded-lg px-16 py-6 mt-6 mb-16 text-none" color="#19D3C5">
-                                <span class="black--text">Ver productos</span>
+                                <span class="black--text">{{ lang === 'es' ? 'Ver productos' : 'See products'}}</span>
                             </v-btn>
                         </nuxt-link>
                     </v-col>
@@ -166,11 +166,11 @@
 
                 <v-row justify="center" class="mt-16">
                     <v-col cols="8" xl="5">
-                        <h1 class="font-size-30 font-weight-bold">Otras marcas</h1>
+                        <h1 class="font-size-30 font-weight-bold">{{ lang === 'es' ? 'Otras Marcas' : 'Others Brands' }}</h1>
                     </v-col>
                     <v-col cols="4" xl="4" align="right">
-                        <nuxt-link to="/polnac-group" class="color-decoration">
-                            <h1 class="purple-polnac" >Ver todas</h1>
+                        <nuxt-link :to="localePath('polnacGroup', lang)" class="color-decoration">
+                            <h1 class="purple-polnac" >{{lang === 'es' ? 'Ver todas' : 'View All'}}</h1>
                         </nuxt-link>
                     </v-col>
                 </v-row>
@@ -181,7 +181,7 @@
                             <!--<v-img src="/group/logo-bioresin.png" contain max-width="210"></v-img>-->
                             <v-img :src="basePathApiUrl + mar.attributes.image.data.attributes.url" contain max-width="210"></v-img>
                             <!--<p class="text-body-all text-left mt-2 black--text text-truncate">Especialistas en la distribución y fabricación de resinas biodegradables. </p>-->
-                            <p class="text-body-all text-left mt-2 black--text text-truncate">{{mar.attributes.subtitle}}</p>
+                            <p class="text-body-all text-left mt-2 black--text truncate-lines">{{mar.attributes.subtitle}}</p>
                         </nuxt-link>
                     </v-col>
                     <!--<v-col cols="3" xl="2" align="center">
@@ -256,15 +256,15 @@ export default {
                 {img: require('../../static/group/logo-adilene.png'), text: 'Aditivos para solventar cualquier reto. En Adilene encontrarás un amplio abanico de aditivos para todo tipo de aplicaciones.'},
             ],*/
             marca: null,
-            marcas: null,
+            //marcas: null
         }
     },
     mounted() {
         this.getMarca(this.$route.params.id)
-        this.getMarcas()
+        //this.getMarcas()
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight','baPseathApiUrl'])
+        ...mapState(['windowSize', 'windowHeight','basePathApiUrl', 'lang', 'marcas']),
     },
     methods: {
         async getMarca(id){

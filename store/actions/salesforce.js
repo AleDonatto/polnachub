@@ -1,6 +1,5 @@
 export default {
     async getCredentials({commit, dispatch, state}){
-
         const params = new URLSearchParams();
         params.append('username', process.env.SALESFORCE_USER)
         params.append('password', process.env.SALESFORCE_PASSWORD)
@@ -12,9 +11,11 @@ export default {
         //this.$axios.setHeader('Authorization', '*')
         //this.$axios.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,PATCH,OPTIONS')
 
-        //await this.$axios.post('https://test.salesforce.com/Token', params)
-        await this.$axios.$post('/salesforce/services/oauth2/token', params)
+        await this.$axios.post('https://test.salesforce.com/services/oauth2/token', params)
+        //await this.$axios.post('https://test.salesforce.com/services/oauth2/token?username=desatimx@polnac.com.bxt01&password=H1u2g3o435&grant_type=password&client_id=3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh&client_secret=C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F')
+        //await this.$axios.post('/salesforce/services/oauth2/token', params)
         .then(res => {
+            console.log(res.data)
             let access_token = res.data.access_token
             //let access_token = '00DR00000002gFl!AQcAQMO.J4uTITbz2byqYl3250qT7PcJMACPQdkCNLf1ehYVyIlsB0FUO3kSWUBHzB3Z1RthAvWUp8XEkEjFj4y06IMVeUfz'
             
@@ -31,7 +32,6 @@ export default {
     }, 
 
     async getCredentialsOther({commit, dispatch, state}){
-
         const params = new URLSearchParams();
         params.append('grant_type', process.env.SALESFORCE_GRANT_TYPE)
         params.append('client_id', process.env.SALESFORCE_CLIENT_ID)
@@ -39,24 +39,27 @@ export default {
         params.append('username', process.env.SALESFORCE_USER)
         params.append('password', process.env.SALESFORCE_PASSWORD)
 
-        /*const json_data= {
-            'grant_type': process.env.SALESFORCE_GRANT_TYPE,
-            'client_id': process.env.SALESFORCE_CLIENT_ID,
-            'client_secret': process.env.SALESFORCE_CLIENT_SECRET,
-            'username': process.env.SALESFORCE_USER,
-            'password': process.env.SALESFORCE_PASSWORD
-        }*/
+        /*const data = {
+            access_token: "00DR00000002gFl!AQcAQAmh9JrzDlHpaJrLTTF.e1JxMerBvPbOPPMNoiYE0Dw7tOnYmKtHd1o91pr6z5Co8PEaZFTPjXCpqS4QdAcuUPqDlRQ1",
+            instance_url: "https://polnac--bxt01.sandbox.my.salesforce.com",
+            id: "https://test.salesforce.com/id/00DR00000002gFlMAI/005R0000004g2EyIAI",
+            token_type: "Bearer",
+            issued_at: "1666882466130",
+            signature: "rntNOhevAE83+bJmxDWmNi9S64Gkp6sgiSDR4LWSks8="
+        }
+        commit('StateAssign', {credentials: data})*/
 
-        this.$axios.setHeader('Access-Control-Allow-Methods','POST')
         this.$axios.setHeader('Access-Control-Allow-Origin', '*')
-        //this.$axios.setHeader('Authorization', '*')
-        //this.$axios.setHeader('Content-Type', 'application/json',)
+        this.$axios.setHeader('Access-Control-Allow-Methods','POST')
+        this.$axios.setHeader('Authorization', '*')
+        this.$axios.setHeader('Content-Type', 'application/json',)
         //this.$axios.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,PATCH,OPTIONS')
 
-        await this.$axios.$post('https://test.salesforce.com/services/oauth2/token', params)
-        //await this.$axios.post('https://test.salesforce.com/services/oauth2/token?username=desatimx@polnac.com.bxt01&password=H1u2g3o435&grant_type=password&client_id=3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh&client_secret=C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F')
+        //await this.$axios.post('https://test.salesforce.com/services/oauth2/token', params)
+        await this.$axios.post('https://test.salesforce.com/services/oauth2/token?username=desatimx@polnac.com.bxt01&password=H1u2g3o435&grant_type=password&client_id=3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh&client_secret=C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F')
         //await this.$axios.post('/salesforce/services/oauth2/token', params)
         .then(res => {
+            console.log('paso')
             let access_token = res.data.access_token
             
             this.$axios.setToken(access_token, 'Bearer')
@@ -78,7 +81,7 @@ export default {
         const params = new URLSearchParams()
         params.append('q', 'SELECT+Name+FROM+Familia_de_productos__c')
 
-        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c')
+        await this.$axios.get(`${process.env.SALESFORCE_USER_URL}/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c`)
         //await this.$axios.get('https://polnac--bxt01.my.salesforce.com/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c')
         .then( res => {
             //console.log(res)
@@ -93,7 +96,7 @@ export default {
         const params = new URLSearchParams()
         params.append('q', 'SELECT+Name+FROM+Mercados__c')
 
-        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Mercados__c')
+        await this.$axios.get(`${process.env.SALESFORCE_USER_URL}/services/data/v55.0/query/?q=SELECT+Name+FROM+Mercados__c`)
         .then( res => {
             //console.log(res)
             commit('StateAssign', {pMercado: res.data})
@@ -108,7 +111,7 @@ export default {
         params.append('q', 'SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
 
         //await this.$axios.get('/salesforcepolnac/services/data/v55.0/query/', params)
-        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+M_todos_de_transformaci_n__c')
+        await this.$axios.get(`${process.env.SALESFORCE_USER_URL}/services/data/v55.0/query/?q=SELECT+Name+FROM+M_todos_de_transformaci_n__c`)
         .then(res => {
             //console.log(res.data)
             commit('StateAssign', {pMetTransformacion: res.data})
@@ -122,7 +125,7 @@ export default {
         const qparams = new URLSearchParams()
         qparams.append('q', 'SELECT+Name+FROM+Fabricantes_Web__c')
     
-        await this.$axios.get('/information/services/data/v55.0/query/?q=SELECT+Name+FROM+Fabricantes_Web__c')
+        await this.$axios.get(`${process.env.SALESFORCE_USER_URL}/services/data/v55.0/query/?q=SELECT+Name+FROM+Fabricantes_Web__c`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {pFabricante: res.data})
@@ -811,11 +814,42 @@ export default {
         dispatch('cleanTables')
     },
 
+    /* methods dashboard client */
+
     addListCard({commit, dispatch, state}, data){
         let aux = []
         aux.push(...state.card, data)
         commit('StateAssign', {card: aux})
 
         console.log(this.state.card)
+    },
+
+    async loginDashboard(){
+        
+        //this.$axios.$post()
+    },
+
+    async getInvoiceClient({commit, state, dispatch}, client){
+        const token = state.credentials.access_token
+        this.$axios.setToken(token, 'Bearer')
+
+        const invoice = await this.$axios.$get(`${process.env.SALESFORCE_USER_URL}/services/data/v55.0/query/?q=SELECT+Cliente__r.Name,
+        Name,Pedido__r.Name,Etapa__c,Fecha_de_Vencimiento__c,Monto__c,Monto_Pagado__c,Monto_Restante__c,Metodo_de_pago__c+FROM+Factura__c+WHERE (Cliente__r.Name ='GRUPO ANAVIA S.A. DE C.V. USD')`)
+
+        console.log(invoice)
+        return invoice
+    },
+
+    async getOrdersClient({commit, state, dispatch}, client){
+        const token = state.credentials.access_token
+        this.$axios.setToken(token, 'Bearer')
+
+        const orders = await this.$axios.$get(`${process.env.SALESFORCE_USER_URL}/services/data/v55.0/query/?q=SELECT+Name,Cliente__r.Name,
+        Etapa__c,Total__c+FROM+Pedido__c+WHERE (Cliente__r.Name ='GRUPO ANAVIA S.A. DE C.V. USD')`)
+
+        console.log(orders)
+        return orders
     }
+
+
 } 

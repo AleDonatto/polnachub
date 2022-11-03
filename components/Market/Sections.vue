@@ -186,8 +186,8 @@
                             </v-col>
                         </v-row>-->
 
-                        <v-row v-if="this.markets !== null ">
-                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" v-for="(item, index) in this.markets" :key="index">
+                        <v-row v-if="this.mercados !== null ">
+                            <v-col cols="12" lg="3" md="3" sm="12" xs="12" v-for="(item, index) in this.mercados" :key="index">
                                 <nuxt-link :to="`/market/type/${item.id}`" class="text-none decoration-none black--text">
                                     <!--<v-img src="/market/consumo.png" contain max-height="240"></v-img>-->
                                     <v-img :src="basePathApiUrl + item.attributes.imgMiniarure.data.attributes.url" contain max-height="240"></v-img>
@@ -202,7 +202,7 @@
                                         Abarca un sinfín de productos para uso cotidiano, por ejemplo: artículos para el hogar, oficina y escuela, mobiliario, decorativo, recreativo, comercial, entre otros.  
                                         POLNAC cuenta con una incomparable gama de productos. Cualquier que sea la aplicación y/o requerimientos POLNAC te respalda. 
                                     </p>-->
-                                    <p class="body-1 text-truncate">{{item.attributes.descriptionMin}}</p>
+                                    <p class="body-1 truncate-lines">{{item.attributes.descriptionMin}}</p>
                                 </nuxt-link>
                             </v-col>
                         </v-row>
@@ -255,10 +255,10 @@ export default {
         }
     },
     mounted() {
-        this.getMercados()
+        //this.getMercados()
     },
     computed: {
-        ...mapState(['windowSize','windowHeigth','pageMarkets', 'basePathApiUrl'])
+        ...mapState(['windowSize','windowHeigth','pageMarkets', 'basePathApiUrl', 'mercados'])
     },
     methods: {
         async getMercados(){

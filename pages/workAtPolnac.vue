@@ -1,27 +1,47 @@
 <template>
     <div>
-        <AppointmentCalendary/>
+        <WorkHead/>
+        <WorkSections/>
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-    name: 'shedule-an-appointment',
-    head: '',
-    data() {
-        return {}
+    name:'Work-at-polnac',
+    head: {
+
+    },
+    nuxtI18n: {
+        paths: {
+            es: '/trabaja-con-polnac',
+            eng:'/work-at-polnac',
+        }
+    },
+    data(){
+        return {
+
+        }
     },
     mounted() {
         this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
+
+        if(this.pageWork === null || this.lang !== 'esp'){
+            this.$store.dispatch('getPageWork')
+        }
     },
     methods: {
         Resize(){
             this.$store.commit('StateAssign', {windowSize:window.innerWidth})
             this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         }
+    },
+    computed: {
+        ...mapState(['pageWork', 'lang'])
     }
 }
 </script>

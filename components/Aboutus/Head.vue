@@ -7,7 +7,7 @@
                 <!--<h1 class="font-archivo font-size-40 white--text font-weight-bold">¿Quiénes somos?</h1>-->
                 <h1 class="font-archivo font-size-40 white--text font-weight-bold" v-html="pageAboutUs.head.title"></h1>
             </v-col>
-            <v-col cols="9" class="mt-5 mb-10" align="center">
+            <v-col cols="10" class="mt-5 mb-10" align="center">
                 <!--<p class="title white--text">
                     Desde 1984, <span class="letters font-weight-bold">POLNAC</span> ha construido unas historia basada en la innovación, <br>
                     el compromiso, y la excelencia. <span class="letters font-weight-bold">POLNAC</span>: siempre comprometido, siempre a la vanguardia.
@@ -42,6 +42,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+    height: 420px;
 }
 
 .bg-about-mb{
@@ -51,6 +52,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+    height: 420px;
 }
 .letters{
     color: #E0E621

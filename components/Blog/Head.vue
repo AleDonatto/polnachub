@@ -39,10 +39,10 @@
             </v-col>-->
         </v-row>
         <v-row justify="center">
-            <v-col cols="8" class="mb-16">
+            <v-col cols="8" class="">
                 <v-text-field solo rounded class="mt-4" placeholder="Buscar" prepend-inner-icon="mdi-magnify" clearable></v-text-field>
             </v-col>
-            <v-col cols="3" align="center" class="mt-4" v-if="windowSize < 1129">
+            <v-col cols="4" align="center" class="mt-4" v-if="windowSize < 1129">
                 <v-btn class="mx-2" fab dark color="white">
                     <v-icon color="black">
                         mdi-filter-outline
@@ -70,17 +70,19 @@ export default {
 
 <style scoped>
 .bg-blog{
-    background-image: url('../../static/blog/bg-blog.png');
+    /*background-image: url('../../static/blog/bg-blog.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+    height: 420px;
 }
 .bg-blog-mb{
-    background-image: url('../../static/blog/bg-blog-mb.png');
+    /*background-image: url('../../static/blog/bg-blog-mb.png');*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
+    height: 420px;
 }
 </style>

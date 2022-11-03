@@ -5,6 +5,7 @@
         </v-sheet>
     </div>
     <div v-else>
+
         <section>
             <v-container>
                 <v-row justify="center" class="my-10">
@@ -211,7 +212,7 @@
                     <v-col cols="12" xl="5" lg="6" md="6" sm="12" xs="12" v-if="windowSize > 1129">
                         <v-row>
                             <v-col cols="6" align="center" class="pt-10">
-                                <v-img src="/aboutus/inventario.png" contain max-width="200"></v-img>
+                                <v-img :src="basePathApiUrl + pageAboutUs.imgMaterial.data.attributes.url" contain max-width="200"></v-img>
                                 <!--<p class="text-left text-body-all">
                                     Sucursales donde mantenemos un amplio inventario de materiales y personal altamente calificado.
                                 </p>-->
@@ -353,7 +354,7 @@
                                         Forma parte de una empresa mexicana más vanguardista en constante crecimiento internacional.
                                     </p>-->
                                     <div class="white--text text-body-all" v-html="pageAboutUs.work.description"></div>
-                                    <nuxt-link to="/work-at-polnac" class="decoration-none">
+                                    <nuxt-link :to="localePath('workAtPolnac', this.lang)" class="decoration-none">
                                         <!--<v-btn dark color="rgba(25, 211, 197, 1)" class="rounded-lg body-1 px-10 py-5 black--text text-none">
                                             Ver mas
                                         </v-btn>-->
@@ -380,7 +381,7 @@ export default {
         return {};
     },
     computed: {
-        ...mapState(["windowSize", "windowHeight", 'pageAboutUs', 'basePathApiUrl'])
+        ...mapState(["windowSize", "windowHeight", 'pageAboutUs', 'basePathApiUrl', 'lang'])
     },
 }
 </script>

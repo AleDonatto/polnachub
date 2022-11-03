@@ -10,6 +10,12 @@ import { mapState } from 'vuex'
 export default {
     name: 'pageContact',
     head: {},
+    nuxtI18n: {
+        paths: {
+            es: '/contactanos',
+            eng:'/contact',
+        }
+    },
     data() {
         return {}
     },

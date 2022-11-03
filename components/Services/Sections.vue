@@ -99,7 +99,7 @@
                                 <div class="text-body-all" :class="{'mx-6' : windowSize < 1129 }" v-html="pageServices.textLaboratory"></div>
                             </v-col>
                             <v-col cols="10" xl="4" lg="6" md="6" align="center" class="mb-16">
-                                <nuxt-link to="/laboratory" class="text-decoration-none">
+                                <nuxt-link :to="localePath('laboratory', this.lang)" class="text-decoration-none">
                                     <v-btn class="rounded-lg text-none d-flex justify-space-between py-5" block outlined color="#19D3C5">
                                         <span class="black--text">{{pageServices.txtBtnLaboratory}}</span>
                                         <!--<span class="black--text">Ver pruebas de Laboratorio</span>-->
@@ -144,7 +144,7 @@ export default {
         return {}
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight','pageServices', 'basePathApiUrl'])
+        ...mapState(['windowSize', 'windowHeight','pageServices', 'basePathApiUrl','lang'])
     }
 }
 </script>

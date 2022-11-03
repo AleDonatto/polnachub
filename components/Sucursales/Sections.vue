@@ -91,9 +91,9 @@ export default {
     data() {
         return{
             region: 3,
-            regiones: null,
-            sucursales: null,
-            dataSucursales: null,
+            regiones: [],
+            sucursales: [],
+            dataSucursales: [],
             center: {
                 lat:19.415290318763805,lng:-99.12714146567397
             },
@@ -381,8 +381,9 @@ export default {
         },
         async getSucursales(){
             this.dataSucursales = await this.$store.dispatch('getSucursales')
-            this.sucursales = this.dataSucursales
-            //console.log(this.sucursales)
+            this.sucursales = this.dataSucursales.data.filter(item => item.attributes.region.data.id === this.region)
+            this.sucursalesDisabled = false
+            console.log(this.sucursales)
         },
 
     },

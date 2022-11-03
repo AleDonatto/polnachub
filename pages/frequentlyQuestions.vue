@@ -1,24 +1,22 @@
 <template>
     <div>
-        <LaboratoryHead />
-        <LaboratorySections />
+        <QuestionsHead/>
+        <QuestionsSections/>
     </div>
 </template>
 
 <script>
-export default {
-    name: 'pageLaboratory',
-    head: {
+import { mapState } from 'vuex'
 
+export default {
+    data() {
+        return {}
     },
     nuxtI18n: {
         paths: {
-            es: '/laboratorio',
-            eng:'/laboratory',
+            es: '/preguntas-frecuentes',
+            eng:'/frequently-questions',
         }
-    },
-    data() {
-        return {} 
     },
     mounted() {
         this.$store.dispatch('defaultLanguaje')
@@ -26,19 +24,22 @@ export default {
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
 
-        this.$store.dispatch('getPageLaboratory')
-        this.$store.dispatch('getAllTipoPruebas')
+        if(this.pageQuestions === null || this.lang !== 'esp'){
+            this.$store.dispatch('getPageQuestions')
+        }
     },
     methods: {
         Resize(){
             this.$store.commit('StateAssign', {windowSize:window.innerWidth})
             this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         }
+    },
+    computed: {
+        ...mapState(['pageQuestions', 'lang'])
     }
-
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

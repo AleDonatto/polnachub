@@ -1,5 +1,6 @@
 {
     "appbar": {
+        "inicio": "Home",
         "login": "Loggin",
         "contact": "Contact",
         "aboutus": "About Us",
@@ -13,7 +14,9 @@
         "grupoPolnac": "Polnac Group",
         "sucursales": "Branch offices",
         "colaborador": "Are you a collaborator?",
-        "laboratorio": "Laboratory"
+        "laboratorio": "Laboratory",
+        "preguntas": "frequently-questions",
+        "idioma": "Change Lang"
     },
     "blog": {
         "opcTodos": "All",
@@ -26,6 +29,17 @@
         "btnContinue": "Continue"
     },
     "question": "Questions",
+    "laboratory": {
+        "learn": "Learn more about the process",
+        "more": "Read more"
+    },
+    "form": {
+        "back": "Back",
+        "next": "Next",
+        "send": "Send",
+        "close": "Close",
+        "ok": "Done"
+    },
     "home": {
         "portafolio": "Discover the ultimate portfolio of products.",
         "subportafolio": "POLNAC specializes not only in the manufacture of compounds and masterbatch concentrates but also in the commercialization and distribution of plastic resins, emerging as a global leader within the industry.",
