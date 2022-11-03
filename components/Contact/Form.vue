@@ -373,7 +373,8 @@ export default {
             this.e1 = 1
         },  
         sendInformation(){
-            if(this.$refs.formContact2.validate()){
+            this.$router.push(this.localePath('thanksContact'))
+            /*if(this.$refs.formContact2.validate()){
                 let date = new Date();
                 this.formValues.sendDate = date.toISOString()
                 
@@ -406,7 +407,7 @@ export default {
                 .catch(err => {
                     console.log(err.response)
                 })
-            }
+            }*/
         },
         selectProduct(toggle){
             //console.log(toggle)

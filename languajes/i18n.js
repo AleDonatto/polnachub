@@ -61,6 +61,10 @@ export default {
         frequentlyQuestions : {
             "eng" : "/frequently-questions",
             "es" : "/preguntas-frecuentes"
+        },
+        thanksContact : {
+            "eng":"/thanks-for-contactingus",
+            "es": "/gracias-por-contactarnos",
         }
     }
 }

@@ -302,9 +302,6 @@
       </v-row>
     </div>
 
-    <div>
-      <p>{{this.$route.path.includes('campanias')}}</p>
-    </div>
   </v-footer>
 </template>
 
