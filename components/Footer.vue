@@ -168,8 +168,8 @@
         </v-container>
       </v-row>
     </div>
-
-    <div :class="{'img-footer-d':windowSize > 1129 , 'img-footer-mobile-button': windowSize < 1129}" v-if="this.url.includes('campanias')">  
+    
+    <div :class="{'img-footer-d':windowSize > 1129 , 'img-footer-mobile-button': windowSize < 1129}" v-else-if="this.url.includes('campanias')">  
       <v-row justify="center">
         <v-container fluid :class="{'mx-16': windowSize > 1129, 'mx-5': windowSize < 1129}">
             <v-row justify="center" align="end" class="mb-10">
@@ -300,6 +300,10 @@
             </v-row>
         </v-container>
       </v-row>
+    </div>
+
+    <div>
+      <p>{{this.$route.path.includes('campanias')}}</p>
     </div>
   </v-footer>
 </template>

@@ -464,47 +464,6 @@
 
         </div>
 
-
-        <v-dialog v-model="dialog" width="700" overlay-color="#2E2E65">
-            <v-card elevation="6">
-                <v-card-title>
-                    <v-row justify="end">
-                        <v-col cols="2">
-                            <v-btn outlined color="white"  @click="closeDialog">
-                                <v-img src="/contact/line.png" contain max-width="25"></v-img>
-                            </v-btn>
-                        </v-col>
-                    </v-row>
-                </v-card-title>
-
-                <v-card-text>
-                    <v-row justify="center">
-                        <v-col cols="6">
-                            <v-img src="/contact/dialog.png" contain max-height="120"></v-img>
-                        </v-col>
-                        <v-col cols="12">
-                            <h1 class="font-size-24 font-weight-bold text-center black--text">
-                                ¡Tu mensaje ha sido enviado!
-                            </h1>
-                        </v-col>
-                        <v-col cols="8">
-                            <p class="text-body-all text-center text-center black--text">
-                                Gracias por tu mensaje. Te responderemos lo antes posible en tu correo.
-                            </p>
-                        </v-col>
-                        <v-col cols="7" class="mt-5">
-                            <v-btn block class="rounded-xl text-none py-6" color="#19D3C5" @click="closeDialog">Entendido</v-btn>
-                        </v-col>
-                    </v-row>
-                </v-card-text>
-
-                <v-divider></v-divider>
-
-                <v-card-actions>
-                    <!--<v-btn color="primary" text @click="dialog = false">I accept</v-btn>-->
-                </v-card-actions>
-            </v-card>
-        </v-dialog>
     </div>
 </template>
 
@@ -535,7 +494,6 @@ export default {
                 promedioUso: '',
                 mensaje: ''
             },
-            dialog: false,
             token: '',
             countries: [],
             states: [],
@@ -559,10 +517,10 @@ export default {
             window.open('https://wa.me/525525852650')
         },
         async sendForm(){
-            //await this.$router.push('/campanias-gracias')
+            await this.$router.push('/campanias/gracias')
 
 
-            if(this.$refs.formLanding.validate()){
+            /*if(this.$refs.formLanding.validate()){
                 const dataForm = {
                     data: this.form
                 }
@@ -587,10 +545,10 @@ export default {
                 })
                 .catch(err => {
                     console.log(err.response)
-                })*/
+                })
 
                 //console.log(response)
-            }
+            }*/
         },
         async getToken(){
             this.$axios.setHeader('Accept','application/json')
