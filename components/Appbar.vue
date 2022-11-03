@@ -1,279 +1,283 @@
 <template>
     <div>
-        <v-app-bar :clipped-left="clipped" fixed color="white" app elevation="2" v-if="this.url !== '/campanias'" >
-            <!--<v-toolbar-title :class="{'ml-16': windowSize > 1129}" />-->
-            <v-container fluid>
-                <v-row justify="center">
-                    <v-col cols="3" md="2" sm="3" xs="3">
-                        <nuxt-link to="/">
-                            <img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-3" :height="windowSize<1129 ? '20' : ''"/>
-                            <!--<v-img src="/Logo-polnac.png" contain max-width="180" class="mt-2"></v-img>-->
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="9" xl="7" lg="8" md="8">
-                        <v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129" class="d-flex align-end flex-column">
-                            <v-tabs-slider color></v-tabs-slider>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('aboutus', this.lang)">{{ $t('appbar.aboutus') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('innovation', this.lang)">{{ $t('appbar.innovation') }}</v-tab>
-                            <!--<v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/search-products">{{ $t('appbar.products') }}</v-tab>-->
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('services', this.lang)">{{ $t('appbar.services') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('market', this.lang)">{{ $t('appbar.market') }}</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/blogs" v-if="this.lang === 'es'">Blog</v-tab>
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('contact', this.lang)">{{ $t('appbar.contact') }}</v-tab>
-                            
-                            <v-tab class="mx-0 px-0">
-                                <v-menu
-                                    bottom
-                                    origin="center center"
-                                    transition="scale-transition"
-                                    :close-on-content-click="false"
-                                    :nudge-width="1800"
-                                    offset-y
-                                    class="mx-0 px-0"
-                                >
-                                    <template v-slot:activator="{ on, attrs }" class="mx-0 px-0">
-                                        <v-btn icon v-bind="attrs" v-on="on" class="mx-0 px-0">
-                                            <v-icon class="mx-0 px-0">mdi-magnify</v-icon>
+        <div v-if="!this.$route.path.includes('campanias')">
+            <v-app-bar :clipped-left="clipped" fixed color="white" app elevation="2"  >
+                <!--<v-toolbar-title :class="{'ml-16': windowSize > 1129}" />-->
+                <v-container fluid>
+                    <v-row justify="center">
+                        <v-col cols="3" md="2" sm="3" xs="3">
+                            <nuxt-link to="/">
+                                <img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-3" :height="windowSize<1129 ? '20' : ''"/>
+                                <!--<v-img src="/Logo-polnac.png" contain max-width="180" class="mt-2"></v-img>-->
+                            </nuxt-link>
+                        </v-col>
+                        <v-col cols="9" xl="7" lg="8" md="8">
+                            <v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129" class="d-flex align-end flex-column">
+                                <v-tabs-slider color></v-tabs-slider>
+                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('aboutus', this.lang)">{{ $t('appbar.aboutus') }}</v-tab>
+                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('innovation', this.lang)">{{ $t('appbar.innovation') }}</v-tab>
+                                <!--<v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/search-products">{{ $t('appbar.products') }}</v-tab>-->
+                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('services', this.lang)">{{ $t('appbar.services') }}</v-tab>
+                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('market', this.lang)">{{ $t('appbar.market') }}</v-tab>
+                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/blogs" v-if="this.lang === 'es'">Blog</v-tab>
+                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('contact', this.lang)">{{ $t('appbar.contact') }}</v-tab>
+                                
+                                <v-tab class="mx-0 px-0">
+                                    <v-menu
+                                        bottom
+                                        origin="center center"
+                                        transition="scale-transition"
+                                        :close-on-content-click="false"
+                                        :nudge-width="1800"
+                                        offset-y
+                                        class="mx-0 px-0"
+                                    >
+                                        <template v-slot:activator="{ on, attrs }" class="mx-0 px-0">
+                                            <v-btn icon v-bind="attrs" v-on="on" class="mx-0 px-0">
+                                                <v-icon class="mx-0 px-0">mdi-magnify</v-icon>
+                                            </v-btn>
+                                        </template>
+
+                                        <div class="d-flex justify-center">
+                                            <v-container>
+                                                <v-row justify="center">
+                                                    <v-col cols="12">
+                                                        <v-card class="mx-4">
+                                                            <v-list>
+                                                                <v-list-item>
+                                                                    <v-text-field v-model="search" solo rounded class="mt-4" placeholder="Buscar por producto" prepend-inner-icon="mdi-magnify" 
+                                                                        clearable @click:clear="clean">
+                                                                    </v-text-field>
+                                                                    <v-btn class="rounded-xl mx-3 text-none secondary-color white--text" @click="searchPage">{{$t('blog.btnSearch')}}</v-btn>
+                                                                </v-list-item>
+                                                            </v-list>
+
+                                                            <v-divider></v-divider>
+
+                                                            <v-list>
+                                                                <v-row justify="center" class="mt-4" v-if="this.productos !== null && isSearch === false">
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" class="px-5" align="center" v-for="(prod, index) in this.productos.data" :key="index">
+                                                                        <!--<v-img src="/menu-search/plasticos.png" contain max-height="65"></v-img>-->
+                                                                        <nuxt-link :to="`/products/${prod.id}`" class="decoration-none">
+                                                                            <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="65"></v-img>
+                                                                            <p>{{prod.attributes.name}}</p>
+                                                                        </nuxt-link>
+                                                                    </v-col>
+                                                                </v-row>
+
+                                                                <v-row v-if="isSearch === true" class="justify-center mx-5 px-2" >
+                                                                    <v-col cols="12" v-if="sproductos.length>0">
+                                                                        <p class="font-weight-bold font-body-all">Productos</p>
+                                                                        <v-list>
+                                                                            <v-list-item v-for="(item, index) in sproductos" :key="index+item.id">
+                                                                                {{item.attributes.name}}
+                                                                            </v-list-item>
+                                                                        </v-list>
+                                                                    </v-col>
+                                                                    <v-col cols="12" v-if="smercados.length>0">
+                                                                        <p class="font-weight-bold font-body-all">Mercado</p>
+                                                                        <v-list>
+                                                                            <v-list-item v-for="(item, index) in smercados" :key="index+item.id">
+                                                                                {{item.attributes.nameMarket}}
+                                                                            </v-list-item>
+                                                                        </v-list>
+                                                                    </v-col>
+                                                                    <v-col cols="12" v-if="smarcas.length>0">
+                                                                        <p class="font-weight-bold font-body-all">Marcas</p>
+                                                                        <v-list>
+                                                                            <v-list-item v-for="(item, index) in smarcas" :key="index+item.id">
+                                                                                {{item.attributes.title}}
+                                                                            </v-list-item>
+                                                                        </v-list>
+                                                                    </v-col>
+                                                                    <v-col cols="12" v-if="spruebas.length>0">
+                                                                        <p class="font-weight-bold font-body-all">Pruebas</p>
+                                                                        <v-list>
+                                                                            <v-list-item v-for="(item, index) in spruebas" :key="index+item.id">
+                                                                                {{item.attributes.name}}
+                                                                            </v-list-item>
+                                                                        </v-list>
+                                                                    </v-col>
+                                                                    <v-col cols="12" align="center" v-if="spruebas.length===0 && smarcas.length===0 && smercados.length===0 && sproductos.length===0">
+                                                                        <p class="font-body-all">No se encontraron resultados</p>
+                                                                    </v-col>
+                                                                </v-row>
+                                                                
+                                                                <!--<v-row justify="center" class="mt-4">
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/plasticos.png" contain max-height="65"></v-img>
+                                                                        <p class="">Plásticos de ingeniería</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/compuesto.png" contain max-height="65"></v-img>
+                                                                        <p class="">Compuestos</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/masterbach.png" contain max-height="65"></v-img>
+                                                                        <p class="">Masterbatch</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/aditivos.png" contain max-height="65"></v-img>
+                                                                        <p class="">Concentrados de Aditivos</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/carbonato.png" contain max-height="65"></v-img>
+                                                                        <p class="">Carbonato de calcio</p>
+                                                                    </v-col>
+                                                                </v-row>
+
+                                                                <v-row justify="center" class="mt-4">
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/rotomoldeo.png" contain max-height="65"></v-img>
+                                                                        <p class="">Rotomoldeo</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/pvc.png" contain max-height="65"></v-img>
+                                                                        <p class="">PVC</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/aditivos.png" contain max-height="65"></v-img>
+                                                                        <p class="">Elastómeros Termoplásticos</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/biodegradables.png" contain max-height="65"></v-img>
+                                                                        <p class="">Biodegradables</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/hules.png" contain max-height="65"></v-img>
+                                                                        <p class="">Hules</p>
+                                                                    </v-col>
+                                                                </v-row>
+
+                                                                <v-row justify="center" class="mt-4">
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/polietileno.png" contain max-height="65"></v-img>
+                                                                        <p class="">Polietileno</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/polipropileno.png" contain max-height="65"></v-img>
+                                                                        <p class="">Polipropileno</p>
+                                                                    </v-col>
+                                                                    <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
+                                                                        <v-img src="/menu-search/estirenicos.png" contain max-height="65"></v-img>
+                                                                        <p class="">Estirénicos</p>
+                                                                    </v-col>
+                                                                </v-row>-->
+                                                                <!--<v-list-item>
+                                                                    <v-list-item-action>
+                                                                        <v-switch v-model="message" color="purple"></v-switch>
+                                                                    </v-list-item-action>
+                                                                    <v-list-item-title>Enable messages</v-list-item-title>
+                                                                </v-list-item>
+
+                                                                <v-list-item>
+                                                                    <v-list-item-action>
+                                                                        <v-switch v-model="hints" color="purple"></v-switch>
+                                                                    </v-list-item-action>
+                                                                    <v-list-item-title>Enable hints</v-list-item-title>
+                                                                </v-list-item>-->
+                                                            </v-list>
+                                                            <v-card-actions>
+                                                                <v-spacer></v-spacer>
+
+                                                                <!--<v-btn text @click="menu = false">Cancel</v-btn>
+                                                                <v-btn color="primary" text @click="menu = false">Save</v-btn>-->
+                                                            </v-card-actions>
+                                                        </v-card>
+                                                    </v-col>
+                                                </v-row>
+                                            </v-container>
+                                        </div>
+                                    </v-menu>
+                                </v-tab>
+                                <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
+                                @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>
+                                <!--<v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>-->
+                                <!--<v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>-->
+                                <v-menu min-width="200px" rounded offset-y v-if="this.$route.path.includes('client')">
+                                    <template v-slot:activator="{ on }">
+                                        <v-btn icon x-large v-on="on">
+                                            <v-avatar color="#773DBD" size="40">
+                                                <v-icon dark color="white">mdi-account</v-icon>
+                                            </v-avatar>
                                         </v-btn>
                                     </template>
-
-                                    <div class="d-flex justify-center">
-                                        <v-container>
-                                            <v-row justify="center">
-                                                <v-col cols="12">
-                                                    <v-card class="mx-4">
-                                                        <v-list>
-                                                            <v-list-item>
-                                                                <v-text-field v-model="search" solo rounded class="mt-4" placeholder="Buscar por producto" prepend-inner-icon="mdi-magnify" 
-                                                                    clearable @click:clear="clean">
-                                                                </v-text-field>
-                                                                <v-btn class="rounded-xl mx-3 text-none secondary-color white--text" @click="searchPage">{{$t('blog.btnSearch')}}</v-btn>
-                                                            </v-list-item>
-                                                        </v-list>
-
-                                                        <v-divider></v-divider>
-
-                                                        <v-list>
-                                                            <v-row justify="center" class="mt-4" v-if="this.productos !== null && isSearch === false">
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" class="px-5" align="center" v-for="(prod, index) in this.productos.data" :key="index">
-                                                                    <!--<v-img src="/menu-search/plasticos.png" contain max-height="65"></v-img>-->
-                                                                    <nuxt-link :to="`/products/${prod.id}`" class="decoration-none">
-                                                                        <v-img :src="basePathApiUrl + prod.attributes.imgMiniature.data.attributes.url" contain max-height="65"></v-img>
-                                                                        <p>{{prod.attributes.name}}</p>
-                                                                    </nuxt-link>
-                                                                </v-col>
-                                                            </v-row>
-
-                                                            <v-row v-if="isSearch === true" class="justify-center mx-5 px-2" >
-                                                                <v-col cols="12" v-if="sproductos.length>0">
-                                                                    <p class="font-weight-bold font-body-all">Productos</p>
-                                                                    <v-list>
-                                                                        <v-list-item v-for="(item, index) in sproductos" :key="index+item.id">
-                                                                            {{item.attributes.name}}
-                                                                        </v-list-item>
-                                                                    </v-list>
-                                                                </v-col>
-                                                                <v-col cols="12" v-if="smercados.length>0">
-                                                                    <p class="font-weight-bold font-body-all">Mercado</p>
-                                                                    <v-list>
-                                                                        <v-list-item v-for="(item, index) in smercados" :key="index+item.id">
-                                                                            {{item.attributes.nameMarket}}
-                                                                        </v-list-item>
-                                                                    </v-list>
-                                                                </v-col>
-                                                                <v-col cols="12" v-if="smarcas.length>0">
-                                                                    <p class="font-weight-bold font-body-all">Marcas</p>
-                                                                    <v-list>
-                                                                        <v-list-item v-for="(item, index) in smarcas" :key="index+item.id">
-                                                                            {{item.attributes.title}}
-                                                                        </v-list-item>
-                                                                    </v-list>
-                                                                </v-col>
-                                                                <v-col cols="12" v-if="spruebas.length>0">
-                                                                    <p class="font-weight-bold font-body-all">Pruebas</p>
-                                                                    <v-list>
-                                                                        <v-list-item v-for="(item, index) in spruebas" :key="index+item.id">
-                                                                            {{item.attributes.name}}
-                                                                        </v-list-item>
-                                                                    </v-list>
-                                                                </v-col>
-                                                                <v-col cols="12" align="center" v-if="spruebas.length===0 && smarcas.length===0 && smercados.length===0 && sproductos.length===0">
-                                                                    <p class="font-body-all">No se encontraron resultados</p>
-                                                                </v-col>
-                                                            </v-row>
-                                                            
-                                                            <!--<v-row justify="center" class="mt-4">
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/plasticos.png" contain max-height="65"></v-img>
-                                                                    <p class="">Plásticos de ingeniería</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/compuesto.png" contain max-height="65"></v-img>
-                                                                    <p class="">Compuestos</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/masterbach.png" contain max-height="65"></v-img>
-                                                                    <p class="">Masterbatch</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/aditivos.png" contain max-height="65"></v-img>
-                                                                    <p class="">Concentrados de Aditivos</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/carbonato.png" contain max-height="65"></v-img>
-                                                                    <p class="">Carbonato de calcio</p>
-                                                                </v-col>
-                                                            </v-row>
-
-                                                            <v-row justify="center" class="mt-4">
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/rotomoldeo.png" contain max-height="65"></v-img>
-                                                                    <p class="">Rotomoldeo</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/pvc.png" contain max-height="65"></v-img>
-                                                                    <p class="">PVC</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/aditivos.png" contain max-height="65"></v-img>
-                                                                    <p class="">Elastómeros Termoplásticos</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/biodegradables.png" contain max-height="65"></v-img>
-                                                                    <p class="">Biodegradables</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/hules.png" contain max-height="65"></v-img>
-                                                                    <p class="">Hules</p>
-                                                                </v-col>
-                                                            </v-row>
-
-                                                            <v-row justify="center" class="mt-4">
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/polietileno.png" contain max-height="65"></v-img>
-                                                                    <p class="">Polietileno</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/polipropileno.png" contain max-height="65"></v-img>
-                                                                    <p class="">Polipropileno</p>
-                                                                </v-col>
-                                                                <v-col cols="12" lg="2" md="2" sm="12" xs="12" align="center">
-                                                                    <v-img src="/menu-search/estirenicos.png" contain max-height="65"></v-img>
-                                                                    <p class="">Estirénicos</p>
-                                                                </v-col>
-                                                            </v-row>-->
-                                                            <!--<v-list-item>
-                                                                <v-list-item-action>
-                                                                    <v-switch v-model="message" color="purple"></v-switch>
-                                                                </v-list-item-action>
-                                                                <v-list-item-title>Enable messages</v-list-item-title>
-                                                            </v-list-item>
-
-                                                            <v-list-item>
-                                                                <v-list-item-action>
-                                                                    <v-switch v-model="hints" color="purple"></v-switch>
-                                                                </v-list-item-action>
-                                                                <v-list-item-title>Enable hints</v-list-item-title>
-                                                            </v-list-item>-->
-                                                        </v-list>
-                                                        <v-card-actions>
-                                                            <v-spacer></v-spacer>
-
-                                                            <!--<v-btn text @click="menu = false">Cancel</v-btn>
-                                                            <v-btn color="primary" text @click="menu = false">Save</v-btn>-->
-                                                        </v-card-actions>
-                                                    </v-card>
-                                                </v-col>
-                                            </v-row>
-                                        </v-container>
-                                    </div>
+                                    <v-card elevation="10" class="">
+                                        <v-list-item-content class="justify-center">
+                                            <div class="mx-auto text-center">
+                                                <v-btn depressed rounded text to="/client/dashboard">Dashboard</v-btn>
+                                                <v-divider class="my-3"></v-divider>
+                                                <v-btn depressed rounded text to="/client/card">Lista de Compras</v-btn>
+                                                <v-divider class="my-3"></v-divider>
+                                                <v-btn depressed rounded text to="/client/account">Mi Cuenta</v-btn>
+                                                <v-divider class="my-3"></v-divider>
+                                                <v-btn depressed rounded text to="/">Cerrar Sesion</v-btn>
+                                            </div>
+                                        </v-list-item-content>
+                                    </v-card>
                                 </v-menu>
-                            </v-tab>
-                            <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
-                            @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>
-                            <!--<v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>-->
-                            <!--<v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>-->
-                            <v-menu min-width="200px" rounded offset-y v-if="this.$route.path.includes('client')">
-                                <template v-slot:activator="{ on }">
-                                    <v-btn icon x-large v-on="on">
-                                        <v-avatar color="#773DBD" size="40">
-                                            <v-icon dark color="white">mdi-account</v-icon>
-                                        </v-avatar>
-                                    </v-btn>
-                                </template>
-                                <v-card elevation="10" class="">
-                                    <v-list-item-content class="justify-center">
-                                        <div class="mx-auto text-center">
-                                            <v-btn depressed rounded text to="/client/dashboard">Dashboard</v-btn>
-                                            <v-divider class="my-3"></v-divider>
-                                            <v-btn depressed rounded text to="/client/card">Lista de Compras</v-btn>
-                                            <v-divider class="my-3"></v-divider>
-                                            <v-btn depressed rounded text to="/client/account">Mi Cuenta</v-btn>
-                                            <v-divider class="my-3"></v-divider>
-                                            <v-btn depressed rounded text to="/">Cerrar Sesion</v-btn>
-                                        </div>
-                                    </v-list-item-content>
-                                </v-card>
-                            </v-menu>
-                        </v-tabs>
-                    </v-col>
-                </v-row>
-            </v-container>
-            <!--options mobile-->
-            <v-menu bottom v-if="windowSize < 1129">
-                <template v-slot:activator="{ on, attrs }">
-                    <v-btn icon v-bind="attrs" v-on="on">
-                        <v-icon >mdi-magnify</v-icon>
-                    </v-btn>
-                </template>
-            </v-menu>
-            <!--<v-menu bottom v-if="windowSize < 1129">
-                <template v-slot:activator="{ on, attrs }">
-                    <v-btn icon v-bind="attrs" v-on="on">
-                        <v-icon>mdi-translate</v-icon>
-                    </v-btn>
-                </template>
+                            </v-tabs>
+                        </v-col>
+                    </v-row>
+                </v-container>
+                <!--options mobile-->
+                <v-menu bottom v-if="windowSize < 1129">
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn icon v-bind="attrs" v-on="on">
+                            <v-icon >mdi-magnify</v-icon>
+                        </v-btn>
+                    </template>
+                </v-menu>
+                <!--<v-menu bottom v-if="windowSize < 1129">
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn icon v-bind="attrs" v-on="on">
+                            <v-icon>mdi-translate</v-icon>
+                        </v-btn>
+                    </template>
 
-                <v-list>
-                    <v-list-item v-for="n in lang" :key="n">
-                        <v-list-item-title @click="() => {translate(n)}">{{ n }}</v-list-item-title>
-                    </v-list-item>
-                </v-list>
-            </v-menu>-->
-            <v-app-bar-nav-icon @click.stop="drawer = !drawer" v-if="windowSize < 1129"></v-app-bar-nav-icon>
-            <!--options mobile-->
-        </v-app-bar>
+                    <v-list>
+                        <v-list-item v-for="n in lang" :key="n">
+                            <v-list-item-title @click="() => {translate(n)}">{{ n }}</v-list-item-title>
+                        </v-list-item>
+                    </v-list>
+                </v-menu>-->
+                <v-app-bar-nav-icon @click.stop="drawer = !drawer" v-if="windowSize < 1129"></v-app-bar-nav-icon>
+                <!--options mobile-->
+            </v-app-bar>
+        </div>
 
-        <v-app-bar :clipped-left="clipped" fixed color="white" app elevation="2" v-if="this.url.includes('campanias')" >
-            <!--<v-toolbar-title :class="{'ml-16': windowSize > 1129}" />-->
-            <v-container fluid>
-                <v-row justify="center">
-                    <v-col cols="3" md="2" sm="3" xs="3">
-                        <nuxt-link to="/campanias">
-                            <img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-3" :height="windowSize<1129 ? '20' : ''"/>
-                            <!--<v-img src="/Logo-polnac.png" contain max-width="180" class="mt-2"></v-img>-->
-                        </nuxt-link>
-                    </v-col>
-                    <v-col cols="9" xl="7" lg="8" md="8">
-                        <!--<v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129" class="d-flex align-end flex-column">
-                            <v-tabs-slider color></v-tabs-slider>
-                            
-                            <v-tab class="black--text text-none mx-0 px-0 font-size-14 decoration-none" >
-                                <p class="mt-3">(55) 2585 2650</p>
-                                <v-img src="/home/WhatsApp.png" contain max-height="24" class="ml-3"></v-img>
-                            </v-tab>
-                            
-                        </v-tabs>-->
-                        <div class="d-flex align-end flex-column">
-                            <div class="d-flex black--text text-none mx-0 px-0 font-size-14 decoration-none">
-                                <p class="mt-4">(55) 2585 2650</p>
-                                <v-img src="/home/WhatsApp.png" contain max-height="24" class="ml-3 mt-3"></v-img>
+        <div v-if="this.$route.path.includes('campanias')">
+            <v-app-bar :clipped-left="clipped" fixed color="white" app elevation="2" >
+                <!--<v-toolbar-title :class="{'ml-16': windowSize > 1129}" />-->
+                <v-container fluid>
+                    <v-row justify="center">
+                        <v-col cols="3" md="2" sm="3" xs="3">
+                            <nuxt-link to="/campanias">
+                                <img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-3" :height="windowSize<1129 ? '20' : ''"/>
+                                <!--<v-img src="/Logo-polnac.png" contain max-width="180" class="mt-2"></v-img>-->
+                            </nuxt-link>
+                        </v-col>
+                        <v-col cols="9" xl="7" lg="8" md="8">
+                            <!--<v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129" class="d-flex align-end flex-column">
+                                <v-tabs-slider color></v-tabs-slider>
+                                
+                                <v-tab class="black--text text-none mx-0 px-0 font-size-14 decoration-none" >
+                                    <p class="mt-3">(55) 2585 2650</p>
+                                    <v-img src="/home/WhatsApp.png" contain max-height="24" class="ml-3"></v-img>
+                                </v-tab>
+                                
+                            </v-tabs>-->
+                            <div class="d-flex align-end flex-column">
+                                <div class="d-flex black--text text-none mx-0 px-0 font-size-14 decoration-none">
+                                    <p class="mt-4">(55) 2585 2650</p>
+                                    <v-img src="/home/WhatsApp.png" contain max-height="24" class="ml-3 mt-3"></v-img>
+                                </div>
                             </div>
-                        </div>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-app-bar>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-app-bar>
+        </div>
 
         <v-navigation-drawer color="white" v-if="windowSize < 1129" app v-model="drawer" >
             <!--<v-list-item>
