@@ -559,17 +559,35 @@ export default {
             return response.data.auth_token
         },
         async getCountries(){
-            this.token = await this.getToken()
+            /*this.token = await this.getToken()
 
             this.$axios.setHeader('Authorization', `Bearer ${this.token}`)
             this.$axios.setHeader("Accept", "application/json")
             
             const allCountries = await this.$axios.get('https://www.universal-tutorial.com/api/countries')
             //console.log(allCountries)
-            this.countries = allCountries.data
+            this.countries = allCountries.data*/
+
+            const america = await this.$axios.get('https://restcountries.com/v3.1/region/ame')
+            const auxeuropa = await this.$axios.get('https://restcountries.com/v3.1/region/europe')
+            const europa = auxeuropa.data.filter(item => item.name.common === 'Poland' || item.name.common === 'Spain' || item.name.common === 'Sweden' 
+            || item.name.common === 'Belgium' || item.name.common === 'Italy' || item.name.common === 'Germany' || item.name.common === 'France' || item.name.common === 'Netherlands')
+
+            const auxafrica = await this.$axios.get('https://restcountries.com/v3.1/region/africa')
+            const africa = auxafrica.data.filter(item => item.name.common === 'South Africa')
+
+            this.countries = america.data
+            this.countries = this.countries.concat(europa)
+            this.countries = this.countries.concat(africa)
 
         },
         async getStates(){
+            if(this.token === ''){
+                this.token = await this.getToken()
+            }
+            this.$axios.setHeader('Authorization', `Bearer ${this.token}`)
+            this.$axios.setHeader("Accept", "application/json")
+            
             const response = await this.$axios.get(`https://www.universal-tutorial.com/api/states/${this.form.pais}`)
             this.states = response.data
         },

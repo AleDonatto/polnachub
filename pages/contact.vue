@@ -27,6 +27,9 @@ export default {
 
         if(this.pageContact === null || this.lang !== 'esp'){
             this.$store.dispatch('getPageContact')
+            this.$store.dispatch('getAllProducts')
+            this.$store.dispatch('getAllMarkets') 
+
         }
     },
     methods: {

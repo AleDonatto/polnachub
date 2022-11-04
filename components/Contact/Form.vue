@@ -413,8 +413,6 @@ export default {
             //console.log(toggle)
             //this.formValues.product = toggle
             this.formValues.product.push(toggle)
-
-
         },
         selectMarket(toggle){
             this.formValues.market.push(toggle)
@@ -429,7 +427,7 @@ export default {
             return response.data.auth_token
         },
         async getCountries(){
-            /*const america = await this.$axios.get('https://restcountries.com/v3.1/region/ame')
+            const america = await this.$axios.get('https://restcountries.com/v3.1/region/ame')
             const auxeuropa = await this.$axios.get('https://restcountries.com/v3.1/region/europe')
             const europa = auxeuropa.data.filter(item => item.name.common === 'Poland' || item.name.common === 'Spain' || item.name.common === 'Sweden' 
             || item.name.common === 'Belgium' || item.name.common === 'Italy' || item.name.common === 'Germany' || item.name.common === 'France' || item.name.common === 'Netherlands')
@@ -439,19 +437,25 @@ export default {
 
             this.countries = america.data
             this.countries = this.countries.concat(europa)
-            this.countries = this.countries.concat(africa)*/
+            this.countries = this.countries.concat(africa)
 
-            this.token = await this.getToken()
+            /*this.token = await this.getToken()
 
             this.$axios.setHeader('Authorization', `Bearer ${this.token}`)
             this.$axios.setHeader("Accept", "application/json")
             
             const allCountries = await this.$axios.get('https://www.universal-tutorial.com/api/countries')
             //console.log(allCountries)
-            this.countries = allCountries.data
+            this.countries = allCountries.data*/
 
         },
         async getStates(){
+            if(this.token === ''){
+                this.token = await this.getToken()
+            }
+            this.$axios.setHeader('Authorization', `Bearer ${this.token}`)
+            this.$axios.setHeader("Accept", "application/json")
+
             const response = await this.$axios.get(`https://www.universal-tutorial.com/api/states/${this.formValues.country}`)
             this.states = response.data
         },
