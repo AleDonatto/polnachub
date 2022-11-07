@@ -36,8 +36,8 @@ export default {
         }
 
         setTimeout(() => {
-            this.$store.dispatch('getCredentialsOther')
-            //this.$store.dispatch('getCredentials')
+            //this.$store.dispatch('getCredentialsOther')
+            this.$store.dispatch('getCredentials')
         }, 5000);
 
         /*if(this.credentials === null){

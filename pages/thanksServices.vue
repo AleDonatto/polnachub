@@ -1,19 +1,16 @@
 <template>
-    <div>
-        <ContactForm/>
-    </div>
+    <ServicesContact />
 </template>
 
 <script>
 import { mapState } from 'vuex'
 
 export default {
-    name: 'pageContact',
-    head: {},
+    name: 'ThanksServices',
     nuxtI18n: {
         paths: {
-            es: '/contactanos',
-            eng:'/contact',
+            es: '/servicos-gracias',
+            eng:'/services-thanks',
         }
     },
     data() {
@@ -24,11 +21,6 @@ export default {
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
-
-        if(this.pageContact === null || this.lang !== 'esp'){
-            this.$store.dispatch('getPageContact')
-            this.$store.dispatch('getAllProducts')
-        }
     },
     methods: {
         Resize(){
@@ -37,11 +29,11 @@ export default {
         }
     },
     computed: {
-        ...mapState(['pageContact','lang'])
+        ...mapState(['lang'])
     }
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

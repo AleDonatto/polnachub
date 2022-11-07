@@ -65,6 +65,15 @@ export default {
         thanksContact : {
             "eng":"/thanks-for-contactingus",
             "es": "/gracias-por-contactarnos",
+        },
+        thanksServices: {
+            "eng": "/services-thanks",
+            "es": "/servicos-gracias",
+        },
+        thanksWork: {
+            "eng":"/work-thanks",
+            "es": "/trabajo-gracias",
+            
         }
     }
 }

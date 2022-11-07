@@ -184,10 +184,12 @@ export default {
                     data: this.form
                 }
 
-                this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-servicios`, formData)
+                await this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-servicios`, formData)
                 .then(res => {
-                    this.dialog = !this.dialog
+                    //this.dialog = !this.dialog
                     this.$refs.formContact.reset()
+                    this.$router.push(this.localePath('thanksServices'))
+
                 })
                 .catch(err => {
                     console.log(err.response)

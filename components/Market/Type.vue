@@ -11,6 +11,7 @@
                 <v-col cols="10" xl="6" lg="6" md="6" sm="10" xs="10" align="center">
                     <!--<p class="white--text font-size-24 mb-16">Optimizando tu vida</p>-->
                     <p class="white--text font-size-24 mb-16">{{this.mercado.data.attributes.subtitle}}</p>
+                    
                 </v-col>
             </v-row>
         </div>

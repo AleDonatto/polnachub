@@ -67,7 +67,7 @@
                                     label="Email"></v-text-field>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6" sm="12" xs="12">
-                                    <v-text-field v-model="form.celphone" outlined class="rounded-xl" :rules="[rules.required]"
+                                    <v-text-field v-model="form.celphone" outlined class="rounded-xl" :rules="[rules.required]" @keypress="filterKey"
                                     :label="lang === 'es' ? 'Celular' : 'Celphone'"></v-text-field>
                                 </v-col>
 
@@ -247,7 +247,7 @@ export default {
         ...mapState(['windowSize', 'windowHeight', 'pageWork', 'basePathApiUrl', 'lang'])
     },
     methods: {
-        sendFormWork(){
+        async sendFormWork(){
             if(this.$refs.formWork.validate()){
                 let date = new Date();
                 this.form.dateSend = date.toISOString()
@@ -273,14 +273,15 @@ export default {
                 this.$axios.setHeader('api-token',false)
                 this.$axios.setHeader("user-email", false)
 
-                this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-works`, json_data)
+                await this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-works`, json_data)
                 .then(res => {
-                    this.dialog = !this.dialog
+                    //this.dialog = !this.dialog
                     this.$refs.formWork.reset()
 
-                    setTimeout(() => {
+                    /*setTimeout(() => {
                         this.getStates()
-                    }, 4000);
+                    }, 4000);*/
+                    this.$router.push(this.localePath('thanksContact'))
                 })
                 .catch(err => {
                     console.log(err.response)
@@ -302,6 +303,13 @@ export default {
 
             const response = await this.$axios.get(`https://www.universal-tutorial.com/api/states/Mexico`)
             this.states = response.data
+        },
+        filterKey(e) {
+            // Si el código es menor que 48 (0) o mayor que 57 (9)
+            if(e.keyCode < 48 || e.keyCode > 57) {
+                // No se agrega
+                e.preventDefault();
+            }
         },
     }
 }

@@ -1,45 +1,5 @@
 <template>
     <div>
-        <div v-if="pageCamping !== null">
-
-            <div class="" v-if="pageCamping.showBanner === true">
-                <v-carousel v-model="model" :height="windowSize > 1129 ? '560' : '640' " hide-delimiter-background show-arrows-on-hover cycle >
-                    <v-carousel-item v-for="(color, index ) in pageCamping.banner" :key="index">
-                    <!--<v-carousel-item v-for="(color, index ) in 1" :key="index">-->
-                        <!--:class="{'bg-img' : index !== 2}"-->
-                        <v-sheet tile class="bg-img" :class="windowSize > 1129 ? 'size-bg' : 'size-bg-mb'" :style="{ backgroundImage: `linear-gradient(to right, rgba(46, 46, 101, 0.7), rgba(119, 61, 189, 0.7)),url(${basePathApiUrl + color.image.data[0].attributes.url })` }">
-                            <video :src="basePathApiUrl + color.image.data[0].attributes.url" autoplay="true" controls muted="muted" loop="true" v-if="color.image.data[0].attributes.name.includes('.mp4')" :class="{'size-video' : windowSize > 1129, 'size-video-mb': windowSize < 1129}"
-                                :style="{ backgroundImage: `linear-gradient(to right, rgba(46, 46, 101, 0.7), rgba(119, 61, 189, 0.7))` }"></video>
-                            <v-container>
-                                <v-row >
-                                    <v-col cols="12" xl="8" md="6" sm="12" xs="12" class="py-10 my-10" align="star">
-                                        <h1 class="font-archivo font-title pa-5 text-video">
-                                            <!--<mark class="text-mark white--text">{{ $t('home.portafolio') }}</mark>-->
-                                            <span v-html="color.title" class=""></span>
-                                        </h1>
-
-                                        <div class="subtitle-1 white--text mt-3 pa-5 text-video" :class="{'text-left': windowSize > 1129, 'text-center': windowSize < 1129}" v-html="color.subtitle"></div>
-
-                                        <div class="d-flex" :class="{'justify-center': windowSize < 1129, 'justify-start ml-5 mb-10': windowSize > 1129}">
-                                            <!--<nuxt-link to="#informacion" class="decoration-none">
-                                                
-                                            </nuxt-link>-->
-                                            <a href="#informacion" class="decoration-none">
-                                                <v-btn rounded class="rounded-xl px-10 py-5 black--text body-1 text-none primary-color">
-                                                    Más información
-                                                </v-btn>
-                                            </a>
-                                        </div>
-                                    </v-col>
-                                    <v-col cols="12" xl="4" lg="6" md="6"></v-col>
-                                </v-row>
-                            </v-container>
-                        </v-sheet>
-                    </v-carousel-item>
-                </v-carousel>
-            </div>
-        </div>
-
         <div v-if="pageCamping === null">
             <v-sheet class="pa-3">
                 <v-skeleton-loader class="mx-auto" type="card"></v-skeleton-loader>
@@ -391,9 +351,9 @@
                 </v-container>
             </section>
 
-            <section v-if="pageCamping.showForm === true" id="informacion">
+            <section v-if="pageCamping.showForm === true">
                 <div class="mt-10 bg-form" :style="{ backgroundImage: `url(${basePathApiUrl + pageCamping.bgForm.data.attributes.url })` }" id="interes">
-                    <v-container>
+                    <v-container id="informacion">
                         <v-form @submit.prevent="sendForm" ref="formLanding">
                             <v-row justify="center" class="mt-10">
                                 <v-col cols="12">
@@ -426,14 +386,14 @@
                                     <v-text-field v-model="form.celular" solo rounded label="Celular" class="" @keypress="filterKey" ></v-text-field>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6" v-if="countries !== null">
-                                    <v-select v-model="form.pais" solo rounded label="País" class="" :rules="[rules.required]" @change="getStates" :items="countries" item-text="name.common" item-value="name.common" :disabled="countries.length === 0"></v-select>
+                                    <v-autocomplete v-model="form.pais" solo rounded label="País" class="" :rules="[rules.required]" @change="getStates" :items="countries" item-text="name.common" item-value="name.common" :disabled="countries.length === 0"></v-autocomplete>
                                 </v-col>
 
                                 <v-col cols="12" lg="6" md="6" v-if="states !== null">
-                                    <v-select v-model="form.estado" solo rounded label="Estado" class="" :rules="[rules.required]" @change="getCities" :items="states" item-text="state_name" item-value="state_name" :disabled="states.length === 0"></v-select>
+                                    <v-autocomplete v-model="form.estado" solo rounded label="Estado" class="" :rules="[rules.required]" @change="getCities" :items="states" item-text="state_name" item-value="state_name" :disabled="states.length === 0"></v-autocomplete>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6" v-if="citys !== null">
-                                    <v-select v-model="form.ciudad" solo rounded label="Ciudad" class="" :rules="[rules.required]"  :items="citys" item-text="city_name" item-value="city_name" :disabled="citys.length === 0"></v-select>
+                                    <v-autocomplete v-model="form.ciudad" solo rounded label="Ciudad" class="" :rules="[rules.required]"  :items="citys" item-text="city_name" item-value="city_name" :disabled="citys.length === 0"></v-autocomplete>
                                 </v-col>
 
                                 <v-col cols="12" lg="6" md="6" v-if="productos !== null">
@@ -463,7 +423,6 @@
             </section>
 
         </div>
-
     </div>
 </template>
 
@@ -494,6 +453,7 @@ export default {
                 promedioUso: '',
                 mensaje: ''
             },
+            dialog: false,
             token: '',
             countries: [],
             states: [],
@@ -517,10 +477,10 @@ export default {
             window.open('https://wa.me/525525852650')
         },
         async sendForm(){
-            await this.$router.push('/campanias/gracias')
+            //await this.$router.push('/campanias-gracias')
 
 
-            /*if(this.$refs.formLanding.validate()){
+            if(this.$refs.formLanding.validate()){
                 const dataForm = {
                     data: this.form
                 }
@@ -534,7 +494,7 @@ export default {
                 const response = await this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contact-landings`, dataForm)
                 if(response.status === 200){
                     this.$refs.formLanding.reset()
-                    this.$router.push('/campanias/gracias')
+                    this.$router.push('/campanias-gracias')
                 }
                 /*.then(res => {
                     console.log(res)
@@ -545,10 +505,10 @@ export default {
                 })
                 .catch(err => {
                     console.log(err.response)
-                })
+                })*/
 
                 //console.log(response)
-            }*/
+            }
         },
         async getToken(){
             this.$axios.setHeader('Accept','application/json')
@@ -579,11 +539,24 @@ export default {
             this.countries = america.data
             this.countries = this.countries.concat(europa)
             this.countries = this.countries.concat(africa)
+            const pruebas = this.countries
+
+            this.countries = pruebas.sort(function (a,b) {
+                if(a.name.common > b.name.common){
+                    return 1
+                }
+                if(a.name.common < b.name.common){
+                    return -1
+                }
+                return 0
+            })
+
+            //console.log(order)
+
         },
         async getStates(){
-            if(this.token === ''){
-                this.token = await this.getToken()
-            }
+            this.token = await this.getToken()
+
             this.$axios.setHeader('Authorization', `Bearer ${this.token}`)
             this.$axios.setHeader("Accept", "application/json")
 
@@ -627,7 +600,8 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 100%;
+    width: 101%;
+    margin-left: -10px;
 }
 
 .font-title{

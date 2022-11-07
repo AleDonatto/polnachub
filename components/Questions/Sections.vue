@@ -701,8 +701,10 @@
                         <p class="white--text font-size-20" v-html="pageQuestions.contact.description"></p>
                     </v-col>
                     <v-col cols="12" lg="7" md="7" sm="12" xs="12" align="center" class="mb-10">
+                        <nuxt-link :to="localePath('contact', this.lang)" class="decoration-none">
+                            <v-btn class="font-size-20 black--text px-10 py-6 body-1 text-none rounded-lg" color="#19D3C5">{{pageQuestions.contact.txtBtn}}</v-btn>
+                        </nuxt-link>
                         <!--<v-btn class="font-size-20 black--text px-10 py-6 body-1 text-none rounded-lg" color="#19D3C5">Escríbenos</v-btn>-->
-                        <v-btn class="font-size-20 black--text px-10 py-6 body-1 text-none rounded-lg" color="#19D3C5">{{pageQuestions.contact.txtBtn}}</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -724,7 +726,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['windowSize', 'windowHeight', 'showbanners', 'pageQuestions', 'basePathApiUrl'])
+        ...mapState(['windowSize', 'windowHeight', 'showbanners', 'pageQuestions', 'basePathApiUrl', 'lang'])
     },
     methods: {
         backQuestions(){

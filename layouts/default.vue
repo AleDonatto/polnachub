@@ -1,7 +1,6 @@
 <template>
   <v-app>
 
-    <!--<CampaniasAppBar v-if="this.$route.path === '/campanias'"/>-->
     <Appbar/>
     <v-main>
       <!--<v-container>
@@ -10,8 +9,7 @@
       <Nuxt />
     </v-main>
     
-    <!--<CampaniasFooter v-if="this.$route.path === '/campanias'"/>-->
-    <Footer></Footer>
+    <Footer />
     
   </v-app>
 </template>

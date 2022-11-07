@@ -4,9 +4,16 @@ export default {
         commit('StateAssign',{lang: idioma})
 
         const optLng = $nuxt.$route.path
+        //const idQuery = $nuxt.$route.params.id
         //console.log(optLng)
         var regex = /(\d+)/g;
         const id = optLng.match(regex)
+
+        /*if(optLng.includes('/market/type')){
+            console.log('mercados')
+            this.dispatch('getMarketById', idQuery)
+            //this.dispatch('getMarcaById', id[0] )
+        }*/
 
         switch(optLng){
             case '/' :
@@ -25,7 +32,7 @@ export default {
             case '/eng/services': case '/eng/services/': case '/servicios/': case '/servicios':
                 this.dispatch('getPageServices')
                 break
-            case '/eng/market': case '/eng/market/': case '/mercados/': case '/marcados': 
+            case '/eng/markets': case '/eng/markets/': case '/mercados/': case '/marcados': 
                 this.dispatch('getPageMarkets')
                 this.dispatch('getAllMarkets')
                 break
@@ -55,18 +62,13 @@ export default {
                 this.dispatch('getPagePolnacWiki')
                 this.dispatch('getAllTipoPruebas')
                 break
-            case '/eng/frequently-questions': case '/eng/frequently-questions/': 
+            case '/eng/frequently-questions': case '/eng/frequently-questions/': case '/preguntas-frecuentes' : case '/preguntas-frecuentes/':
                 this.dispatch('getPageQuestions')
                 break
             case '/eng/work-at-polnac': case '/eng/work-at-polnac/': case '/trabja-con-polnac/': case '/trabja-con-polnac':
                 this.dispatch('getPageWork')
                 break
             
-        }
-
-        if(optLng.includes('marcas')){
-            this.dispatch('getAllMarcas')
-            //this.dispatch('getMarcaById', id[0] )
         }
         
         if($nuxt.$route.path.includes('transpolimer')){

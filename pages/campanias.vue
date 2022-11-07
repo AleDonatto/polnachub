@@ -1,6 +1,7 @@
 <template>
     <div>
-        <ContactForm/>
+        <CampaniasHead />
+        <CampaniasSections />
     </div>
 </template>
 
@@ -8,25 +9,17 @@
 import { mapState } from 'vuex'
 
 export default {
-    name: 'pageContact',
-    head: {},
-    nuxtI18n: {
-        paths: {
-            es: '/contactanos',
-            eng:'/contact',
-        }
-    },
+    name: 'CampingPage',
     data() {
         return {}
     },
     mounted() {
-        this.$store.dispatch('defaultLanguaje')
         this.$store.commit('StateAssign', {windowSize:window.innerWidth})
         this.$store.commit('StateAssign', {windowHeight:window.innerHeight})
         window.addEventListener('resize', this.Resize)
 
-        if(this.pageContact === null || this.lang !== 'esp'){
-            this.$store.dispatch('getPageContact')
+        if(this.pageCamping === null){
+            this.$store.dispatch('getPageCamping')
             this.$store.dispatch('getAllProducts')
         }
     },
@@ -37,11 +30,11 @@ export default {
         }
     },
     computed: {
-        ...mapState(['pageContact','lang'])
+        ...mapState(['pageCamping'])
     }
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

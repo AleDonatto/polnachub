@@ -160,7 +160,8 @@
                                                         </v-col>
 
                                                         <v-col cols="12" class="margin-botton-0">
-                                                            <v-text-field label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl" v-model="formValues.howKnow"></v-text-field>
+                                                            <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl" v-model="formValues.howKnow"
+                                                            :items="enteraste" item-text="value" item-value="value"></v-select>
                                                         </v-col>
                                                         <v-col cols="12" class="margin-botton-0">
                                                             <v-textarea solo outlined class="rounded-xl" label="Cuéntanos brevemente qué deseas consultar con nosotros." v-model="formValues.message"></v-textarea>
@@ -253,7 +254,6 @@
 </template>
 
 <script>
-import { isDeclareModule } from '@babel/types';
 import { mapState } from 'vuex'
 
 export default {
@@ -303,6 +303,22 @@ export default {
                 {value: 'Textil'},
                 {value: 'Transporte'},
                 {value: 'Otra'},
+            ],
+            enteraste: [
+                {value: 'Evento Presencial / Expo'},
+                {value: 'Recomendación'},
+                {value: 'Buscador / Google'},
+                {value: 'Linkedin'},
+                {value: 'Facebook'},
+                {value: 'Twitter'},
+                {value: 'Instagram'},
+                {value: 'YouTube'},
+                {value: 'Asesor Comercial POLNAC'},
+                {value: 'Evento Virtual'},
+                {value: 'Página Web'},
+                {value: 'Directorio Especializado'},
+                {value: 'Recomendación'},
+                {value: 'Otro'},
             ],
             selected: '',
             rules: {
@@ -372,9 +388,8 @@ export default {
             this.progress = 55
             this.e1 = 1
         },  
-        sendInformation(){
-            this.$router.push(this.localePath('thanksContact'))
-            /*if(this.$refs.formContact2.validate()){
+        async sendInformation(){
+            if(this.$refs.formContact2.validate()){
                 let date = new Date();
                 this.formValues.sendDate = date.toISOString()
                 
@@ -394,20 +409,22 @@ export default {
                 this.$axios.setHeader("user-email", false)
 
                 // /api/contacto-polnacs
-                this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-polnacs`, dataForm)
+                await this.$axios.post(`${process.env.BASE_URI_STRAPI}/api/contacto-polnacs`, dataForm)
                 .then(res => {
-                    this.dialog = !this.dialog
+                    //this.dialog = !this.dialog
                     this.$refs.formContact.reset()
                     this.$refs.formContact2.reset()
 
-                    setTimeout(() => {
+                    this.$router.push(this.localePath('thanksContact'))
+
+                    /*setTimeout(() => {
                         this.getCountries()
-                    }, 4000);
+                    }, 4000);*/
                 })
                 .catch(err => {
                     console.log(err.response)
                 })
-            }*/
+            }
         },
         selectProduct(toggle){
             //console.log(toggle)
@@ -438,6 +455,18 @@ export default {
             this.countries = america.data
             this.countries = this.countries.concat(europa)
             this.countries = this.countries.concat(africa)
+
+            const pruebas = this.countries
+
+            this.countries = pruebas.sort(function (a,b) {
+                if(a.name.common > b.name.common){
+                    return 1
+                }
+                if(a.name.common < b.name.common){
+                    return -1
+                }
+                return 0
+            })
 
             /*this.token = await this.getToken()
 
