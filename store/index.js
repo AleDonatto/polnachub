@@ -30,7 +30,7 @@ export default () => new Vuex.Store({
         pageQuestions: null,
         pageWork: null,
         pageCamping: null,
-        basePathApiUrl: process.env.BASE_URI_STRAPI,
+        basePathApiUrl: "https://crm.polnac.com",
         //salesfoce connection
         /*userSalesforce: {
             username: 'desatimx@polnac.com.bxt01',
