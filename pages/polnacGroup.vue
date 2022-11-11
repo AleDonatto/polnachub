@@ -13,8 +13,8 @@ export default {
     head: {},
     nuxtI18n: {
         paths: {
-            es: '/grupo-polnac',
-            eng:'/polnac-group',
+            es: '/marcas',
+            eng:'/brands',
         }
     },
     data() {

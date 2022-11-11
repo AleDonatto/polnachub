@@ -7,20 +7,26 @@
                 <v-container fluid>
                     <v-row justify="center">
                         <v-col cols="3" md="2" sm="3" xs="3">
-                            <img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-3" :height="windowSize<1129 ? '20' : ''"/>
+                            <nuxt-link to="/campanias" class="decoration-none" v-if="this.pageCamping !== null">
+                                <img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-3" :height="windowSize<1129 ? '20' : ''"/>
+                            </nuxt-link>
+                            <nuxt-link to="/" class="decoration-none" v-if="this.pageCamping === null">
+                                <img src="../static/Logo-polnac.png" alt="logo polnac" class="mt-3" :height="windowSize<1129 ? '20' : ''"/>
+                            </nuxt-link>
                             <!--<v-img src="/Logo-polnac.png" contain max-width="180" class="mt-2"></v-img>-->
                         </v-col>
                         <v-col cols="9" xl="7" lg="8" md="8" v-if="this.pageCamping === null">
                             <v-tabs ref="tab" background-color="transparent" v-if="windowSize > 1129" class="d-flex align-end flex-column">
                                 <v-tabs-slider color></v-tabs-slider>
-                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/">
+                                <!--<v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/">
                                     <v-icon>mdi-home</v-icon>
-                                </v-tab>
+                                </v-tab>-->
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('aboutus', this.lang)">{{ $t('appbar.aboutus') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('innovation', this.lang)">{{ $t('appbar.innovation') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/search-products">{{ $t('appbar.products') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('services', this.lang)">{{ $t('appbar.services') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('market', this.lang)">{{ $t('appbar.market') }}</v-tab>
+                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('polnacGroup', this.lang)">{{ $t('appbar.marcas') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" to="/blogs" v-if="this.lang === 'es'">Blog</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('contact', this.lang)">{{ $t('appbar.contact') }}</v-tab>
                                 
@@ -195,7 +201,7 @@
                                 <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
                                 @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>
                                 <!--<v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>-->
-                                <v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>
+                                <!--<v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>-->
                                 <v-menu min-width="200px" rounded offset-y v-if="this.$route.path.includes('client')">
                                     <template v-slot:activator="{ on }">
                                         <v-btn icon x-large v-on="on">
@@ -480,13 +486,14 @@
                                                             <v-text-field label="Password" type="password" solo outlined rounded :rules="[rules.required]"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12">
-                                                            <v-text-field label="Client ID" solo outlined rounded :rules="[rules.required]"></v-text-field>
-                                                        </v-col>
-                                                        <v-col cols="12">
-                                                            <v-text-field label="Client Secret" solo outlined rounded :rules="[rules.required]"></v-text-field>
-                                                        </v-col>
-                                                        <v-col cols="12">
-                                                            <v-btn type="submit" color="#19D3C5" class="text-none px-16 rounded-lg">Log In </v-btn>
+                                                            <v-row>
+                                                                <v-col cols="12" lg="6" md="6" align="center">
+                                                                    <v-btn class="text-none px-10 rounded-lg mt-2" color="#19D3C5" @click="showLogin = !showLogin">Regresar</v-btn>
+                                                                </v-col>
+                                                                <v-col cols="12" lg="6" md="6" align="center">
+                                                                    <v-btn class="text-none px-10 rounded-lg mt-2" color="#19D3C5" @click="login">Ingresar</v-btn>
+                                                                </v-col>
+                                                            </v-row>
                                                         </v-col>
                                                     </v-row>
                                                 </v-form>

@@ -169,14 +169,14 @@ export default {
 
     data() {
         return {
-            marcas: null
+            //marcas: null
         }
     },
     mounted() {
-        this.getMarcas()
+        //this.getMarcas()
     },
     computed: {
-        ...mapState(['windowHeight','windowSize','pagePolnacGroup','basePathApiUrl'])
+        ...mapState(['windowHeight','windowSize','pagePolnacGroup','basePathApiUrl', 'marcas'])
     },
     methods: {
         async getMarcas(){

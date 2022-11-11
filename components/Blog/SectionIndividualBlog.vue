@@ -86,7 +86,7 @@
                             <nuxt-link :to="`/blogs/${item.id}`" class="decoration-none">
                                 <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '300'" :max-height="windowSize >1129 ? '390': '360'">
                                     <img :src="basePathApiUrl + item.attributes.imgContent.data.attributes.url" style="width: 100%" :alt="item.description"/>
-                                    <v-card-title class="text-body-all">{{item.attributes.title}}</v-card-title>
+                                    <v-card-title class="body-1 font-weight-bold text-left px-1">{{item.attributes.title}}</v-card-title>
                                     <v-card-subtitle class="text-left">
                                         <div class="truncate-lines" v-html="item.attributes.description"></div>
                                     </v-card-subtitle>

@@ -200,7 +200,7 @@
                     <v-col cols="6" v-if="windowSize > 1129">
                         <p class="letters body-1 pr-4 text-left" >
                             <span class="font-weight-bold">Global Headquarter</span>:  Estado de México, México <br>
-                            <span class="font-weight-bold">Sucursales Nacionales</span>: San Luis Potosí ‧Tijuana ‧ Monterrey ‧ Jalisco León ‧ Querétaro ‧ Puebla ‧ Mérida <br>
+                            <span class="font-weight-bold">Sucursales Nacionales</span>: San Luis Potosí ‧ Monterrey ‧ Jalisco León ‧ Querétaro ‧ Puebla ‧ Mérida <br>
                             <span class="font-weight-bold">Sucursales Internacionales</span>: POLNAC USA ‧ POLNAC Colombia POLNAC Ecuador ‧ POLNAC Guatemala ‧ POLNAC Europa <br>
                         </p>
                     </v-col>

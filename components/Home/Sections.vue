@@ -643,9 +643,10 @@
                                         <v-slide-item v-for="(item, index) in this.blogs.data" :key="index">
                                             <!--max-width="325" max-height="390"-->
                                             <nuxt-link :to="`/blogs/${item.id}`" class="decoration-none mx-auto">
-                                                <v-card class="card-blog shadow-out" :class="{'ma-5': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '325' : '205'" :max-height="windowSize >1129 ? '390': '320'">
+                                                <v-card class="card-blog shadow-out" :class="{'ma-1': windowSize > 1129, 'mx-1': windowSize < 1129}" :max-width="windowSize>1129 ? '345' : '215'" :max-height="windowSize >1129 ? '410': '320'">
                                                     <img :src="basePathApiUrl + item.attributes.imgContent.data.attributes.url" style="width: 100%" :alt="item.attributes.title"/>
-                                                    <v-card-title>{{item.attributes.title}}</v-card-title>
+                                                    <!--<v-card-title class="body-1 font-weight-bold text-left px-1">{{item.attributes.title}}</v-card-title>-->
+                                                    <h1 class="body-1 font-weight-bold text-left px-1">{{item.attributes.title}}</h1>
                                                     <v-card-subtitle class="text-left">
                                                         <p class="truncate-lines" v-html="item.attributes.description"></p>
                                                     </v-card-subtitle>
