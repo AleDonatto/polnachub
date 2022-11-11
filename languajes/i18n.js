@@ -43,8 +43,8 @@ export default {
             "es" : "/trabaja-con-polnac",
         },
         polnacGroup: {
-            "eng" : "/polnac-group",
-            "es" : "/grupo-polnac",
+            "eng" : "/marcas",
+            "es" : "/brands",
         },
         branchOffices : {
             "eng": "/branch-offices", 
