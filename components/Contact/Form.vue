@@ -88,12 +88,12 @@
                                                     <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                         <!--<p class="font-archivo font-size-20 font-weight-bold">Resina de interés</p>-->
                                                         <p class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelResina}}</p>
-                                                        <v-text-field class="rounded-xl" outlined label="Tipo de resina" v-model="formValues.resina" :rules="[rules.required]"></v-text-field>
+                                                        <v-text-field class="rounded-xl" outlined label="Tipo de resina" v-model="formValues.resin" :rules="[rules.required]"></v-text-field>
                                                     </v-col>
                                                     <v-col cols="12" lg="6" md="6" sm="12" xs="12">
                                                         <!--<p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>-->
                                                         <p class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelToneladas}}</p>
-                                                        <v-text-field class="rounded-xl" outlined label="Toneladas" v-model="formValues.toneledas" :rules="[rules.required]"></v-text-field>
+                                                        <v-text-field class="rounded-xl" outlined label="Toneladas" v-model="formValues.ton" :rules="[rules.required]"></v-text-field>
                                                     </v-col>
                                                 </v-row>
 
@@ -112,7 +112,6 @@
                                             <v-stepper-content step="2">
                                                 <v-form @submit.prevent="sendInformation" ref="formContact2">
                                                     <!--<p class="font-archivo font-size-20 font-weight-bold">Promedio de toneladas mensuales</p>-->
-                                                    <p class="my-5 font-size-20 font-weight-bold">{{ pageContact.labelForm }}</p>
                                                     <v-row>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-text-field label="Nombres" solo outlined class="rounded-xl" v-model="formValues.name" :rules="[rules.required]"></v-text-field>
@@ -125,42 +124,42 @@
                                                             <v-text-field label="Empresa" solo outlined class="rounded-xl" v-model="formValues.company" :rules="[rules.required]"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value" v-model="formValues.area" :rules="[rules.required]"></v-select>
+                                                            <v-select solo outlined class="rounded-xl" label="Área" :items="area" item-text="value" item-value="value" v-model="formValues.areaCompany" :rules="[rules.required]"></v-select>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value" v-model="formValues.industry" :rules="[rules.required]"></v-select>
+                                                            <v-select label="Industria de la empresa" solo outlined class="rounded-xl" :items="industria" item-text="value" item-value="value" v-model="formValues.industryCompany" :rules="[rules.required]"></v-select>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Email" type="email" solo outlined class="rounded-xl" v-model="formValues.email" :rules="[rules.required, rules.email]"></v-text-field>
+                                                            <v-text-field label="Email" type="email" solo outlined class="rounded-xl" v-model="formValues.callPhone" :rules="[rules.required, rules.email]"></v-text-field>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl" v-model="formValues.phone" @keypress="filterKey" ></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Celular" solo outlined class="rounded-xl" v-model="formValues.celphone" @keypress="filterKey"  ></v-text-field>
+                                                            <v-text-field label="Celular" solo outlined class="rounded-xl" v-model="formValues.cellphone" @keypress="filterKey"  ></v-text-field>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <v-text-field label="Código Postal" solo outlined class="rounded-xl" v-model="formValues.cp" @keypress="filterKey"></v-text-field>
+                                                            <v-text-field label="Código Postal" solo outlined class="rounded-xl" v-model="formValues.postalCode" @keypress="filterKey"></v-text-field>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-autocomplete label="País" solo outlined class="rounded-xl" v-model="formValues.country" :items="countries" item-text="name.common" item-value="name.common"
-                                                            @change="getStates" :rules="[rules.required]"></v-autocomplete>
+                                                            @change="getStates" :rules="[rules.required]" :disabled="countries.length === 0"></v-autocomplete>
                                                         </v-col>
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-autocomplete label="Estado" solo outlined class="rounded-xl" v-model="formValues.state" :items="states" item-text="state_name" item-value="state_name"
-                                                            @change="getCities" :rules="[rules.required]"></v-autocomplete>
+                                                            @change="getCities" :rules="[rules.required]" :disabled="states.length === 0"></v-autocomplete>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-autocomplete label="Ciudad" solo outlined class="rounded-xl" v-model="formValues.city" :items="citys" item-text="city_name" item-value="city_name"
-                                                            :rules="[rules.required]"></v-autocomplete>
+                                                            :rules="[rules.required]" :disabled="citys.length === 0"></v-autocomplete>
                                                         </v-col>
 
                                                         <v-col cols="12" class="margin-botton-0">
-                                                            <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl" v-model="formValues.howKnow"
+                                                            <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl" v-model="formValues.howFind"
                                                             :items="enteraste" item-text="value" item-value="value"></v-select>
                                                         </v-col>
                                                         <v-col cols="12" class="margin-botton-0">
@@ -171,7 +170,7 @@
                                                             <v-checkbox label="Soy cliente" color="#19D3C5" class="color-checkbox"></v-checkbox>
                                                         </v-col>
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
-                                                            <div class="d-flex justify-center">
+                                                            <div class="d-flex justify-end">
                                                                 <v-checkbox label="Aceptar" color="#19D3C5" :rules="[rules.required]"></v-checkbox>
                                                                 <a href="/terms/Aviso_de_Privacidad_POLNAC_abril_2022.pdf" target="_blank" class="pl-1 mt-5">{{ lang === 'es' ? "Aviso de Privacidad" : "Notice of Privacy" }}</a>
                                                             </div>
@@ -329,28 +328,28 @@ export default {
             formValues: {
                 market: [],
                 product: [],
-                resina: '',
-                toneladas: '',
+                resin: '',
+                ton: '',
                 name: '',
                 lastname: '',
                 company: '',
-                area: '',
-                industry: '',
-                email: '',
+                areaCompany: '',
+                industryCompany: '',
+                callPhone: '',
                 phone: '',
-                celphone: '',
-                cp: '',
+                cellphone: '',
+                postalCode: '',
                 country: '',
                 state: '',
                 city: '',
-                howKnow: '',
-                comments: '',
+                howFind: '',
+                message: '',
             },
             snackbar: false,
             token: '',
-            countries: null,
-            states: null,
-            citys: null
+            countries: [],
+            states: [],
+            citys: []
         } 
     },
     computed: {
@@ -375,7 +374,8 @@ export default {
         },
         nextStep(){
             if(this.$refs.formContact.validate()){
-                if( this.formValues.market === '' || this.formValues.product === ''){
+
+                if( this.formValues.market.length < 1 || this.formValues.product.length < 1){
                     this.snackbar = true
                 }else{
                     this.$refs.formContact.resetValidation()
@@ -429,10 +429,26 @@ export default {
         selectProduct(toggle){
             //console.log(toggle)
             //this.formValues.product = toggle
-            this.formValues.product.push(toggle)
+            if(this.formValues.product.length > 0){
+                if(this.formValues.product.includes(toggle)){
+                    this.formValues.product = this.formValues.product.filter(item => item !== toggle)
+                }else{
+                    this.formValues.product.push(toggle)
+                }
+            }else{
+                this.formValues.product.push(toggle)
+            }
         },
         selectMarket(toggle){
-            this.formValues.market.push(toggle)
+            if(this.formValues.market.length > 0){
+                if(this.formValues.market.includes(toggle)){
+                    this.formValues.market = this.formValues.market.filter(item => item !== toggle)
+                }else{
+                    this.formValues.market.push(toggle)
+                }
+            }else{
+                this.formValues.market.push(toggle)
+            }
             //console.log(this.formValues.market)
         },
         async getToken(){

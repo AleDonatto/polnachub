@@ -29,7 +29,7 @@
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-text-field outlined solo class="rounded-xl" label="Email" 
-                            v-model="form.email" :rules="[rules.required, rules.emailRules]"></v-text-field>
+                            v-model="form.emial" :rules="[rules.required, rules.emailRules]"></v-text-field>
                         </v-col>
                         <v-col cols="12" xl="6" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                             <v-text-field outlined solo class="rounded-xl" :label="lang=== 'es' ? 'Teléfono' : 'Phone'" 
@@ -153,7 +153,7 @@ export default {
                 lastname: '',
                 position: '',
                 company: '',
-                email: '',
+                emial: '',
                 phone: '',
                 ubication: '',
                 serviceInterest: '',

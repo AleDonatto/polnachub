@@ -13,12 +13,22 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Polimeros Nacionales' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      // Google Analytics Code
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-35C02TK982",
+        async: true,
+      },
+      // Import analitics.js file
+      { src: "/js/GoogleAnalytics.js" },
     ]
+    
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -29,7 +39,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: "~/plugins/vue2-google-maps.js"}
+    { src: "~/plugins/vue2-google-maps.js"},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -44,7 +44,8 @@ export default {
                 this.dispatch('getAllMarkets')
                 this.dispatch('getAllProducts')
                 break
-            case '/eng/polnac-group': case '/eng/polnac-group/': case '/grupo-polnac/': case '/grupo-polnac': 
+            //case '/eng/polnac-group': case '/eng/polnac-group/': case '/grupo-polnac/': case '/grupo-polnac': 
+            case '/eng/brands': case '/eng/brands/': case '/marcas/': case '/marcas': 
                 this.dispatch('getPagePolnacGroup')
                 this.dispatch('getAllMarcas')
                 break

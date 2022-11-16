@@ -7,13 +7,16 @@ export default {
         params.append('client_id', process.env.SALESFORCE_CLIENT_ID)
         params.append('client_secret', process.env.SALESFORCE_CLIENT_SECRET)
 
-        //this.$axios.setHeader('Access-Control-Allow-Origin', '*')
-        //this.$axios.setHeader('Authorization', '*')
-        //this.$axios.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,PATCH,OPTIONS')
+        this.$axios.setHeader('Accept', '*/*')
+        this.$axios.setHeader('Accept-Encoding', 'gzip, deflate, br')
+        this.$axios.setHeader('Connection','keep-alive')
+        this.$axios.setHeader('Access-Control-Allow-Origin', '*')
+        this.$axios.setHeader('Access-Control-Allow-Methods','POST')
+
         //"https://login.salesforce.com/services/oauth2/token"
 
-        await this.$axios.post('https://login.salesforce.com/services/oauth2/token', params)
-        //await this.$axios.post('https://test.salesforce.com/services/oauth2/token?username=desatimx@polnac.com.bxt01&password=H1u2g3o435&grant_type=password&client_id=3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh&client_secret=C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F')
+        //await this.$axios.post('https://login.salesforce.com/services/oauth2/token', params)
+        await this.$axios.post('https://test.salesforce.com/services/oauth2/token?username=desatimx@polnac.com.bxt01&password=H1u2g3o435&grant_type=password&client_id=3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh&client_secret=C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F')
         //await this.$axios.post('/salesforce/services/oauth2/token', params)
         .then(res => {
             console.log(res.data)
@@ -40,15 +43,15 @@ export default {
         params.append('username', process.env.SALESFORCE_USER)
         params.append('password', process.env.SALESFORCE_PASSWORD)
 
-        /*const data = {
-            access_token: "00DR00000002gFl!AQcAQAmh9JrzDlHpaJrLTTF.e1JxMerBvPbOPPMNoiYE0Dw7tOnYmKtHd1o91pr6z5Co8PEaZFTPjXCpqS4QdAcuUPqDlRQ1",
+        const data = {
+            access_token: "00DR00000002gFl!AQcAQBF2BtruUfKq.7cEifMEMKUkKRHQ3gmF4AHCAR2l3JLQSjTdroqMZ4pidorQ29lgVzeAegRibSYb34NYNCDu1JOxKH4q",
             instance_url: "https://polnac--bxt01.sandbox.my.salesforce.com",
             id: "https://test.salesforce.com/id/00DR00000002gFlMAI/005R0000004g2EyIAI",
             token_type: "Bearer",
-            issued_at: "1666882466130",
-            signature: "rntNOhevAE83+bJmxDWmNi9S64Gkp6sgiSDR4LWSks8="
+            issued_at: "1668552766050",
+            signature: "A0jC3+N8WR5n8bdsN0WPtUS0/v8AFz13E9BoLr2Mbzo="
         }
-        commit('StateAssign', {credentials: data})*/
+        commit('StateAssign', {credentials: data})
 
         this.$axios.setHeader('Access-Control-Allow-Origin', '*')
         this.$axios.setHeader('Access-Control-Allow-Methods','POST')
@@ -57,9 +60,9 @@ export default {
         //this.$axios.setHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,PATCH,OPTIONS')
 
         //await this.$axios.post('https://test.salesforce.com/services/oauth2/token', params)
-        await this.$axios.post('https://test.salesforce.com/services/oauth2/token?username=desatimx@polnac.com.bxt01&password=H1u2g3o435&grant_type=password&client_id=3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh&client_secret=C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F')
+        //await this.$axios.post('https://test.salesforce.com/services/oauth2/token?username=desatimx@polnac.com.bxt01&password=H1u2g3o435&grant_type=password&client_id=3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh&client_secret=C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F')
         //await this.$axios.post('/salesforce/services/oauth2/token', params)
-        .then(res => {
+        /*.then(res => {
             console.log('paso')
             let access_token = res.data.access_token
             
@@ -72,7 +75,7 @@ export default {
         })
         .catch( err => {
             console.log('getToken(): ' + err)
-        })
+        })*/
     }, 
 
     async getProducto({commit, state}){
