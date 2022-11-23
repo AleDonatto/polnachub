@@ -362,49 +362,49 @@
                             </v-row>
                             <v-row justify="center" class="mt-6 mb-16">
                                 <v-col cols="12" lg="6" md="6">
-                                    <v-text-field v-model="form.name" solo rounded label="Nombre Completo" class="" :rules="[rules.required]" required></v-text-field>
+                                    <v-text-field v-model="form.name" solo outlined rounded label="Nombre Completo" :rules="[rules.required]"></v-text-field>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6">
-                                    <v-text-field v-model="form.cargo" solo rounded label="Cargo" class="" :rules="[rules.required]" required></v-text-field>
-                                </v-col>
-
-                                <v-col cols="12" lg="6" md="6">
-                                    <v-text-field v-model="form.RFC" solo rounded label="Empresa" class="" :rules="[rules.required]"></v-text-field>
-                                </v-col>
-                                <v-col cols="12" lg="6" md="6">
-                                    <v-select v-model="form.razonSocial" solo rounded label="Tipo Empresa" :items="tiposEmpresa" item-text="name" item-value="name" class="" :rules="[rules.required]"></v-select>
+                                    <v-text-field v-model="form.cargo" outlined solo rounded label="Cargo" class="" :rules="[rules.required]"></v-text-field>
                                 </v-col>
 
                                 <v-col cols="12" lg="6" md="6">
-                                    <v-text-field v-model="form.email" solo rounded label="Correo electrónico" type="email" class="" :rules="[rules.required, rules.email]"></v-text-field>
+                                    <v-text-field v-model="form.RFC" outlined solo rounded label="Empresa" class="" :rules="[rules.required]"></v-text-field>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6">
-                                    <v-text-field v-model="form.telefono" solo rounded label="Teléfono" class="" @keypress="filterKey" ></v-text-field>
+                                    <v-select v-model="form.razonSocial" outlined solo rounded label="Tipo Empresa" :items="tiposEmpresa" item-text="name" item-value="name" class="" :rules="[rules.required]"></v-select>
                                 </v-col>
 
                                 <v-col cols="12" lg="6" md="6">
-                                    <v-text-field v-model="form.celular" solo rounded label="Celular" class="" @keypress="filterKey" ></v-text-field>
+                                    <v-text-field v-model="form.email" outlined solo rounded label="Correo electrónico" type="email" class="" :rules="[rules.required, rules.email]"></v-text-field>
+                                </v-col>
+                                <v-col cols="12" lg="6" md="6">
+                                    <v-text-field v-model="form.telefono" outlined solo rounded label="Teléfono" class="" @keypress="filterKey" ></v-text-field>
+                                </v-col>
+
+                                <!--<v-col cols="12" lg="6" md="6">
+                                    <v-text-field v-model="form.celular" outlined solo rounded label="Celular" class="" @keypress="filterKey" ></v-text-field>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6" v-if="countries !== null">
-                                    <v-autocomplete v-model="form.pais" solo rounded label="País" class="" :rules="[rules.required]" @change="getStates" :items="countries" item-text="name.common" item-value="name.common" :disabled="countries.length === 0"></v-autocomplete>
+                                    <v-autocomplete v-model="form.pais" outlined solo rounded label="País" class="" :rules="[rules.required]" @change="getStates" :items="countries" item-text="name.common" item-value="name.common" :disabled="countries.length === 0"></v-autocomplete>
                                 </v-col>
 
                                 <v-col cols="12" lg="6" md="6" v-if="states !== null">
-                                    <v-autocomplete v-model="form.estado" solo rounded label="Estado" class="" :rules="[rules.required]" @change="getCities" :items="states" item-text="state_name" item-value="state_name" :disabled="states.length === 0"></v-autocomplete>
+                                    <v-autocomplete v-model="form.estado" outlined solo rounded label="Estado" class="" :rules="states.length === 0  ? []: [rules.required]" @change="getCities" :items="states" item-text="state_name" item-value="state_name" :disabled="states.length === 0"></v-autocomplete>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6" v-if="citys !== null">
-                                    <v-autocomplete v-model="form.ciudad" solo rounded label="Ciudad" class="" :rules="[rules.required]"  :items="citys" item-text="city_name" item-value="city_name" :disabled="citys.length === 0"></v-autocomplete>
-                                </v-col>
+                                    <v-autocomplete v-model="form.ciudad" outlined solo rounded label="Ciudad" class="" :rules="citys.length === 0 ? [] : [rules.required]"  :items="citys" item-text="city_name" item-value="city_name" :disabled="citys.length === 0"></v-autocomplete>
+                                </v-col>-->
 
                                 <v-col cols="12" lg="6" md="6" v-if="productos !== null">
-                                    <v-select v-model="form.productoInteres" solo rounded label="Producto de interés" class="" :rules="[rules.required]" :items="productos.data" item-text="attributes.name" item-value="attributes.name"></v-select>
+                                    <v-select v-model="form.productoInteres" outlined solo rounded label="Producto de interés" class="" :rules="[rules.required]" :items="productos.data" item-text="attributes.name" item-value="attributes.name"></v-select>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6">
-                                    <v-text-field v-model="form.promedioUso" solo rounded label="Promedio de consumo de toneladas al mes" class="" :rules="[rules.required]"></v-text-field>
+                                    <v-text-field v-model="form.promedioUso" outlined solo rounded label="Promedio de consumo de toneladas al mes" class="" :rules="[rules.required]"></v-text-field>
                                 </v-col>
 
                                 <v-col cols="12" lg="6" md="6">
-                                    <v-textarea v-model="form.mensaje" solo rounded label="Cuéntanos brevemente qué deseas consultar con nosotros." class=""></v-textarea>
+                                    <v-textarea v-model="form.mensaje" outlined solo rounded label="Cuéntanos brevemente qué deseas consultar con nosotros." class=""></v-textarea>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6" align="start">
                                     <div class="d-flex justify-start">
@@ -434,9 +434,9 @@ export default {
         return {
             model: 2,
             rules: {
-                required: (value) => !!value || "Required.",
+                required: (value) => !!value || "Este campo en requerido.",
                 min: (v) => v.length >= 8 || "Min 8 characters",
-                email: v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+                email: v => /.+@.+\..+/.test(v) || 'E-mail no es valido',
             },
             form: {
                 name: '',

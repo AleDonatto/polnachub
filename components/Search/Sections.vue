@@ -125,7 +125,6 @@
                         </nuxt-link>
                     </v-col>
                 </v-row>
-                <pre>{{tableRotomoldeo}}</pre>
             </v-container>
 
             <!--v-else -->
@@ -150,484 +149,514 @@
                     </v-chip>
                 </div>
 
-                <v-card class="mt-10 shadow-out" v-if="tablePE.length > 0">
-                    <v-card-title>
-                        Polyethylene
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersPE"
-                        :items="tablePE"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tablePE!==null">
+                    <div class="" v-if="tablePE.length > 0">
+                        <v-card-title>
+                            Polyethylene
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersPE"
+                            :items="tablePE"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tablePP.length > 0">
-                    <v-card-title>
-                        Polypropylene
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersPP"
-                        :items="tablePP"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tablePP!==null">
+                    <div v-if="tablePP.length > 0">
+                        <v-card-title>
+                            Polypropylene
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersPP"
+                            :items="tablePP"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableEstirenicos.length > 0">
-                    <v-card-title>
-                        Polypropylene
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersEstirenicos"
-                        :items="tableEstirenicos"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableEstirenicos!==null">
+                    <div v-if="tableEstirenicos.length > 0">
+                        <v-card-title>
+                            Estirenicos
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersEstirenicos"
+                            :items="tableEstirenicos"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableRotomoldeo.length > 0">
-                    <v-card-title>
-                        Rotomolding compounds colors
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersRotomoldeo"
-                        :items="tableRotomoldeo"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableRotomoldeo!==null">
+                    <div v-if="tableRotomoldeo.length >1">
+                        <v-card-title>
+                            Rotomolding compounds colors
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersRotomoldeo"
+                            :items="tableRotomoldeo"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableMasterbatch.length > 0">
-                    <v-card-title>
-                        MasterBatch
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersMaster"
-                        :items="tableMasterbatch"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableMasterbatch!==null">
+                    <div v-if="tableMasterbatch.length > 0">
+                        <v-card-title>
+                            MasterBatch
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersMaster"
+                            :items="tableMasterbatch"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableIngenieria.length > 0">
-                    <v-card-title>
-                        Ingeniería
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersIng"
-                        :items="tableIngenieria"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableIngenieria!==null">
+                    <div v-if="tableIngenieria.length > 0">
+                        <v-card-title>
+                            Ingeniería
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersIng"
+                            :items="tableIngenieria"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableCompuestosprecolor.length > 0">
-                    <v-card-title>
-                        Ingeniería
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersComPrecolor"
-                        :items="tableCompuestosprecolor"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableCompuestosprecolor!==null">
+                    <div v-if="tableCompuestosprecolor.length > 0">
+                        <v-card-title>
+                            Compuestos precolor
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersComPrecolor"
+                            :items="tableCompuestosprecolor"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableCompuestoscargados.length > 0">
-                    <v-card-title>
-                        Blens
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersComCargados"
-                        :items="tableCompuestoscargados"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableCompuestoscargados!==null">
+                    <div v-if="tableCompuestoscargados.length > 0">
+                        <v-card-title>
+                            Blens
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersComCargados"
+                            :items="tableCompuestoscargados"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableTermoplasticos.length > 0">
-                    <v-card-title>
-                        Thermoplastic Elastomers
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersTermPlasticos"
-                        :items="tableTermoplasticos"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableTermoplasticos!==null">
+                    <div v-if="tableTermoplasticos.length > 0">
+                        <v-card-title>
+                            Thermoplastic Elastomers
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersTermPlasticos"
+                            :items="tableTermoplasticos"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tablePVC.length > 0">
-                    <v-card-title>
-                        PVC
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersPVC"
-                        :items="tablePVC"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tablePVC!==null">
+                    <div v-if="tablePVC.length > 0">
+                        <v-card-title>
+                            PVC
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersPVC"
+                            :items="tablePVC"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableAditivos.length > 0">
-                    <v-card-title>
-                        Additives
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersAditivos"
-                        :items="tableAditivos"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableAditivos!==null">
+                    <div v-if="tableAditivos.length > 0">
+                        <v-card-title>
+                            Additives
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersAditivos"
+                            :items="tableAditivos"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableCalcio.length > 0">
-                    <v-card-title>
-                        Calcium Carbonate
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersCalcio"
-                        :items="tableCalcio"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableCalcio!==null">
+                    <div v-if="tableCalcio.length > 0">
+                        <v-card-title>
+                            Calcium Carbonate
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersCalcio"
+                            :items="tableCalcio"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableBioplasticos.length > 0">
-                    <v-card-title>
-                        Bioplastics
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersBioplasticos"
-                        :items="tableBioplasticos"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableBioplasticos!==null">
+                    <div v-if="tableBioplasticos.length > 0">
+                        <v-card-title>
+                            Bioplastics
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersBioplasticos"
+                            :items="tableBioplasticos"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
+                    
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tableHules.length > 0">
-                    <v-card-title>
-                        Thermoset Elastomers
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersHules"
-                        :items="tableHules"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
+                <v-card class="mt-10 shadow-out" v-if="tableHules!==null">
+                    <div v-if="tableHules.length > 0">
+                        <v-card-title>
+                            Thermoset Elastomers
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersHules"
+                            :items="tableHules"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
 
-                    </v-data-table>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
-                <v-card class="mt-10 shadow-out" v-if="tablePolvoC.length > 0">
-                    <v-card-title>
-                        Calcium carbonate powder
-                        <v-spacer></v-spacer>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                    </v-card-title>
-                    
-                    <v-data-table
-                        :headers="headersPolvo"
-                        :items="tablePolvoC"
-                        :items-per-page="10"
-                        :search="search"
-                        class="elevation-1 mt-5 mb-16"
-                    >
-                        <template v-slot:item.htecnica="{ item }" class="">
-                            <div class="text-center mt-1 pointer">
-                                <a href="/CC80PPHD.pdf" download="" class="decoration-none">
-                                    <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
-                                    <p>Hoja técnica</p>
-                                </a>
-                            </div>
-                        </template>
-
-                    </v-data-table>
+                <v-card class="mt-10 shadow-out" v-if="tablePolvoC!==null">
+                    <div v-if="tablePolvoC.length > 0">
+                        <v-card-title>
+                            Calcium carbonate powder
+                            <v-spacer></v-spacer>
+                            <v-text-field
+                                v-model="search"
+                                append-icon="mdi-magnify"
+                                label="Search"
+                                single-line
+                                hide-details
+                            ></v-text-field>
+                        </v-card-title>
+                        
+                        <v-data-table
+                            :headers="headersPolvo"
+                            :items="tablePolvoC"
+                            :items-per-page="10"
+                            :search="search"
+                            class="elevation-1 mt-5 mb-16"
+                        >
+                            <template v-slot:item.htecnica="{ item }" class="">
+                                <div class="text-center mt-1 pointer">
+                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                        <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
+                                        <p>Hoja técnica</p>
+                                    </a>
+                                </div>
+                            </template>
+                        </v-data-table>
+                    </div>
                 </v-card>
 
             </v-container>

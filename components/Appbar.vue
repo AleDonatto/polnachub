@@ -23,7 +23,7 @@
                                 </v-tab>-->
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('aboutus', this.lang)">{{ $t('appbar.aboutus') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('innovation', this.lang)">{{ $t('appbar.innovation') }}</v-tab>
-                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('searchProducts',this.lang)">{{ $t('appbar.products') }}</v-tab>
+                                <!--<v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('searchProducts',this.lang)">{{ $t('appbar.products') }}</v-tab>-->
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('services', this.lang)">{{ $t('appbar.services') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('market', this.lang)">{{ $t('appbar.market') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('polnacGroup', this.lang)">{{ $t('appbar.marcas') }}</v-tab>
@@ -201,7 +201,7 @@
                                 <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
                                 @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>
                                 <!--<v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>-->
-                                <v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>
+                                <!--<v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>-->
                                 <v-menu min-width="200px" rounded offset-y v-if="this.$route.path.includes('client')">
                                     <template v-slot:activator="{ on }">
                                         <v-btn icon x-large v-on="on">

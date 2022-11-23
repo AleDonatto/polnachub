@@ -359,9 +359,9 @@
                 </v-container>
             </div>-->
             <div class="bg-testimonios">
-                <v-carousel :show-arrows="false" hide-delimiter-background class="my-10" height="600">
+                <!--<v-carousel :show-arrows="false" hide-delimiter-background class="my-10" height="600">
                     <h1 class="font-archivo font-size-40 font-weight-bold white--text text-center my-10">{{ $t('home.titletestimonials') }}</h1>
-                    <!--<h1 class="font-archivo font-size-40 font-weight-bold white--text text-center my-10">{{ pageHome.txtTestimonials }}</h1>-->
+                    --<h1 class="font-archivo font-size-40 font-weight-bold white--text text-center my-10">{{ pageHome.txtTestimonials }}</h1>--
                     <v-carousel-item v-for="(item,i) in 1" :key="i" >
                         
                         <v-row justify="center" class="mx-5" v-if="windowSize > 1129">
@@ -475,7 +475,64 @@
                         </v-row>
 
                     </v-carousel-item>
-                </v-carousel>
+                </v-carousel>-->
+                <v-row v-if="windowSize > 1129">
+                    <v-sheet class="mx-auto bg-testimonios mb-10" max-width="97%">
+                        <h1 class="font-archivo font-size-40 font-weight-bold white--text text-center mt-10">{{ $t('home.titletestimonials') }}</h1>
+                        <v-slide-group v-model="model" class="pa-4" show-arrows>
+                            <v-slide-item v-for="(testim, i) in pageHome.Testimonials" :key="'t'+i">
+                                <v-card class="my-2 mx-5" :class="{'mt-6': i % 2 === 0}" :height="i % 2 === 0 ? '300': '330'" width="440" :color="i % 2 === 0 ? 'white': 'rgba(9, 187, 174, 1)'">
+                                    <v-card-text>
+                                        <p class="font-archivo font-size-24 text-uppercase text-center font-weight-bold mt-2" :class="{'text-color-testimonios': i % 2 === 0, 'black--text': i % 2 !== 0 }">
+                                            {{ testim.Company }}
+                                        </p>
+                                        <p class="font-archivo font-size-20 ma-0 font-weight-bold text-center" :class="{'text-color-testimonios': i % 2 === 0, 'black--text': i % 2 !== 0 }">
+                                            {{testim.Name }}
+                                        </p>
+                                        <p class="ma-0 text-center" :class="{'text-color-testimonios': i % 2 === 0, 'black--text': i % 2 !== 0 }">{{ testim.Ocupation }}</p>
+                                        <div class="text--primary text-center">
+                                            <v-icon :color="i % 2 === 0 ? 'rgba(9, 187, 174, 1)': 'white'">mdi-star</v-icon>
+                                            <v-icon :color="i % 2 === 0 ? 'rgba(9, 187, 174, 1)': 'white'">mdi-star</v-icon>
+                                            <v-icon :color="i % 2 === 0 ? 'rgba(9, 187, 174, 1)': 'white'">mdi-star</v-icon>
+                                            <v-icon :color="i % 2 === 0 ? 'rgba(9, 187, 174, 1)': 'white'">mdi-star</v-icon>
+                                        </div>
+                                        <div class="mt-2 text-center" v-html="testim.Message"></div>
+                                    </v-card-text>
+                                    <v-card-actions>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-slide-item>
+                        </v-slide-group>
+                    </v-sheet>
+                </v-row>
+                <v-row v-if="windowSize < 1129">
+                    <v-carousel :show-arrows="false" hide-delimiter-background class="mt-5 mb-10" height="460">
+                        <h1 class="font-archivo font-size-40 font-weight-bold white--text text-center mt-10">{{ $t('home.titletestimonials') }}</h1>
+                        <v-carousel-item v-for="(item,i) in pageHome.Testimonials" :key="i" >
+                            <v-card class="my-2 mx-4" height="300" :color="i % 2 === 0 ? 'white': 'rgba(9, 187, 174, 1)'">
+                                <v-card-text>
+                                    <p class="font-archivo font-size-24 text-uppercase text-center font-weight-bold mt-2 " :class="{'text-color-testimonios': i % 2 === 0, 'black--text': i % 2 !== 0 }">
+                                        {{ item.Company }}
+                                    </p>
+                                    <p class="font-archivo font-size-20 ma-0 font-weight-bold text-center" :class="{'text-color-testimonios': i % 2 === 0, 'black--text': i % 2 !== 0 }">
+                                        {{item.Name }}
+                                    </p>
+                                    <p class="ma-0 text-center" :class="{'text-color-testimonios': i % 2 === 0, 'black--text': i % 2 !== 0 }">{{ item.Ocupation }}</p>
+                                    <div class="text--primary text-center">
+                                        <v-icon :color="i % 2 === 0 ? 'rgba(9, 187, 174, 1)': 'white'">mdi-star</v-icon>
+                                        <v-icon :color="i % 2 === 0 ? 'rgba(9, 187, 174, 1)': 'white'">mdi-star</v-icon>
+                                        <v-icon :color="i % 2 === 0 ? 'rgba(9, 187, 174, 1)': 'white'">mdi-star</v-icon>
+                                        <v-icon :color="i % 2 === 0 ? 'rgba(9, 187, 174, 1)': 'white'">mdi-star</v-icon>
+                                    </div>
+                                    <div class="mt-2 text-center" v-html="item.Message"></div>
+                                </v-card-text>
+                                <v-card-actions>
+                                </v-card-actions>
+                            </v-card>
+                                
+                        </v-carousel-item>
+                    </v-carousel>
+                </v-row>
             </div>
         </section>
 

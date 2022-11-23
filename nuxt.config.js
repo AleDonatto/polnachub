@@ -21,12 +21,12 @@ export default {
     ],
     script: [
       // Google Analytics Code
-      /*{
+      {
         src: "https://www.googletagmanager.com/gtag/js?id=G-35C02TK982",
         async: true,
-      }*/,
+      },
       // Import analitics.js file
-      //{ src: "/js/GoogleAnalytics.js" },
+      { src: "/js/GoogleAnalytics.js" },
     ]
     
   },

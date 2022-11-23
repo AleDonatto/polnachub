@@ -39,7 +39,8 @@
                                                 <v-row>
                                                     <v-col cols="12" >
                                                         <!--<h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un mercado</h1>-->
-                                                        <h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelMarket}}</h1>
+                                                        <h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelMarket}}</h1> 
+                                                        <span class="red--text" v-if="this.errorMarkets">{{this.lang === 'es' ? 'Seleccione los mercados de interés' : 'Select the markets of interest'}}</span>
                                                         <v-sheet class="mx-auto" v-if="this.mercados !== null">
                                                             <v-slide-group v-model="model" class="pa-2" active-class="success" show-arrows-false multiple>
                                                                 <v-slide-item v-for="(item ,index) in this.mercados" :key="index" v-slot="{ active, toggle}">
@@ -64,6 +65,7 @@
                                                     <v-col cols="12">
                                                         <!--<h1 class="font-archivo font-size-20 font-weight-bold">Selecciona un producto</h1>-->
                                                         <h1 class="font-archivo font-size-20 font-weight-bold">{{pageContact.labelProduct}}</h1>
+                                                        <span class="red--text" v-if="this.errorProducts">{{this.lang === 'es' ? 'Seleccione los productos de interés' : 'Select the products of interest'}}</span>
                                                         <v-sheet class="mx-auto" v-if="this.productos !== null">
                                                             <v-slide-group v-model="model2" class="pa-2" active-class="success" show-arrows-false multiple>
                                                                 <v-slide-item v-for="(item, index) in this.productos.data" :key="index" v-slot="{ active, toggle}">
@@ -137,14 +139,14 @@
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-text-field label="Teléfono fijo" solo outlined class="rounded-xl" v-model="formValues.phone" @keypress="filterKey" ></v-text-field>
                                                         </v-col>
-                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <!--<v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-text-field label="Celular" solo outlined class="rounded-xl" v-model="formValues.cellphone" @keypress="filterKey"  ></v-text-field>
-                                                        </v-col>
+                                                        </v-col>-->
 
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-text-field label="Código Postal" solo outlined class="rounded-xl" v-model="formValues.postalCode" @keypress="filterKey"></v-text-field>
                                                         </v-col>
-                                                        <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
+                                                        <!--<v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-autocomplete label="País" solo outlined class="rounded-xl" v-model="formValues.country" :items="countries" item-text="name.common" item-value="name.common"
                                                             @change="getStates" :rules="[rules.required]" :disabled="countries.length === 0"></v-autocomplete>
                                                         </v-col>
@@ -156,7 +158,7 @@
                                                         <v-col cols="12" lg="6" md="6" sm="12" xs="12" class="margin-botton-0">
                                                             <v-autocomplete label="Ciudad" solo outlined class="rounded-xl" v-model="formValues.city" :items="citys" item-text="city_name" item-value="city_name"
                                                             :rules="[rules.required]" :disabled="citys.length === 0"></v-autocomplete>
-                                                        </v-col>
+                                                        </v-col>-->
 
                                                         <v-col cols="12" class="margin-botton-0">
                                                             <v-select label="¿Cómo te enteraste de POLNAC?" solo outlined class="rounded-xl" v-model="formValues.howFind"
@@ -242,13 +244,6 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
-
-        <v-snackbar v-model="snackbar"> 
-            {{ lang === 'es' ? "Seleccione un producto y mercado" : "Select a product and market"}}
-            <template v-slot:action="{ attrs }">
-                <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">{{ $t('form.close') }}</v-btn>
-            </template>
-        </v-snackbar>
     </div>
 </template>
 
@@ -345,7 +340,8 @@ export default {
                 howFind: '',
                 message: '',
             },
-            snackbar: false,
+            errorProducts: false,
+            errorMarkets: false,
             token: '',
             countries: [],
             states: [],
@@ -376,11 +372,14 @@ export default {
             if(this.$refs.formContact.validate()){
 
                 if( this.formValues.market.length < 1 || this.formValues.product.length < 1){
-                    this.snackbar = true
+                    this.errorMarkets = this.formValues.market.length < 1
+                    this.errorProducts = this.formValues.product.length < 1
                 }else{
                     this.$refs.formContact.resetValidation()
                     this.progress = 100
                     this.e1 = 2
+                    this.errorMarkets = false
+                    this.errorProducts = false
                 }
             }
         },

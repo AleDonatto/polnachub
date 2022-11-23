@@ -22,7 +22,7 @@
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                                 <!--<p>{{mercado}}</p>-->
-                                <v-select placeholder="Mercado" rounded solo v-model="mercado"
+                                <v-select placeholder="Mercado" rounded solo v-model="mercado" 
                                 :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="">
@@ -107,7 +107,7 @@ export default {
                 this.$store.dispatch('getProducto')
             }
             //this.clientLogin()
-        }, 6000);
+        }, 8000);
         //this.clientLogin()
     },
     computed: {
@@ -134,24 +134,30 @@ export default {
         async clientLogin(){
             const username = process.env.SALESFORCE_USER
             const password = process.env.SALESFORCE_PASSWORD
+            const client_secret = process.env.SALESFORCE_CLIENT_SECRET
+            const client_id = process.env.SALESFORCE_CLIENT_ID
 
-            //console.log(username)
-            //console.log(password)
+            //console.log(client_secret)
+            //console.log(client_id)
 
             const connection = new jsforce.Connection({
                 //loginUrl : 'https://test.salesforce.com',
                 oauth2 : {
                     // you can change loginUrl to connect to sandbox or prerelease env.
-                    //loginUrl : 'https://test.salesforce.com/services/oauth2/token',
-                    loginUrl : 'https://test.salesforce.com',
-                    clientId : process.env.SALESFORCE_CLIENT_ID,
-                    clientSecret : process.env.SALESFORCE_CLIENT_SECRET,
+                    loginUrl : 'https://test.salesforce.com/services/oauth2/token',
+                    //loginUrl : 'https://login.salesforce.com/services/oauth2/token',
+                    clientId : client_id,
+                    clientSecret : client_secret,
                 }
             });
 
             //const connection = new jsforce.Connection({})
+            await connection.login(username, password, (err, userInfo) => {
+                if(err) { return console.log(err) }
+                console.log(userInfo)
+            })
             console.log(connection)
-            await connection.login(username, password)
+
 
             const familyProducts = new Promise(() => {
                 connection.query('SELECT+Name+FROM+Familia_de_productos__c', 
