@@ -22,64 +22,76 @@
                     </v-col>
                     <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                         <v-card class="border-option">
-                             <div class="d-flex justify-start pa-2 mt-2">
-                                <img src="../../static/dashboard/contacto.png" height="27" />
-                                <p class=" ml-2 font-size-22 font-weight-bold">Contactos</p>
-                            </div>
-                            <v-divider class="mx-2"></v-divider>
-                            <p class="font-size-18 pa-2">Contactos de la empresa.</p>
+                            <nuxt-link to="/client/contacto" class="decoration-none">
+                                <div class="d-flex justify-start pa-2 mt-2">
+                                    <img src="../../static/dashboard/contacto.png" height="27" />
+                                    <p class=" ml-2 font-size-22 font-weight-bold">Contactos</p>
+                                </div>
+                                <v-divider class="mx-2"></v-divider>
+                                <p class="font-size-18 pa-2">Contactos de la empresa.</p>
+                            </nuxt-link>
                         </v-card>
                     </v-col>
                     <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                         <v-card class="border-option">
-                             <div class="d-flex justify-start pa-2 mt-2">
-                                <img src="../../static/dashboard/credito.png" height="27" />
-                                <p class=" ml-2 font-size-22 font-weight-bold">Crédito</p>
-                            </div>
-                            <v-divider class="mx-2"></v-divider>
-                            <p class="font-size-18 pa-2">Información de crédito y saldos.</p>
+                            <nuxt-link to="/client/credito" class="decoration-none">
+                                <div class="d-flex justify-start pa-2 mt-2">
+                                    <img src="../../static/dashboard/credito.png" height="27" />
+                                    <p class=" ml-2 font-size-22 font-weight-bold">Crédito</p>
+                                </div>
+                                <v-divider class="mx-2"></v-divider>
+                                <p class="font-size-18 pa-2">Información de crédito y saldos.</p>
+                            </nuxt-link>
                         </v-card>
                     </v-col>
 
                     <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                         <v-card class="border-option">
-                             <div class="d-flex justify-start pa-2 mt-2">
-                                <img src="../../static/dashboard/destinos.png" height="27" />
-                                <p class=" ml-2 font-size-22 font-weight-bold">Destinatarios</p>
-                            </div>
-                            <v-divider class="mx-2"></v-divider>
-                            <p class="font-size-18 pa-2">Direcciones de entrega de material.</p>
+                            <nuxt-link to="/client/destinatarios" class="decoration-none">
+                                <div class="d-flex justify-start pa-2 mt-2">
+                                    <img src="../../static/dashboard/destinos.png" height="27" />
+                                    <p class=" ml-2 font-size-22 font-weight-bold">Destinatarios</p>
+                                </div>
+                                <v-divider class="mx-2"></v-divider>
+                                <p class="font-size-18 pa-2">Direcciones de entrega de material.</p>
+                            </nuxt-link>
                         </v-card>
                     </v-col>
                     <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                         <v-card class="border-option">
-                             <div class="d-flex justify-start pa-2 mt-2">
-                                <img src="../../static/dashboard/estados.png" height="27" />
-                                <p class=" ml-2 font-size-22 font-weight-bold">Estados de cuenta</p>
-                            </div>
-                            <v-divider class="mx-2"></v-divider>
-                            <p class="font-size-18 pa-2">Estados de cuenta, facturas y estatus.</p>
+                            <nuxt-link to="/client/cuentas" class="decoration-none">
+                                <div class="d-flex justify-start pa-2 mt-2">
+                                    <img src="../../static/dashboard/estados.png" height="27" />
+                                    <p class=" ml-2 font-size-22 font-weight-bold">Estados de cuenta</p>
+                                </div>
+                                <v-divider class="mx-2"></v-divider>
+                                <p class="font-size-18 pa-2">Estados de cuenta, facturas y estatus.</p>
+                            </nuxt-link>
                         </v-card>
                     </v-col>
                     <v-col cols="12" lg="4" md="4" sm="12" xs="12">
                         <v-card class="border-option">
-                             <div class="d-flex justify-start pa-2 mt-2">
-                                <img src="../../static/dashboard/pedidos.png" height="27" />
-                                <p class=" ml-2 font-size-22 font-weight-bold">Pedidos</p>
-                            </div>
-                            <v-divider class="mx-2"></v-divider>
-                            <p class="font-size-18 pa-2">Detalles de últimos pedidos y rastreo.</p>
+                            <nuxt-link to="/client/pedidos" class="decoration-none">
+                                <div class="d-flex justify-start pa-2 mt-2">
+                                    <img src="../../static/dashboard/pedidos.png" height="27" />
+                                    <p class=" ml-2 font-size-22 font-weight-bold">Pedidos</p>
+                                </div>
+                                <v-divider class="mx-2"></v-divider>
+                                <p class="font-size-18 pa-2">Detalles de últimos pedidos y rastreo.</p>
+                            </nuxt-link>
                         </v-card>
                     </v-col>
 
                     <v-col cols="12" lg="4" md="4" sm="12" xs="12" :class="{'mb-16': windowSize> 1129 }">
                         <v-card class="border-option">
-                             <div class="d-flex justify-start pa-2 mt-2">
-                                <img src="../../static/dashboard/casos.png" height="27" />
-                                <p class=" ml-2 font-size-22 font-weight-bold">Casos</p>
-                            </div>
-                            <v-divider class="mx-2"></v-divider>
-                            <p class="font-size-18 pa-2">Consulta y creación de casos.  Incidencias.</p>
+                            <nuxt-link to="/client/casos" class="decoration-none">
+                                <div class="d-flex justify-start pa-2 mt-2">
+                                    <img src="../../static/dashboard/casos.png" height="27" />
+                                    <p class=" ml-2 font-size-22 font-weight-bold">Casos</p>
+                                </div>
+                                <v-divider class="mx-2"></v-divider>
+                                <p class="font-size-18 pa-2">Consulta y creación de casos.  Incidencias.</p>
+                            </nuxt-link>
                         </v-card>
                     </v-col>
                     <v-col cols="12" lg="4" md="4" sm="12" xs="12" class="mb-16">

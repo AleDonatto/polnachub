@@ -83,7 +83,7 @@ export default {
         commit('StateAssign', {pageAboutUs: pageData.data.attributes})
     },
 
-    async getPageSearchProducts({commit, state}){
+    async getPageSearchProducts({commit, state,dispatch}){
         this.$axios.setToken(false)
         //this.$axios.setHeader(false)
         this.$axios.setHeader('Accept',false)
@@ -97,7 +97,9 @@ export default {
             pageData = await this.$axios.$get(`https://crm.polnac.com/api/search-product?populate[banner][populate]=%2A&locale=es-MX`)
         
         commit('StateAssign', {pageSearchProducts: pageData.data.attributes})
+        dispatch('getCredentials')
     },
+
     async getPageServices({commit, state}){
         this.$axios.setToken(false)
         //this.$axios.setHeader(false)

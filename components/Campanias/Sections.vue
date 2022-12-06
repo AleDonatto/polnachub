@@ -364,16 +364,16 @@
                                 <v-col cols="12" lg="6" md="6">
                                     <v-text-field v-model="form.name" solo outlined rounded label="Nombre Completo" :rules="[rules.required]"></v-text-field>
                                 </v-col>
-                                <v-col cols="12" lg="6" md="6">
+                                <!--<v-col cols="12" lg="6" md="6">
                                     <v-text-field v-model="form.cargo" outlined solo rounded label="Cargo" class="" :rules="[rules.required]"></v-text-field>
-                                </v-col>
+                                </v-col>-->
 
                                 <v-col cols="12" lg="6" md="6">
-                                    <v-text-field v-model="form.RFC" outlined solo rounded label="Empresa" class="" :rules="[rules.required]"></v-text-field>
+                                    <v-text-field v-model="form.razonSocial" outlined solo rounded label="Empresa" class="" :rules="[rules.required]"></v-text-field>
                                 </v-col>
-                                <v-col cols="12" lg="6" md="6">
+                                <!--<v-col cols="12" lg="6" md="6">
                                     <v-select v-model="form.razonSocial" outlined solo rounded label="Tipo Empresa" :items="tiposEmpresa" item-text="name" item-value="name" class="" :rules="[rules.required]"></v-select>
-                                </v-col>
+                                </v-col>-->
 
                                 <v-col cols="12" lg="6" md="6">
                                     <v-text-field v-model="form.email" outlined solo rounded label="Correo electrónico" type="email" class="" :rules="[rules.required, rules.email]"></v-text-field>
@@ -396,7 +396,7 @@
                                     <v-autocomplete v-model="form.ciudad" outlined solo rounded label="Ciudad" class="" :rules="citys.length === 0 ? [] : [rules.required]"  :items="citys" item-text="city_name" item-value="city_name" :disabled="citys.length === 0"></v-autocomplete>
                                 </v-col>-->
 
-                                <v-col cols="12" lg="6" md="6" v-if="productos !== null">
+                                <!--<v-col cols="12" lg="6" md="6" v-if="productos !== null">
                                     <v-select v-model="form.productoInteres" outlined solo rounded label="Producto de interés" class="" :rules="[rules.required]" :items="productos.data" item-text="attributes.name" item-value="attributes.name"></v-select>
                                 </v-col>
                                 <v-col cols="12" lg="6" md="6">
@@ -405,7 +405,7 @@
 
                                 <v-col cols="12" lg="6" md="6">
                                     <v-textarea v-model="form.mensaje" outlined solo rounded label="Cuéntanos brevemente qué deseas consultar con nosotros." class=""></v-textarea>
-                                </v-col>
+                                </v-col>-->
                                 <v-col cols="12" lg="6" md="6" align="start">
                                     <div class="d-flex justify-start">
                                         <v-checkbox label="Aceptar" color="#19D3C5" :rules="[rules.required]" dark></v-checkbox>

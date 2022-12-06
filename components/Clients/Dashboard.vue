@@ -2,6 +2,70 @@
     <div>
         <section>
             <v-container>
+                <div class="">
+                    <v-row justify="center" class="mt-10">
+                        <v-col cols="12">
+                            <p class="font-weight-bold text-h4">Mis Pedidos Recientes</p>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="4">
+                            <v-card elevation="3" outlined height="115">
+                                <v-row class="mx-2">
+                                    <v-col cols="5" align-self="center">
+                                        <p class="text-purple font-weight-bold">P-000000007</p>
+                                    </v-col>
+                                    <v-col cols="7" align="end">
+                                        <div class="pa-3 mt-2 rounded-circle d-inline-block status-select">
+                                            <v-img src="/client/asignado-select.png" contain class="status-select" max-height="45"></v-img>
+                                        </div>
+                                        <p>Asignado a unidad</p>
+                                    </v-col>
+                                </v-row>
+                            </v-card>
+                        </v-col>
+                        <v-col cols="4">
+                            <v-card elevation="3" outlined height="115">
+                                <v-row class="mx-2">
+                                    <v-col cols="5" align-self="center">
+                                        <p class="text-purple font-weight-bold">P-000000008</p>
+                                    </v-col>
+                                    <v-col cols="7" align="end">
+                                        <div class="pa-3 mt-2 rounded-circle d-inline-block status-select">
+                                            <v-img src="/client/transito-select.png" contain class="status-select" max-height="45"></v-img>
+                                        </div>
+                                        <p>En tránsito</p>
+                                    </v-col>
+                                </v-row>
+                            </v-card>
+                        </v-col>
+                        <v-col cols="4">
+                            <v-card elevation="3" outlined height="115">
+                                <v-row class="mx-2">
+                                    <v-col cols="5" align-self="center">
+                                        <p class="text-purple font-weight-bold">P-000000009</p>
+                                    </v-col>
+                                    <v-col cols="7" align="end">
+                                        <div class="pa-3 mt-2 rounded-circle d-inline-block status-select">
+                                            <v-img src="/client/cargado-select.png" contain class="status-select" max-height="45"></v-img>
+                                        </div>
+                                        <p>Cargado</p>
+                                    </v-col>
+                                </v-row>
+                            </v-card>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="12">
+                            <nuxt-link to="/client/pedidos" class="decoration-none">
+                                <v-btn class="primary-color text-none px-10 py-6" rounded>Ver Más</v-btn>
+                            </nuxt-link>
+                            <nuxt-link to="/client/account" class="decoration-none">
+                                <v-btn class="secondary-color white--text text-none px-10 py-6" rounded>Mi Cuenta</v-btn>
+                            </nuxt-link>
+                        </v-col>
+                    </v-row>
+                </div>
                 <div class="bg-clientbanner rounded-lg mt-12">
                     <v-row justify="center">
                         <v-col cols="8" align="center">
@@ -14,22 +78,86 @@
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <!--<p>{{producto}}</p>-->
                         <v-select placeholder="Producto" rounded solo v-model="producto" outlined
-                        :items="pProducto.records" item-text="Name" item-value="Name" name="tResina"></v-select>
+                        :items="pProducto.records" item-text="Name" item-value="Name" name="tResina">
+                            <template v-slot:prepend-item>
+                                <v-list-item @mousedown.prevent @click="cleantResina">
+                                    <v-list-item-action>
+                                        <v-icon>
+                                            mdi-eraser
+                                        </v-icon>
+                                    </v-list-item-action>
+                                    <v-list-item-content>
+                                        <v-list-item-title>
+                                            Clean Filter
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-divider class="mt-2"></v-divider>
+                            </template>
+                        </v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <!--<p>{{fabricante}}</p>-->
                         <v-select placeholder="Fabricante" rounded solo v-model="fabricante" outlined
-                        :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
+                        :items="pFabricante.records" item-text="Name" item-value="Name">
+                            <template v-slot:prepend-item>
+                                <v-list-item @mousedown.prevent @click="cleanFabricante">
+                                    <v-list-item-action>
+                                        <v-icon>
+                                            mdi-eraser
+                                        </v-icon>
+                                    </v-list-item-action>
+                                    <v-list-item-content>
+                                        <v-list-item-title>
+                                            Clean Filter
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-divider class="mt-2"></v-divider>
+                            </template>
+                        </v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                         <!--<p>{{mercado}}</p>-->
                         <v-select placeholder="Mercado" rounded solo v-model="mercado" outlined
-                        :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
+                        :items="pMercado.records" item-text="Name" item-value="Name">
+                            <template v-slot:prepend-item>
+                                <v-list-item @mousedown.prevent @click="cleanMercado">
+                                    <v-list-item-action>
+                                        <v-icon>
+                                            mdi-eraser
+                                        </v-icon>
+                                    </v-list-item-action>
+                                    <v-list-item-content>
+                                        <v-list-item-title>
+                                            Clean Filter
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-divider class="mt-2"></v-divider>
+                            </template>
+                        </v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="">
                         <!--<p>{{mTransformacion}}</p>-->
                         <v-select placeholder="Método de Transformación" rounded solo v-model="mTransformacion" outlined
-                        :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
+                        :items="pMetTransformacion.records" item-text="Name" item-value="Name">
+                            <template v-slot:prepend-item>
+                                <v-list-item @mousedown.prevent @click="cleanTransformacion">
+                                    <v-list-item-action>
+                                        <v-icon>
+                                            mdi-eraser
+                                        </v-icon>
+                                    </v-list-item-action>
+                                    <v-list-item-content>
+                                        <v-list-item-title>
+                                            Clean Filter
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-divider class="mt-2"></v-divider>
+                            </template>
+                    </v-select>
                     </v-col>
                     <v-col cols="12">
                         <v-btn class="primary-color text-none px-10 py-6" rounded @click="consultarProducto()">Buscar</v-btn>
@@ -269,6 +397,23 @@ export default {
             }
             this.$store.dispatch('addListCard', item)
             this.snackbar = true
+        },
+        cleantResina(){
+            //console.log('input de tipo de resina limpio')
+            this.producto = ''
+            this.$refs.tresina.blur()
+        },
+        cleanFabricante(){
+            this.fabricante = ''
+            this.$refs.fabricante.blur()
+        },
+        cleanMercado(){
+            this.mercado = ''
+            this.$refs.mercado.blur()
+        },
+        cleanTransformacion(){
+            this.mTransformacion = ''
+            this.$refs.transformacion.blur()
         }
     }
 }
@@ -282,5 +427,10 @@ export default {
     background-position: center center;
     width: 100%;
     height: 190px;
+}
+
+.status-select{
+    background-color: #773DBD !important;
+    border-color: #773DBD !important;
 }
 </style>

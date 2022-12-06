@@ -110,7 +110,7 @@ export default {
             infowindowPosition: { lat: 0, lng: 0},
             infowindowOpened: false,
             selectedMarker:{},
-            sucursal: 0,
+            sucursal: 1,
         }
     },
     computed: {
@@ -125,6 +125,7 @@ export default {
     mounted(){
         this.getRegiones()
         this.getSucursales()
+        //this.getDataSucursal()
     },
     methods: {
         getSucursal(){
@@ -187,8 +188,8 @@ export default {
 
                 this.sucursales = array
                 this.sucursalesDisabled = false
-            }
-            this.data = this.dataSucursales[this.region]*/
+            }*/
+            //this.data = this.dataSucursales[this.region]
         },
         handleMarker(item){
             this.infowindowOpened = true
@@ -200,179 +201,8 @@ export default {
             this.selectedMarker = {}
         },
         getDataSucursal(){
-
+            //this.sucursalesDisabled = false
             this.data = this.dataSucursales.data.filter(item => item.id === this.sucursal)
-            //console.log(this.data)
-            
-            /*console.log(this.sucursal)
-            let dataSucursal = {}
-            switch(this.sucursal){
-                case 'Estado de Mexico': 
-                    dataSucursal = {
-                        title: 'POLNAC México',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/s-mexico.png')},
-                            {img: require('../../static/sucursales/s-mexico2.png')}
-                        ],
-                        address: 'Lázaro Cárdenas No. 49, San Jerónimo Tepetlacalco, Tlalnepantla, Estado de México, 54090 México',
-                        tel: '(55) 2585 2650',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break
-                case 'Monterrey': 
-                    dataSucursal = {
-                        title: 'Sucursal Monterrey',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/smonterrey1.png')},
-                            {img: require('../../static/sucursales/smonterrey2.png')}
-                        ],
-                        address: 'Av. Ruiz Cortinez No. 245, Edificio 1 Módulo 23 Norte, Parque Industrial Kalos Col. Jardines de la Victoria, Guadalupe, Nuevo León C.P. 67119',
-                        tel: '52 (81) 8351 9087',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break
-                case 'León': 
-                    dataSucursal = {
-                        title: 'Sucursal León',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/sleon1.png')},
-                            {img: require('../../static/sucursales/sleon2.png')}
-                        ],
-                        address: 'Blvd, J. José Torres Landa No. 4704 Interior F, Polígono Industrial Jerez, Col. Cerrito de Jerez, León, Guanajuato C.P. 37530',
-                        tel: '52 (477) 194 5787',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break
-                case 'Guadalajara':
-                    dataSucursal = {
-                        title: 'Sucursal Jalisco',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/sjalisco1.png')},
-                            {img: require('../../static/sucursales/sjalisco2.png')}
-                        ],
-                        address: 'Periférico Sur No. 6350 Bodega G-1 Col. Artesanos, Tlaquepaque, Jalisco C.P. 45610',
-                        tel: '52 (33) 3673 8288',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break 
-                case 'Puebla': 
-                    dataSucursal = {
-                        title: 'Sucursal Puebla',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/spuebla1.png')},
-                            {img: require('../../static/sucursales/spuebla2.png')}
-                        ],
-                        address: 'Calle 30 Norte No. 604 Bodega 24 Col. Resurgimiento, Puebla, Pue. C.P. 72370',
-                        tel: '52 (222) 235 1666',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break 
-                case 'Mérida': 
-                    dataSucursal = {
-                        title: 'Sucursal Mérida',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/smerida1.png')},
-                            {img: require('../../static/sucursales/smerida2.png')}
-                        ],
-                        address: 'Km 41 Anillo Periférico Poniente, Bodega No. 7, Col. El Porvenir, Bodegas Yucatán, Mérida, Yucatán C.P. 97238',
-                        tel: '52 (999) 912 2477',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break
-                case 'Querétaro + CEDIS': 
-                    dataSucursal = {
-                        title: 'Sucursal Querétaro',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/squeretaro1.png')},
-                            {img: require('../../static/sucursales/squeretaro2.png')}
-                        ],
-                        address: 'Km 41 Anillo Periférico Poniente, Bodega No. 7, Col. El Porvenir, Bodegas Yucatán, Mérida, Yucatán C.P. 97238',
-                        tel: '52 (999) 912 2477',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break
-                case 'San Luis Potosi': 
-                    dataSucursal = {
-                        title: 'Sucursal Mérida',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/ssanluis1.png')},
-                            {img: require('../../static/sucursales/ssanluis2.png')}
-                        ],
-                        address: 'Acceso IlI No. 42 Nave 13 y 14 Parque Industrial Benito Juarez, Querétaro, Qro. C.P. 76130',
-                        tel: '52 (442) 209 5046',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break
-                case 'Colombia': 
-                    dataSucursal = {
-                        title: 'Colombia',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img:require('../../static/sucursales/s-colombia.png')},
-                            {img: require('../../static/sucursales/s-colombia1.png')}
-                        ],
-                        address: '',
-                        tel: '52 55 4607 0841',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break
-                case 'Ecuador': 
-                    dataSucursal = {
-                        title: 'Ecuador',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/secuador1.png')},
-                            {img: require('../../static/sucursales/secuador2.png')}
-                        ],
-                        address: '',
-                        tel: '57 304 212 3927',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break
-                case 'Guatemala': 
-                    dataSucursal = {
-                        title: 'Guatemala',
-                        map: require('../../static/sucursales/sucursales-mexico.png'),
-                        images: [
-                            {img: require('../../static/sucursales/sguatemala1.png')},
-                            {img: require('../../static/sucursales/sguatemala2.png')}
-                        ],
-                        address: '',
-                        tel: '52 55 4607 0841',
-                        mail: 'digital@polnac.com',
-                        linkmap: ''
-                    }
-                    this.data = dataSucursal
-                    break
-            }*/
         },
         async getRegiones(){
             this.regiones = await this.$store.dispatch('getAllRegiones')
@@ -383,7 +213,9 @@ export default {
             this.dataSucursales = await this.$store.dispatch('getSucursales')
             this.sucursales = this.dataSucursales.data.filter(item => item.attributes.region.data.id === this.region)
             this.sucursalesDisabled = false
-            console.log(this.sucursales)
+
+            this.data = this.dataSucursales.data.filter(item => item.id === this.sucursal)
+            //console.log(this.sucursales)
         },
 
     },

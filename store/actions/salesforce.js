@@ -1,36 +1,52 @@
 export default {
     async getCredentials({commit, dispatch, state}){
-        const params = new URLSearchParams();
+        /*const params = new URLSearchParams();
         params.append('username', process.env.SALESFORCE_USER)
         params.append('password', process.env.SALESFORCE_PASSWORD)
         params.append('grant_type', process.env.SALESFORCE_GRANT_TYPE)
         params.append('client_id', process.env.SALESFORCE_CLIENT_ID)
-        params.append('client_secret', process.env.SALESFORCE_CLIENT_SECRET)
+        params.append('client_secret', process.env.SALESFORCE_CLIENT_SECRET)*/
 
-        //this.$axios.setHeader('Accept', '*/*')
-        //this.$axios.setHeader('Access-Control-Allow-Origin', '*')
-        //this.$axios.setHeader('Access-Control-Allow-Methods','POST')
+        let credentials = await dispatch('checkCredentials')
+        console.log(credentials)
+        
+        if(credentials === false){
+            //console.log('llamada al endpoint de credenciales')
+            
+            await this.$axios.get('https://l4t5frdlcvx4cweqejk7l3jsaq0vosde.lambda-url.us-east-2.on.aws')
+            //await this.$axios.post('/salesforce/services/oauth2/token', params)
+            .then(res => {
+                let access_token = res.data.access_token
+                //console.log('obteniendo credenciales')
+                
+                this.$axios.setToken(access_token, 'Bearer')
+                //this.axios.defaults.headers.common = {'Authorization': `Bearer ${access_token}`}
 
-        //"https://login.salesforce.com/services/oauth2/token"
+                localStorage.setItem('credentials', JSON.stringify(res.data) )
+                window.API_SALESFORCE = res.data.instance_url
+
+                commit('StateAssign', {credentials: res.data})
+
+                dispatch('getProducto')
+                dispatch('getMercado')
+                dispatch('getMetodoTransformacion')
+                dispatch('getFabricante')
+
+            })
+            .catch( err => {
+                console.log('getToken with Proxy (): ' + err)
+            })
+        }else{
+            //credentials = JSON.parse(credentials)
+            window.API_SALESFORCE = credentials.instance_url
+            dispatch('getProducto')
+            dispatch('getMercado')
+            dispatch('getMetodoTransformacion')
+            dispatch('getFabricante')
+        }
 
         //await this.$axios.post('https://login.salesforce.com/services/oauth2/token', params)
-        await this.$axios.get('https://l4t5frdlcvx4cweqejk7l3jsaq0vosde.lambda-url.us-east-2.on.aws')
-        //await this.$axios.post('/salesforce/services/oauth2/token', params)
-        .then(res => {
-            console.log(res.data)
-            let access_token = res.data.access_token
-            //let access_token = '00DR00000002gFl!AQcAQMO.J4uTITbz2byqYl3250qT7PcJMACPQdkCNLf1ehYVyIlsB0FUO3kSWUBHzB3Z1RthAvWUp8XEkEjFj4y06IMVeUfz'
-            
-            this.$axios.setToken(access_token, 'Bearer')
-            //this.axios.defaults.headers.common = {'Authorization': `Bearer ${access_token}`}
-
-            //localStorage.setItem('userToken', access_token)
-            commit('StateAssign', {credentials: res.data})
-            //console.log('get credentials')
-        })
-        .catch( err => {
-            console.log('getToken with Proxy (): ' + err)
-        })
+        
     }, 
 
     async getCredentialsOther({commit, dispatch, state}){
@@ -53,15 +69,6 @@ export default {
         //this.$axios.setHeader('Access-Control-Allow-Origin', '*')
         //this.$axios.setHeader('Access-Control-Allow-Methods','POST')
 
-        /*const data = {
-            access_token: "00DR00000002gFl!AQcAQBF2BtruUfKq.7cEifMEMKUkKRHQ3gmF4AHCAR2l3JLQSjTdroqMZ4pidorQ29lgVzeAegRibSYb34NYNCDu1JOxKH4q",
-            instance_url: "https://polnac--bxt01.sandbox.my.salesforce.com",
-            id: "https://test.salesforce.com/id/00DR00000002gFlMAI/005R0000004g2EyIAI",
-            token_type: "Bearer",
-            issued_at: "1668552766050",
-            signature: "A0jC3+N8WR5n8bdsN0WPtUS0/v8AFz13E9BoLr2Mbzo="
-        }
-        commit('StateAssign', {credentials: data})*/
 
         //this.$axios.setHeader('Access-Control-Allow-Origin', '*')
         //this.$axios.setHeader('Access-Control-Allow-Methods','POST')
@@ -123,19 +130,44 @@ export default {
         console.log(credentials)
     }, 
 
-    async getProducto({commit, state}){
+    async checkCredentials({commit, dispatch, state}){
+        let data = await localStorage.getItem('credentials')
+        data = JSON.parse(data)
+        //console.log(data)
+        if(data !== null){
+            commit('StateAssign', {credentials: data})
+            return data
+        }
+        return false
+    },
+
+    async getProducto({commit, state, dispatch}){
+        
         const token = state.credentials.access_token
         this.$axios.setToken(token, 'Bearer')
 
         const params = new URLSearchParams()
         params.append('q', 'SELECT+Name+FROM+Familia_de_productos__c')
 
-        await this.$axios.get(`https://polnac--bxt01.sandbox.my.salesforce.com/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c`)
-        //await this.$axios.get(`${--process.env.SALESFORCE_USER_URL}/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c`)
+        //sandbox
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c+ORDER+BY+Name`)
+        //produccion
+        //await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c+ORDER+BY+Name`)
+        
+        //await this.$axios.get(`${--window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c`)
         //await this.$axios.get('https://polnac--bxt01.my.salesforce.com/services/data/v55.0/query/?q=SELECT+Name+FROM+Categoria_de_Productos__c')
         .then( res => {
             //console.log(res)
+            //console.log('obteniendo filtro')
             commit('StateAssign', {pProducto: res.data})
+        })
+        .catch(err => {
+            //console.log('fallaron credenciales')
+            if(err.response.status === 401){
+                localStorage.clear()
+                //console.log('llamda de nuevo a nuevas credenciales')
+                dispatch('getCredentials')
+            }
         })
     },
 
@@ -146,7 +178,10 @@ export default {
         const params = new URLSearchParams()
         params.append('q', 'SELECT+Name+FROM+Mercados__c')
 
-        await this.$axios.get(`https://polnac--bxt01.sandbox.my.salesforce.com/services/data/v55.0/query/?q=SELECT+Name+FROM+Mercados__c`)
+        //sandbox
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Name+FROM+Mercados__c+ORDER+BY+Name`)
+        // production
+        //await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Name+FROM+Mercado__c`)
         .then( res => {
             //console.log(res)
             commit('StateAssign', {pMercado: res.data})
@@ -161,9 +196,8 @@ export default {
         params.append('q', 'SELECT+Name+FROM+Metodos_de_Transformaci_n__c')
 
         //await this.$axios.get('/salesforcepolnac/services/data/v55.0/query/', params)
-        await this.$axios.get(`https://polnac--bxt01.sandbox.my.salesforce.com/services/data/v55.0/query/?q=SELECT+Name+FROM+M_todos_de_transformaci_n__c`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Name+FROM+M_todos_de_transformaci_n__c+ORDER+BY+Name`)
         .then(res => {
-            //console.log(res.data)
             commit('StateAssign', {pMetTransformacion: res.data})
         })
     },
@@ -175,7 +209,10 @@ export default {
         const qparams = new URLSearchParams()
         qparams.append('q', 'SELECT+Name+FROM+Fabricantes_Web__c')
     
-        await this.$axios.get(`https://polnac--bxt01.sandbox.my.salesforce.com/services/data/v55.0/query/?q=SELECT+Name+FROM+Fabricantes_Web__c`)
+        //sandbox
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Name+FROM+Fabricantes_Web__c+ORDER+BY+Name`)
+        //produccion
+        //await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Name+FROM+Proveedor__c`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {pFabricante: res.data})
@@ -287,17 +324,18 @@ export default {
         Grupo__r.Name, Carrier__c, Densidad__c, Indice_de_Fluidez_p__c, Aditivo__c, Color__c, Impacto_IZOD__c, Dureza_Shore__c, Concentraci_n__c, Visco__c, 
         Modulo_de_flexi_n__c, Detalles_producto_web__c, Description__c+FROM+Product2+WHERE (Grupos__r.Name='${product}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
-            console.log(state.tablePruebas)
+            console.log(res.data)
             if(res.data.records.length === 0){
+                console.log('no hay productos')
                 commit('StateAssign', {showMsgProd: true})
             }
-            /*else{
+            else{
                 dispatch('createtables')
-            }*/
+            }
         })
         .catch(err => {
             console.log(err.response)
@@ -317,7 +355,7 @@ export default {
         Aditivo__c,Color__c,Impacto_IZOD__c,Dureza_Shore__c,Concentraci_n__c,Visco__c, 
         Modulo_de_flexi_n__c,Detalles_producto_web__c,Description__c+FROM+Product2+WHERE (Proveedor_Pweb__r.Name='${fabricante}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             commit('StateAssign', {tablePruebas: res.data})
             console.log(res.data)
@@ -331,22 +369,25 @@ export default {
     async consMercado({commit, dispatch, state}, mercado){
         const token = state.credentials.access_token
         this.$axios.setToken(token, 'Bearer')
+        mercado = escape(mercado)
 
-        const query = `SELECT+NAME, Description, Familia_de_productos__r.Name, Proveedor_Pweb__r.Name, 
-        Extrusion__r.Name, Extrusion_Blow_Molding__r.Name, Injection__r.Name, Injection_Blow_Molding__r.Name, 
-        Thermoforming__r.Name, Coextrusion__r.Name, Rotomolding__r.Name, Construction__r.Name, 
-        Electrical_Electronics__r.Name, Medical_Pharmaceutical__r.Name, Personal__r.Name, 
-        Footwear__r.Name, Agriculture__r.Name, Automotive__r.name, Rigid_Packaging__r.Name, 
-        Industrial__r.Name, Flexible_Packaging__r.Name, Appliances__r.Name, Consumer__r.Name, 
-        Activo_en_web__c, Grupos__r.Name, Grupo__r.Name, Carrier__c, Densidad__c, Indice_de_Fluidez_p__c, 
-        Aditivo__c, Color__c, Impacto_IZOD__c, Dureza_Shore__c, Concentraci_n__c, Visco__c, 
-        Modulo_de_flexi_n__c, Detalles_producto_web__c, Description__c+FROM+Product2+WHERE (Industrial__r.Name='${mercado}' 
-        OR Consumer__r.Name='${mercado}' OR Automotive__r.Name='${mercado}' OR Electrical_Electronics__r.Name='${mercado}'
-        OR Medical_Pharmaceutical__r.Name='${mercado}' OR Construction__r.Name='${mercado}' OR Flexible_Packaging__r.Name='${mercado}'
-        OR Appliances__r.Name='${mercado}' OR Agriculture__r.Name='${mercado}' OR Rigid_Packaging__r.Name='${mercado}' OR Personal__r.Name='${mercado}'
-        OR Footwear__r.Name='${mercado}')`
+        const query = 'SELECT+NAME,Description,Familia_de_productos__r.Name,Proveedor_Pweb__r.Name,'+ 
+        'Extrusion__r.Name,Extrusion_Blow_Molding__r.Name,Injection__r.Name,Injection_Blow_Molding__r.Name,Thermoforming__r.Name,Coextrusion__r.Name,Rotomolding__r.Name,Construction__r.Name,'+
+        'Electrical_Electronics__r.Name,Medical_Pharmaceutical__r.Name,Personal__r.Name,Footwear__r.Name,Agriculture__r.Name,Automotive__r.name,Rigid_Packaging__r.Name,'+
+        'Industrial__r.Name,Flexible_Packaging__r.Name,Appliances__r.Name,Consumer__r.Name,Activo_en_web__c,Grupos__r.Name,Grupo__r.Name,Carrier__c, Densidad__c,Indice_de_Fluidez_p__c,'+
+        'Aditivo__c,Color__c,Impacto_IZOD__c,Dureza_Shore__c,Concentraci_n__c,Visco__c,Modulo_de_flexi_n__c,Detalles_producto_web__c,'+
+        `Description__c+FROM+Product2+WHERE(Industrial__r.Name='${mercado}'`+
+        `+OR+Consumer__r.Name='${mercado}'+OR+Automotive__r.Name='${mercado}'+OR+Electrical_Electronics__r.Name='${mercado}'`+
+        `+OR+Medical_Pharmaceutical__r.Name='${mercado}'+OR+Construction__r.Name='${mercado}'+OR+Flexible_Packaging__r.Name='${mercado}'`+
+        `+OR+Appliances__r.Name='${mercado}'+OR+Agriculture__r.Name='${mercado}'+OR+Rigid_Packaging__r.Name='${mercado}'+OR+Personal__r.Name='${mercado}'`+
+        `+OR+Footwear__r.Name='${mercado}')`
+        
+        //const encodedQuery = encodeURIComponent(query) 
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+
+        //https://polnac--bxt01.sandbox.my.salesforce.com/services/data/v55.0/query/?q=SELECT+NAME,Description,Familia_de_productos__r.Name,Proveedor_Pweb__r.Name,Extrusion__r.Name,Extrusion_Blow_Molding__r.Name,Injection__r.Name,Injection_Blow_Molding__r.Name,Thermoforming__r.Name,Coextrusion__r.Name,Rotomolding__r.Name,Construction__r.Name,Electrical_Electronics__r.Name,Medical_Pharmaceutical__r.Name,Personal__r.Name,Footwear__r.Name,Agriculture__r.Name,Automotive__r.name,Rigid_Packaging__r.Name,Industrial__r.Name,Flexible_Packaging__r.Name,Appliances__r.Name,Consumer__r.Name,Activo_en_web__c,Grupos__r.Name,Grupo__r.Name,Carrier__c, Densidad__c,Indice_de_Fluidez_p__c,Aditivo__c,Color__c,Impacto_IZOD__c,Dureza_Shore__c,Concentraci_n__c,Visco__c,Modulo_de_flexi_n__c,Detalles_producto_web__c,Description__c+FROM+Product2+WHERE(Industrial__r.Name='Automotive & Transportation'+OR+Consumer__r.Name='Automotive & Transportation'+OR+Automotive__r.Name='Automotive & Transportation'+OR+Electrical_Electronics__r.Name='Automotive & Transportation'+OR+Medical_Pharmaceutical__r.Name='Automotive & Transportation'+OR+Construction__r.Name='Automotive & Transportation'+OR+Flexible_Packaging__r.Name='Automotive & Transportation'+OR+Appliances__r.Name='Automotive & Transportation'+OR+Agriculture__r.Name='Automotive & Transportation'+OR+Rigid_Packaging__r.Name='Automotive & Transportation'+OR+Personal__r.Name='Automotive & Transportation'+OR+Footwear__r.Name='Automotive & Transportation')
+
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             console.log(res.data)
             commit('StateAssign', {tablePruebas: res.data})
@@ -358,27 +399,22 @@ export default {
             //dispatch('createtables')
         })
         .catch(err => {
-            console.log(err)
+            console.log(err.response)
         })
     },
     async consMTransformacion({commit, dispatch, state}, transformacion){
         const token = state.credentials.access_token
         this.$axios.setToken(token, 'Bearer')
         
-        const query = `SELECT+NAME, Description, Familia_de_productos__r.Name, Proveedor_Pweb__r.Name, 
-        Extrusion__r.Name, Extrusion_Blow_Molding__r.Name, Injection__r.Name, Injection_Blow_Molding__r.Name, 
-        Thermoforming__r.Name, Coextrusion__r.Name, Rotomolding__r.Name, Construction__r.Name, 
-        Electrical_Electronics__r.Name, Medical_Pharmaceutical__r.Name, Personal__r.Name, 
-        Footwear__r.Name, Agriculture__r.Name, Automotive__r.name, Rigid_Packaging__r.Name, 
-        Industrial__r.Name, Flexible_Packaging__r.Name, Appliances__r.Name, Consumer__r.Name, 
-        Activo_en_web__c, Grupos__r.Name, Grupo__r.Name, Carrier__c, Densidad__c, Indice_de_Fluidez_p__c, 
-        Aditivo__c, Color__c, Impacto_IZOD__c, Dureza_Shore__c, Concentraci_n__c, Visco__c, 
-        Modulo_de_flexi_n__c, Detalles_producto_web__c, Description__c+FROM+Product2+WHERE (Extrusion_Blow_Molding__r.Name='${transformacion}' 
-        OR Thermoforming__r.Name='${transformacion}' OR Injection__r.Name='${transformacion}' OR Extrusion__r.Name='${transformacion}'
-        OR Injection_Blow_Molding__r.Name='${transformacion}' OR Rotomolding__r.Name='${transformacion}' OR Thermoforming__r.Name='${transformacion}'
-        OR Coextrusion__r.Name='${transformacion}')`
+        const query = 'SELECT+NAME, Description, Familia_de_productos__r.Name, Proveedor_Pweb__r.Name, Extrusion__r.Name, Extrusion_Blow_Molding__r.Name, Injection__r.Name,Injection_Blow_Molding__r.Name,Thermoforming__r.Name, Coextrusion__r.Name, Rotomolding__r.Name, Construction__r.Name,'+
+        'Electrical_Electronics__r.Name, Medical_Pharmaceutical__r.Name, Personal__r.Name, Footwear__r.Name, Agriculture__r.Name, Automotive__r.name, Rigid_Packaging__r.Name, Industrial__r.Name, Flexible_Packaging__r.Name, Appliances__r.Name, Consumer__r.Name,Activo_en_web__c, Grupos__r.Name,'+ 
+        'Grupo__r.Name, Carrier__c, Densidad__c, Indice_de_Fluidez_p__c, Aditivo__c, Color__c, Impacto_IZOD__c, Dureza_Shore__c, Concentraci_n__c, Visco__c, Modulo_de_flexi_n__c, Detalles_producto_web__c,'+ 
+        `Description__c+FROM+Product2+WHERE (Extrusion_Blow_Molding__r.Name='${transformacion}'`+
+        `OR Thermoforming__r.Name='${transformacion}' OR Injection__r.Name='${transformacion}' OR Extrusion__r.Name='${transformacion}'`+
+        `OR Injection_Blow_Molding__r.Name='${transformacion}' OR Rotomolding__r.Name='${transformacion}' OR Thermoforming__r.Name='${transformacion}'`+
+        `OR Coextrusion__r.Name='${transformacion}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             console.log(res.data)
             commit('StateAssign', {tablePruebas: res.data})
@@ -404,7 +440,7 @@ export default {
         Grupo__r.Name, Carrier__c, Densidad__c, Indice_de_Fluidez_p__c, Aditivo__c, Color__c, Impacto_IZOD__c, Dureza_Shore__c, Concentraci_n__c, Visco__c, 
         Modulo_de_flexi_n__c, Detalles_producto_web__c, Description__c+FROM+Product2+WHERE (Grupos__r.Name='${data.producto}') AND (Proveedor_Pweb__r.Name ='${data.fabricante}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -435,7 +471,7 @@ export default {
         OR Injection_Blow_Molding__r.Name='${data.transformacion}' OR Rotomolding__r.Name='${data.transformacion}' OR Thermoforming__r.Name='${data.transformacion}'
         OR Coextrusion__r.Name='${data.transformacion}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -467,7 +503,7 @@ export default {
         OR Injection_Blow_Molding__r.Name='${data.transformacion}' OR Rotomolding__r.Name='${data.transformacion}' OR Thermoforming__r.Name='${data.transformacion}'
         OR Coextrusion__r.Name='${data.transformacion}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -495,7 +531,7 @@ export default {
         OR Injection_Blow_Molding__r.Name='${data.transformacion}' OR Rotomolding__r.Name='${data.transformacion}' OR Thermoforming__r.Name='${data.transformacion}'
         OR Coextrusion__r.Name='${data.transformacion}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -527,7 +563,7 @@ export default {
         OR Injection_Blow_Molding__r.Name='${data.transformacion}' OR Rotomolding__r.Name='${data.transformacion}' OR Thermoforming__r.Name='${data.transformacion}'
         OR Coextrusion__r.Name='${data.transformacion}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -558,7 +594,7 @@ export default {
         OR Injection_Blow_Molding__r.Name='${data.transformacion}' OR Rotomolding__r.Name='${data.transformacion}' OR Thermoforming__r.Name='${data.transformacion}'
         OR Coextrusion__r.Name='${data.transformacion}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -587,7 +623,7 @@ export default {
         OR Appliances__r.Name='${data.mercado}' OR Agriculture__r.Name='${data.mercado}' OR Rigid_Packaging__r.Name='${data.mercado}' OR Personal__r.Name='${data.mercado}'
         OR Footwear__r.Name='${data.mercado}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log('mercado y fabricante')
             commit('StateAssign', {tablePruebas: res.data})
@@ -616,7 +652,7 @@ export default {
         OR Injection_Blow_Molding__r.Name='${data.transformacion}' OR Rotomolding__r.Name='${data.transformacion}' OR Thermoforming__r.Name='${data.transformacion}'
         OR Coextrusion__r.Name='${data.transformacion}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -648,7 +684,7 @@ export default {
         OR Injection_Blow_Molding__r.Name='${data.transformacion}' OR Rotomolding__r.Name='${data.transformacion}' OR Thermoforming__r.Name='${data.transformacion}'
         OR Coextrusion__r.Name='${data.transformacion}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -680,7 +716,7 @@ export default {
         OR Appliances__r.Name='${data.mercado}' OR Agriculture__r.Name='${data.mercado}' OR Rigid_Packaging__r.Name='${data.mercado}' OR Personal__r.Name='${data.mercado}'
         OR Footwear__r.Name='${data.mercado}')`
 
-        await this.$axios.get(`/information/services/data/v55.0/query/?q=${query}`)
+        await this.$axios.get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=${query}`)
         .then(res => {
             //console.log(res)
             commit('StateAssign', {tablePruebas: res.data})
@@ -708,6 +744,7 @@ export default {
             //item.Familia_de_productos__r
             if(item.Grupos__r !== null && item.Activo_en_web__c === true){
                 //console.log(item)
+                console.log(item.Grupos__r.Name)
                 switch (item.Grupos__r.Name) {
                     case 'Polyethylene':
                         //console.log('PE')
@@ -759,8 +796,8 @@ export default {
                         break;
                     case 'Compuestos': case 'Precolor Poliolefins Compounds': case 'Precolor additives':
                     case 'Precolor additives Compounds': case 'Precolor Styrenics Compounds':
-                    case 'Precolor Specialties Compounds': case 'Precolor Poliolefins SM':
-                    case 'Precolor Styrenics SM': case 'Precolor Specialties SM': 
+                    case 'Precolor Specialties Compounds': case 'Precolor Poliolefins SM': case 'Precolor Specialties':
+                    case 'Precolor Styrenics SM': case 'Precolor Specialties SM': case 'Precolor Styrenics': 
                         //console.log('Precolor Specialties')
                         //exists = state.tableCompuestosprecolor.some(e => e.Name === item.Name)
                         //if(!exists){
@@ -801,7 +838,7 @@ export default {
                             commit('StateAssign', {tableAditivos: aux})
                         //}
                         break;
-                    case 'Calcium Carbonate Concentrate': case 'Calcium Carbonate Concentrate SM':
+                    case 'Calcium Carbonate Concentrate': case 'Calcium Carbonate Concentrate SM': case 'Calcium Carbonate Powder':
                         //console.log('calcio') 
                         //exists = state.tableCalcio.some(e => e.Name === item.Name)
                         //if(!exists){
@@ -828,8 +865,6 @@ export default {
                         //state.tableHules.push(...state.tableHules,item)
                         break;
                 }
-            }else{
-                commit('StateAssign', {showMsgProd: true})
             }
         })
     },
@@ -880,10 +915,13 @@ export default {
     },
 
     async getInvoiceClient({commit, state, dispatch}, client){
+        let data = await dispatch('checkCredentials')
+        //console.log(data)
+        window.API_SALESFORCE = data.instance_url
         const token = state.credentials.access_token
         this.$axios.setToken(token, 'Bearer')
 
-        const invoice = await this.$axios.$get(`https://polnac--bxt01.sandbox.my.salesforce.com/services/data/v55.0/query/?q=SELECT+Cliente__r.Name,
+        const invoice = await this.$axios.$get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Cliente__r.Name,
         Name,Pedido__r.Name,Etapa__c,Fecha_de_Vencimiento__c,Monto__c,Monto_Pagado__c,Monto_Restante__c,Metodo_de_pago__c+FROM+Factura__c+WHERE (Cliente__r.Name ='GRUPO ANAVIA S.A. DE C.V. USD')`)
 
         console.log(invoice)
@@ -891,10 +929,13 @@ export default {
     },
 
     async getOrdersClient({commit, state, dispatch}, client){
+        let data = await dispatch('checkCredentials')
+        //console.log(data)
+        window.API_SALESFORCE = data.instance_url
         const token = state.credentials.access_token
         this.$axios.setToken(token, 'Bearer')
 
-        const orders = await this.$axios.$get(`https://polnac--bxt01.sandbox.my.salesforce.com/services/data/v55.0/query/?q=SELECT+Name,Cliente__r.Name,
+        const orders = await this.$axios.$get(`${window.API_SALESFORCE}/services/data/v55.0/query/?q=SELECT+Name,Cliente__r.Name,
         Etapa__c,Total__c+FROM+Pedido__c+WHERE (Cliente__r.Name ='GRUPO ANAVIA S.A. DE C.V. USD')`)
 
         console.log(orders)

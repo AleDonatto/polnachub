@@ -12,29 +12,93 @@
                         <v-row justify="center"> 
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                                 <!--<p>{{producto}}</p>-->
-                                <v-select placeholder="Producto" rounded solo v-model="producto"
-                                :items="pProducto.records" item-text="Name" item-value="Name" name="tResina"></v-select>
+                                <v-select placeholder="Producto" rounded solo v-model="producto" ref="tresina"
+                                :items="pProducto.records" item-text="Name" item-value="Name" name="tResina">
+                                    <template v-slot:prepend-item>
+                                        <v-list-item @mousedown.prevent @click="cleantResina">
+                                            <v-list-item-action>
+                                                <v-icon>
+                                                    mdi-eraser
+                                                </v-icon>
+                                            </v-list-item-action>
+                                            <v-list-item-content>
+                                                <v-list-item-title>
+                                                    Clean Filter
+                                                </v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                        <v-divider class="mt-2"></v-divider>
+                                    </template>
+                                </v-select>
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                                 <!--<p>{{fabricante}}</p>-->
-                                <v-select placeholder="Fabricante" rounded solo v-model="fabricante"
-                                :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
+                                <v-select placeholder="Fabricante" rounded solo v-model="fabricante" ref="fabricante"
+                                :items="pFabricante.records" item-text="Name" item-value="Name">
+                                    <template v-slot:prepend-item>
+                                        <v-list-item @mousedown.prevent @click="cleanFabricante">
+                                            <v-list-item-action>
+                                                <v-icon>
+                                                    mdi-eraser
+                                                </v-icon>
+                                            </v-list-item-action>
+                                            <v-list-item-content>
+                                                <v-list-item-title>
+                                                    Clean Filter
+                                                </v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                        <v-divider class="mt-2"></v-divider>
+                                    </template>
+                                </v-select>
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
                                 <!--<p>{{mercado}}</p>-->
-                                <v-select placeholder="Mercado" rounded solo v-model="mercado" 
-                                :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
+                                <v-select placeholder="Mercado" rounded solo v-model="mercado" ref="mercado"
+                                :items="pMercado.records" item-text="Name" item-value="Name">
+                                    <template v-slot:prepend-item>
+                                        <v-list-item @mousedown.prevent @click="cleanMercado">
+                                            <v-list-item-action>
+                                                <v-icon>
+                                                    mdi-eraser
+                                                </v-icon>
+                                            </v-list-item-action>
+                                            <v-list-item-content>
+                                                <v-list-item-title>
+                                                    Clean Filter
+                                                </v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                        <v-divider class="mt-2"></v-divider>
+                                    </template>
+                                </v-select>
                             </v-col>
                             <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="">
                                 <!--<p>{{mTransformacion}}</p>-->
-                                <v-select placeholder="Método de Transformación" rounded solo v-model="mTransformacion"
-                                :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
+                                <v-select placeholder="Método de Transformación" rounded solo v-model="mTransformacion" ref="transformacion"
+                                :items="pMetTransformacion.records" item-text="Name" item-value="Name">
+                                    <template v-slot:prepend-item>
+                                        <v-list-item @mousedown.prevent @click="cleanTransformacion">
+                                            <v-list-item-action>
+                                                <v-icon>
+                                                    mdi-eraser
+                                                </v-icon>
+                                            </v-list-item-action>
+                                            <v-list-item-content>
+                                                <v-list-item-title>
+                                                    Clean Filter
+                                                </v-list-item-title>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                        <v-divider class="mt-2"></v-divider>
+                                    </template>
+                                </v-select>
                             </v-col>
                         </v-row>
                         <v-row justify="center">
                             <v-col cols="4">
                                 <v-btn color='gray' rounded class="text-none text-none" block @click="cleanFilters">
-                                    <span class="black--text">Cancelar</span>
+                                    <span class="black--text">Limpiar filtros</span>
                                 </v-btn>
                             </v-col>
                             <v-col cols="4" class="mb-16">
@@ -52,26 +116,90 @@
             <v-container class="form">
                 <v-row justify="center"> 
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Tipo de resina" rounded solo v-model="producto"
-                        :items="pProducto.records" item-text="Name" item-value="Name" name="tResina"></v-select>
+                        <v-select placeholder="Producto" rounded solo v-model="producto" ref="tresina"
+                        :items="pProducto.records" item-text="Name" item-value="Name" name="tResina">
+                            <template v-slot:prepend-item>
+                                <v-list-item @mousedown.prevent @click="cleantResina">
+                                    <v-list-item-action>
+                                        <v-icon>
+                                            mdi-eraser
+                                        </v-icon>
+                                    </v-list-item-action>
+                                    <v-list-item-content>
+                                        <v-list-item-title>
+                                            Clean Filter
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-divider class="mt-2"></v-divider>
+                            </template>
+                        </v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Fabricante" rounded solo v-model="fabricante"
-                        :items="pFabricante.records" item-text="Name" item-value="Name"></v-select>
+                        <v-select placeholder="Fabricante" rounded solo v-model="fabricante" ref="fabricante"
+                        :items="pFabricante.records" item-text="Name" item-value="Name">
+                            <template v-slot:prepend-item>
+                                <v-list-item @mousedown.prevent @click="cleanFabricante">
+                                    <v-list-item-action>
+                                        <v-icon>
+                                            mdi-eraser
+                                        </v-icon>
+                                    </v-list-item-action>
+                                    <v-list-item-content>
+                                        <v-list-item-title>
+                                            Clean Filter
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-divider class="mt-2"></v-divider>
+                            </template>
+                        </v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center">
-                        <v-select placeholder="Mercado" rounded solo v-model="mercado"
-                        :items="pMercado.records" item-text="Name" item-value="Name"></v-select>
+                        <v-select placeholder="Mercado" rounded solo v-model="mercado" ref="mercado"
+                        :items="pMercado.records" item-text="Name" item-value="Name">
+                            <template v-slot:prepend-item>
+                                <v-list-item @mousedown.prevent @click="cleanMercado">
+                                    <v-list-item-action>
+                                        <v-icon>
+                                            mdi-eraser
+                                        </v-icon>
+                                    </v-list-item-action>
+                                    <v-list-item-content>
+                                        <v-list-item-title>
+                                            Clean Filter
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-divider class="mt-2"></v-divider>
+                            </template>
+                        </v-select>
                     </v-col>
                     <v-col cols="12" lg="3" md="3" sm="12" xs="12" align="center" class="">
-                        <v-select placeholder="Método de Transformación" rounded solo v-model="mTransformacion"
-                        :items="pMetTransformacion.records" item-text="Name" item-value="Name"></v-select>
+                        <v-select placeholder="Método de Transformación" rounded solo v-model="mTransformacion" ref="transformacion"
+                        :items="pMetTransformacion.records" item-text="Name" item-value="Name">
+                            <template v-slot:prepend-item>
+                                <v-list-item @mousedown.prevent @click="cleanTransformacion">
+                                    <v-list-item-action>
+                                        <v-icon>
+                                            mdi-eraser
+                                        </v-icon>
+                                    </v-list-item-action>
+                                    <v-list-item-content>
+                                        <v-list-item-title>
+                                            Clean Filter
+                                        </v-list-item-title>
+                                    </v-list-item-content>
+                                </v-list-item>
+                                <v-divider class="mt-2"></v-divider>
+                            </template>
+                        </v-select>
                     </v-col>
                 </v-row>
                 <v-row>
                     <v-col cols="6">
                         <v-btn rounded color='#19d3c5' outlined class="text-none text-none" block @click="cleanFilters">
-                            <span class="black--text">Cancelar</span>
+                            <span class="black--text">Limpiar filtro</span>
                         </v-btn>
                     </v-col>
                     <v-col cols="6" class="">
@@ -99,15 +227,6 @@ export default {
         }
     },
     mounted() {
-        setTimeout(() => {
-            if(this.credentials !== null){
-                this.$store.dispatch('getFabricante')
-                this.$store.dispatch('getMercado')
-                this.$store.dispatch('getMetodoTransformacion')
-                this.$store.dispatch('getProducto')
-            }
-            //this.clientLogin()
-        }, 8000);
         //this.clientLogin()
     },
     computed: {
@@ -187,6 +306,24 @@ export default {
 
             
             //console.log(conn)
+        },
+
+        cleantResina(){
+            //console.log('input de tipo de resina limpio')
+            this.producto = ''
+            this.$refs.tresina.blur()
+        },
+        cleanFabricante(){
+            this.fabricante = ''
+            this.$refs.fabricante.blur()
+        },
+        cleanMercado(){
+            this.mercado = ''
+            this.$refs.mercado.blur()
+        },
+        cleanTransformacion(){
+            this.mTransformacion = ''
+            this.$refs.transformacion.blur()
         }
     }
 }

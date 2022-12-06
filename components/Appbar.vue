@@ -23,7 +23,7 @@
                                 </v-tab>-->
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('aboutus', this.lang)">{{ $t('appbar.aboutus') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('innovation', this.lang)">{{ $t('appbar.innovation') }}</v-tab>
-                                <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('searchProducts',this.lang)">{{ $t('appbar.products') }}</v-tab>
+                                <!--<v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('searchProducts',this.lang)">{{ $t('appbar.products') }}</v-tab>-->
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('services', this.lang)">{{ $t('appbar.services') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('market', this.lang)">{{ $t('appbar.market') }}</v-tab>
                                 <v-tab class="black--text text-none mx-0 px-0 font-size-14" :to="localePath('polnacGroup', this.lang)">{{ $t('appbar.marcas') }}</v-tab>
@@ -213,9 +213,9 @@
                                     <v-card elevation="10" class="">
                                         <v-list-item-content class="justify-center">
                                             <div class="mx-auto text-center">
-                                                <v-btn depressed rounded text to="/client/dashboard">Mi Portal</v-btn>
+                                                <v-btn depressed rounded text to="/client/dashboard">Productos</v-btn>
                                                 <v-divider class="my-3"></v-divider>
-                                                <v-btn depressed rounded text to="/client/card">Mi Lista de Compras</v-btn>
+                                                <v-btn depressed rounded text to="/client/card">Lista de Pedidos</v-btn>
                                                 <v-divider class="my-3"></v-divider>
                                                 <v-btn depressed rounded text to="/client/account">Mi Cuenta</v-btn>
                                                 <v-divider class="my-3"></v-divider>

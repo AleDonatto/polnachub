@@ -189,7 +189,7 @@
                             Polypropylene
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchPP"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -223,7 +223,7 @@
                             Estirenicos
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchEstirenicos"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -257,7 +257,7 @@
                             Rotomolding compounds colors
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchRotomoldeo"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -291,7 +291,7 @@
                             MasterBatch
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchMasterbatch"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -325,7 +325,7 @@
                             Ingeniería
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchIngenieria"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -359,7 +359,7 @@
                             Compuestos precolor
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchCompuestosP"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -393,7 +393,7 @@
                             Blens
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchCompuestosC"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -427,7 +427,7 @@
                             Thermoplastic Elastomers
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchTermoplasticos"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -461,7 +461,7 @@
                             PVC
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchPvc"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -495,7 +495,7 @@
                             Additives
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchAditivos"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -529,7 +529,7 @@
                             Calcium Carbonate
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchCalcio"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -563,7 +563,7 @@
                             Bioplastics
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchBioplasticos"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -598,7 +598,7 @@
                             Thermoset Elastomers
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchHules"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -632,7 +632,7 @@
                             Calcium carbonate powder
                             <v-spacer></v-spacer>
                             <v-text-field
-                                v-model="search"
+                                v-model="searchPolvosC"
                                 append-icon="mdi-magnify"
                                 label="Search"
                                 single-line
@@ -888,6 +888,20 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             search: '',
+            searchPP: '',
+            searchEstirenicos: '',
+            searchRotomoldeo: '',
+            searchMasterbatch: '',
+            searchIngenieria: '',
+            searchCompuestosP: '',
+            searchCompuestosC: '',
+            searchTermoplasticos: '',
+            searchPvc: '',
+            searchAditivos: '',
+            searchCalcio: '',
+            searchBioplasticos: '',
+            searchHules: '',
+            searchPolvosC: '',
             productos: null,
         }
     },
