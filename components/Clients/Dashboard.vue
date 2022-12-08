@@ -173,7 +173,7 @@
                         <v-select rounded outlined label="Ordenar por"></v-select>
                     </v-col>
                 </v-row>
-                <v-row justify="center" class="mb-16">
+                <v-row justify="center" class="mb-16" v-if="tablePruebas !== null">
                     <v-col cols="3" v-for="(item, index) in tablePruebas.records" :key="index" align="center">
                         <v-card :loading="loading" class="mx-auto rounded-lg py-1" max-width="290" max-height="460" elevation="5" v-if="item.Activo_en_web__c === true">
                             <template slot="progress">
@@ -346,14 +346,15 @@ export default {
     },
     mounted(){
         this.$store.dispatch('cleanTables')
-        setTimeout(() => {
+        this.$store.dispatch('consAllProductos')
+        /*setTimeout(() => {
             if(this.credentials !== null){
                 this.$store.dispatch('getFabricante')
                 this.$store.dispatch('getMercado')
                 this.$store.dispatch('getMetodoTransformacion')
                 this.$store.dispatch('getProducto')
             }
-        }, 6000);
+        }, 6000);*/
 
     },
     computed: {

@@ -1,5 +1,7 @@
 <template>
     <layout-dashboard>
+        <!--Estados de cuentas son las facturas-->
+        <!--DEBEN SALIR LAS ÚLTIMAS 6 FACTURAS-->
         <v-row justify="center" class="mt-10 mb-16">
             <v-col cols="12">
                 <v-data-table :headers="headersCuenta" :items="estadoCuentas.records">
@@ -25,6 +27,8 @@ export default {
                 {text: 'Fecha de Vencimiento', value: 'Fecha_de_Vencimiento__c'},
                 {text: 'Pedido', value: 'Pedido__r.Name'},
                 {text: 'Monto', value: 'Monto__c'},
+                {text: 'Monto Total', value: 'Monto__c'},
+                {text: 'Monto Pagado', value: 'Monto__c'},
                 {text: 'Comentarios', value: 'Cliente__r.Name'},
             ],
             estadoCuentas: []

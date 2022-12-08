@@ -170,9 +170,9 @@
                             :search="search"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -201,12 +201,12 @@
                             :headers="headersPP"
                             :items="tablePP"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchPP"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -235,12 +235,12 @@
                             :headers="headersEstirenicos"
                             :items="tableEstirenicos"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchEstirenicos"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -269,12 +269,12 @@
                             :headers="headersRotomoldeo"
                             :items="tableRotomoldeo"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchRotomoldeo"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -303,12 +303,12 @@
                             :headers="headersMaster"
                             :items="tableMasterbatch"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchMasterbatch"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -337,12 +337,12 @@
                             :headers="headersIng"
                             :items="tableIngenieria"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchIngenieria"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -371,12 +371,12 @@
                             :headers="headersComPrecolor"
                             :items="tableCompuestosprecolor"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchCompuestosP"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -405,12 +405,12 @@
                             :headers="headersComCargados"
                             :items="tableCompuestoscargados"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchCompuestosC"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -439,12 +439,12 @@
                             :headers="headersTermPlasticos"
                             :items="tableTermoplasticos"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchTermoplasticos"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -473,12 +473,12 @@
                             :headers="headersPVC"
                             :items="tablePVC"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchPvc"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -507,12 +507,12 @@
                             :headers="headersAditivos"
                             :items="tableAditivos"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchAditivos"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -541,12 +541,12 @@
                             :headers="headersCalcio"
                             :items="tableCalcio"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchCalcio"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -575,12 +575,12 @@
                             :headers="headersBioplasticos"
                             :items="tableBioplasticos"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchBioplasticos"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -610,12 +610,12 @@
                             :headers="headersHules"
                             :items="tableHules"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchHules"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -644,12 +644,12 @@
                             :headers="headersPolvo"
                             :items="tablePolvoC"
                             :items-per-page="10"
-                            :search="search"
+                            :search="searchPolvosC"
                             class="elevation-1 mt-5 mb-16"
                         >
-                            <template v-slot:item.htecnica="{ item }" class="">
+                            <template v-slot:item.Link_de_hoja_tecnica__c="{ item }" class="">
                                 <div class="text-center mt-1 pointer">
-                                    <a href="/CC80PPHD.pdf" download="" class="decoration-none">
+                                    <a :href="item.Link_de_hoja_tecnica__c" target="_blank" download="" class="decoration-none">
                                         <v-icon class="text-center pointer " color="#773DBD">mdi-file-download-outline</v-icon>
                                         <p>Hoja técnica</p>
                                     </a>
@@ -709,7 +709,7 @@ export default {
     data() {
         return {
             headersPE: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
@@ -721,7 +721,7 @@ export default {
                 {text: 'Description', value: 'Description__c'},
             ],
             headersPP: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
@@ -733,7 +733,7 @@ export default {
                 {text: 'Description', value: 'Description__c'},
             ],
             headersEstirenicos: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
@@ -745,7 +745,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersRotomoldeo: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Carrier', value: 'Carrier__c'},
@@ -759,7 +759,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersMaster: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Carrier', value: 'Carrier__c'},
@@ -773,7 +773,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersIng: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
@@ -786,7 +786,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersComPrecolor: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Carrier', value: 'Carrier__c'},
@@ -798,7 +798,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersComCargados: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Carrier', value: 'Carrier__c'},
@@ -811,7 +811,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersTermPlasticos: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
@@ -823,7 +823,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersPVC: [
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Group', value: 'Proveedor_Pweb__r.Name'},
@@ -835,7 +835,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersAditivos:[
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Carrier', value: 'Carrier__c'},
@@ -846,7 +846,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersCalcio:[
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Carrier', value: 'Carrier__c'},
@@ -857,7 +857,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersBioplasticos:[
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Carrier', value: 'Carrier__c'},
@@ -869,7 +869,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersHules:[
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Particle Size', value: ''},
@@ -879,7 +879,7 @@ export default {
                 {text: 'Description', value: 'Detalles_producto_web__c'},
             ],
             headersPolvo:[
-                {text: '', value: 'htecnica', sortable: false },
+                {text: '', value: 'Link_de_hoja_tecnica__c', sortable: false },
                 {text: 'Manufacturer', value: 'Proveedor_Pweb__r.Name'},
                 {text: 'Product Name', value: 'Name'},
                 {text: 'Particle Size', value: ''},

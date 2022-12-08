@@ -201,7 +201,7 @@
                                 <v-select rounded outlined :items="$i18n.locales" item-value="code" item-text="name" v-model="$i18n.locale" 
                                 @change="() => {setLanguaje($i18n.locale)}" dense class="select mt-1 text-none"></v-select>
                                 <!--<v-select rounded outlined :items="lang" item-value="code" item-text="name" v-model="langModel" dense class="select mt-1 text-none"></v-select>-->
-                                <v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>
+                                <!--<v-btn color="#773DBD" rounded class="ml-2 mt-1 white--text text-none"  @click="dialog = !dialog" v-if="!this.$route.path.includes('client')">{{ $t('appbar.login') }}</v-btn>-->
                                 <v-menu min-width="200px" rounded offset-y v-if="this.$route.path.includes('client')">
                                     <template v-slot:activator="{ on }">
                                         <v-btn icon x-large v-on="on">

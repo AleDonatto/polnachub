@@ -8,22 +8,32 @@
                 <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" outlined rounded filled label="Razón social"></v-text-field>
                 </v-col>
+
                 <v-col cols="12" lg="6" md="6">
-                    <v-text-field class="" outlined rounded filled label="Condiciones de pago"></v-text-field>
+                    <v-text-field class="" outlined rounded filled label="Email Facturación"></v-text-field>
                 </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" outlined rounded filled label="Telefono"></v-text-field>
+                </v-col>
+
+                <!--<v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" outlined rounded filled label="Condiciones de pago"></v-text-field>
+                </v-col>-->
                 <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" outlined rounded filled label="Dirección Fiscal"></v-text-field>
                 </v-col>
-
                 <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" outlined rounded filled label="Industria de la empresa"></v-text-field>
                 </v-col>
+
                 <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" outlined rounded filled label="Sucursal que atiende"></v-text-field>
                 </v-col>
-
                 <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" outlined rounded filled label="Sitio Web"></v-text-field>
                 </v-col>
+
+                <v-col cols="12" lg="6" md="6"></v-col>
                 <v-col cols="12" lg="6" md="6">
                     <v-select outlined rounded filled label="Divisa"></v-select>
                 </v-col>
@@ -32,7 +42,7 @@
                     <p class="font-size-16">*Si deseas realizar alguna actualización de estos datos, contacta tu agente comercial.</p>
                 </v-col>
                 <v-col cols="12" lg="4" md="4" align="end">
-                    <v-btn class="primary-color black--text text-none rounded-xl px-10 py-4">Solicitud de cambios</v-btn>
+                    <v-btn class="primary-color black--text text-none rounded-xl px-10 py-4">Guardar cambios</v-btn>
                 </v-col>
             </v-row>
         </v-form>

@@ -9,41 +9,53 @@
                     <v-text-field class="" filled outlined rounded label="Nombre"></v-text-field>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Apellidos"></v-text-field>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" filled outlined rounded label="Correo electrónico"></v-text-field>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
-                    <v-text-field class="" filled outlined rounded label="Área de la empresa"></v-text-field>
+                    <v-select class="" filled outlined rounded label="Departamento de la empresa"></v-select>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
-                    <v-text-field class="" filled outlined rounded label="Cargo"></v-text-field>
+                    <v-select class="" filled outlined rounded label="Cargo"></v-select>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Titulo"></v-text-field>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" filled outlined rounded label="Celular"></v-text-field>
                 </v-col>
-                <v-col cols="12" lg="4" md="4">
+                <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" filled outlined rounded label="Teléfono"></v-text-field>
-                </v-col>
-                <v-col cols="12" lg="2" md="2">
-                    <v-text-field class="" filled outlined rounded label="Ext."></v-text-field>
                 </v-col>
 
                 <v-col cols="12">
                     <h1 class="font-size-18">Compras</h1>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
-                    <v-text-field class="" filled outlined rounded label="Nombre de la empresa"></v-text-field>
+                    <v-text-field class="" filled outlined rounded label="Nombre"></v-text-field>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
-                    <v-text-field class="" filled outlined rounded label="Cargo"></v-text-field>
+                    <v-text-field class="" filled outlined rounded label="Apellidos"></v-text-field>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" filled outlined rounded label="Correo electrónico"></v-text-field>
                 </v-col>
-                <v-col cols="12" lg="4" md="4">
-                    <v-text-field class="" filled outlined rounded label="Teléfono"></v-text-field>
+                <v-col cols="12" lg="6" md="6">
+                    <v-select class="" filled outlined rounded label="Departamento de la empresa"></v-select>
                 </v-col>
-                <v-col cols="12" lg="2" md="2">
-                    <v-text-field class="" filled outlined rounded label="Ext."></v-text-field>
+                <v-col cols="12" lg="6" md="6">
+                    <v-select class="" filled outlined rounded label="Cargo"></v-select>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Titulo"></v-text-field>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Celular"></v-text-field>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Teléfono"></v-text-field>
                 </v-col>
 
                 <v-col cols="12">
@@ -53,35 +65,53 @@
                     <v-text-field class="" filled outlined rounded label="Nombre"></v-text-field>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
-                    <v-text-field class="" filled outlined rounded label="Cargo"></v-text-field>
+                    <v-text-field class="" filled outlined rounded label="Apellidos"></v-text-field>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" filled outlined rounded label="Correo electrónico"></v-text-field>
                 </v-col>
-                <v-col cols="12" lg="4" md="4">
-                    <v-text-field class="" filled outlined rounded label="Teléfono"></v-text-field>
+                <v-col cols="12" lg="6" md="6">
+                    <v-select class="" filled outlined rounded label="Departamento de la empresa"></v-select>
                 </v-col>
-                <v-col cols="12" lg="2" md="2">
-                    <v-text-field class="" filled outlined rounded label="Ext."></v-text-field>
+                <v-col cols="12" lg="6" md="6">
+                    <v-select class="" filled outlined rounded label="Cargo"></v-select>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Titulo"></v-text-field>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Celular"></v-text-field>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Teléfono"></v-text-field>
                 </v-col>
 
                 <v-col cols="12">
                     <h1 class="font-size-18">Cuentas por pagar</h1>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
-                    <v-text-field class="" filled outlined rounded label="Nombre de la empresa"></v-text-field>
+                    <v-text-field class="" filled outlined rounded label="Nombre"></v-text-field>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
-                    <v-text-field class="" filled outlined rounded label="Cargo"></v-text-field>
+                    <v-text-field class="" filled outlined rounded label="Apellidos"></v-text-field>
                 </v-col>
                 <v-col cols="12" lg="6" md="6">
                     <v-text-field class="" filled outlined rounded label="Correo electrónico"></v-text-field>
                 </v-col>
-                <v-col cols="12" lg="4" md="4">
-                    <v-text-field class="" filled outlined rounded label="Teléfono"></v-text-field>
+                <v-col cols="12" lg="6" md="6">
+                    <v-select class="" filled outlined rounded label="Departamento de la empresa"></v-select>
                 </v-col>
-                <v-col cols="12" lg="2" md="2">
-                    <v-text-field class="" filled outlined rounded label="Ext."></v-text-field>
+                <v-col cols="12" lg="6" md="6">
+                    <v-select class="" filled outlined rounded label="Cargo"></v-select>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Titulo"></v-text-field>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Celular"></v-text-field>
+                </v-col>
+                <v-col cols="12" lg="6" md="6">
+                    <v-text-field class="" filled outlined rounded label="Teléfono"></v-text-field>
                 </v-col>
 
                 <v-col cols="12" lg="8" md="8">

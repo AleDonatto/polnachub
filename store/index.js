@@ -32,13 +32,6 @@ export default () => new Vuex.Store({
         pageCamping: null,
         basePathApiUrl: 'https://crm.polnac.com',
         //salesfoce connection
-        /*userSalesforce: {
-            username: 'desatimx@polnac.com.bxt01',
-            password: 'H1u2g3o435',
-            grant_type: 'password',
-            client_id: '3MVG9Iu66FKeHhINolE5zsI1ShisdkRJu7w4dK2dqtwu4ye5nOA70PgSM_M9u58zLzERvwfmhdYWyt2pnyFxh',
-            client_secret: 'C60E440505B55C377DB5B52E7FFF0BDB453E391F11F5642DBE01ACB680969F8F'
-        }*/
         pFabricante: [],
         pMercado: [],
         pProducto: [],

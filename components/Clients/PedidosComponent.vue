@@ -2,7 +2,7 @@
     <layout-dashboard>
         <v-row justify="center" class="mt-10 mb-16">
             <v-col cols="12">
-                <v-data-table :headers="headersCuenta" :items="items" show-expand :expanded.sync="expanded" item-key="Name">
+                <v-data-table :headers="headersCuenta" :items="items" show-expand :expanded.sync="expanded" item-key="id">
                     <template v-slot:item.Name="{ item }">
                         <p class="text-purple text-body-2 font-weight-bold mt-5">
                             {{item.Name}} <br>
@@ -59,6 +59,35 @@
                                     <hr class="mb-16 line">
                                 </v-col>
                             </v-row>
+                            <v-row class="mb-4">
+                                <v-col cols="12" lg="6" md="6">
+                                    <h1 class="font-size-16 weight-bold">Fecha de entrega</h1>
+                                    <p>14/08/2022</p>
+                                    <v-divider></v-divider>
+                                </v-col>
+                                <v-col cols="12" lg="6" md="6">
+                                    <h1 class="font-size-16 font-weight-bold">Presentacion</h1>
+                                    <p>GRANEL</p>
+                                    <v-divider></v-divider>
+                                </v-col>
+
+                                <v-col cols="12" lg="6" md="6">
+                                    <h1 class="font-size-16 font-weight-bold">Origen</h1>
+                                    <p>Mérida</p>
+                                    <v-divider></v-divider>
+                                </v-col>
+                                <v-col cols="12" lg="6" md="6">
+                                    <h1 class="font-size-16 font-weight-bold">Destino</h1>
+                                    <p>Monterrey</p>
+                                    <v-divider></v-divider>
+                                </v-col>
+
+                                <v-col cols="12" lg="6" md="6">
+                                    <h1 class="font-size-16 font-weight-bold">Etapa del Pedido</h1>
+                                    <p>En tránsito</p>
+                                    <v-divider></v-divider>
+                                </v-col>
+                            </v-row>
                         </td>
                     </template>
                 </v-data-table>
@@ -80,13 +109,13 @@ export default {
                 {text: 'Total', value: 'Total__c'},
             ],
             items: [
-                {id:1, pedido: 'Pedido', etapa: 'En Transito', total: '99 Ton' },
-                {id:2, pedido: 'Pedido', etapa: 'En Transito', total: '99 Ton' },
-                {id:3, pedido: 'Pedido', etapa: 'En Transito', total: '99 Ton' },
-                {id:4, pedido: 'Pedido', etapa: 'En Transito', total: '99 Ton' },
-                {id:5, pedido: 'Pedido', etapa: 'En Transito', total: '99 Ton' },
-                {id:6, pedido: 'Pedido', etapa: 'En Transito', total: '99 Ton' },
-                {id:7, pedido: 'Pedido', etapa: 'En Transito', total: '99 Ton' },
+                {id:1, Name: 'Pedido', Etapa__c: 'En Transito', Total__c: '99 Ton' },
+                {id:2, Name: 'Pedido', Etapa__c: 'En Transito', Total__c: '99 Ton' },
+                {id:3, Name: 'Pedido', Etapa__c: 'En Transito', Total__c: '99 Ton' },
+                {id:4, Name: 'Pedido', Etapa__c: 'En Transito', Total__c: '99 Ton' },
+                {id:5, Name: 'Pedido', Etapa__c: 'En Transito', Total__c: '99 Ton' },
+                {id:6, Name: 'Pedido', Etapa__c: 'En Transito', Total__c: '99 Ton' },
+                {id:7, Name: 'Pedido', Etapa__c: 'En Transito', Total__c: '99 Ton' },
             ],
             expanded: [],
             singleExpand: false,
